@@ -1,0 +1,30 @@
+<view class="ask-wrap">
+  <scroll-view class="msgs" scroll-y scroll-into-view="{{scrollTo}}" scroll-with-animation>
+    <view wx:if="{{!messages.length}}" class="welcome">
+      <view class="w-title">航天速递助手</view>
+      <view class="w-sub">基于近一周抓取的航天新闻为你解答。试试这些问题：</view>
+      <view class="sugs">
+        <view wx:for="{{suggestions}}" wx:key="*this" class="sug" data-q="{{item}}" bindtap="useSuggestion">{{item}}</view>
+      </view>
+    </view>
+
+    <view wx:for="{{messages}}" wx:key="id" id="{{item.id}}" class="msg {{item.role}}">
+      <view class="bubble {{item.role}} {{item.pending ? 'pending' : ''}}">
+        <text>{{item.text}}</text>
+        <view wx:if="{{item.links.length}}" class="links">
+          <view wx:for="{{item.links}}" wx:for-item="lk" wx:key="url" class="link-chip" data-url="{{lk.url}}" bindtap="copyLink">
+            🔗 {{lk.text}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <view style="height:20rpx;"></view>
+  </scroll-view>
+
+  <view wx:if="{{!loggedIn}}" class="login-tip" bindtap="goLogin">登录后即可提问 · 点此前往「我的」登录</view>
+
+  <view class="inputbar">
+    <input class="ti" placeholder="输入你的航天问题…" value="{{input}}" bindinput="onInput" confirm-type="send" bindconfirm="send" disabled="{{sending}}" />
+    <button class="send-btn" bindtap="send" disabled="{{sending || !input}}">{{sending ? '…' : '发送'}}</button>
+  </view>
+</view>

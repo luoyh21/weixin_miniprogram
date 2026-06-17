@@ -1,0 +1,85 @@
+<view class="container">
+
+  <!-- 未登录：登录/注册 -->
+  <block wx:if="{{!loggedIn}}">
+    <view class="auth-head">
+      <view class="auth-logo">🛰️</view>
+      <view class="auth-title">航天速递</view>
+      <view class="auth-sub">登录后可提问、查看更多</view>
+    </view>
+
+    <view class="card">
+      <view class="seg">
+        <view class="seg-item {{authMode==='login'?'on':''}}" data-mode="login" bindtap="switchMode">登录</view>
+        <view class="seg-item {{authMode==='register'?'on':''}}" data-mode="register" bindtap="switchMode">注册</view>
+      </view>
+
+      <view class="label">账号</view>
+      <input class="input" placeholder="{{authMode==='login' ? '账号 / 真实姓名' : '设置登录账号'}}" value="{{fAccount}}" data-field="fAccount" bindinput="onInput" />
+
+      <block wx:if="{{authMode==='register'}}">
+        <view class="label">真实姓名</view>
+        <input class="input" placeholder="请输入真实姓名" value="{{fName}}" data-field="fName" bindinput="onInput" />
+      </block>
+
+      <view class="label">密码</view>
+      <input class="input" password placeholder="请输入密码（≥6位）" value="{{fPwd}}" data-field="fPwd" bindinput="onInput" />
+
+      <button wx:if="{{authMode==='login'}}" class="btn" bindtap="doLogin" disabled="{{submitting}}">登录</button>
+      <button wx:else class="btn" bindtap="doRegister" disabled="{{submitting}}">注册并登录</button>
+    </view>
+  </block>
+
+  <!-- 已登录 -->
+  <block wx:else>
+    <view class="profile card">
+      <view class="avatar">{{user.real_name[0]}}</view>
+      <view class="p-info">
+        <view class="p-name">{{user.real_name}}
+          <text wx:if="{{isAdmin}}" class="badge">管理员</text>
+        </view>
+        <view class="p-acc">账号：{{user.account}}</view>
+      </view>
+    </view>
+
+    <view class="card">
+      <view class="cell" bindtap="changePassword"><text>修改密码</text><text class="arrow">›</text></view>
+      <view class="cell" bindtap="logout"><text class="danger-text">退出登录</text><text class="arrow">›</text></view>
+    </view>
+
+    <!-- 管理员控制台 -->
+    <block wx:if="{{isAdmin}}">
+      <view class="sec-title">管理控制台 · 抖音抓取</view>
+      <view class="card">
+        <view class="dy-status {{dy.ok ? 'ok' : 'bad'}}">
+          <text class="dot"></text>
+          <text>{{dyLoading ? '检测中…' : dy.detail}}</text>
+        </view>
+        <view wx:if="{{dy.recent.length}}" class="dy-recent">
+          <view wx:for="{{dy.recent}}" wx:key="title" class="dy-item">· {{item.published}} {{item.title}}</view>
+        </view>
+        <view class="label" style="margin-top:18rpx;">更新 Cookie（从已登录的抖音网页复制完整 Cookie）</view>
+        <textarea class="ta" placeholder="粘贴新的抖音 Cookie…" value="{{dyCookie}}" bindinput="onCookieInput" maxlength="-1" auto-height />
+        <view class="row" style="gap:16rpx; margin-top:16rpx;">
+          <button class="btn ghost small" bindtap="loadDyStatus">重新检测</button>
+          <button class="btn small" bindtap="submitCookie" disabled="{{dySubmitting}}">更新并重启</button>
+        </view>
+      </view>
+
+      <view class="sec-title">管理控制台 · 用户管理（{{users.length}}）</view>
+      <view class="card">
+        <view wx:if="{{usersLoading}}" class="muted center">加载中…</view>
+        <view wx:for="{{users}}" wx:key="account" class="u-row" data-u="{{item}}" bindtap="manageUser">
+          <view class="u-left">
+            <view class="u-name">{{item.real_name}}
+              <text wx:if="{{item.role==='admin'}}" class="badge sm">管理员</text>
+            </view>
+            <view class="u-acc">{{item.account}}</view>
+          </view>
+          <text class="arrow">管理 ›</text>
+        </view>
+      </view>
+    </block>
+  </block>
+
+</view>

@@ -1,0 +1,29 @@
+{
+  "pages": [
+    "pages/news/news",
+    "pages/ask/ask",
+    "pages/account/account",
+    "pages/detail/detail"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#0b1f3a",
+    "navigationBarTitleText": "航天速递",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#eef2f7",
+    "backgroundTextStyle": "dark",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "color": "#8a93a6",
+    "selectedColor": "#2f6bff",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      { "pagePath": "pages/news/news", "text": "速递" },
+      { "pagePath": "pages/ask/ask", "text": "问答" },
+      { "pagePath": "pages/account/account", "text": "我的" }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

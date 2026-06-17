@@ -1,0 +1,22 @@
+.d-tags { margin-bottom: 14rpx; }
+.d-title {
+  font-size: 42rpx;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--ink);
+}
+.d-meta { color: var(--muted); font-size: 24rpx; margin-top: 16rpx; }
+.d-hero {
+  width: 100%;
+  border-radius: 20rpx;
+  margin: 26rpx 0 10rpx;
+  background: #f0f2f6;
+}
+.d-body { margin-top: 16rpx; }
+.d-p {
+  font-size: 31rpx;
+  line-height: 1.8;
+  color: #2a3344;
+  margin-bottom: 22rpx;
+}
+.d-actions { margin-top: 30rpx; }

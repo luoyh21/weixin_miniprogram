@@ -1,0 +1,23 @@
+<view class="container" wx:if="{{item}}">
+  <view class="d-tags">
+    <text wx:for="{{item.tags}}" wx:for-item="tg" wx:key="*this"
+      class="tag {{item.kind === 'gzh' ? 'gzh' : (item.kind === 'douyin' ? 'douyin' : '')}}">#{{tg}}</text>
+  </view>
+  <view class="d-title">{{item.title}}</view>
+  <view class="d-meta">{{item.source}} · {{item.published}}</view>
+
+  <image wx:if="{{item.image}}" class="d-hero" src="{{item.image}}" mode="widthFix" />
+
+  <view class="d-body">
+    <view wx:for="{{paragraphs}}" wx:key="index" class="d-p">{{item}}</view>
+  </view>
+
+  <view class="d-actions">
+    <button class="btn ghost" bindtap="copyLink">复制原文链接</button>
+    <button wx:if="{{item.share_text}}" class="btn ghost" bindtap="copyShare" style="margin-top:18rpx;">复制抖音口令</button>
+  </view>
+  <view class="muted center" style="margin-top:24rpx;">本文为机器翻译/摘要，仅供参考，以原文为准</view>
+</view>
+
+<view wx:if="{{loading}}" class="hint">加载中…</view>
+<view wx:if="{{!loading && error}}" class="hint">{{error}}</view>

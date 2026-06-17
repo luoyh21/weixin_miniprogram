@@ -1,0 +1,11 @@
+node_modules/
+__pycache__/
+*.pyc
+private.*.key
+# miniprogram-ci 上传/sourcemap 临时产物（32位十六进制命名）
+[0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f]*/
+backend/data/users.json
+backend/data/secret.key
+backend/data/*.tmp
+dist/
+*.log

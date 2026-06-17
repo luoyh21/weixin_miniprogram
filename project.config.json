@@ -1,0 +1,18 @@
+{
+  "description": "航天速递小程序",
+  "miniprogramRoot": "miniprogram/",
+  "appid": "wx9561f446d7eb5180",
+  "projectname": "weixin_miniprogram",
+  "compileType": "miniprogram",
+  "libVersion": "latest",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": true,
+    "newFeature": true,
+    "bigPackageSizeSupport": true
+  },
+  "condition": {}
+}
