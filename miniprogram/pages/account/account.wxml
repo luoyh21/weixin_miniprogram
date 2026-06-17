@@ -36,7 +36,8 @@
       <view class="avatar">{{user.real_name[0]}}</view>
       <view class="p-info">
         <view class="p-name">{{user.real_name}}
-          <text wx:if="{{isAdmin}}" class="badge">管理员</text>
+          <text wx:if="{{isSuper}}" class="badge super">超级管理员</text>
+          <text wx:elif="{{isAdmin}}" class="badge">管理员</text>
         </view>
         <view class="p-acc">账号：{{user.account}}</view>
       </view>
@@ -47,9 +48,9 @@
       <view class="cell" bindtap="logout"><text class="danger-text">退出登录</text><text class="arrow">›</text></view>
     </view>
 
-    <!-- 管理员控制台 -->
-    <block wx:if="{{isAdmin}}">
-      <view class="sec-title">管理控制台 · 抖音抓取</view>
+    <!-- 抖音抓取：仅超级管理员可见 -->
+    <block wx:if="{{isSuper}}">
+      <view class="sec-title">超管控制台 · 抖音抓取</view>
       <view class="card">
         <view class="dy-status {{dy.ok ? 'ok' : 'bad'}}">
           <text class="dot"></text>
@@ -65,20 +66,26 @@
           <button class="btn small" bindtap="submitCookie" disabled="{{dySubmitting}}">更新并重启</button>
         </view>
       </view>
+    </block>
 
-      <view class="sec-title">管理控制台 · 用户管理（{{users.length}}）</view>
+    <!-- 用户管理：管理员与超管均可见 -->
+    <block wx:if="{{isAdmin}}">
+      <view class="sec-title">{{isSuper ? '超管控制台' : '管理控制台'}} · 用户管理（{{users.length}}）</view>
       <view class="card">
         <view wx:if="{{usersLoading}}" class="muted center">加载中…</view>
         <view wx:for="{{users}}" wx:key="account" class="u-row" data-u="{{item}}" bindtap="manageUser">
           <view class="u-left">
             <view class="u-name">{{item.real_name}}
-              <text wx:if="{{item.role==='admin'}}" class="badge sm">管理员</text>
+              <text wx:if="{{item.role==='super_admin'}}" class="badge sm super">超管</text>
+              <text wx:elif="{{item.role==='admin'}}" class="badge sm">管理员</text>
             </view>
-            <view class="u-acc">{{item.account}}</view>
+            <view class="u-acc">账号：{{item.account}}</view>
+            <view class="u-pwd">密码：{{item.password || '（重置后可见）'}}</view>
           </view>
           <text class="arrow">管理 ›</text>
         </view>
       </view>
+      <view class="muted" style="margin:0 6rpx;">提示：点任一用户可重置密码{{isSuper ? '、设/撤管理员、删除' : '（仅限普通用户）'}}。密码以明文展示，请妥善保管。</view>
     </block>
   </block>
 

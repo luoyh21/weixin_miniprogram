@@ -4,6 +4,7 @@ Page({
   data: {
     loggedIn: false,
     isAdmin: false,
+    isSuper: false,
     user: null,
 
     authMode: 'login', // login | register
@@ -24,20 +25,20 @@ Page({
   onShow() {
     const app = getApp();
     const loggedIn = app.isLoggedIn();
-    const isAdmin = app.isAdmin();
-    this.setData({ loggedIn, isAdmin, user: app.globalData.user });
+    const u = app.globalData.user || {};
+    this.setData({ loggedIn, isAdmin: !!u.is_admin, isSuper: !!u.is_super, user: app.globalData.user });
     if (loggedIn) this.refreshMe();
-    if (loggedIn && isAdmin) {
-      this.loadUsers();
-      this.loadDyStatus();
-    }
+    if (loggedIn && u.is_admin) this.loadUsers();
+    if (loggedIn && u.is_super) this.loadDyStatus();
   },
 
   refreshMe() {
     api.get('/auth/me').then((res) => {
       const app = getApp();
       app.setAuth(app.globalData.token, res.user);
-      this.setData({ user: res.user, isAdmin: !!res.user.is_admin });
+      this.setData({ user: res.user, isAdmin: !!res.user.is_admin, isSuper: !!res.user.is_super });
+      if (res.user.is_admin && !this.data.users.length) this.loadUsers();
+      if (res.user.is_super) this.loadDyStatus();
     }).catch(() => {});
   },
 
@@ -73,11 +74,12 @@ Page({
     const app = getApp();
     app.setAuth(res.token, res.user);
     this.setData({
-      loggedIn: true, isAdmin: !!res.user.is_admin, user: res.user,
+      loggedIn: true, isAdmin: !!res.user.is_admin, isSuper: !!res.user.is_super, user: res.user,
       fPwd: '', fName: '',
     });
     wx.showToast({ title: '欢迎，' + res.user.real_name, icon: 'none' });
-    if (res.user.is_admin) { this.loadUsers(); this.loadDyStatus(); }
+    if (res.user.is_admin) this.loadUsers();
+    if (res.user.is_super) this.loadDyStatus();
   },
 
   logout() {
@@ -86,7 +88,7 @@ Page({
       success: (r) => {
         if (!r.confirm) return;
         getApp().clearAuth();
-        this.setData({ loggedIn: false, isAdmin: false, user: null, users: [] });
+        this.setData({ loggedIn: false, isAdmin: false, isSuper: false, user: null, users: [] });
       },
     });
   },
@@ -122,16 +124,33 @@ Page({
   manageUser(e) {
     const u = e.currentTarget.dataset.u;
     const me = this.data.user;
-    const toRole = u.role === 'admin' ? 'user' : 'admin';
-    const items = ['重置密码', toRole === 'admin' ? '设为管理员' : '取消管理员'];
-    const canDelete = u.account.toLowerCase() !== me.account.toLowerCase();
-    if (canDelete) items.push('删除用户');
+    const isSelf = u.account.toLowerCase() === me.account.toLowerCase();
+    const targetIsAdmin = (u.role === 'admin' || u.role === 'super_admin');
+    const meSuper = !!me.is_super;
+
+    const items = [];
+    const acts = [];
+    // 重置密码：超管可对任何人；普通管理员仅对普通用户或自己
+    if (meSuper || !targetIsAdmin || isSelf) { items.push('重置密码'); acts.push('reset'); }
+    // 角色切换：仅超管，且目标不是超管
+    if (meSuper && u.role !== 'super_admin') {
+      items.push(u.role === 'admin' ? '取消管理员' : '设为管理员');
+      acts.push('role');
+    }
+    // 删除：不能删自己；超管可删除非自己，普通管理员仅删普通用户
+    if (!isSelf && (meSuper || !targetIsAdmin)) { items.push('删除用户'); acts.push('del'); }
+
+    if (!items.length) {
+      wx.showToast({ title: '无权管理该管理员', icon: 'none' });
+      return;
+    }
     wx.showActionSheet({
       itemList: items,
       success: (r) => {
-        if (r.tapIndex === 0) this.resetPwd(u);
-        else if (r.tapIndex === 1) this.setRole(u, toRole);
-        else if (r.tapIndex === 2 && canDelete) this.delUser(u);
+        const a = acts[r.tapIndex];
+        if (a === 'reset') this.resetPwd(u);
+        else if (a === 'role') this.setRole(u, u.role === 'admin' ? 'user' : 'admin');
+        else if (a === 'del') this.delUser(u);
       },
     });
   },

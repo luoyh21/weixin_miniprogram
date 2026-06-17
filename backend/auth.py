@@ -28,22 +28,34 @@ from .paths import DATA_DIR
 USERS_FILE = DATA_DIR / "users.json"
 SECRET_FILE = DATA_DIR / "secret.key"
 
-# 内置管理员标识：账号或真实姓名命中任一即视为管理员（首次注册即自动成为管理员，可被其它管理员追加）
-DEFAULT_ADMIN_ACCOUNTS = {
-    a.strip().lower()
-    for a in os.getenv("MP_ADMIN_ACCOUNTS", "lq3525926").split(",")
-    if a.strip()
-}
-DEFAULT_ADMIN_NAMES = {
-    n.strip()
-    for n in os.getenv("MP_ADMIN_NAMES", "罗一鹤,温跃杰,缪远明").split(",")
-    if n.strip()
-}
+# 角色等级：user < admin < super_admin
+ROLE_RANK = {"user": 0, "admin": 1, "super_admin": 2}
 
 
-def _is_default_admin(account: str, real_name: str) -> bool:
-    return (account or "").strip().lower() in DEFAULT_ADMIN_ACCOUNTS \
-        or (real_name or "").strip() in DEFAULT_ADMIN_NAMES
+def _csv_set(env_name: str, default: str, lower: bool = False) -> set:
+    return {
+        (s.strip().lower() if lower else s.strip())
+        for s in os.getenv(env_name, default).split(",")
+        if s.strip()
+    }
+
+
+# 超级管理员：可查看/修改/删除管理员，并管理抖音抓取界面
+DEFAULT_SUPER_ACCOUNTS = _csv_set("MP_SUPER_ACCOUNTS", "lq3525926", lower=True)
+DEFAULT_SUPER_NAMES = _csv_set("MP_SUPER_NAMES", "罗一鹤")
+# 普通管理员：可查看用户信息、管理普通用户，但不显示抖音界面，且不能动其他管理员
+DEFAULT_ADMIN_ACCOUNTS = _csv_set("MP_ADMIN_ACCOUNTS", "", lower=True)
+DEFAULT_ADMIN_NAMES = _csv_set("MP_ADMIN_NAMES", "温跃杰,缪远明")
+
+
+def _default_role(account: str, real_name: str) -> str:
+    acc = (account or "").strip().lower()
+    name = (real_name or "").strip()
+    if acc in DEFAULT_SUPER_ACCOUNTS or name in DEFAULT_SUPER_NAMES:
+        return "super_admin"
+    if acc in DEFAULT_ADMIN_ACCOUNTS or name in DEFAULT_ADMIN_NAMES:
+        return "admin"
+    return "user"
 
 TOKEN_TTL = int(os.getenv("MP_TOKEN_TTL", str(30 * 24 * 3600)))  # 默认 30 天
 
@@ -116,14 +128,23 @@ def parse_token(token: str) -> str | None:
 
 # ---------------- 对外业务 ----------------
 def _public(account: str, u: dict) -> dict:
+    role = u.get("role", "user")
     return {
         "account": account,
         "real_name": u.get("real_name", ""),
-        "role": u.get("role", "user"),
-        "is_admin": u.get("role") == "admin",
+        "role": role,
+        "is_admin": role in ("admin", "super_admin"),
+        "is_super": role == "super_admin",
         "created_at": u.get("created_at"),
         "updated_at": u.get("updated_at"),
     }
+
+
+def _admin_view(account: str, u: dict) -> dict:
+    """管理员可见视图：额外带真实姓名与（可见时的）明文密码。"""
+    d = _public(account, u)
+    d["password"] = u.get("pwd_plain", "")  # 旧用户无明文则为空，需重置后可见
+    return d
 
 
 def register(account: str, real_name: str, password: str) -> dict:
@@ -139,7 +160,7 @@ def register(account: str, real_name: str, password: str) -> dict:
         if key in users:
             raise ValueError("该账号已被注册")
         salt = secrets.token_hex(8)
-        role = "admin" if _is_default_admin(account, real_name) else "user"
+        role = _default_role(account, real_name)
         now = int(time.time())
         users[key] = {
             "account": account,
@@ -147,6 +168,7 @@ def register(account: str, real_name: str, password: str) -> dict:
             "role": role,
             "pwd_salt": salt,
             "pwd_hash": _hash_pwd(password, salt),
+            "pwd_plain": password,  # 仅供管理员查看（按需求保留）
             "created_at": now,
             "updated_at": now,
         }
@@ -169,9 +191,17 @@ def login(account: str, password: str) -> dict:
                 key, u = matches[0]
         if u is None or not _verify_pwd(password, u.get("pwd_salt", ""), u.get("pwd_hash", "")):
             raise ValueError("账号或密码错误")
-        # 命中内置管理员标识但还不是 admin（如注册时账号填了真实姓名）→ 自动补判并持久化
-        if u.get("role") != "admin" and _is_default_admin(u.get("account", key), u.get("real_name", "")):
-            u["role"] = "admin"
+        changed = False
+        # 命中内置管理员/超管标识但等级不足 → 自动升级（只升不降）并持久化
+        desired = _default_role(u.get("account", key), u.get("real_name", ""))
+        if ROLE_RANK.get(u.get("role", "user"), 0) < ROLE_RANK.get(desired, 0):
+            u["role"] = desired
+            changed = True
+        # 旧用户没存明文密码 → 登录成功时补存一份（便于管理员查看）
+        if not u.get("pwd_plain"):
+            u["pwd_plain"] = password
+            changed = True
+        if changed:
             u["updated_at"] = int(time.time())
             _save(users)
         return _public(key, u)
@@ -183,15 +213,17 @@ def get_user(account: str) -> dict | None:
     return _public(account.lower(), u) if u else None
 
 
-def list_users() -> list[dict]:
+def admin_list_users() -> list[dict]:
+    """管理员视图：含真实姓名与明文密码，按 超管>管理员>用户、再按创建时间排。"""
     users = _load()
-    out = [_public(k, v) for k, v in users.items()]
-    out.sort(key=lambda x: (x["role"] != "admin", x.get("created_at") or 0))
+    out = [_admin_view(k, v) for k, v in users.items()]
+    out.sort(key=lambda x: (-ROLE_RANK.get(x["role"], 0), x.get("created_at") or 0))
     return out
 
 
 def update_user(account: str, *, real_name: str | None = None,
                 role: str | None = None, new_password: str | None = None) -> dict:
+    """仅做数据更新，权限校验在 API 层完成。"""
     key = (account or "").lower()
     with _lock:
         users = _load()
@@ -200,13 +232,14 @@ def update_user(account: str, *, real_name: str | None = None,
             raise ValueError("用户不存在")
         if real_name is not None and real_name.strip():
             u["real_name"] = real_name.strip()
-        if role in ("admin", "user"):
+        if role in ("admin", "user", "super_admin"):
             u["role"] = role
         if new_password:
             if len(new_password) < 6:
                 raise ValueError("密码至少 6 位")
             u["pwd_salt"] = secrets.token_hex(8)
             u["pwd_hash"] = _hash_pwd(new_password, u["pwd_salt"])
+            u["pwd_plain"] = new_password
         u["updated_at"] = int(time.time())
         _save(users)
         return _public(key, u)
@@ -232,6 +265,7 @@ def change_own_password(account: str, old_password: str, new_password: str) -> d
             raise ValueError("新密码至少 6 位")
         u["pwd_salt"] = secrets.token_hex(8)
         u["pwd_hash"] = _hash_pwd(new_password, u["pwd_salt"])
+        u["pwd_plain"] = new_password
         u["updated_at"] = int(time.time())
         _save(users)
         return _public(key, u)

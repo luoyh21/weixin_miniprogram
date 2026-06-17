@@ -39,6 +39,17 @@ def _require_admin(authorization: str | None) -> dict:
     return u
 
 
+def _require_super(authorization: str | None) -> dict:
+    u = _current(authorization)
+    if not u.get("is_super"):
+        raise HTTPException(status_code=403, detail="需要超级管理员权限")
+    return u
+
+
+def _target_is_admin(target: dict) -> bool:
+    return target.get("role") in ("admin", "super_admin")
+
+
 # ---------------- 健康检查 ----------------
 @router.get("/ping")
 def ping():
@@ -132,7 +143,7 @@ def api_ask(body: AskIn, authorization: str | None = Header(default=None)):
 @router.get("/admin/users")
 def api_admin_users(authorization: str | None = Header(default=None)):
     _require_admin(authorization)
-    return {"ok": True, "users": auth.list_users()}
+    return {"ok": True, "users": auth.admin_list_users()}
 
 
 class AdminUpdateIn(BaseModel):
@@ -144,7 +155,20 @@ class AdminUpdateIn(BaseModel):
 
 @router.post("/admin/users/update")
 def api_admin_update(body: AdminUpdateIn, authorization: str | None = Header(default=None)):
-    _require_admin(authorization)
+    actor = _require_admin(authorization)
+    target = auth.get_user(body.account)
+    if not target:
+        raise HTTPException(status_code=404, detail="用户不存在")
+    is_self = target["account"].lower() == actor["account"].lower()
+
+    # 改角色：仅超级管理员可操作
+    if body.role is not None and not actor["is_super"]:
+        raise HTTPException(status_code=403, detail="只有超级管理员可以修改角色")
+
+    # 非超管：不能修改其他管理员（含改密/改名），只能管普通用户或自己
+    if not actor["is_super"] and _target_is_admin(target) and not is_self:
+        raise HTTPException(status_code=403, detail="无权修改其他管理员")
+
     try:
         user = auth.update_user(
             body.account, real_name=body.real_name,
@@ -161,17 +185,23 @@ class AdminDeleteIn(BaseModel):
 
 @router.post("/admin/users/delete")
 def api_admin_delete(body: AdminDeleteIn, authorization: str | None = Header(default=None)):
-    admin = _require_admin(authorization)
-    if body.account.lower() == admin["account"].lower():
+    actor = _require_admin(authorization)
+    target = auth.get_user(body.account)
+    if not target:
+        return {"ok": True}
+    if target["account"].lower() == actor["account"].lower():
         raise HTTPException(status_code=400, detail="不能删除自己")
+    # 非超管不能删除管理员；超管可删除任意（自己除外）
+    if not actor["is_super"] and _target_is_admin(target):
+        raise HTTPException(status_code=403, detail="无权删除其他管理员")
     auth.delete_user(body.account)
     return {"ok": True}
 
 
-# ---------------- 管理员：抖音 Cookie ----------------
+# ---------------- 超级管理员：抖音 Cookie ----------------
 @router.get("/admin/douyin/status")
 def api_dy_status(authorization: str | None = Header(default=None)):
-    _require_admin(authorization)
+    _require_super(authorization)
     return {"ok": True, **douyin_cookie.status()}
 
 
@@ -181,7 +211,7 @@ class DyCookieIn(BaseModel):
 
 @router.post("/admin/douyin/cookie")
 def api_dy_cookie(body: DyCookieIn, authorization: str | None = Header(default=None)):
-    _require_admin(authorization)
+    _require_super(authorization)
     try:
         result = douyin_cookie.update_cookie(body.cookie)
     except ValueError as e:

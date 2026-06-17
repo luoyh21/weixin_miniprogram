@@ -35,6 +35,8 @@
   border-radius: 8rpx; padding: 4rpx 14rpx; margin-left: 14rpx; font-weight: 500;
 }
 .badge.sm { font-size: 20rpx; padding: 2rpx 10rpx; }
+.badge.super { background: linear-gradient(135deg, #ff8a00, #ff5b5b); }
+.u-pwd { color: var(--sub); font-size: 24rpx; margin-top: 4rpx; }
 
 .cell {
   display: flex; justify-content: space-between; align-items: center;
