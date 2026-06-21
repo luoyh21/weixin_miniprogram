@@ -179,6 +179,19 @@ def _build(days: int) -> tuple[list[dict], dict]:
             if it["link"] and it["id"] not in seen:
                 seen.add(it["id"])
                 items.append(it)
+
+    # 合并独立公众号库：保证每条抓到过的公众号更新都可见（不受推送去重/批次影响）
+    try:
+        ensure_wam_importable()
+        from src import gzh_store  # type: ignore
+        for a in gzh_store.load_recent(days):
+            it = _norm_gzh(a)
+            if it["link"] and it["id"] not in seen:
+                seen.add(it["id"])
+                items.append(it)
+    except Exception:
+        pass
+
     items.sort(key=lambda x: x["published_ts"], reverse=True)
     index = {it["id"]: it for it in items}
     return items, index

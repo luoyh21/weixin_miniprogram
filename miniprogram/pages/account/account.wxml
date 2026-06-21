@@ -52,17 +52,31 @@
     <block wx:if="{{isSuper}}">
       <view class="sec-title">超管控制台 · 抖音抓取</view>
       <view class="card">
-        <view class="dy-status {{dy.ok ? 'ok' : 'bad'}}">
+        <view wx:if="{{!dyChecked && !dyLoading}}" class="muted">点击「开始检测」检查抓取状态；检测期间可切换到其他页面，完成后回到本页查看结果。</view>
+        <view wx:else class="dy-status {{dyLoading ? '' : (dy.ok ? 'ok' : 'bad')}}">
           <text class="dot"></text>
-          <text>{{dyLoading ? '检测中…' : dy.detail}}</text>
+          <text>{{dyLoading ? '检测中…（可切换页面，完成后回本页查看）' : dy.detail}}</text>
         </view>
         <view wx:if="{{dy.recent.length}}" class="dy-recent">
           <view wx:for="{{dy.recent}}" wx:key="title" class="dy-item">· {{item.published}} {{item.title}}</view>
         </view>
+
+        <!-- 异常/超时：给出获取新 Cookie 的具体步骤 -->
+        <view wx:if="{{dyChecked && !dyLoading && !dySubmitting && !dy.ok}}" class="dy-help">
+          <view class="dy-help-t">抓取异常？按以下步骤获取新的 Cookie：</view>
+          <view class="dy-help-s">1. 在电脑浏览器打开并登录抖音网页版 douyin.com</view>
+          <view class="dy-help-s">2. 按 F12 打开开发者工具</view>
+          <view class="dy-help-s">3. 点击【网络 / Network】→【Fetch/XHR】</view>
+          <view class="dy-help-s">4. 按浏览器的刷新按钮（或 F5）</view>
+          <view class="dy-help-s">5. 在列表中找到 get_user_message</view>
+          <view class="dy-help-s">6. 在右侧【Headers / 标头】中找到 Cookie</view>
+          <view class="dy-help-s">7. 右边的值就是你需要的 cookies，整段复制粘贴到下方</view>
+        </view>
+
         <view class="label" style="margin-top:18rpx;">更新 Cookie（从已登录的抖音网页复制完整 Cookie）</view>
         <textarea class="ta" placeholder="粘贴新的抖音 Cookie…" value="{{dyCookie}}" bindinput="onCookieInput" maxlength="-1" auto-height />
         <view class="row" style="gap:16rpx; margin-top:16rpx;">
-          <button class="btn ghost small" bindtap="loadDyStatus">重新检测</button>
+          <button class="btn ghost small" bindtap="loadDyStatus" disabled="{{dyLoading}}">{{dyChecked ? '重新检测' : '开始检测'}}</button>
           <button class="btn small" bindtap="submitCookie" disabled="{{dySubmitting}}">更新并重启</button>
         </view>
       </view>

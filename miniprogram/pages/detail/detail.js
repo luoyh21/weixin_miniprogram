@@ -23,7 +23,10 @@ Page({
       this.setData({ loading: false, error: '缺少参数' });
       return;
     }
-    api.get('/news/item?id=' + id, { auth: false })
+    const path = query.topic
+      ? '/topic/item?topic=' + query.topic + '&id=' + id
+      : '/news/item?id=' + id;
+    api.get(path, { auth: false })
       .then((res) => {
         const item = res.item;
         this.setData({

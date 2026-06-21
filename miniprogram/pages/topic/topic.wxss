@@ -1,0 +1,47 @@
+.page { padding: 0 24rpx 40rpx; }
+
+.hero {
+  margin: 24rpx 0 8rpx;
+  padding: 32rpx;
+  border-radius: 24rpx;
+  background: linear-gradient(135deg, #0b1f3a, #1f4f8f);
+  color: #fff;
+  box-shadow: 0 10rpx 30rpx rgba(11, 31, 58, 0.25);
+}
+.hero-title { font-size: 36rpx; font-weight: 800; }
+.hero-sub { margin-top: 12rpx; font-size: 24rpx; line-height: 1.6; opacity: 0.88; }
+
+.list { padding-top: 12rpx; }
+
+.topic-card {
+  background: var(--card);
+  border-radius: 24rpx;
+  box-shadow: 0 8rpx 30rpx rgba(20, 40, 90, 0.06);
+  padding: 28rpx;
+  margin-bottom: 22rpx;
+}
+.tc-top { display: flex; align-items: center; justify-content: space-between; }
+.tc-title { font-size: 32rpx; font-weight: 700; color: var(--ink); flex: 1; }
+.tc-arrow { color: var(--muted); font-size: 40rpx; margin-left: 12rpx; }
+.tc-intro {
+  margin-top: 12rpx;
+  color: var(--sub);
+  font-size: 25rpx;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.tc-foot { margin-top: 18rpx; display: flex; align-items: center; gap: 14rpx; }
+.tc-badge {
+  font-size: 22rpx;
+  color: #fff;
+  background: var(--brand);
+  padding: 6rpx 18rpx;
+  border-radius: 999rpx;
+}
+.tc-badge.ghost { background: #eef2fb; color: var(--brand); }
+.tc-time { font-size: 22rpx; color: var(--muted); margin-left: auto; }
+
+.hint { text-align: center; color: var(--muted); font-size: 26rpx; padding: 60rpx 0; }

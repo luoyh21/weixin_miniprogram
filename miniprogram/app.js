@@ -35,4 +35,8 @@ App({
   isAdmin() {
     return !!(this.globalData.user && this.globalData.user.is_admin);
   },
+
+  isSuper() {
+    return !!(this.globalData.user && this.globalData.user.is_super);
+  },
 });

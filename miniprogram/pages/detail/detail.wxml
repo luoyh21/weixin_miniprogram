@@ -12,6 +12,11 @@
     <view wx:for="{{paragraphs}}" wx:key="index" class="d-p">{{item}}</view>
   </view>
 
+  <view wx:if="{{item.images.length}}" class="d-gallery">
+    <image wx:for="{{item.images}}" wx:for-item="img" wx:key="*this"
+      class="d-gimg" src="{{img}}" mode="widthFix" lazy-load="true" />
+  </view>
+
   <view class="d-actions">
     <button class="btn ghost" bindtap="copyLink">复制原文链接</button>
     <button wx:if="{{item.share_text}}" class="btn ghost" bindtap="copyShare" style="margin-top:18rpx;">复制抖音口令</button>

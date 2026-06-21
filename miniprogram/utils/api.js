@@ -15,7 +15,7 @@ function request(path, options) {
       method,
       data: options.data || {},
       header,
-      timeout: 60000,
+      timeout: options.timeout || 60000,
       success(res) {
         if (res.statusCode >= 200 && res.statusCode < 300) {
           resolve(res.data);

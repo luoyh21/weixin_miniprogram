@@ -1,0 +1,32 @@
+<view class="page">
+  <view class="hero">
+    <view class="hero-title">🛰️ 专题情报</view>
+    <view class="hero-sub">围绕指定专题的深度情报合集，非定期更新；每次发起聚合近 3 年、约 18 篇国内外内容。</view>
+  </view>
+
+  <view class="list">
+    <view
+      wx:for="{{topics}}"
+      wx:key="id"
+      class="topic-card"
+      data-id="{{item.id}}"
+      bindtap="openTopic"
+    >
+      <view class="tc-top">
+        <text class="tc-title">{{item.title}}</text>
+        <text class="tc-arrow">›</text>
+      </view>
+      <view class="tc-intro">{{item.intro}}</view>
+      <view class="tc-foot">
+        <text class="tc-badge">{{item.count}} 篇</text>
+        <text class="tc-badge ghost">近 {{item.years}} 年</text>
+        <text wx:if="{{item.updated_at}}" class="tc-time">更新 {{item.updated_at}}</text>
+        <text wx:else class="tc-time">待生成</text>
+      </view>
+    </view>
+
+    <view wx:if="{{loading}}" class="hint">正在加载专题…</view>
+    <view wx:if="{{!loading && error}}" class="hint">{{error}}</view>
+    <view wx:if="{{!loading && !error && !topics.length}}" class="hint">暂无专题</view>
+  </view>
+</view>

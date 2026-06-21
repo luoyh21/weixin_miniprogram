@@ -101,9 +101,35 @@ def update_cookie(new_cookie: str) -> dict:
     if rs.returncode != 0:
         raise RuntimeError(f"重启容器失败：{rs.stderr.strip()}")
 
-    # 5) 等待容器起来后自检
+    # 5) 轮询等待容器就绪后再自检。
+    #    抖音 API 容器冷启动（含签名服务初始化）约需 ~20s，固定 sleep(8) 太短，
+    #    会打到尚未就绪的服务并误报「仍异常」。这里用短超时快速试探，直到就绪或超时。
+    import os
     import time
-    time.sleep(8)
+
+    ensure_wam_importable()
+    try:
+        from src import douyin
+    except Exception:
+        douyin = None
+
+    users_raw = os.getenv("DOUYIN_USERS", "")
+    ready = False
+    if douyin is not None:
+        time.sleep(5)
+        deadline = time.time() + 60
+        while time.time() < deadline:
+            try:
+                ok, _ = douyin.selfcheck(users_raw, timeout=10)
+            except Exception:
+                ok = False
+            if ok:
+                ready = True
+                break
+            time.sleep(5)
+
+    # 最终做一次完整自检（含 recent 列表）
     st = status()
     st["restarted"] = True
+    st["ready_in_time"] = ready
     return st

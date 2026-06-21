@@ -1,0 +1,69 @@
+.page { padding: 0 24rpx 40rpx; }
+
+.header {
+  margin: 24rpx 0;
+  padding: 30rpx;
+  border-radius: 24rpx;
+  background: linear-gradient(135deg, #0b1f3a, #234e8c);
+  color: #fff;
+  box-shadow: 0 10rpx 30rpx rgba(11, 31, 58, 0.25);
+}
+.h-title { font-size: 36rpx; font-weight: 800; line-height: 1.4; }
+.h-intro { margin-top: 14rpx; font-size: 25rpx; line-height: 1.7; opacity: 0.9; }
+.h-stats { margin-top: 18rpx; display: flex; flex-wrap: wrap; gap: 12rpx; }
+.h-stats .stat {
+  font-size: 22rpx;
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 999rpx;
+  padding: 6rpx 18rpx;
+}
+.h-time { margin-top: 14rpx; font-size: 21rpx; opacity: 0.7; }
+
+.admin-bar {
+  background: var(--card);
+  border-radius: 20rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 8rpx 24rpx rgba(20, 40, 90, 0.06);
+}
+.ab-title { font-size: 26rpx; font-weight: 700; color: var(--ink); }
+.ab-status { margin: 12rpx 0 18rpx; font-size: 23rpx; color: var(--sub); }
+.ab-status .ok { color: #1aa260; }
+.ab-status .no { color: var(--muted); }
+.ab-btns { display: flex; gap: 16rpx; }
+.ab-btns .btn { flex: 1; margin: 0; }
+
+.filterbar {
+  display: flex;
+  gap: 14rpx;
+  padding: 4rpx 0 20rpx;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.chip {
+  flex: none;
+  padding: 12rpx 28rpx;
+  border-radius: 999rpx;
+  background: #fff;
+  color: var(--sub);
+  font-size: 25rpx;
+  box-shadow: 0 4rpx 14rpx rgba(20, 40, 90, 0.05);
+}
+.chip.on { background: var(--brand); color: #fff; }
+
+.item-card {
+  background: var(--card);
+  border-radius: 22rpx;
+  box-shadow: 0 8rpx 30rpx rgba(20, 40, 90, 0.06);
+  padding: 26rpx;
+  margin-bottom: 22rpx;
+}
+.ic-tags { display: flex; flex-wrap: wrap; }
+.tag.plain { color: var(--sub); background: #f1f3f7; }
+.ic-title { font-size: 31rpx; font-weight: 700; line-height: 1.5; color: var(--ink); }
+.ic-meta { margin-top: 10rpx; color: var(--muted); font-size: 22rpx; }
+.ic-summary { margin-top: 14rpx; color: var(--sub); font-size: 26rpx; line-height: 1.7; }
+.ic-foot { margin-top: 18rpx; display: flex; justify-content: flex-end; }
+.link { color: var(--brand); font-size: 24rpx; }
+
+.hint { color: var(--muted); font-size: 26rpx; text-align: center; padding: 50rpx 0; }

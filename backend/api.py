@@ -11,7 +11,7 @@ import logging
 from fastapi import APIRouter, Header, HTTPException
 from pydantic import BaseModel
 
-from . import auth, news_store, qa, douyin_cookie
+from . import auth, news_store, qa, douyin_cookie, topic_intel
 
 log = logging.getLogger(__name__)
 
@@ -137,6 +137,74 @@ def api_ask(body: AskIn, authorization: str | None = Header(default=None)):
         log.exception("qa failed: %s", e)
         raise HTTPException(status_code=500, detail=f"回答失败：{e}")
     return {"ok": True, "answer": answer}
+
+
+# ---------------- 专题情报 ----------------
+@router.get("/topic/list")
+def api_topic_list():
+    return {"ok": True, "topics": topic_intel.list_topics()}
+
+
+@router.get("/topic/get")
+def api_topic_get(id: str):
+    t = topic_intel.get_topic(id)
+    if not t:
+        raise HTTPException(status_code=404, detail="专题不存在")
+    return {"ok": True, "topic": t}
+
+
+@router.get("/topic/item")
+def api_topic_item(topic: str, id: str):
+    it = topic_intel.get_item(topic, id)
+    if not it:
+        raise HTTPException(status_code=404, detail="条目不存在")
+    # 适配小程序详情页（pages/detail）所需字段，正文在小程序内浏览
+    item = {
+        "id": it.get("id"),
+        "kind": "topic",
+        "title": it.get("title", ""),
+        "tags": it.get("tags") or [],
+        "main_tag": it.get("aspect") or "专题",
+        "source": it.get("source", ""),
+        "published": it.get("published", ""),
+        "image": it.get("image", ""),
+        "images": it.get("images") or [],
+        "body": it.get("body_zh") or it.get("summary", ""),
+        "link": it.get("url", ""),
+    }
+    return {"ok": True, "item": item}
+
+
+class TopicRefreshIn(BaseModel):
+    id: str = "space-tug"
+
+
+@router.post("/topic/refresh")
+def api_topic_refresh(body: TopicRefreshIn, authorization: str | None = Header(default=None)):
+    _require_super(authorization)
+    try:
+        t = topic_intel.refresh(body.id)
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    return {"ok": True, "topic": t}
+
+
+class TopicPushIn(BaseModel):
+    id: str = "space-tug"
+    scope: str  # admin | all
+
+
+@router.post("/topic/push")
+def api_topic_push(body: TopicPushIn, authorization: str | None = Header(default=None)):
+    _require_super(authorization)
+    try:
+        result = topic_intel.push(body.id, body.scope)
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    except Exception as e:  # noqa
+        log.exception("topic push failed: %s", e)
+        raise HTTPException(status_code=500, detail=f"推送失败：{e}")
+    return result
 
 
 # ---------------- 管理员：用户管理 ----------------

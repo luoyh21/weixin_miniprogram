@@ -18,6 +18,7 @@ Page({
     usersLoading: false,
     dy: { ok: false, detail: '', recent: [] },
     dyLoading: false,
+    dyChecked: false,
     dyCookie: '',
     dySubmitting: false,
   },
@@ -29,7 +30,7 @@ Page({
     this.setData({ loggedIn, isAdmin: !!u.is_admin, isSuper: !!u.is_super, user: app.globalData.user });
     if (loggedIn) this.refreshMe();
     if (loggedIn && u.is_admin) this.loadUsers();
-    if (loggedIn && u.is_super) this.loadDyStatus();
+    // 抖音抓取检测改为按钮触发（避免每次进页面都阻塞等待 ~20-45s）
   },
 
   refreshMe() {
@@ -38,7 +39,6 @@ Page({
       app.setAuth(app.globalData.token, res.user);
       this.setData({ user: res.user, isAdmin: !!res.user.is_admin, isSuper: !!res.user.is_super });
       if (res.user.is_admin && !this.data.users.length) this.loadUsers();
-      if (res.user.is_super) this.loadDyStatus();
     }).catch(() => {});
   },
 
@@ -79,7 +79,6 @@ Page({
     });
     wx.showToast({ title: '欢迎，' + res.user.real_name, icon: 'none' });
     if (res.user.is_admin) this.loadUsers();
-    if (res.user.is_super) this.loadDyStatus();
   },
 
   logout() {
@@ -186,11 +185,14 @@ Page({
   },
 
   // ---------- 管理员：抖音 cookie ----------
+  // 按钮触发的非阻塞检测：发起后可自由切换页面，结果回到本页即可看到。
   loadDyStatus() {
-    this.setData({ dyLoading: true });
-    api.get('/admin/douyin/status')
+    if (this.data.dyLoading) return;
+    this.setData({ dyLoading: true, dyChecked: true });
+    wx.showToast({ title: '检测中，可切换页面', icon: 'none' });
+    api.get('/admin/douyin/status', { timeout: 120000 })
       .then((res) => this.setData({ dy: { ok: res.ok, detail: res.detail, recent: res.recent || [] } }))
-      .catch((e) => this.setData({ dy: { ok: false, detail: e.message, recent: [] } }))
+      .catch((e) => this.setData({ dy: { ok: false, detail: '检测失败：' + e.message, recent: [] } }))
       .then(() => this.setData({ dyLoading: false }));
   },
 
@@ -200,18 +202,27 @@ Page({
     const ck = (this.data.dyCookie || '').trim();
     if (ck.length < 30) return wx.showToast({ title: 'Cookie 太短', icon: 'none' });
     wx.showModal({
-      title: '更新抖音 Cookie', content: '将写入抓取容器并重启，约需 10 秒，确定？',
+      title: '更新抖音 Cookie',
+      content: '将写入抓取容器并重启，约需 30-60 秒。期间可切换页面，完成后回本页查看结果。',
       success: (r) => {
         if (!r.confirm) return;
-        this.setData({ dySubmitting: true });
-        wx.showLoading({ title: '更新并重启中…', mask: true });
-        api.post('/admin/douyin/cookie', { cookie: ck })
+        // 不再用带 mask 的 showLoading，避免锁死界面；改为状态文案 + 允许切换页面
+        this.setData({
+          dySubmitting: true,
+          dyChecked: true,
+          dyLoading: false,
+          dy: { ok: false, detail: '更新并重启中…（约 30-60 秒，可切换页面）', recent: [] },
+        });
+        wx.showToast({ title: '更新中，可切换页面', icon: 'none' });
+        api.post('/admin/douyin/cookie', { cookie: ck }, { timeout: 120000 })
           .then((res) => {
-            wx.hideLoading();
             this.setData({ dy: { ok: res.ok, detail: res.detail, recent: res.recent || [] }, dyCookie: '' });
             wx.showToast({ title: res.ok ? '更新成功' : '已更新(仍异常)', icon: 'none' });
           })
-          .catch((e) => { wx.hideLoading(); wx.showToast({ title: e.message, icon: 'none' }); })
+          .catch((e) => {
+            this.setData({ dy: { ok: false, detail: '更新请求失败：' + e.message, recent: [] } });
+            wx.showToast({ title: e.message, icon: 'none' });
+          })
           .then(() => this.setData({ dySubmitting: false }));
       },
     });

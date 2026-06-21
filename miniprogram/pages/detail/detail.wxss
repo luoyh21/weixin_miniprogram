@@ -19,4 +19,12 @@
   color: #2a3344;
   margin-bottom: 22rpx;
 }
+.d-gallery { margin-top: 8rpx; }
+.d-gimg {
+  width: 100%;
+  border-radius: 16rpx;
+  margin: 14rpx 0;
+  background: #f0f2f6;
+}
+
 .d-actions { margin-top: 30rpx; }

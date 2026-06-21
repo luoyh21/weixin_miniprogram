@@ -55,8 +55,15 @@
 .dy-status.ok .dot { background: #1a9e57; }
 .dy-status.bad { color: #d6326b; }
 .dy-status.bad .dot { background: #d6326b; }
+.dy-status .dot { background: #c2c8d4; }
 .dy-recent { margin-top: 14rpx; }
 .dy-item { color: var(--sub); font-size: 24rpx; line-height: 1.7; }
+.dy-help {
+  margin-top: 16rpx; padding: 18rpx 20rpx;
+  background: #fff7fa; border: 2rpx solid #ffe0ec; border-radius: 16rpx;
+}
+.dy-help-t { color: #d6326b; font-size: 25rpx; font-weight: 600; margin-bottom: 8rpx; }
+.dy-help-s { color: var(--sub); font-size: 24rpx; line-height: 1.8; }
 .ta {
   width: 100%; box-sizing: border-box;
   background: #f5f7fb; border: 2rpx solid #eef1f6; border-radius: 16rpx;

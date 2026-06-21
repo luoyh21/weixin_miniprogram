@@ -1,0 +1,45 @@
+<view class="page" wx:if="{{topic}}">
+  <view class="header">
+    <view class="h-title">{{topic.title}}</view>
+    <view class="h-intro">{{topic.intro}}</view>
+    <view class="h-stats">
+      <text class="stat">共 {{topic.stats.count}} 篇</text>
+      <text class="stat">国外 {{topic.stats.intl}}</text>
+      <text class="stat">国内 {{topic.stats.domestic}}</text>
+      <text class="stat">近 {{topic.years}} 年</text>
+    </view>
+    <view class="h-time">更新于 {{topic.updated_at}}</view>
+  </view>
+
+  <view class="filterbar">
+    <view
+      wx:for="{{filters}}"
+      wx:key="key"
+      class="chip {{active === item.key ? 'on' : ''}}"
+      data-key="{{item.key}}"
+      bindtap="switchFilter"
+    >{{item.label}}</view>
+  </view>
+
+  <view class="list">
+    <view wx:for="{{shown}}" wx:key="id" class="item-card" data-id="{{item.id}}" bindtap="openItem">
+      <view class="ic-tags">
+        <text class="tag {{item.region === '国内' ? 'gzh' : ''}}">{{item.region}}</text>
+        <text class="tag">{{item.aspect}}</text>
+        <text wx:for="{{item.tags}}" wx:for-item="tg" wx:key="*this"
+          wx:if="{{tg !== item.region && tg !== item.aspect}}" class="tag plain">#{{tg}}</text>
+      </view>
+      <view class="ic-title">{{item.title}}</view>
+      <view class="ic-meta">{{item.source}}<text wx:if="{{item.published}}"> · {{item.published}}</text></view>
+      <view class="ic-summary">{{item.summary}}</view>
+      <view class="ic-foot">
+        <text class="link">阅读全文 ›</text>
+      </view>
+    </view>
+
+    <view wx:if="{{!shown.length}}" class="hint">该分类暂无内容</view>
+  </view>
+</view>
+
+<view wx:if="{{loading}}" class="hint">加载中…</view>
+<view wx:if="{{!loading && error}}" class="hint">{{error}}</view>
