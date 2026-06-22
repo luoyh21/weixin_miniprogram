@@ -143,6 +143,48 @@ def _norm_dy(a: dict) -> dict:
     }
 
 
+def _proxy_img(url: str) -> str:
+    if not url:
+        return ""
+    try:
+        ensure_wam_importable()
+        from src import img_proxy  # type: ignore
+        return img_proxy.proxify(url)
+    except Exception:
+        return url
+
+
+def _norm_social(a: dict) -> dict:
+    """政要社媒条目（X / Truth Social），含原文/译文/解读供详情页结构化展示。"""
+    author = a.get("author_name") or a.get("author") or ""
+    channel = a.get("channel") or a.get("platform") or ""
+    title = a.get("title") or f"{author}最新动态"
+    translation = a.get("translation") or ""
+    link = a.get("url") or ""
+    pub = a.get("published") or ""
+    return {
+        "id": _mk_id("social", a.get("post_id") or link, title),
+        "kind": "social",
+        "title": title,
+        "title_orig": title,
+        "summary": _short(translation or a.get("original") or "", 90),
+        "body": translation,
+        "source": f"{author}·{channel}".strip("·"),
+        "published": _to_beijing(pub),
+        "published_ts": _ts(pub),
+        "tags": ["政要社媒", author] if author else ["政要社媒"],
+        "main_tag": "政要社媒",
+        "image": _proxy_img(a.get("image") or ""),
+        "link": link,
+        # 详情页专用
+        "author_name": author,
+        "channel": channel,
+        "original": a.get("original") or "",
+        "translation": translation,
+        "analysis": a.get("analysis") or "",
+    }
+
+
 def _build(days: int) -> tuple[list[dict], dict]:
     cutoff = time.time() - days * 86400
     files = sorted(glob.glob(str(WAM_CACHE_DIR / "*.json")))
@@ -192,6 +234,18 @@ def _build(days: int) -> tuple[list[dict], dict]:
     except Exception:
         pass
 
+    # 合并政要社媒库（X / Truth Social，已 LLM 富化）
+    try:
+        ensure_wam_importable()
+        from src import social_store  # type: ignore
+        for a in social_store.load_recent(days):
+            it = _norm_social(a)
+            if it["id"] not in seen:
+                seen.add(it["id"])
+                items.append(it)
+    except Exception:
+        pass
+
     items.sort(key=lambda x: x["published_ts"], reverse=True)
     index = {it["id"]: it for it in items}
     return items, index
@@ -227,6 +281,7 @@ def week(days: int = 7, kind: str | None = None) -> dict:
             "intl": sum(1 for c in cards if c["kind"] == "intl"),
             "gzh": sum(1 for c in cards if c["kind"] == "gzh"),
             "douyin": sum(1 for c in cards if c["kind"] == "douyin"),
+            "social": sum(1 for c in cards if c["kind"] == "social"),
         },
     }
 

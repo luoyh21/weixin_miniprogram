@@ -48,6 +48,12 @@ Page({
   copyShare() {
     const txt = this.data.item && this.data.item.share_text;
     if (!txt) return;
-    wx.setClipboardData({ data: txt, success: () => wx.showToast({ title: '抖音口令已复制', icon: 'none' }) });
+    wx.setClipboardData({ data: txt, success: () => wx.showToast({ title: '口令已复制，去抖音搜索粘贴', icon: 'none' }) });
+  },
+
+  copyTitle() {
+    const t = this.data.item && this.data.item.title;
+    if (!t) return;
+    wx.setClipboardData({ data: t, success: () => wx.showToast({ title: '标题已复制，去微信搜索粘贴', icon: 'none' }) });
   },
 });

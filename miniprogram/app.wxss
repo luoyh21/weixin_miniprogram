@@ -73,6 +73,7 @@ page {
 }
 .tag.gzh { color: #e07b00; background: rgba(224, 123, 0, 0.1); }
 .tag.douyin { color: #d6326b; background: rgba(214, 50, 107, 0.1); }
+.tag.social { color: #6a3df5; background: rgba(106, 61, 245, 0.1); }
 
 .muted { color: var(--muted); font-size: 24rpx; }
 .center { text-align: center; }

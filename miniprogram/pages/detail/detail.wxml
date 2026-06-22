@@ -1,27 +1,82 @@
 <view class="container" wx:if="{{item}}">
   <view class="d-tags">
     <text wx:for="{{item.tags}}" wx:for-item="tg" wx:key="*this"
-      class="tag {{item.kind === 'gzh' ? 'gzh' : (item.kind === 'douyin' ? 'douyin' : '')}}">#{{tg}}</text>
+      class="tag {{item.kind}}">#{{tg}}</text>
   </view>
   <view class="d-title">{{item.title}}</view>
   <view class="d-meta">{{item.source}} · {{item.published}}</view>
 
   <image wx:if="{{item.image}}" class="d-hero" src="{{item.image}}" mode="widthFix" />
 
-  <view class="d-body">
-    <view wx:for="{{paragraphs}}" wx:key="index" class="d-p">{{item}}</view>
-  </view>
+  <!-- 政要社媒：结构化展示 渠道 / 原文 / 译文 / 解读 -->
+  <block wx:if="{{item.kind === 'social'}}">
+    <view class="s-block">
+      <view class="s-label">发布渠道</view>
+      <view class="s-val">{{item.channel}}</view>
+    </view>
+    <view class="s-block" wx:if="{{item.original}}">
+      <view class="s-label">原文</view>
+      <view class="s-orig">{{item.original}}</view>
+    </view>
+    <view class="s-block" wx:if="{{item.translation}}">
+      <view class="s-label">中文翻译</view>
+      <view class="s-val">{{item.translation}}</view>
+    </view>
+    <view class="s-block s-analysis" wx:if="{{item.analysis}}">
+      <view class="s-label">🛰 航天视角解读</view>
+      <view class="s-val">{{item.analysis}}</view>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="d-body">
+      <view wx:for="{{paragraphs}}" wx:key="index" class="d-p">{{item}}</view>
+    </view>
+    <view wx:if="{{item.images.length}}" class="d-gallery">
+      <image wx:for="{{item.images}}" wx:for-item="img" wx:key="*this"
+        class="d-gimg" src="{{img}}" mode="widthFix" lazy-load="true" />
+    </view>
+  </block>
 
-  <view wx:if="{{item.images.length}}" class="d-gallery">
-    <image wx:for="{{item.images}}" wx:for-item="img" wx:key="*this"
-      class="d-gimg" src="{{img}}" mode="widthFix" lazy-load="true" />
-  </view>
-
-  <view class="d-actions">
-    <button class="btn ghost" bindtap="copyLink">复制原文链接</button>
-    <button wx:if="{{item.share_text}}" class="btn ghost" bindtap="copyShare" style="margin-top:18rpx;">复制抖音口令</button>
-  </view>
-  <view class="muted center" style="margin-top:24rpx;">本文为机器翻译/摘要，仅供参考，以原文为准</view>
+  <!-- 小程序无法直接跳转外部 App/公众号，提供「复制 + 步骤」引导 -->
+  <block wx:if="{{item.kind === 'douyin'}}">
+    <view class="d-guide">
+      <view class="d-guide-t">▶️ 如何观看完整视频</view>
+      <view class="d-guide-s">1. 点击下方「复制抖音口令」</view>
+      <view class="d-guide-s">2. 打开抖音 App</view>
+      <view class="d-guide-s">3. 点击顶部搜索框，粘贴口令后搜索，即可观看该视频</view>
+    </view>
+    <view class="d-actions">
+      <button wx:if="{{item.share_text}}" class="btn" bindtap="copyShare">复制抖音口令</button>
+      <button class="btn ghost" bindtap="copyLink" style="margin-top:18rpx;">复制视频链接</button>
+    </view>
+  </block>
+  <block wx:elif="{{item.kind === 'gzh'}}">
+    <view class="d-guide">
+      <view class="d-guide-t">📰 如何阅读公众号原文</view>
+      <view class="d-guide-s">1. 点击下方「复制标题」</view>
+      <view class="d-guide-s">2. 点击微信右上角的搜索框</view>
+      <view class="d-guide-s">3. 粘贴标题后搜索，即可打开该公众号文章</view>
+    </view>
+    <view class="d-actions">
+      <button class="btn" bindtap="copyTitle">复制标题</button>
+      <button class="btn ghost" bindtap="copyLink" style="margin-top:18rpx;">复制原文链接</button>
+    </view>
+  </block>
+  <block wx:elif="{{item.kind === 'social'}}">
+    <view class="d-guide">
+      <view class="d-guide-t">🔗 查看原帖</view>
+      <view class="d-guide-s">点击下方「复制原帖链接」，在浏览器打开即可查看 {{item.author_name}} 的原始帖子</view>
+    </view>
+    <view class="d-actions">
+      <button class="btn ghost" bindtap="copyLink">复制原帖链接</button>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="d-actions">
+      <button class="btn ghost" bindtap="copyLink">复制原文链接</button>
+    </view>
+  </block>
+  <view class="muted center" style="margin-top:24rpx;">译文与解读由 AI 生成，仅供参考，以原文为准</view>
 </view>
 
 <view wx:if="{{loading}}" class="hint">加载中…</view>

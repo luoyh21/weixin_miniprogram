@@ -5,6 +5,7 @@ const FILTERS = [
   { key: 'intl', label: '国际要闻' },
   { key: 'gzh', label: '公众号' },
   { key: 'douyin', label: '航天视频' },
+  { key: 'social', label: '政要社媒' },
 ];
 
 const WEEKDAYS = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
@@ -50,7 +51,7 @@ Page({
     active: '',
     items: [],
     groups: [],
-    kinds: { intl: 0, gzh: 0, douyin: 0 },
+    kinds: { intl: 0, gzh: 0, douyin: 0, social: 0 },
     loading: true,
     error: '',
   },

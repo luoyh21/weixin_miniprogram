@@ -27,4 +27,34 @@
   background: #f0f2f6;
 }
 
-.d-actions { margin-top: 30rpx; }
+.d-actions { margin-top: 18rpx; }
+
+.d-guide {
+  margin-top: 30rpx;
+  padding: 22rpx 24rpx;
+  background: #f5f8ff;
+  border: 2rpx solid #e6eeff;
+  border-radius: 18rpx;
+}
+.d-guide-t { font-size: 28rpx; font-weight: 600; color: var(--ink); margin-bottom: 10rpx; }
+.d-guide-s { font-size: 26rpx; color: var(--sub); line-height: 1.9; }
+
+/* 政要社媒结构化展示 */
+.s-block { margin-top: 26rpx; }
+.s-label { font-size: 24rpx; color: var(--muted); font-weight: 600; margin-bottom: 10rpx; }
+.s-val { font-size: 31rpx; line-height: 1.8; color: #2a3344; }
+.s-orig {
+  font-size: 29rpx;
+  line-height: 1.75;
+  color: #4a5568;
+  padding: 18rpx 20rpx;
+  background: #f6f7f9;
+  border-radius: 14rpx;
+}
+.s-analysis {
+  padding: 22rpx 24rpx;
+  background: #f3f0ff;
+  border: 2rpx solid #e7e0ff;
+  border-radius: 18rpx;
+}
+.s-analysis .s-label { color: #6a3df5; }

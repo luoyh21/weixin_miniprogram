@@ -27,7 +27,7 @@
         >
           <view class="nc-body">
             <view class="nc-tagline">
-              <text class="tag {{news.kind === 'gzh' ? 'gzh' : (news.kind === 'douyin' ? 'douyin' : '')}}">#{{news.main_tag}}</text>
+              <text class="tag {{news.kind}}">#{{news.main_tag}}</text>
               <text class="nc-source">{{news.source}}</text>
             </view>
             <view class="nc-title">{{news.title}}</view>
