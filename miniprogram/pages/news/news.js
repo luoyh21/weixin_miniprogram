@@ -66,7 +66,7 @@ Page({
 
   load(fromPull) {
     this.setData({ loading: true, error: '' });
-    api.get('/news/week?days=7' + (this.data.active ? '&kind=' + this.data.active : ''), { auth: false })
+    api.get('/news/week?days=30' + (this.data.active ? '&kind=' + this.data.active : ''), { auth: false })
       .then((res) => {
         const items = res.items || [];
         this.setData({

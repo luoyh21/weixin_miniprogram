@@ -108,8 +108,8 @@ def api_change_pwd(body: ChangePwdIn, authorization: str | None = Header(default
 
 # ---------------- 新闻 ----------------
 @router.get("/news/week")
-def api_news_week(days: int = 7, kind: str | None = None):
-    days = max(1, min(days, 14))
+def api_news_week(days: int = 30, kind: str | None = None):
+    days = max(1, min(days, 31))
     return {"ok": True, **news_store.week(days=days, kind=kind)}
 
 

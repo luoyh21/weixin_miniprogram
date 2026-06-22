@@ -39,8 +39,8 @@
       </view>
     </block>
 
-    <view wx:if="{{loading}}" class="hint">正在加载近一周速递…</view>
+    <view wx:if="{{loading}}" class="hint">正在加载近一月速递…</view>
     <view wx:if="{{!loading && error}}" class="hint">{{error}}</view>
-    <view wx:if="{{!loading && !error && !groups.length}}" class="hint">近一周暂无该类内容</view>
+    <view wx:if="{{!loading && !error && !groups.length}}" class="hint">近一月暂无该类内容</view>
   </view>
 </view>
