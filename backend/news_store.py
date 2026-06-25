@@ -1,4 +1,4 @@
-"""读取 weixin_auto_message 已生成的速递缓存，聚合「近一周」新闻给小程序。
+"""读取 weixin_auto_message 已生成的速递缓存，聚合「近两周」新闻给小程序。
 
 不重新抓取、不推送，纯复用 data/cache/*.json。
 每个缓存含 spacenews[] / opml[] / douyin[]，本模块把它们规整成统一条目。
@@ -35,16 +35,15 @@ except Exception:
 CST = timezone(timedelta(hours=8))
 _CN_DT_RE = re.compile(r"(\d{4})\D+(\d{1,2})\D+(\d{1,2})\D+(\d{1,2}):(\d{2})(?::(\d{2}))?")
 
-# 统一构建近一个月（含冗余）的全量数据集，按需在 week()/detail() 里按天过滤；
+# 统一构建近两周（含 1 天冗余）的全量数据集，按需在 week()/detail() 里按天过滤；
 # 这样缓存与请求的 days 解耦，避免不同 days 互相挤掉对方触发重建。
-_WINDOW_DAYS = 31
+_WINDOW_DAYS = 15
 
 # 单一缓存 + stale-while-revalidate：缓存过期时**先返回旧数据**、后台线程重建，
 # 请求永不阻塞在重建上（首次无缓存时才同步构建一次）。
 _CACHE: dict = {"ts": 0.0, "items": [], "index": {}}
 _CACHE_TTL = 300  # 秒
 _BUILD_LOCK = threading.Lock()
-_REFRESHING = {"on": False}
 
 
 def _parse_dt(s: str) -> datetime | None:
@@ -117,7 +116,7 @@ def _norm_intl(a: dict) -> dict:
         "published_ts": _ts(pub),
         "tags": (tags or ["国际新闻"]),
         "main_tag": (tags[0] if tags else "国际新闻"),
-        "image": a.get("image_url") or "",
+        "image": _proxy_img(a.get("image_url") or ""),
         "link": link,
     }
 
@@ -139,7 +138,7 @@ def _norm_gzh(a: dict) -> dict:
         "published_ts": _ts(pub),
         "tags": ["公众号精选"],
         "main_tag": "公众号精选",
-        "image": a.get("image_url") or "",
+        "image": _proxy_img(a.get("image_url") or ""),
         "link": link,
     }
 
@@ -161,19 +160,18 @@ def _norm_dy(a: dict) -> dict:
         "published_ts": _ts(pub),
         "tags": ["航天视频"],
         "main_tag": "航天视频",
-        "image": a.get("image_url") or "",
+        "image": _proxy_img(a.get("image_url") or ""),
         "link": link,
         "share_text": a.get("share_text") or "",
     }
 
 
 def _proxy_img(url: str) -> str:
-    if not url or _img_proxy is None:
-        return url or ""
-    try:
-        return _img_proxy.proxify(url)
-    except Exception:
-        return url
+    # 卡片缩略图一律直连源站，**不经本机 /img 代理**：
+    # 经本机代理会让每张图（冷图 3~12s、~100KB）占用服务器线程与上行带宽，
+    # 真实流量下把整台服务（含用户管理等所有接口）拖垮。图片直连由手机各自加载、
+    # 异步惰性、不阻塞列表文字；个别盗链图最多显示为空缩略图，不影响可用性。
+    return url or ""
 
 
 def _norm_social(a: dict) -> dict:
@@ -277,32 +275,50 @@ def _do_build_and_store() -> tuple[list[dict], dict]:
     return items, index
 
 
+def _sources_mtime() -> float:
+    """受监控数据源的最新修改时间，用于判断缓存是否落后于今日新内容。
+
+    覆盖：速递缓存 data/cache/*.json + 政要社媒库 social_store.json + 公众号库
+    gzh_store.json。任一被写新（每日生成/抓取入库）都会让 mtime 前进。
+    """
+    m = 0.0
+    try:
+        for f in WAM_CACHE_DIR.glob("*.json"):
+            m = max(m, f.stat().st_mtime)
+    except Exception:
+        pass
+    data_dir = WAM_CACHE_DIR.parent
+    for name in ("social_store.json", "gzh_store.json"):
+        try:
+            m = max(m, (data_dir / name).stat().st_mtime)
+        except Exception:
+            pass
+    return m
+
+
 def _ensure() -> tuple[list[dict], dict]:
     """返回全量数据集（近 _WINDOW_DAYS 天），days-agnostic。
 
-    - 缓存新鲜：直接返回。
-    - 缓存陈旧但存在：立即返回旧数据，后台线程重建（stale-while-revalidate）。
-    - 完全无缓存（首次）：同步构建一次（加锁防并发重复构建）。
+    构建极快（实测 ~25ms / 数百条），因此采用「按数据新鲜度重建」：
+    - TTL 内：直接返回缓存（不做任何磁盘 stat）。
+    - TTL 到期且**数据源确有更新**（mtime 比缓存新）：**同步重建**，保证首次打开
+      就能看到今日刚生成/入库的内容（不再出现"要再刷一次才更新"）。
+    - TTL 到期但数据没变：续期后直接返回旧缓存，不做无谓重建。
+    - 完全无缓存（首次）：同步构建。
     """
     now = time.time()
     if (now - _CACHE["ts"] < _CACHE_TTL) and _CACHE["items"]:
         return _CACHE["items"], _CACHE["index"]
 
     if _CACHE["items"]:
-        # 有旧数据 → 不阻塞，后台刷新
-        if not _REFRESHING["on"]:
-            _REFRESHING["on"] = True
-
-            def _bg():
-                try:
-                    with _BUILD_LOCK:
-                        _do_build_and_store()
-                except Exception:
-                    pass
-                finally:
-                    _REFRESHING["on"] = False
-
-            threading.Thread(target=_bg, daemon=True).start()
+        if _sources_mtime() > _CACHE["ts"]:
+            with _BUILD_LOCK:
+                # 双检：可能已被其它线程重建
+                if _CACHE["items"] and _sources_mtime() <= _CACHE["ts"]:
+                    return _CACHE["items"], _CACHE["index"]
+                return _do_build_and_store()
+        # 数据未变，仅 TTL 老化 → 续期，避免每次请求都 stat
+        _CACHE["ts"] = now
         return _CACHE["items"], _CACHE["index"]
 
     # 首次：同步构建（双检锁，避免并发重复构建）
@@ -329,28 +345,40 @@ def _card(it: dict) -> dict:
     )}
 
 
-def week(days: int = 30, kind: str | None = None) -> dict:
+def week(days: int = 14, kind: str | None = None, offset: int = 0, limit: int = 0) -> dict:
     items, _ = _ensure()
     cutoff = time.time() - days * 86400
     # published_ts==0 表示日期无法解析，保留以免误删
     items = [it for it in items if (it["published_ts"] == 0 or it["published_ts"] >= cutoff)]
     if kind:
         items = [it for it in items if it["kind"] == kind]
-    cards = [_card(it) for it in items]
+    else:
+        # 「全部」不展示政要社媒（其有独立栏目），避免与其它内容混排
+        items = [it for it in items if it["kind"] != "social"]
+
+    total = len(items)
+    kinds = {
+        "intl": sum(1 for c in items if c["kind"] == "intl"),
+        "gzh": sum(1 for c in items if c["kind"] == "gzh"),
+        "douyin": sum(1 for c in items if c["kind"] == "douyin"),
+        "social": sum(1 for c in items if c["kind"] == "social"),
+    }
+    # 分页：limit>0 时只取一页，单页响应小、任何网络都能秒开
+    page = items[offset:offset + limit] if limit > 0 else items
+    cards = [_card(it) for it in page]
     return {
         "days": days,
+        "total": total,
         "count": len(cards),
+        "offset": offset,
+        "limit": limit,
+        "has_more": (offset + len(cards)) < total,
         "items": cards,
-        "kinds": {
-            "intl": sum(1 for c in cards if c["kind"] == "intl"),
-            "gzh": sum(1 for c in cards if c["kind"] == "gzh"),
-            "douyin": sum(1 for c in cards if c["kind"] == "douyin"),
-            "social": sum(1 for c in cards if c["kind"] == "social"),
-        },
+        "kinds": kinds,
     }
 
 
-def detail(item_id: str, days: int = 31) -> dict | None:
+def detail(item_id: str, days: int = 15) -> dict | None:
     _, index = _ensure()
     it = index.get(item_id)
     if it is None:

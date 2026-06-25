@@ -2,7 +2,7 @@
   <scroll-view class="msgs" scroll-y scroll-into-view="{{scrollTo}}" scroll-with-animation>
     <view wx:if="{{!messages.length}}" class="welcome">
       <view class="w-title">航天速递助手</view>
-      <view class="w-sub">基于近一周抓取的航天新闻为你解答。试试这些问题：</view>
+      <view class="w-sub">基于近两周抓取的航天新闻为你解答。试试这些问题：</view>
       <view class="sugs">
         <view wx:for="{{suggestions}}" wx:key="*this" class="sug" data-q="{{item}}" bindtap="useSuggestion">{{item}}</view>
       </view>

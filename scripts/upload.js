@@ -3,7 +3,7 @@
  *
  * 依赖：npm i miniprogram-ci  （在 weixin_miniprogram 目录下执行）
  * 运行：node scripts/upload.js [版本号] [描述]
- *   例：node scripts/upload.js 1.0.0 "首个版本：近一周速递+问答+账号/管理员"
+ *   例：node scripts/upload.js 1.0.0 "首个版本：近两周速递+问答+账号/管理员"
  *
  * 注意：
  * - 需在「微信公众平台 -> 开发管理 -> 开发设置 -> 小程序代码上传」里
@@ -19,7 +19,9 @@ const KEY_PATH = path.join(PROJECT_ROOT, `private.${APPID}.key`);
 const MP_ROOT = path.join(PROJECT_ROOT, 'miniprogram');
 
 const version = process.argv[2] || '1.0.0';
-const desc = process.argv[3] || `upload ${new Date().toISOString()}`;
+// 备注默认填项目简要说明，而非本次更新内容
+const DEFAULT_DESC = '航天速递小程序：近两周国际航天要闻/公众号精选/航天视频/政要社媒 + AI 航天问答';
+const desc = process.argv[3] || DEFAULT_DESC;
 
 (async () => {
   const project = new ci.Project({

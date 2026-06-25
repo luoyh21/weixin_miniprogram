@@ -2,7 +2,7 @@
 
 与 `weixin_auto_message`（企业微信每日推送）**功能一致、内容同源**，但形态改为**微信小程序**：
 
-- 不再做定时推送，改为**随时阅读近一周**的航天速递；
+- 不再做定时推送，改为**随时阅读近两周**的航天速递；
 - 底部 Tab 切换到**问答**页，向大模型提问并获得带链接的回答；
 - **我的**页提供注册 / 登录（真实姓名 + 账号 + 密码）；
 - 管理员（默认 `lq3525926` 罗一鹤，可多个）在「我的」页会额外出现**管理控制台**：查看 / 修改用户、抖音 Cookie 快捷更新。
@@ -18,7 +18,7 @@ weixin_miniprogram/
 ├─ backend/                 # 后端（FastAPI 路由，被挂到现有服务的 /api 下）
 │  ├─ api.py                # 所有 /api 路由
 │  ├─ auth.py               # 注册/登录/鉴权（文件存储 + HMAC token）
-│  ├─ news_store.py         # 读取 ../weixin_auto_message/data/cache 聚合近一周
+│  ├─ news_store.py         # 读取 ../weixin_auto_message/data/cache 聚合近两周
 │  ├─ qa.py                 # 复用 summarizer.answer_with_context
 │  ├─ douyin_cookie.py      # 抖音容器 Cookie 更新 + 自检
 │  ├─ paths.py              # 路径 / 对 weixin_auto_message 的引用
@@ -27,7 +27,7 @@ weixin_miniprogram/
 │  ├─ app.{js,json,wxss}
 │  ├─ utils/api.js          # wx.request 封装（base = https://links.he-ting.com/api）
 │  └─ pages/
-│     ├─ news/              # Tab1：近一周速递（国际/公众号/视频 筛选）
+│     ├─ news/              # Tab1：近两周速递（国际/公众号/视频 筛选）
 │     ├─ detail/            # 文章详情（中文译文原生渲染）
 │     ├─ ask/              # Tab2：问答
 │     └─ account/           # Tab3：我的（登录/注册 + 管理控制台）
@@ -73,7 +73,7 @@ pkill -9 -f "[s]rc.server"      # 注意用括号技巧避免误杀
 | POST | `/auth/login` | - | `{account, password}`（account 可填账号或真实姓名）|
 | GET | `/auth/me` | Bearer | 当前用户 |
 | POST | `/auth/change_password` | Bearer | `{old_password, new_password}` |
-| GET | `/news/week?days=7&kind=` | - | 近一周新闻（kind: intl/gzh/douyin）|
+| GET | `/news/week?days=14&kind=` | - | 近两周新闻（kind: intl/gzh/douyin）|
 | GET | `/news/item?id=` | - | 单条详情（含译文正文）|
 | POST | `/qa/ask` | Bearer | `{question}` → `{answer}` |
 | GET | `/admin/users` | Admin | 用户列表 |

@@ -108,9 +108,12 @@ def api_change_pwd(body: ChangePwdIn, authorization: str | None = Header(default
 
 # ---------------- 新闻 ----------------
 @router.get("/news/week")
-def api_news_week(days: int = 30, kind: str | None = None):
-    days = max(1, min(days, 31))
-    return {"ok": True, **news_store.week(days=days, kind=kind)}
+def api_news_week(days: int = 14, kind: str | None = None, offset: int = 0, limit: int = 0):
+    days = max(1, min(days, 15))
+    offset = max(0, offset)
+    # limit<=0 表示不分页（兼容旧逻辑）；分页时限制单页上限，防止超大响应
+    limit = min(limit, 100) if limit and limit > 0 else 0
+    return {"ok": True, **news_store.week(days=days, kind=kind, offset=offset, limit=limit)}
 
 
 @router.get("/news/item")
