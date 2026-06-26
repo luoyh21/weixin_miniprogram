@@ -536,8 +536,8 @@ def week(days: int = 14, kind: str | None = None, offset: int = 0, limit: int = 
     if kind:
         items = [it for it in items if it["kind"] == kind]
     else:
-        # 「全部」不展示政要社媒（其有独立栏目），避免与其它内容混排
-        items = [it for it in items if it["kind"] != "social"]
+        # 「全部」不展示政要社媒、碎片更新（均有独立栏目），避免与其它内容混排
+        items = [it for it in items if it["kind"] not in ("social", "debris")]
 
     total = len(items)
     kinds = {
