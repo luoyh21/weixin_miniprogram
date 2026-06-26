@@ -54,6 +54,7 @@ Page({
     kinds: { intl: 0, gzh: 0, douyin: 0, social: 0 },
     loading: true,
     error: '',
+    imgErr: {}, // 加载失败的图（按条目 id 标记）→ 隐藏，不显示破图
   },
 
   // 渲染分组的真源放实例上，配合「定点 setData」增量追加，避免每页重建整列表
@@ -226,6 +227,12 @@ Page({
     const key = e.currentTarget.dataset.key;
     if (key === this.data.active) return;
     this.setData({ active: key }, () => this.load());
+  },
+
+  // 图片加载失败 → 标记该条目隐藏缩略图（境内偶发拉不到的境外图不留破框）
+  onImgError(e) {
+    const id = e.currentTarget.dataset.id;
+    if (id) this.setData({ ['imgErr.' + id]: true });
   },
 
   openDetail(e) {

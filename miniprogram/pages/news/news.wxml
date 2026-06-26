@@ -34,7 +34,7 @@
             <view class="nc-summary">{{news.summary}}</view>
             <view class="nc-meta">{{news.published}}</view>
           </view>
-          <image wx:if="{{news.image}}" class="nc-thumb" src="{{news.image}}" mode="aspectFill" lazy-load="true" />
+          <image wx:if="{{news.image && !imgErr[news.id]}}" class="nc-thumb" src="{{news.image}}" mode="aspectFill" lazy-load="true" binderror="onImgError" data-id="{{news.id}}" />
         </view>
       </view>
     </block>
