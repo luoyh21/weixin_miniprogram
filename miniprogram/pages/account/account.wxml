@@ -94,12 +94,11 @@
               <text wx:elif="{{item.role==='admin'}}" class="badge sm">管理员</text>
             </view>
             <view class="u-acc">账号：{{item.account}}</view>
-            <view class="u-pwd">密码：{{item.password || '（重置后可见）'}}</view>
           </view>
           <text class="arrow">管理 ›</text>
         </view>
       </view>
-      <view class="muted" style="margin:0 6rpx;">提示：点任一用户可重置密码{{isSuper ? '、设/撤管理员、删除' : '（仅限普通用户）'}}。密码以明文展示，请妥善保管。</view>
+      <view class="muted" style="margin:0 6rpx;">提示：点任一用户可重置密码{{isSuper ? '、设/撤管理员、删除' : '（仅限普通用户）'}}。出于安全，密码不可查看，只能重置。</view>
     </block>
   </block>
 

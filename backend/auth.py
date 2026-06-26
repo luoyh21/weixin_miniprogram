@@ -140,13 +140,6 @@ def _public(account: str, u: dict) -> dict:
     }
 
 
-def _admin_view(account: str, u: dict) -> dict:
-    """管理员可见视图：额外带真实姓名与（可见时的）明文密码。"""
-    d = _public(account, u)
-    d["password"] = u.get("pwd_plain", "")  # 旧用户无明文则为空，需重置后可见
-    return d
-
-
 def register(account: str, real_name: str, password: str) -> dict:
     account = (account or "").strip()
     real_name = (real_name or "").strip()
@@ -168,7 +161,6 @@ def register(account: str, real_name: str, password: str) -> dict:
             "role": role,
             "pwd_salt": salt,
             "pwd_hash": _hash_pwd(password, salt),
-            "pwd_plain": password,  # 仅供管理员查看（按需求保留）
             "created_at": now,
             "updated_at": now,
         }
@@ -197,10 +189,6 @@ def login(account: str, password: str) -> dict:
         if ROLE_RANK.get(u.get("role", "user"), 0) < ROLE_RANK.get(desired, 0):
             u["role"] = desired
             changed = True
-        # 旧用户没存明文密码 → 登录成功时补存一份（便于管理员查看）
-        if not u.get("pwd_plain"):
-            u["pwd_plain"] = password
-            changed = True
         if changed:
             u["updated_at"] = int(time.time())
             _save(users)
@@ -214,9 +202,9 @@ def get_user(account: str) -> dict | None:
 
 
 def admin_list_users() -> list[dict]:
-    """管理员视图：含真实姓名与明文密码，按 超管>管理员>用户、再按创建时间排。"""
+    """管理员视图：含真实姓名（不含密码），按 超管>管理员>用户、再按创建时间排。"""
     users = _load()
-    out = [_admin_view(k, v) for k, v in users.items()]
+    out = [_public(k, v) for k, v in users.items()]
     out.sort(key=lambda x: (-ROLE_RANK.get(x["role"], 0), x.get("created_at") or 0))
     return out
 
@@ -239,7 +227,6 @@ def update_user(account: str, *, real_name: str | None = None,
                 raise ValueError("密码至少 6 位")
             u["pwd_salt"] = secrets.token_hex(8)
             u["pwd_hash"] = _hash_pwd(new_password, u["pwd_salt"])
-            u["pwd_plain"] = new_password
         u["updated_at"] = int(time.time())
         _save(users)
         return _public(key, u)
@@ -265,7 +252,6 @@ def change_own_password(account: str, old_password: str, new_password: str) -> d
             raise ValueError("新密码至少 6 位")
         u["pwd_salt"] = secrets.token_hex(8)
         u["pwd_hash"] = _hash_pwd(new_password, u["pwd_salt"])
-        u["pwd_plain"] = new_password
         u["updated_at"] = int(time.time())
         _save(users)
         return _public(key, u)

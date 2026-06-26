@@ -394,6 +394,34 @@ SPACE_TUG_ITEMS = [
 ]
 
 
+_PUB_YEAR_RE = re.compile(r"(?:19|20)\d{2}")
+
+
+def _published_key(s: str) -> tuple[int, int, int]:
+    """把不规则的发布时间字符串解析成可排序的 (年, 月, 日)。
+
+    兼容 "2026-04-28" / "2026-04" / "2026" / "2024-2025"(年份区间取较晚) 等格式。
+    解析不出时返回 (0,0,0) 排到最后。
+    """
+    s = (s or "").strip()
+    years = _PUB_YEAR_RE.findall(s)
+    if not years:
+        return (0, 0, 0)
+    if len(years) >= 2:  # 年份区间(如 2024-2025) → 取较晚的年
+        return (max(int(y) for y in years), 0, 0)
+    y = int(years[0])
+    rest = s.split(years[0], 1)[1]
+    nums = re.findall(r"\d{1,2}", rest)
+    mo = int(nums[0]) if nums and 1 <= int(nums[0]) <= 12 else 0
+    d = int(nums[1]) if len(nums) >= 2 and 1 <= int(nums[1]) <= 31 else 0
+    return (y, mo, d)
+
+
+def _sort_by_published(items: list[dict]) -> list[dict]:
+    """按发布时间倒序（最近在前）。稳定排序，时间相同保持原有相对顺序。"""
+    return sorted(items, key=lambda it: _published_key(it.get("published", "")), reverse=True)
+
+
 def _normalize(items: list[dict]) -> list[dict]:
     out = []
     for a in items:
@@ -411,7 +439,7 @@ def _normalize(items: list[dict]) -> list[dict]:
             "summary": a.get("summary", ""),
             "tags": tags,
         })
-    return out
+    return _sort_by_published(out)
 
 
 # 内置专题“配方”：id -> (title, intro, items builder)
@@ -731,6 +759,9 @@ def get_topic(topic_id: str) -> dict | None:
     elif topic and any(not it.get("page_url") or "body_zh" not in it for it in topic.get("items") or []):
         # 旧数据缺少落地页/全文：整体重建一次
         topic = refresh(topic_id)
+    if topic and isinstance(topic.get("items"), list):
+        # 兜底：已存盘旧数据也按发布时间倒序返回（最近在前）
+        topic["items"] = _sort_by_published(topic["items"])
     return topic
 
 
