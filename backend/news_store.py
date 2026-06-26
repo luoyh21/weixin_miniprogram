@@ -166,12 +166,28 @@ def _norm_dy(a: dict) -> dict:
     }
 
 
+def _phone_direct(url: str) -> bool:
+    """该源服务器取不到、但**国内手机能直连**（truthsocial CDN 实测如此）→ 留原址直发手机。"""
+    h = url.split("://", 1)[-1].split("/", 1)[0].lower()
+    return h == "truthsocial.com" or h.endswith(".truthsocial.com")
+
+
 def _proxy_img(url: str) -> str:
-    # 卡片缩略图一律直连源站，**不经本机 /img 代理**：
-    # 经本机代理会让每张图（冷图 3~12s、~100KB）占用服务器线程与上行带宽，
-    # 真实流量下把整台服务（含用户管理等所有接口）拖垮。图片直连由手机各自加载、
-    # 异步惰性、不阻塞列表文字；个别盗链图最多显示为空缩略图，不影响可用性。
-    return url or ""
+    # 列表缩略图：境外图床（i0.wp.com / nasa.gov 等）国内手机直连不到，但**本服务器可达**，
+    # 故统一走本机 /img 代理——首次下载落盘、之后静态秒回（冷取高峰由 _prewarm_images 预热消解，
+    # 不会再像早期那样每张冷图占线程把服务拖垮）。
+    # 例外：已是本机地址(/relay-img、/img) 原样返回；truthsocial 服务器取不到、手机能直连 → 留原址。
+    if not url:
+        return ""
+    if not url.startswith("http"):
+        return url
+    if _img_proxy is not None and url.startswith(_img_proxy.public_base()):
+        return url
+    if _phone_direct(url):
+        return url
+    if _img_proxy is not None:
+        return _img_proxy.proxify(url)
+    return url
 
 
 def _norm_social(a: dict) -> dict:
@@ -269,9 +285,51 @@ def _build(days: int) -> tuple[list[dict], dict]:
     return items, index
 
 
+_PREWARM_LOCK = threading.Lock()
+_PREWARM_BUSY = False
+
+
+def _prewarm_images(items: list[dict]) -> None:
+    """后台把经 /img 代理的境外图逐张下载落盘，让手机请求时几乎都命中缓存。
+
+    prefetch 对已缓存的图是「查文件存在即返回」的廉价操作，故每次重建重跑只会补抓新图；
+    串行执行（不并发）避免给服务器造成冷取高峰。同一时刻只允许一个预热线程。
+    """
+    global _PREWARM_BUSY
+    if _img_proxy is None:
+        return
+    import urllib.parse as _up
+    with _PREWARM_LOCK:
+        if _PREWARM_BUSY:
+            return
+        _PREWARM_BUSY = True
+    try:
+        seen: set[str] = set()
+        for it in items:
+            img = it.get("image", "") or ""
+            if "/img?" not in img:
+                continue
+            try:
+                q = _up.parse_qs(_up.urlparse(img).query)
+            except Exception:
+                continue
+            u = (q.get("u") or [""])[0]
+            r = (q.get("r") or [""])[0]
+            if not u or u in seen:
+                continue
+            seen.add(u)
+            try:
+                _img_proxy.prefetch(u, r or None, timeout=12.0)
+            except Exception:
+                pass
+    finally:
+        _PREWARM_BUSY = False
+
+
 def _do_build_and_store() -> tuple[list[dict], dict]:
     items, index = _build(_WINDOW_DAYS)
     _CACHE.update(ts=time.time(), items=items, index=index)
+    threading.Thread(target=_prewarm_images, args=(items,), daemon=True).start()
     return items, index
 
 

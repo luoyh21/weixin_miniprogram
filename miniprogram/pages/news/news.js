@@ -36,6 +36,9 @@ function dateLabel(date) {
 const PAGE_SIZE = 10;
 // 久置/隔天再回到页面时自动刷新的阈值
 const REFRESH_IDLE_MS = 10 * 60 * 1000;
+// 首屏本地缓存：冷启动先渲染上次内容（秒开），再后台静默刷新，缓解微信冷启动等待。
+// 仅缓存默认「全部」分类的第一页。
+const HOME_CACHE_KEY = 'news_home_cache_v1';
 
 function fmtToday() {
   return fmtDate(new Date());
@@ -61,15 +64,64 @@ Page({
   _loadDay: '',      // 上次加载所属日期
 
   onLoad() {
-    this.load();
+    // 冷启动先吃本地缓存秒开（仅默认分类），再静默拉最新覆盖；无缓存才走常规加载。
+    const cached = this._readHomeCache();
+    if (cached && cached.groups && cached.groups.length) {
+      this._groups = cached.groups;
+      this._offset = cached.offset || 0;
+      this._lastLoadAt = 0; // 标记当前是缓存，触发后台刷新
+      this.setData({
+        groups: cached.groups,
+        kinds: cached.kinds || this.data.kinds,
+        hasMore: !!cached.hasMore,
+        loading: false,
+      });
+      this.load(false, true); // 静默刷新
+    } else {
+      this.load();
+    }
   },
 
   onShow() {
-    // 冷启动由 onLoad 负责；这里只处理「切后台再回来 / 隔天再打开」时拉取今日新内容
+    // 切后台再回来 / 隔天再打开时拉取今日新内容（静默，不闪白屏）
     if (!this._lastLoadAt) return;
     const staleDay = this._loadDay !== fmtToday();
     const idleLong = Date.now() - this._lastLoadAt > REFRESH_IDLE_MS;
-    if (staleDay || idleLong) this.load();
+    if (staleDay || idleLong) this.load(false, true);
+  },
+
+  _readHomeCache() {
+    try {
+      return wx.getStorageSync(HOME_CACHE_KEY) || null;
+    } catch (e) {
+      return null;
+    }
+  },
+
+  _saveHomeCache(res) {
+    if (this.data.active) return; // 只缓存默认「全部」
+    try {
+      wx.setStorageSync(HOME_CACHE_KEY, {
+        ts: Date.now(),
+        groups: this._groups,
+        kinds: res.kinds || this.data.kinds,
+        hasMore: !!res.has_more,
+        offset: this._offset,
+      });
+    } catch (e) { /* 缓存失败忽略 */ }
+  },
+
+  // 按日期把一批条目构建成完整分组数组（首屏/刷新整体替换用）
+  _buildGroupsFrom(items) {
+    (items || []).forEach((it) => {
+      const date = (it.published || '').slice(0, 10) || '更早';
+      let last = this._groups[this._groups.length - 1];
+      if (!last || last.date !== date) {
+        last = { date, label: dateLabel(date), items: [] };
+        this._groups.push(last);
+      }
+      last.items.push(it);
+    });
   },
 
   onPullDownRefresh() {
@@ -108,28 +160,37 @@ Page({
     this.setData(setObj);
   },
 
-  // 首屏与刷新：清空后拉第一页
-  load(fromPull) {
-    this._groups = [];
-    this._offset = 0;
+  // 首屏与刷新：拉第一页。quiet=true 时不清空、不显 loading（保留当前/缓存内容，
+  // 等新数据回来再整体替换），用于「缓存秒开后的静默刷新」与「切回页面刷新」，避免闪白屏。
+  load(fromPull, quiet) {
     this._lastLoadAt = Date.now();
     this._loadDay = fmtToday();
     const seq = ++this._reqSeq;
-    this.setData({ loading: true, error: '', groups: [], hasMore: false });
+    if (!quiet) {
+      this._groups = [];
+      this._offset = 0;
+      this.setData({ loading: true, error: '', groups: [], hasMore: false });
+    }
     api.get(this._url(0, PAGE_SIZE), { auth: false })
       .then((res) => {
         if (seq !== this._reqSeq) return;
         const items = res.items || [];
+        // 第一页整体替换（小页，setData 开销可忽略），后续滚动仍走 _appendItems 增量
+        this._groups = [];
+        this._buildGroupsFrom(items);
         this._offset = items.length;
         this.setData({
           kinds: res.kinds || this.data.kinds,
           hasMore: !!res.has_more,
           loading: false,
+          error: '',
+          groups: this._groups,
         });
-        this._appendItems(items);
+        this._saveHomeCache(res);
       })
       .catch((e) => {
         if (seq !== this._reqSeq) return;
+        if (quiet) return; // 静默刷新失败：保留已展示内容，不打扰
         this._groups = [];
         this.setData({ loading: false, error: e.message || '加载失败', groups: [], hasMore: false });
       })
