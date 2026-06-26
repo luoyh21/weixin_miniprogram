@@ -28,6 +28,18 @@ try:
 except Exception:
     _social_store = None
 try:
+    from src import techport_store as _techport_store  # type: ignore
+except Exception:
+    _techport_store = None
+try:
+    from src import launch_store as _launch_store  # type: ignore
+except Exception:
+    _launch_store = None
+try:
+    from src import debris_store as _debris_store  # type: ignore
+except Exception:
+    _debris_store = None
+try:
     from src import img_proxy as _img_proxy  # type: ignore
 except Exception:
     _img_proxy = None
@@ -221,6 +233,97 @@ def _norm_social(a: dict) -> dict:
     }
 
 
+def _norm_techport(a: dict) -> dict:
+    """技术港（NASA TechPort 每日更新项目，标题/摘要已译中文）。"""
+    title = a.get("title") or ""
+    body = a.get("summary") or ""
+    link = a.get("link") or ""
+    pub = a.get("published") or ""
+    extra = []
+    if a.get("status"):
+        extra.append(f"项目状态：{a['status']}")
+    if a.get("title_en"):
+        extra.append(f"原题：{a['title_en']}")
+    full = (body + ("\n\n" + " · ".join(extra) if extra else "")).strip()
+    return {
+        "id": _mk_id("techport", link, title),
+        "kind": "techport",
+        "title": title,
+        "title_orig": a.get("title_en") or title,
+        "summary": _short(body, 90),
+        "body": full,
+        "source": "NASA TechPort",
+        "published": _to_beijing(pub),
+        "published_ts": _ts(pub),
+        "tags": ["技术港"],
+        "main_tag": "技术港",
+        "image": "",
+        "link": link,
+    }
+
+
+def _norm_launch(a: dict) -> dict:
+    """每日发射（The Space Devs LL2 当日发射，火箭/任务名已译中文）。"""
+    title = a.get("title") or a.get("name_en") or ""
+    link = a.get("link") or ""
+    pub = a.get("published") or ""
+    parts = []
+    if a.get("provider"):
+        parts.append(f"发射提供方：{a['provider']}")
+    loc = "，".join([p for p in (a.get("pad"), a.get("location")) if p])
+    if loc:
+        parts.append(f"发射场：{loc}")
+    if a.get("net_bj"):
+        parts.append(f"计划时间（北京）：{a['net_bj']}")
+    if a.get("status"):
+        parts.append(f"状态：{a['status']}")
+    summary_zh = a.get("summary") or ""
+    body = "\n".join(parts) + (("\n\n" + summary_zh) if summary_zh else "")
+    card_bits = [b for b in (
+        a.get("provider"), a.get("location"),
+        (a.get("net_bj") + " 北京") if a.get("net_bj") else "",
+    ) if b]
+    card = "｜".join(card_bits) or _short(summary_zh, 90)
+    return {
+        "id": _mk_id("launch", link or a.get("name_en") or "", title),
+        "kind": "launch",
+        "title": title,
+        "title_orig": a.get("name_en") or title,
+        "summary": card,
+        "body": body.strip(),
+        "source": "The Space Devs",
+        "published": _to_beijing(pub),
+        "published_ts": _ts(pub),
+        "tags": ["每日发射"],
+        "main_tag": "每日发射",
+        "image": _proxy_img(a.get("image") or ""),
+        "link": link,
+    }
+
+
+def _norm_debris(a: dict) -> dict:
+    """碎片更新（CelesTrak 当日新增编目碎片汇总成一条）。"""
+    title = a.get("title") or "碎片更新"
+    link = a.get("link") or ""
+    pub = a.get("published") or ""
+    body = a.get("body") or ""
+    return {
+        "id": _mk_id("debris", link, title),  # 标题含日期 → 每日唯一
+        "kind": "debris",
+        "title": title,
+        "title_orig": title,
+        "summary": a.get("summary") or _short(body, 90),
+        "body": body,
+        "source": "CelesTrak",
+        "published": _to_beijing(pub),
+        "published_ts": _ts(pub),
+        "tags": ["碎片更新"],
+        "main_tag": "碎片更新",
+        "image": "",
+        "link": link,
+    }
+
+
 def _build(days: int) -> tuple[list[dict], dict]:
     cutoff = time.time() - days * 86400
     files = sorted(glob.glob(str(WAM_CACHE_DIR / "*.json")))
@@ -279,6 +382,27 @@ def _build(days: int) -> tuple[list[dict], dict]:
                     items.append(it)
         except Exception:
             pass
+
+    # 合并三新栏目库（技术港 / 每日发射 / 碎片更新，国内服务器每日直连入库、已译中文）
+    for store, norm in ((_techport_store, _norm_techport),
+                        (_launch_store, _norm_launch),
+                        (_debris_store, _norm_debris)):
+        if store is None:
+            continue
+        try:
+            for a in store.load_recent(days):
+                it = norm(a)
+                if it["id"] not in seen:
+                    seen.add(it["id"])
+                    items.append(it)
+        except Exception:
+            pass
+
+    # 链接去重：三新栏目命中的原文链接，从国际要闻里删掉重复那条（保守：仅链接完全相同）
+    others = {it["link"] for it in items
+              if it["kind"] in ("techport", "launch", "debris") and it["link"]}
+    if others:
+        items = [it for it in items if not (it["kind"] == "intl" and it["link"] in others)]
 
     items.sort(key=lambda x: x["published_ts"], reverse=True)
     index = {it["id"]: it for it in items}
@@ -346,7 +470,8 @@ def _sources_mtime() -> float:
     except Exception:
         pass
     data_dir = WAM_CACHE_DIR.parent
-    for name in ("social_store.json", "gzh_store.json"):
+    for name in ("social_store.json", "gzh_store.json",
+                 "techport_store.json", "launch_store.json", "debris_store.json"):
         try:
             m = max(m, (data_dir / name).stat().st_mtime)
         except Exception:
@@ -420,6 +545,9 @@ def week(days: int = 14, kind: str | None = None, offset: int = 0, limit: int = 
         "gzh": sum(1 for c in items if c["kind"] == "gzh"),
         "douyin": sum(1 for c in items if c["kind"] == "douyin"),
         "social": sum(1 for c in items if c["kind"] == "social"),
+        "techport": sum(1 for c in items if c["kind"] == "techport"),
+        "launch": sum(1 for c in items if c["kind"] == "launch"),
+        "debris": sum(1 for c in items if c["kind"] == "debris"),
     }
     # 分页：limit>0 时只取一页，单页响应小、任何网络都能秒开
     page = items[offset:offset + limit] if limit > 0 else items

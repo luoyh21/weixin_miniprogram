@@ -5,6 +5,9 @@ const FILTERS = [
   { key: 'intl', label: '国际要闻' },
   { key: 'gzh', label: '公众号' },
   { key: 'douyin', label: '航天视频' },
+  { key: 'techport', label: '技术港' },
+  { key: 'launch', label: '每日发射' },
+  { key: 'debris', label: '碎片更新' },
   { key: 'social', label: '政要社媒' },
 ];
 
@@ -51,7 +54,7 @@ Page({
     hasMore: false,
     loadingMore: false,
     groups: [],
-    kinds: { intl: 0, gzh: 0, douyin: 0, social: 0 },
+    kinds: { intl: 0, gzh: 0, douyin: 0, social: 0, techport: 0, launch: 0, debris: 0 },
     loading: true,
     error: '',
     imgErr: {}, // 加载失败的图（按条目 id 标记）→ 隐藏，不显示破图
