@@ -1,4 +1,5 @@
 const api = require('../../utils/api');
+const gate = require('../../utils/gate');
 
 const FILTERS = [
   { key: '', label: '全部' },
@@ -68,6 +69,8 @@ Page({
   _loadDay: '',      // 上次加载所属日期
 
   onLoad() {
+    // 审核受限期：速递不展示，直接跳到计算器。
+    if (gate.restricted()) { wx.reLaunch({ url: '/pages/calc/calc' }); return; }
     // 冷启动先吃本地缓存秒开（仅默认分类），再静默拉最新覆盖；无缓存才走常规加载。
     const cached = this._readHomeCache();
     if (cached && cached.groups && cached.groups.length) {
@@ -87,6 +90,10 @@ Page({
   },
 
   onShow() {
+    if (gate.restricted()) { wx.reLaunch({ url: '/pages/calc/calc' }); return; }
+    const tb = this.getTabBar && this.getTabBar();
+    if (tb) { tb.refresh(); tb.setSelectedByPath('/pages/news/news'); }
+    gate.refresh().then((r) => { if (r.changed) gate.applyToCurrentPage(); });
     // 切后台再回来 / 隔天再打开时拉取今日新内容（静默，不闪白屏）
     if (!this._lastLoadAt) return;
     const staleDay = this._loadDay !== fmtToday();

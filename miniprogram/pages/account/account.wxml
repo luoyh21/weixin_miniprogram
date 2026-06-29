@@ -1,7 +1,7 @@
 <view class="container">
 
-  <!-- 未登录：登录/注册 -->
-  <block wx:if="{{!loggedIn}}">
+  <!-- 未登录（或审核受限期）：仅登录/注册 -->
+  <block wx:if="{{!loggedIn || restricted}}">
     <view class="auth-head">
       <view class="auth-logo">🛰️</view>
       <view class="auth-title">航天速递</view>
@@ -30,8 +30,8 @@
     </view>
   </block>
 
-  <!-- 已登录 -->
-  <block wx:else>
+  <!-- 已登录（非受限期） -->
+  <block wx:if="{{loggedIn && !restricted}}">
     <view class="profile card">
       <view class="avatar">{{user.real_name[0]}}</view>
       <view class="p-info">

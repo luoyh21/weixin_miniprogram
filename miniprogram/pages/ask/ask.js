@@ -1,4 +1,5 @@
 const api = require('../../utils/api');
+const gate = require('../../utils/gate');
 
 const SUGGESTIONS = [
   '最近有哪些火箭发射？',
@@ -29,6 +30,10 @@ Page({
   },
 
   onShow() {
+    if (gate.restricted()) { wx.reLaunch({ url: '/pages/calc/calc' }); return; }
+    const tb = this.getTabBar && this.getTabBar();
+    if (tb) { tb.refresh(); tb.setSelectedByPath('/pages/ask/ask'); }
+    gate.refresh().then((r) => { if (r.changed) gate.applyToCurrentPage(); });
     const app = getApp();
     this.setData({ loggedIn: app.isLoggedIn() });
   },

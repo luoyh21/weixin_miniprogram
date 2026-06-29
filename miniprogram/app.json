@@ -4,6 +4,7 @@
     "pages/topic/topic",
     "pages/ask/ask",
     "pages/account/account",
+    "pages/calc/calc",
     "pages/detail/detail",
     "pages/topic_view/topic_view"
   ],
@@ -16,6 +17,7 @@
     "enablePullDownRefresh": false
   },
   "tabBar": {
+    "custom": true,
     "color": "#8a93a6",
     "selectedColor": "#2f6bff",
     "backgroundColor": "#ffffff",
@@ -24,6 +26,7 @@
       { "pagePath": "pages/news/news", "text": "速递" },
       { "pagePath": "pages/topic/topic", "text": "专题" },
       { "pagePath": "pages/ask/ask", "text": "问答" },
+      { "pagePath": "pages/calc/calc", "text": "计算器" },
       { "pagePath": "pages/account/account", "text": "我的" }
     ]
   },

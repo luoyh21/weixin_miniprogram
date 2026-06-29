@@ -1,0 +1,37 @@
+<view class="calc">
+  <view class="screen">
+    <view class="expr">{{expr || '0'}}</view>
+    <view class="result">{{result}}</view>
+  </view>
+
+  <view class="pad">
+    <view class="krow">
+      <view class="key fn" data-act="clear" bindtap="tap">C</view>
+      <view class="key fn" data-act="back" bindtap="tap">⌫</view>
+      <view class="key op" data-k="/" bindtap="tap">÷</view>
+      <view class="key op" data-k="*" bindtap="tap">×</view>
+    </view>
+    <view class="krow">
+      <view class="key" data-k="7" bindtap="tap">7</view>
+      <view class="key" data-k="8" bindtap="tap">8</view>
+      <view class="key" data-k="9" bindtap="tap">9</view>
+      <view class="key op" data-k="-" bindtap="tap">−</view>
+    </view>
+    <view class="krow">
+      <view class="key" data-k="4" bindtap="tap">4</view>
+      <view class="key" data-k="5" bindtap="tap">5</view>
+      <view class="key" data-k="6" bindtap="tap">6</view>
+      <view class="key op" data-k="+" bindtap="tap">+</view>
+    </view>
+    <view class="krow">
+      <view class="key" data-k="1" bindtap="tap">1</view>
+      <view class="key" data-k="2" bindtap="tap">2</view>
+      <view class="key" data-k="3" bindtap="tap">3</view>
+      <view class="key eq" data-act="eq" bindtap="tap">=</view>
+    </view>
+    <view class="krow">
+      <view class="key wide" data-k="0" bindtap="tap">0</view>
+      <view class="key" data-k="." bindtap="tap">.</view>
+    </view>
+  </view>
+</view>

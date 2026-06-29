@@ -1,7 +1,9 @@
 const api = require('../../utils/api');
+const gate = require('../../utils/gate');
 
 Page({
   data: {
+    restricted: false,
     loggedIn: false,
     isAdmin: false,
     isSuper: false,
@@ -24,10 +26,25 @@ Page({
   },
 
   onShow() {
+    const tb = this.getTabBar && this.getTabBar();
+    if (tb) { tb.refresh(); tb.setSelectedByPath('/pages/account/account'); }
+    this._render();
+    gate.refresh().then((r) => { if (r.changed) gate.applyToCurrentPage(); });
+  },
+
+  // 开关变化时（account 两态都停留本页）重新渲染受限/完整视图
+  onGateChange() {
+    this._render();
+  },
+
+  _render() {
+    const restricted = gate.restricted();
     const app = getApp();
     const loggedIn = app.isLoggedIn();
     const u = app.globalData.user || {};
-    this.setData({ loggedIn, isAdmin: !!u.is_admin, isSuper: !!u.is_super, user: app.globalData.user });
+    this.setData({ restricted, loggedIn, isAdmin: !!u.is_admin, isSuper: !!u.is_super, user: app.globalData.user });
+    // 受限期只展示登录/注册，不拉取资料与管理数据
+    if (restricted) return;
     if (loggedIn) this.refreshMe();
     if (loggedIn && u.is_admin) this.loadUsers();
     // 抖音抓取检测改为按钮触发（避免每次进页面都阻塞等待 ~20-45s）

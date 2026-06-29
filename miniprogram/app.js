@@ -1,3 +1,5 @@
+const gate = require('./utils/gate');
+
 App({
   globalData: {
     token: '',
@@ -7,6 +9,8 @@ App({
   onLaunch() {
     this.globalData.token = wx.getStorageSync('token') || '';
     this.globalData.user = wx.getStorageSync('user') || null;
+    // 启动即拉取「真实/计算器」总开关；若与缓存不同，对当前页重新路由
+    gate.refresh().then((r) => { if (r.changed) gate.applyToCurrentPage(); });
   },
 
   setAuth(token, user) {

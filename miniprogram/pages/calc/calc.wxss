@@ -1,0 +1,63 @@
+.calc {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #eef2f7;
+  padding: 24rpx;
+  box-sizing: border-box;
+}
+
+.screen {
+  background: #0b1f3a;
+  color: #fff;
+  border-radius: 24rpx;
+  padding: 48rpx 32rpx;
+  min-height: 200rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-bottom: 24rpx;
+}
+.expr {
+  font-size: 34rpx;
+  color: #9fb3d4;
+  min-height: 44rpx;
+  word-break: break-all;
+  text-align: right;
+}
+.result {
+  font-size: 72rpx;
+  font-weight: 700;
+  margin-top: 16rpx;
+  word-break: break-all;
+  text-align: right;
+}
+
+.pad {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+.krow {
+  display: flex;
+  gap: 20rpx;
+}
+.key {
+  flex: 1;
+  height: 120rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 44rpx;
+  font-weight: 600;
+  color: #1b2330;
+  box-shadow: 0 6rpx 18rpx rgba(20, 40, 90, 0.05);
+}
+.key:active { opacity: 0.6; }
+.key.wide { flex: 3; }
+.key.fn { background: #e7ecf5; color: #4a5566; }
+.key.op { background: #dbe6ff; color: #2f6bff; }
+.key.eq { background: #2f6bff; color: #fff; }

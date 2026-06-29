@@ -1,4 +1,5 @@
 const api = require('../../utils/api');
+const gate = require('../../utils/gate');
 
 Page({
   data: {
@@ -8,6 +9,10 @@ Page({
   },
 
   onShow() {
+    if (gate.restricted()) { wx.reLaunch({ url: '/pages/calc/calc' }); return; }
+    const tb = this.getTabBar && this.getTabBar();
+    if (tb) { tb.refresh(); tb.setSelectedByPath('/pages/topic/topic'); }
+    gate.refresh().then((r) => { if (r.changed) gate.applyToCurrentPage(); });
     this.load();
   },
 

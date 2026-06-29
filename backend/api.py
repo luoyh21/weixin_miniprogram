@@ -6,16 +6,34 @@
 """
 from __future__ import annotations
 
+import json
 import logging
+import os
 
 from fastapi import APIRouter, Header, HTTPException
 from pydantic import BaseModel
 
 from . import auth, news_store, qa, douyin_cookie, topic_intel
+from .paths import DATA_DIR
 
 log = logging.getLogger(__name__)
 
 router = APIRouter()
+
+# 小程序「真实内容 / 计算器」总开关：改它无需重新提交小程序版本。
+# 优先读 data/gate.json（改文件即时生效、无需重启）；文件缺失时回退环境变量 MP_SHOW_REAL；
+# 默认 False（显示计算器）。文件内容示例：{"real": true}
+_GATE_FILE = DATA_DIR / "gate.json"
+
+
+def _gate_real() -> bool:
+    try:
+        if _GATE_FILE.exists():
+            data = json.loads(_GATE_FILE.read_text(encoding="utf-8"))
+            return bool(data.get("real"))
+    except Exception:
+        log.warning("读取 gate.json 失败，回退环境变量/默认值", exc_info=True)
+    return os.environ.get("MP_SHOW_REAL", "").strip().lower() in ("1", "true", "yes", "on")
 
 
 # ---------------- 鉴权辅助 ----------------
@@ -54,6 +72,13 @@ def _target_is_admin(target: dict) -> bool:
 @router.get("/ping")
 def ping():
     return {"ok": True, "service": "weixin_miniprogram"}
+
+
+# ---------------- 前端展示总开关 ----------------
+@router.get("/gate")
+def gate():
+    """小程序据此决定展示真实内容(real=true)还是计算器(real=false)。"""
+    return {"ok": True, "real": _gate_real()}
 
 
 # ---------------- 认证 ----------------
