@@ -443,7 +443,8 @@ def _prewarm_images(items: list[dict]) -> None:
                 continue
             seen.add(u)
             try:
-                _img_proxy.prefetch(u, r or None, timeout=12.0)
+                # 预热的是「列表实际请求的缩略图变体」（w=THUMB_W），命中率才有意义
+                _img_proxy.prefetch(u, r or None, width=THUMB_W, quality=THUMB_Q, timeout=12.0)
             except Exception:
                 pass
     finally:
@@ -520,12 +521,27 @@ def warm() -> None:
         pass
 
 
+# 列表缩略图尺寸：卡片仅 180rpx（≈270px 物理像素），300px 足够清晰；
+# 缩略后单图体积约为原图的 1/10，弱网/隧道下首屏图片显著更快加载。
+THUMB_W = 300
+THUMB_Q = 72
+
+
+def _thumb(url: str) -> str:
+    """把 /img 代理 URL 变成缩略图变体（附 &w=&q=）。非 /img 代理图（relay/原址）原样返回。"""
+    if not url or "/img?" not in url:
+        return url
+    return f"{url}&w={THUMB_W}&q={THUMB_Q}"
+
+
 def _card(it: dict) -> dict:
-    """列表卡片用的精简字段（不含大正文）。"""
-    return {k: it[k] for k in (
+    """列表卡片用的精简字段（不含大正文）；图片改用缩略图变体省流量、加速首屏。"""
+    card = {k: it[k] for k in (
         "id", "kind", "title", "summary", "source", "published",
         "tags", "main_tag", "image", "link",
     )}
+    card["image"] = _thumb(card["image"])
+    return card
 
 
 def week(days: int = 14, kind: str | None = None, offset: int = 0, limit: int = 0) -> dict:
