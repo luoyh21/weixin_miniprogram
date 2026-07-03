@@ -394,6 +394,419 @@ SPACE_TUG_ITEMS = [
 ]
 
 
+# ---------------------------------------------------------------------------
+# 策展数据集：太空制造（在轨制造 / In-Space Manufacturing）
+# 围绕「总体设计」与「专业技术」，覆盖国内 / 国外，时间跨度近 3 年。
+# 子方向以 extra_tags 标注：太空3D打印 / 太空装配 / 太空加工。
+# ---------------------------------------------------------------------------
+SPACE_MFG_TITLE = "太空制造 · 在轨 3D 打印 / 装配 / 加工"
+SPACE_MFG_INTRO = (
+    "“太空制造”（In-Space Manufacturing / ISM）指在微重力、真空、强辐射的空间环境中直接制造、"
+    "装配与加工产品，涵盖太空 3D 打印（增材制造）、在轨装配（大型天线/桁架/结构）与太空加工"
+    "（材料/光纤/晶体/生物制品的空间制备）三大方向。它一方面让空间站与深空任务能“就地造零件”、"
+    "摆脱对地面补给的依赖，另一方面利用太空独有环境制造地面难以获得的高价值材料，被视为近地轨道"
+    "经济与月球/火星长期驻留的关键使能技术。本专题汇集近 3 年国内外在总体设计与专业技术两条主线上的代表性进展。"
+)
+
+SPACE_MFG_ITEMS = [
+    # ---------------- 国外 · 总体设计 ----------------
+    {
+        "title": "NASA 在轨制造（In-Space Manufacturing）计划：从“造零件”到“造基础设施”",
+        "source": "NASA",
+        "url": "https://www.nasa.gov/space-technology-mission-directorate/in-space-manufacturing/",
+        "published": "2024",
+        "region": "国外",
+        "aspect": "总体设计",
+        "summary": (
+            "NASA 在轨制造计划把太空制造分为“太空用于地球（在微重力中制造高价值产品运回地面）”与"
+            "“太空用于太空（在轨/月面就地制造零件、备件与结构）”两条主线，覆盖增材制造、回收再造、"
+            "在轨装配与月面原位资源利用（ISRU），目标是让深空任务摆脱对地面补给链的依赖。"
+        ),
+        "extra_tags": ["在轨制造", "路线图"],
+    },
+    {
+        "title": "DARPA NOM4D：面向在轨与月面的大质量高效结构制造",
+        "source": "DARPA",
+        "url": "https://www.darpa.mil/research/programs/novel-orbital-moon-manufacturing-materials-mass-efficient-design",
+        "published": "2024",
+        "region": "国外",
+        "aspect": "总体设计",
+        "summary": (
+            "DARPA 的 NOM4D（Novel Orbital and Moon Manufacturing, Materials and Mass-efficient Design）项目主张"
+            "“在太空造、为太空造”：结构无需承受发射时的巨大过载，可采用极致轻量化设计，在轨制造并成形大型精密结构"
+            "（如大口径天线、桁架）。项目推动材料、成形工艺与在轨精度控制等基础技术验证。"
+        ),
+        "extra_tags": ["在轨制造", "大型结构"],
+    },
+    {
+        "title": "Varda Space：把制药车间搬上轨道，胶囊返地回收",
+        "source": "Varda Space Industries",
+        "url": "https://www.varda.com/",
+        "published": "2024",
+        "region": "国外",
+        "aspect": "总体设计",
+        "summary": (
+            "Varda Space 以“微重力制造 + 再入返回舱”为核心商业模式，在自由飞行小卫星上利用微重力开展药物结晶等"
+            "空间加工，再用返回舱把成品带回地面。其 W 系列首舱 W-1（2023 发射）成功完成在轨制药并于 2024 年 2 月再入回收，"
+            "开创了商业太空加工闭环。"
+        ),
+        "extra_tags": ["太空加工", "制药"],
+    },
+    {
+        "title": "Redwire：由 Made In Space 整合而来的在轨制造平台化企业",
+        "source": "Redwire Space",
+        "url": "https://redwirespace.com/",
+        "published": "2024",
+        "region": "国外",
+        "aspect": "总体设计",
+        "summary": (
+            "Redwire 整合了太空 3D 打印先驱 Made In Space，形成覆盖增材制造（AMF）、陶瓷制造（CMM）、"
+            "生物制造（BFF）、在轨装配（Archinaut/OSAM-2）与 ZBLAN 光纤拉制的在轨制造产品矩阵，"
+            "把太空制造从单点实验推向可运营的商业基础设施。"
+        ),
+        "extra_tags": ["太空3D打印", "平台化"],
+    },
+    {
+        "title": "NASA OSAM-2（Archinaut）：在轨增材制造 + 自主装配一体化演示",
+        "source": "NASA",
+        "url": "https://www.nasa.gov/mission/on-orbit-servicing-assembly-and-manufacturing-2/",
+        "published": "2024",
+        "region": "国外",
+        "aspect": "总体设计",
+        "summary": (
+            "OSAM-2（原 Archinaut One）计划在小卫星上演示一体化的“打印 + 装配”：入轨后用增材制造打印出两条约 10 米长的桁架梁，"
+            "再由机械臂装配展开太阳翼。它验证了在轨制造大尺寸、发射整流罩装不下的结构这一总体设计思路。"
+        ),
+        "extra_tags": ["太空3D打印", "太空装配"],
+    },
+    # ---------------- 国外 · 专业技术 ----------------
+    {
+        "title": "Made In Space AMF：国际空间站上的首台商业 3D 打印机",
+        "source": "NASA / Redwire",
+        "url": "https://redwirespace.com/products/amf/",
+        "published": "2024",
+        "region": "国外",
+        "aspect": "专业技术",
+        "summary": (
+            "增材制造设施 AMF 于 2016 年装上国际空间站，是首台在轨的商业 3D 打印机，采用熔融沉积（FDM）工艺，"
+            "可用多种航天级聚合物为空间站按需打印工具与备件，实现“把设计文件上传、在轨即造”，显著缩短备件补给周期。"
+        ),
+        "extra_tags": ["太空3D打印", "聚合物"],
+    },
+    {
+        "title": "ESA / Airbus：国际空间站上完成首次金属 3D 打印",
+        "source": "ESA",
+        "url": "https://www.esa.int/Science_Exploration/Human_and_Robotic_Exploration/Research/First_metal_3D_printing_on_the_Space_Station",
+        "published": "2024",
+        "region": "国外",
+        "aspect": "专业技术",
+        "summary": (
+            "2024 年，ESA 与空客研制的金属 3D 打印机在国际空间站哥伦布舱打印出首个微重力金属零件，采用不锈钢丝 + 激光熔化工艺。"
+            "相比聚合物打印，微重力下的金属熔池控制、飞溅与散热更具挑战，该验证为在轨制造金属工具与结构件迈出关键一步。"
+        ),
+        "extra_tags": ["太空3D打印", "金属"],
+    },
+    {
+        "title": "ZBLAN 太空光纤：微重力拉制超低损耗光纤",
+        "source": "Flawless Photonics / Made In Space",
+        "url": "https://www.flawlessphotonics.com/",
+        "published": "2024",
+        "region": "国外",
+        "aspect": "专业技术",
+        "summary": (
+            "ZBLAN 是一种氟化物玻璃光纤，理论损耗远低于普通石英光纤，但在地面重力下拉制易结晶而性能受限。"
+            "在微重力中拉制可抑制结晶、逼近理论性能。Flawless Photonics 等在国际空间站上开展 ZBLAN 光纤在轨拉制，"
+            "是“利用太空环境制造地面造不出的高价值材料”的典型太空加工案例。"
+        ),
+        "extra_tags": ["太空加工", "光纤"],
+    },
+    {
+        "title": "Redwire 生物制造设施 BFF：微重力 3D 生物打印人体组织",
+        "source": "Redwire Space",
+        "url": "https://redwirespace.com/products/bff/",
+        "published": "2024",
+        "region": "国外",
+        "aspect": "专业技术",
+        "summary": (
+            "生物制造设施 BFF 在国际空间站利用微重力打印人体细胞与组织——地面重力下软组织会在固化前塌陷，"
+            "而微重力可维持三维结构直至培养成形。已开展半月板、心肌组织等打印试验，为在轨制造移植用组织/器官探索路径。"
+        ),
+        "extra_tags": ["生物制造", "生物打印"],
+    },
+    {
+        "title": "Redwire 陶瓷制造模块 CMM：在轨增材制造陶瓷精密件",
+        "source": "Redwire Space",
+        "url": "https://redwirespace.com/products/cmm/",
+        "published": "2024",
+        "region": "国外",
+        "aspect": "专业技术",
+        "summary": (
+            "陶瓷制造模块 CMM 采用立体光固化（SLA）工艺在国际空间站上打印陶瓷部件。微重力可减少沉降与内部缺陷，"
+            "有望制得强度更高、更均匀的陶瓷件（如涡轮叶片、光学元件），验证太空环境对高性能陶瓷制造的增益。"
+        ),
+        "extra_tags": ["太空3D打印", "陶瓷"],
+    },
+    {
+        "title": "GITAI 机器人：国际空间站上自主完成在轨装配作业演示",
+        "source": "GITAI",
+        "url": "https://gitai.tech/",
+        "published": "2024",
+        "region": "国外",
+        "aspect": "专业技术",
+        "summary": (
+            "日本/美国机器人公司 GITAI 在国际空间站商业气闸舱外用机械臂自主完成结构件拼装、面板搬运与配线等在轨装配任务，"
+            "验证了以机器人替代/辅助航天员开展舱外制造装配作业的可行性，为大型在轨结构的低成本自动化建造提供技术积累。"
+        ),
+        "extra_tags": ["太空装配", "机器人"],
+    },
+    {
+        "title": "Varda W-1：首次在轨制备抗病毒药物晶体并成功再入回收",
+        "source": "Varda Space Industries",
+        "url": "https://www.varda.com/",
+        "published": "2024-02",
+        "region": "国外",
+        "aspect": "专业技术",
+        "summary": (
+            "Varda 的 W-1 返回舱于 2024 年 2 月在美国犹他州着陆，舱内完成了抗艾滋病药物成分利托那韦（ritonavir）的在轨结晶。"
+            "微重力可获得更均匀、缺陷更少的药物晶型，影响药效与稳定性。这是商业公司首次完成“在轨加工—返地回收”的太空制药闭环。"
+        ),
+        "extra_tags": ["太空加工", "制药"],
+    },
+    # ---------------- 国内 · 总体设计 ----------------
+    {
+        "title": "中国空间站：面向空间应用与在轨建造的太空制造布局",
+        "source": "中国载人航天工程办公室",
+        "url": "http://www.cmse.gov.cn/",
+        "published": "2024",
+        "region": "国内",
+        "aspect": "总体设计",
+        "summary": (
+            "中国空间站进入应用与发展阶段后，依托无容器材料、高温材料、流体物理等科学实验柜与舱外机械臂能力，"
+            "系统开展微重力材料制备与在轨操作研究，并规划面向大型天线、桁架的在轨建造技术验证，"
+            "为太空制造从实验走向工程化奠定平台基础。"
+        ),
+        "extra_tags": ["空间站", "在轨建造"],
+    },
+    {
+        "title": "综述：我国太空制造/在轨制造技术发展与产业化前景",
+        "source": "新华网 / 中国航天报",
+        "url": "http://www.xinhuanet.com/tech/",
+        "published": "2024",
+        "region": "国内",
+        "aspect": "总体设计",
+        "summary": (
+            "公开报道综述指出，我国已在太空 3D 打印、微重力材料制备、在轨装配等方向取得阶段性突破，"
+            "正推动太空制造从单项技术验证向体系化、工程化发展，并与商业航天、空间站应用结合，"
+            "探索“太空造、造太空”的产业化路径。"
+        ),
+        "extra_tags": ["产业", "综述"],
+    },
+    # ---------------- 国内 · 专业技术 ----------------
+    {
+        "title": "长征五号B首飞搭载：国际首次连续纤维增强复合材料太空 3D 打印",
+        "source": "中国航天科技集团",
+        "url": "http://www.spacechina.com/",
+        "published": "2024",
+        "region": "国内",
+        "aspect": "专业技术",
+        "summary": (
+            "2020 年 5 月长征五号B运载火箭首飞任务中，新一代载人飞船试验船搭载“复合材料空间 3D 打印系统”，"
+            "在轨自主完成连续纤维增强复合材料的样件打印，为国际上首次开展该类材料的太空 3D 打印，"
+            "验证了微重力下增材制造成形工艺，为空间站在轨制造大尺寸构件积累关键技术。"
+        ),
+        "extra_tags": ["太空3D打印", "复合材料"],
+    },
+    {
+        "title": "中国空间站无容器材料实验柜：悬浮熔炼制备高性能材料",
+        "source": "中国科学院空间应用工程与技术中心",
+        "url": "http://www.csu.cas.cn/",
+        "published": "2024",
+        "region": "国内",
+        "aspect": "专业技术",
+        "summary": (
+            "中国空间站的无容器材料实验柜利用静电悬浮，使金属/合金样品在不接触容器壁的条件下熔化与凝固，"
+            "避免容器污染并实现深过冷，用于研究微重力下新型合金、非晶与高温材料的凝固机理，"
+            "是太空加工/材料制备的核心专业设备。"
+        ),
+        "extra_tags": ["太空加工", "材料"],
+    },
+    {
+        "title": "中国空间站高温材料科学实验柜：1600℃以上在轨材料制备",
+        "source": "中国载人航天工程办公室",
+        "url": "http://www.cmse.gov.cn/",
+        "published": "2024",
+        "region": "国内",
+        "aspect": "专业技术",
+        "summary": (
+            "高温材料科学实验柜可在轨提供 1600℃ 以上的高温环境，开展微重力下的晶体生长、金属凝固与相变研究。"
+            "微重力抑制了对流与浮力效应，有助于制备更均匀、缺陷更少的高性能晶体与合金，服务于太空加工机理研究。"
+        ),
+        "extra_tags": ["太空加工", "晶体生长"],
+    },
+    {
+        "title": "空间站机械臂在轨操作：为大型结构在轨装配积累能力",
+        "source": "中国载人航天工程办公室",
+        "url": "http://www.cmse.gov.cn/",
+        "published": "2024",
+        "region": "国内",
+        "aspect": "专业技术",
+        "summary": (
+            "天和核心舱大机械臂与问天实验舱小机械臂具备级联、爬行与精细操作能力，已完成舱段转位、舱外载荷搬运与安装等任务。"
+            "这些在轨操作能力是未来在轨装配大型天线、桁架等空间结构、支撑太空制造工程化的关键基础。"
+        ),
+        "extra_tags": ["太空装配", "机械臂"],
+    },
+    {
+        "title": "微重力增材制造工艺研究：面向在轨按需制造备件",
+        "source": "中国科学院 / 高校研究",
+        "url": "http://www.cas.cn/",
+        "published": "2024",
+        "region": "国内",
+        "aspect": "专业技术",
+        "summary": (
+            "国内多家科研机构与高校围绕微重力/真空环境下的熔融沉积、金属增材与陶瓷成形工艺开展地面模拟与在轨试验，"
+            "研究熔池行为、层间结合与缺陷控制，目标是让空间站与深空任务能在轨按需打印工具、备件乃至结构件，"
+            "减少对地面补给的依赖。"
+        ),
+        "extra_tags": ["太空3D打印", "备件制造"],
+    },
+    # ================= 追加：2025–2026 最新进展 =================
+    # ---------------- 国外 · 总体设计 ----------------
+    {
+        "title": "Varda 完成 1.87 亿美元 C 轮融资，扩建在轨制药“轨道实验室”",
+        "source": "BioProcess International",
+        "url": "https://www.bioprocessintl.com/facilities-capacity/defying-gravity-while-defining-medicine-varda-secures-187m-for-space-orbital-laboratories",
+        "published": "2025-07",
+        "region": "国外",
+        "aspect": "总体设计",
+        "summary": (
+            "2025 年 7 月，微重力制药公司 Varda Space 完成 1.87 亿美元 C 轮融资（累计融资约 3.29 亿美元），"
+            "用于扩大其“在轨实验室 + 再入返回舱”的规模化产能。截至当时已成功发射并回收 W-1/W-2/W-3 三个返回舱、W-4 在轨，"
+            "均聚焦药物结晶；第五舱 W-5 将优化“溶液结晶反应器”以精确控制小分子药物的粒径与晶型。"
+            "体现太空加工正从单次试验走向可持续的商业产能建设。"
+        ),
+        "extra_tags": ["太空加工", "制药", "融资"],
+    },
+    {
+        "title": "Redwire 成立子公司 SpaceMD，把 PIL-BOX 太空制药推向商业化",
+        "source": "SpaceNews",
+        "url": "https://spacenews.com/redwire-pushes-into-space-pharmaceutical-business/",
+        "published": "2025-08",
+        "region": "国外",
+        "aspect": "总体设计",
+        "summary": (
+            "2025 年 8 月，Redwire 宣布成立子公司 SpaceMD，专注用其在国际空间站验证过的“太空制药实验室”PIL-BOX，"
+            "在微重力中培育种子晶体，再返回地面用于研制新药或改良剂型。此前 PIL-BOX 已飞行 28 套、在轨结晶 17 种化合物（含胰岛素）。"
+            "SpaceMD 以出售/授权种子晶体为商业模式，把太空制药从实验推向可运营业务，是在轨制造平台化的代表性一步。"
+        ),
+        "extra_tags": ["太空加工", "制药", "平台化"],
+    },
+    {
+        "title": "Varda 第六次任务成功返回，并达成首个商业太空制药协议",
+        "source": "SpaceNews",
+        "url": "https://spacenews.com/sixth-varda-mission-successfully-returns/",
+        "published": "2026-05",
+        "region": "国外",
+        "aspect": "总体设计",
+        "summary": (
+            "2026 年 5 月，Varda 的 W-6 返回舱在澳大利亚 Koonibba 试验场着陆——这是 15 个月内第四个在该场回收的返回舱。"
+            "该任务由美国空军研究实验室（AFRL）Prometheus 计划资助，测试高超声速再入自主导航等技术，并搭载 NASA 新工艺制造的隔热瓦。"
+            "同期 Varda 与制药公司联合治疗（United Therapeutics）签署首个商业太空制药协议，研究在微重力中开发罕见肺病药物的新晶型，"
+            "预计 2027 年首飞药物，最快 2030 年进入临床。"
+        ),
+        "extra_tags": ["太空加工", "制药"],
+    },
+    # ---------------- 国外 · 专业技术 ----------------
+    {
+        "title": "Space Forge ForgeStar-1：全球首个自由飞行的商业半导体“太空工厂”在轨产等离子体",
+        "source": "Space Forge",
+        "url": "https://www.spaceforge.com/news/space-forge-ignites-a-new-industrial-era-delivering-world-first-capability-for-orbital-semiconductor-manufacturing",
+        "published": "2025-12",
+        "region": "国外",
+        "aspect": "专业技术",
+        "summary": (
+            "英国 Space Forge 的 ForgeStar-1 于 2025 年 6 月随 SpaceX Transporter-14 发射，2025 年 12 月首次在轨点燃微型熔炉、"
+            "产生约 1000℃ 等离子体——这是商业航天首次在自由飞行平台上实现半导体“气相晶体生长”所需的极端条件，"
+            "使 ForgeStar-1 成为全球首个在轨运行的自由飞行商业半导体制造工具。公司计划把太空生长的晶体“种子”带回地面加工，"
+            "制造地面难以获得的宽禁带/超宽禁带半导体材料。"
+        ),
+        "extra_tags": ["太空加工", "半导体"],
+    },
+    {
+        "title": "NASA 追加 400 万美元支持 Redwire PIL-BOX 在轨药物结晶研究",
+        "source": "Redwire",
+        "url": "https://rdw.com/newsroom/nasa-awards-redwire-4-million-in-additional-funding-to-support-trailblazing-drug-development-in-microgravity/",
+        "published": "2026-03",
+        "region": "国外",
+        "aspect": "专业技术",
+        "summary": (
+            "2026 年 3 月，NASA 在其“空间生产应用（InSPA）”计划下向 Redwire 追加 400 万美元，扩展利用 PIL-BOX 在国际空间站开展的"
+            "新药结晶研究（涵盖癌症、骨质疏松、肥胖等）。当时 PIL-BOX 已飞行 43 套，并支持 Aspera Biomedicines 的 Rebecsinib"
+            "（ADAR1 抑制剂）抗癌药随 Crew-12 上行研究。微重力可获得更均匀、更高质量的药物晶体，有望催生新型药物剂型。"
+        ),
+        "extra_tags": ["太空加工", "制药", "晶体"],
+    },
+    {
+        "title": "Varda W-4：首个完全自研的在轨制造航天器发射入轨",
+        "source": "SpaceNews",
+        "url": "https://spacenews.com/varda-to-launch-its-first-in-house-designed-spacecraft-for-on-orbit-manufacturing/",
+        "published": "2026-06",
+        "region": "国外",
+        "aspect": "专业技术",
+        "summary": (
+            "2026 年 6 月，Varda 发射第四艘飞行器 W-4，这是其首个完全自研的在轨制造航天器，由卫星平台（供电/推进/通信/导航）"
+            "与携带制药处理载荷的返回舱组成。任务结束后返回舱以超过 25 马赫再入、开伞回收药物成品。"
+            "随着国际空间站预计 2030 年前后退役，Varda 把这种自主平台定位为微重力研究与太空加工的更易获得替代方案。"
+        ),
+        "extra_tags": ["太空加工", "返回式"],
+    },
+    # ---------------- 国内 · 总体设计 ----------------
+    {
+        "title": "太空金属3D打印意义解读：国家航天局行动计划支持“太空制造”新领域",
+        "source": "科学网 / 中国科学报",
+        "url": "https://news.sciencenet.cn/htmlnews/2026/1/559500.shtm",
+        "published": "2026-01",
+        "region": "国内",
+        "aspect": "总体设计",
+        "summary": (
+            "围绕我国首次火箭平台太空金属3D打印，科学网报道解读其战略意义：太空金属增材制造可实现航天器零部件在轨快速制造与自主修复，"
+            "减少对地面补给依赖。2025 年《国家航天局推进商业航天高质量安全发展行动计划》已明确支持在太空资源利用、太空制造、"
+            "在轨服务等新领域开展技术攻关；力鸿一号返回式载荷舱未来将升级为可在轨不少于 1 年、复用不小于 10 次的轨道级太空制造航天器。"
+        ),
+        "extra_tags": ["太空制造", "政策"],
+    },
+    # ---------------- 国内 · 专业技术 ----------------
+    {
+        "title": "我国首次太空金属3D打印：力鸿一号亚轨道制备出完整金属构件",
+        "source": "中国科学院",
+        "url": "https://www.cas.cn/syky/202601/t20260123_5097065.shtml",
+        "published": "2026-01",
+        "region": "国内",
+        "aspect": "专业技术",
+        "summary": (
+            "2026 年 1 月，中科院力学研究所自主研制的微重力金属增材制造返回式载荷，搭载中科宇航“力鸿一号”遥一飞行器升至约 120 公里亚轨道，"
+            "首次在太空微重力环境下用激光熔丝工艺打印出完整金属零部件，并经伞降回收。任务突破了微重力下物料稳定输运与成形、"
+            "全流程闭环调控、载荷—火箭高可靠协同等关键技术，标志我国太空金属制造从“地面研究”迈入“太空工程验证”阶段，整体技术达到世界一流水平。"
+        ),
+        "extra_tags": ["太空3D打印", "金属"],
+    },
+    {
+        "title": "轻舟试验飞船完成太空金属增材制造演示验证（货运飞船平台）",
+        "source": "中国科学院 / 人民网",
+        "url": "https://www.cas.cn/cm/202604/t20260428_5108269.shtml",
+        "published": "2026-04",
+        "region": "国内",
+        "aspect": "专业技术",
+        "summary": (
+            "2026 年 4 月，中科院力学所联合微小卫星创新研究院，在“轻舟”试验飞船（力箭二号遥一发射、600 公里轨道）上完成太空金属增材制造演示验证。"
+            "任务重点验证货运飞船平台下的系统集成、地面遥控多次启动稳定性与激光熔丝金属熔融沉积工艺，表明我国已初步具备太空金属增材制造关键技术的"
+            "系统验证能力，为货运飞船常态化搭载、在轨制造与维修、备件与结构件修复奠定基础，推动航天由“带什么用什么”向“需要什么造什么”转变。"
+        ),
+        "extra_tags": ["太空3D打印", "货运平台"],
+    },
+]
+
+
 _PUB_YEAR_RE = re.compile(r"(?:19|20)\d{2}")
 
 
@@ -448,6 +861,12 @@ TOPIC_RECIPES = {
         "title": SPACE_TUG_TITLE,
         "intro": SPACE_TUG_INTRO,
         "items": SPACE_TUG_ITEMS,
+        "years": 3,
+    },
+    "space-manufacturing": {
+        "title": SPACE_MFG_TITLE,
+        "intro": SPACE_MFG_INTRO,
+        "items": SPACE_MFG_ITEMS,
         "years": 3,
     },
 }
