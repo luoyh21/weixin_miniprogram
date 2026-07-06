@@ -27,6 +27,47 @@
       <view class="s-val">{{item.analysis}}</view>
     </view>
   </block>
+  <!-- 技术港：项目结构化信息 -->
+  <block wx:elif="{{item.kind === 'techport'}}">
+    <view class="meta-card">
+      <view class="meta-row" wx:if="{{item.period}}"><text class="meta-k">项目周期</text><text class="meta-v">{{item.period}}</text></view>
+      <view class="meta-row" wx:if="{{item.trl}}"><text class="meta-k">技术成熟度</text><text class="meta-v">{{item.trl}}</text></view>
+      <view class="meta-row" wx:if="{{item.category}}"><text class="meta-k">技术类别</text><text class="meta-v">{{item.category_code}} {{item.category}}</text></view>
+      <view class="meta-row" wx:if="{{item.program}}"><text class="meta-k">所属计划</text><text class="meta-v">{{item.program}}</text></view>
+      <view class="meta-row" wx:if="{{item.status_zh}}"><text class="meta-k">项目状态</text><text class="meta-v">{{item.status_zh}}</text></view>
+    </view>
+    <view class="d-body">
+      <view wx:for="{{paragraphs}}" wx:key="index" class="d-p">{{item}}</view>
+    </view>
+  </block>
+
+  <!-- 每日发射：结构化信息 -->
+  <block wx:elif="{{item.kind === 'launch'}}">
+    <view class="meta-card">
+      <view class="meta-row" wx:if="{{item.provider_zh}}"><text class="meta-k">发射提供方</text><text class="meta-v">{{item.provider_zh}}</text></view>
+      <view class="meta-row" wx:if="{{item.location_zh}}"><text class="meta-k">发射场</text><text class="meta-v">{{item.location_zh}}</text></view>
+      <view class="meta-row" wx:if="{{item.net_bj}}"><text class="meta-k">计划时间</text><text class="meta-v">{{item.net_bj}} 北京</text></view>
+      <view class="meta-row" wx:if="{{item.status}}"><text class="meta-k">状态</text><text class="meta-v">{{item.status}}</text></view>
+    </view>
+    <view class="d-body" wx:if="{{paragraphs.length}}">
+      <view wx:for="{{paragraphs}}" wx:key="index" class="d-p">{{item}}</view>
+    </view>
+  </block>
+
+  <!-- 未来发射看板：未来 30 天发射逐条 -->
+  <block wx:elif="{{item.kind === 'future'}}">
+    <view class="fut-head">近{{item.future_days}}天共 {{item.future_count}} 次发射<text wx:if="{{item.future_updated}}" class="fut-upd"> · 更新于 {{item.future_updated}}</text></view>
+    <view class="fut-list">
+      <view wx:for="{{item.launches}}" wx:for-item="lc" wx:key="net" class="fut-item">
+        <view class="fut-time">{{lc.net_bj}}<text class="fut-badge">北京</text></view>
+        <view class="fut-name">{{lc.name_en}}</view>
+        <view class="fut-sub">{{lc.provider_zh}}<text wx:if="{{lc.location_zh}}"> · {{lc.location_zh}}</text></view>
+        <view class="fut-status" wx:if="{{lc.status}}">{{lc.status}}</view>
+      </view>
+    </view>
+    <view wx:if="{{!item.launches.length}}" class="muted center">未来暂无已排期发射</view>
+  </block>
+
   <block wx:else>
     <view class="d-body">
       <view wx:for="{{paragraphs}}" wx:key="index" class="d-p">{{item}}</view>
@@ -45,6 +86,7 @@
       <view class="d-guide-s">2. 打开抖音 App</view>
       <view class="d-guide-s">3. 点击顶部搜索框，粘贴口令后搜索，即可观看该视频</view>
     </view>
+    <view wx:if="{{item.link}}" class="d-url"><text class="d-url-k">网址</text><text class="d-url-v" selectable="true" user-select="true" space="nbsp">{{item.link}}</text></view>
     <view class="d-actions">
       <button wx:if="{{item.share_text}}" class="btn" bindtap="copyShare">复制抖音口令</button>
       <button class="btn ghost" bindtap="copyLink" style="margin-top:18rpx;">复制视频链接</button>
@@ -57,6 +99,7 @@
       <view class="d-guide-s">2. 点击微信右上角的搜索框</view>
       <view class="d-guide-s">3. 粘贴标题后搜索，即可打开该公众号文章</view>
     </view>
+    <view wx:if="{{item.link}}" class="d-url"><text class="d-url-k">网址</text><text class="d-url-v" selectable="true" user-select="true" space="nbsp">{{item.link}}</text></view>
     <view class="d-actions">
       <button class="btn" bindtap="copyTitle">复制标题</button>
       <button class="btn ghost" bindtap="copyLink" style="margin-top:18rpx;">复制原文链接</button>
@@ -67,11 +110,13 @@
       <view class="d-guide-t">🔗 查看原帖</view>
       <view class="d-guide-s">点击下方「复制原帖链接」，在浏览器打开即可查看 {{item.author_name}} 的原始帖子</view>
     </view>
+    <view wx:if="{{item.link}}" class="d-url"><text class="d-url-k">网址</text><text class="d-url-v" selectable="true" user-select="true" space="nbsp">{{item.link}}</text></view>
     <view class="d-actions">
       <button class="btn ghost" bindtap="copyLink">复制原帖链接</button>
     </view>
   </block>
   <block wx:else>
+    <view wx:if="{{item.link}}" class="d-url"><text class="d-url-k">网址</text><text class="d-url-v" selectable="true" user-select="true" space="nbsp">{{item.link}}</text></view>
     <view class="d-actions">
       <button class="btn ghost" bindtap="copyLink">复制原文链接</button>
     </view>

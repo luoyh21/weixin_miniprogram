@@ -58,3 +58,86 @@
   border-radius: 18rpx;
 }
 .s-analysis .s-label { color: #6a3df5; }
+
+/* 结构化信息卡片（技术港 / 每日发射） */
+.meta-card {
+  margin-top: 24rpx;
+  padding: 10rpx 24rpx;
+  background: #f5f8ff;
+  border: 2rpx solid #e6eeff;
+  border-radius: 18rpx;
+}
+.meta-row {
+  display: flex;
+  align-items: flex-start;
+  padding: 14rpx 0;
+  border-bottom: 2rpx solid #eef2fb;
+}
+.meta-row:last-child { border-bottom: none; }
+.meta-k {
+  flex: 0 0 168rpx;
+  font-size: 26rpx;
+  color: var(--muted);
+  font-weight: 600;
+}
+.meta-v {
+  flex: 1;
+  font-size: 28rpx;
+  color: #2a3344;
+  line-height: 1.6;
+}
+
+/* 未来发射看板 */
+.fut-head {
+  margin-top: 22rpx;
+  font-size: 26rpx;
+  color: var(--sub);
+}
+.fut-upd { color: var(--muted); }
+.fut-list { margin-top: 14rpx; }
+.fut-item {
+  padding: 20rpx 22rpx;
+  margin-bottom: 16rpx;
+  background: #fff;
+  border: 2rpx solid #eceff5;
+  border-radius: 16rpx;
+}
+.fut-time {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: #1f6feb;
+}
+.fut-badge {
+  font-size: 20rpx;
+  color: var(--muted);
+  font-weight: 400;
+  margin-left: 10rpx;
+}
+.fut-name { font-size: 30rpx; color: var(--ink); margin-top: 8rpx; line-height: 1.5; }
+.fut-sub { font-size: 25rpx; color: var(--sub); margin-top: 8rpx; }
+.fut-status { font-size: 23rpx; color: var(--muted); margin-top: 6rpx; }
+
+/* 原文网址直显（在「复制原文链接」上方） */
+.d-url {
+  margin-top: 24rpx;
+  padding: 18rpx 20rpx;
+  background: #f6f7f9;
+  border-radius: 14rpx;
+  display: flex;
+  align-items: flex-start;
+}
+.d-url-k {
+  flex: 0 0 auto;
+  font-size: 24rpx;
+  color: var(--muted);
+  font-weight: 600;
+  margin-right: 14rpx;
+  padding-top: 2rpx;
+}
+.d-url-v {
+  flex: 1;
+  font-size: 25rpx;
+  color: #1f6feb;
+  line-height: 1.6;
+  word-break: break-all;
+}

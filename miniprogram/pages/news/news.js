@@ -8,6 +8,7 @@ const FILTERS = [
   { key: 'douyin', label: '航天视频' },
   { key: 'techport', label: '技术港' },
   { key: 'launch', label: '每日发射' },
+  { key: 'future', label: '未来发射' },
   { key: 'debris', label: '碎片更新' },
   { key: 'social', label: '政要社媒' },
 ];
@@ -35,9 +36,15 @@ function dateLabel(date) {
   return md + ' ' + wd;
 }
 
-// 统一的分页大小：首屏与滚动加载用同一套「小页 + 按需拉取」逻辑，
-// 不再做后台批量预取（那会和滚动加载抢资源、并触发整列表 setData 卡顿）。
-const PAGE_SIZE = 10;
+// 渐进式时间窗加载：首屏只取近 3 天（体量小、秒回），随后每 15s 自动向后
+// 再扩 3 天，直到覆盖整个窗口（与后端 _WINDOW_DAYS 对齐）。这样弱网/微信冷启动
+// 时也能先出内容、再慢慢补齐，避免首次打开长时间白屏。
+const PAGE_DAYS = 3;
+const MAX_DAYS = 15;
+const EXPAND_MS = 15 * 1000;
+// 首屏只渲染一小页（快出内容、setData 轻），随后每 15s 追加一整段（≈3 天）。
+const FIRST_LIMIT = 15;
+const EXPAND_LIMIT = 100; // 与后端单页上限对齐
 // 久置/隔天再回到页面时自动刷新的阈值
 const REFRESH_IDLE_MS = 10 * 60 * 1000;
 // 首屏本地缓存：冷启动先渲染上次内容（秒开），再后台静默刷新，缓解微信冷启动等待。
@@ -55,7 +62,7 @@ Page({
     hasMore: false,
     loadingMore: false,
     groups: [],
-    kinds: { intl: 0, gzh: 0, douyin: 0, social: 0, techport: 0, launch: 0, debris: 0 },
+    kinds: { intl: 0, gzh: 0, douyin: 0, social: 0, techport: 0, launch: 0, future: 0, debris: 0 },
     loading: true,
     error: '',
     imgErr: {}, // 加载失败的图（按条目 id 标记）→ 隐藏，不显示破图
@@ -63,7 +70,10 @@ Page({
 
   // 渲染分组的真源放实例上，配合「定点 setData」增量追加，避免每页重建整列表
   _groups: [],
-  _offset: 0,
+  _offset: 0,        // 当前时间窗内已加载的条数（即下次拉取的 offset）
+  _days: PAGE_DAYS,  // 当前时间窗（天）：首屏 3 天，随后每 15s +3 天
+  _windowHasMore: false, // 当前时间窗内是否还有下一页
+  _expandTimer: null,    // 「每 15s 向后加载」的定时器
   _reqSeq: 0,        // 防止快速切换分类时旧请求把新结果覆盖
   _lastLoadAt: 0,    // 上次成功发起加载的时刻（onShow 判断是否需刷新）
   _loadDay: '',      // 上次加载所属日期
@@ -98,7 +108,17 @@ Page({
     if (!this._lastLoadAt) return;
     const staleDay = this._loadDay !== fmtToday();
     const idleLong = Date.now() - this._lastLoadAt > REFRESH_IDLE_MS;
-    if (staleDay || idleLong) this.load(false, true);
+    if (staleDay || idleLong) { this.load(false, true); return; }
+    // 未触发刷新但仍有未加载内容 → 继续「每 15s 向后加载」
+    if (this.data.hasMore) this._startExpandTimer();
+  },
+
+  onHide() {
+    this._stopExpandTimer();
+  },
+
+  onUnload() {
+    this._stopExpandTimer();
   },
 
   _readHomeCache() {
@@ -109,14 +129,14 @@ Page({
     }
   },
 
-  _saveHomeCache(res) {
+  _saveHomeCache(res, more) {
     if (this.data.active) return; // 只缓存默认「全部」
     try {
       wx.setStorageSync(HOME_CACHE_KEY, {
         ts: Date.now(),
         groups: this._groups,
         kinds: res.kinds || this.data.kinds,
-        hasMore: !!res.has_more,
+        hasMore: !!more,
         offset: this._offset,
       });
     } catch (e) { /* 缓存失败忽略 */ }
@@ -140,9 +160,27 @@ Page({
   },
 
   _url(offset, limit) {
-    let u = '/news/week?days=14&offset=' + offset + '&limit=' + limit;
+    let u = '/news/week?days=' + this._days + '&offset=' + offset + '&limit=' + limit;
     if (this.data.active) u += '&kind=' + this.data.active;
     return u;
+  },
+
+  // 当前是否还有可加载的内容：本窗还有下一页，或时间窗尚未扩到上限。
+  _moreAvailable() {
+    return this._windowHasMore || this._days < MAX_DAYS;
+  },
+
+  _startExpandTimer() {
+    this._stopExpandTimer();
+    this._expandTimer = setInterval(() => {
+      if (!this.data.hasMore) { this._stopExpandTimer(); return; }
+      if (this.data.loadingMore) return;
+      this._loadNext();
+    }, EXPAND_MS);
+  },
+
+  _stopExpandTimer() {
+    if (this._expandTimer) { clearInterval(this._expandTimer); this._expandTimer = null; }
   },
 
   // 增量把一批新条目按日期分组追加进 data.groups：
@@ -176,28 +214,34 @@ Page({
   load(fromPull, quiet) {
     this._lastLoadAt = Date.now();
     this._loadDay = fmtToday();
+    this._days = PAGE_DAYS;         // 每次首屏/刷新都从近 3 天重新开始渐进加载
+    this._windowHasMore = false;
+    this._stopExpandTimer();
     const seq = ++this._reqSeq;
     if (!quiet) {
       this._groups = [];
       this._offset = 0;
       this.setData({ loading: true, error: '', groups: [], hasMore: false });
     }
-    api.get(this._url(0, PAGE_SIZE), { auth: false })
+    api.get(this._url(0, FIRST_LIMIT), { auth: false })
       .then((res) => {
         if (seq !== this._reqSeq) return;
         const items = res.items || [];
-        // 第一页整体替换（小页，setData 开销可忽略），后续滚动仍走 _appendItems 增量
+        // 首屏只渲染一小页（快出内容），后续扩窗走 _appendItems 增量
         this._groups = [];
         this._buildGroupsFrom(items);
         this._offset = items.length;
+        this._windowHasMore = !!res.has_more;
+        const more = this._moreAvailable();
         this.setData({
           kinds: res.kinds || this.data.kinds,
-          hasMore: !!res.has_more,
+          hasMore: more,
           loading: false,
           error: '',
           groups: this._groups,
         });
-        this._saveHomeCache(res);
+        this._saveHomeCache(res, more);
+        if (more) this._startExpandTimer();
       })
       .catch((e) => {
         if (seq !== this._reqSeq) return;
@@ -210,18 +254,31 @@ Page({
       });
   },
 
-  // 滚动到底再按需拉下一页（与首屏同样的小页逻辑）
-  loadMore() {
-    if (!this.data.hasMore || this.data.loadingMore) return;
+  // 加载下一段：优先取尽「当前时间窗」剩余分页；取尽后把窗口向后 +3 天再取。
+  // 由 15s 定时器自动调用，也可被「滚动到底」立即触发。
+  _loadNext() {
+    if (this.data.loadingMore) return;
+    if (!this._windowHasMore && this._days >= MAX_DAYS) {
+      this._stopExpandTimer();
+      if (this.data.hasMore) this.setData({ hasMore: false });
+      return;
+    }
+    // 当前窗取尽、但还能向后扩展 → 先把窗口 +3 天（offset 不变即取到新出现的更早条目）
+    if (!this._windowHasMore && this._days < MAX_DAYS) {
+      this._days = Math.min(MAX_DAYS, this._days + PAGE_DAYS);
+    }
     const seq = this._reqSeq;
     this.setData({ loadingMore: true });
-    api.get(this._url(this._offset, PAGE_SIZE), { auth: false })
+    api.get(this._url(this._offset, EXPAND_LIMIT), { auth: false })
       .then((res) => {
         if (seq !== this._reqSeq) return;
         const items = res.items || [];
         this._offset += items.length;
-        this.setData({ hasMore: !!res.has_more, loadingMore: false });
+        this._windowHasMore = !!res.has_more;
         this._appendItems(items);
+        const more = this._moreAvailable();
+        this.setData({ loadingMore: false, hasMore: more });
+        if (!more) this._stopExpandTimer();
       })
       .catch(() => {
         if (seq !== this._reqSeq) return;
@@ -230,7 +287,7 @@ Page({
   },
 
   onReachBottom() {
-    this.loadMore();
+    this._loadNext();
   },
 
   switchFilter(e) {

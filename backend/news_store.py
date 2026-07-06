@@ -234,18 +234,51 @@ def _norm_social(a: dict) -> dict:
 
 
 def _norm_techport(a: dict) -> dict:
-    """技术港（NASA TechPort 每日更新项目，标题/摘要已译中文）。"""
+    """技术港（NASA TechPort 每日更新项目，标题/摘要已译中文，含结构化项目信息）。"""
     title = a.get("title") or ""
     body = a.get("summary") or ""
     link = a.get("link") or ""
     pub = a.get("published") or ""
+
+    # 起止时间
+    period = ""
+    if a.get("start_date") or a.get("end_date"):
+        period = f"{a.get('start_date') or '—'} ~ {a.get('end_date') or '至今'}"
+    # 技术成熟度 TRL
+    trl = ""
+    tb, te = a.get("trl_begin"), a.get("trl_end")
+    if tb or te:
+        trl = f"TRL {tb or '?'} → {te or '?'}"
+
+    meta_fields = {
+        "period": period,
+        "trl": trl,
+        "category": a.get("category") or "",
+        "category_code": a.get("category_code") or "",
+        "program": a.get("program") or "",
+        "status_zh": a.get("status_zh") or a.get("status") or "",
+        "title_en": a.get("title_en") or "",
+    }
+
     extra = []
-    if a.get("status"):
-        extra.append(f"项目状态：{a['status']}")
-    if a.get("title_en"):
-        extra.append(f"原题：{a['title_en']}")
-    full = (body + ("\n\n" + " · ".join(extra) if extra else "")).strip()
-    return {
+    if period:
+        extra.append(f"项目周期：{period}")
+    if trl:
+        extra.append(f"技术成熟度：{trl}")
+    if meta_fields["category"]:
+        cat = meta_fields["category"]
+        if meta_fields["category_code"]:
+            cat = f"{meta_fields['category_code']} {cat}"
+        extra.append(f"技术类别：{cat}")
+    if meta_fields["program"]:
+        extra.append(f"所属计划：{meta_fields['program']}")
+    if meta_fields["status_zh"]:
+        extra.append(f"项目状态：{meta_fields['status_zh']}")
+    if meta_fields["title_en"]:
+        extra.append(f"原题：{meta_fields['title_en']}")
+    full = (body + ("\n\n" + "\n".join(extra) if extra else "")).strip()
+
+    item = {
         "id": _mk_id("techport", link, title),
         "kind": "techport",
         "title": title,
@@ -259,20 +292,24 @@ def _norm_techport(a: dict) -> dict:
         "main_tag": "技术港",
         "image": "",
         "link": link,
+        "tp_summary": body,
     }
+    item.update(meta_fields)
+    return item
 
 
 def _norm_launch(a: dict) -> dict:
-    """每日发射（The Space Devs LL2 当日发射，火箭/任务名已译中文）。"""
+    """每日发射（The Space Devs LL2 当日发射，火箭/任务名已译中文，提供方/发射场中文化）。"""
     title = a.get("title") or a.get("name_en") or ""
     link = a.get("link") or ""
     pub = a.get("published") or ""
+    provider = a.get("provider_zh") or a.get("provider") or ""
+    location = a.get("location_zh") or a.get("location") or a.get("pad") or ""
     parts = []
-    if a.get("provider"):
-        parts.append(f"发射提供方：{a['provider']}")
-    loc = "，".join([p for p in (a.get("pad"), a.get("location")) if p])
-    if loc:
-        parts.append(f"发射场：{loc}")
+    if provider:
+        parts.append(f"发射提供方：{provider}")
+    if location:
+        parts.append(f"发射场：{location}")
     if a.get("net_bj"):
         parts.append(f"计划时间（北京）：{a['net_bj']}")
     if a.get("status"):
@@ -280,7 +317,7 @@ def _norm_launch(a: dict) -> dict:
     summary_zh = a.get("summary") or ""
     body = "\n".join(parts) + (("\n\n" + summary_zh) if summary_zh else "")
     card_bits = [b for b in (
-        a.get("provider"), a.get("location"),
+        provider, location,
         (a.get("net_bj") + " 北京") if a.get("net_bj") else "",
     ) if b]
     card = "｜".join(card_bits) or _short(summary_zh, 90)
@@ -298,6 +335,45 @@ def _norm_launch(a: dict) -> dict:
         "main_tag": "每日发射",
         "image": _proxy_img(a.get("image") or ""),
         "link": link,
+        # 详情页结构化字段
+        "provider_zh": provider,
+        "location_zh": location,
+        "net_bj": a.get("net_bj") or "",
+        "status": a.get("status") or "",
+        "launch_summary": summary_zh,
+    }
+
+
+def _norm_future(payload: dict) -> dict:
+    """未来发射看板：把未来 30 天发射计划聚合成「一条」看板条目（kind=future）。"""
+    launches = payload.get("items") or []
+    days = payload.get("days") or 30
+    today = datetime.now(CST).strftime("%Y-%m-%d")
+    title = f"未来{days}天发射计划（{len(launches)} 次）"
+    # 卡片摘要：取最近的两三次
+    tops = []
+    for l in launches[:3]:
+        who = l.get("provider_zh") or l.get("provider") or ""
+        tops.append(f"{l.get('net_bj','')} {who}".strip())
+    card = "；".join([t for t in tops if t]) or "未来暂无已排期发射"
+    return {
+        "id": _mk_id("future", "dashboard", today),  # 每天唯一，随内容刷新
+        "kind": "future",
+        "title": title,
+        "title_orig": title,
+        "summary": card,
+        "body": "",
+        "source": "The Space Devs",
+        "published": _to_beijing(payload.get("generated_at") or "") or today,
+        "published_ts": time.time(),  # 始终排在最前，且不被 days 窗口过滤掉
+        "tags": ["未来发射"],
+        "main_tag": "未来发射",
+        "image": "",
+        "link": "https://spacelaunchnow.me/launches/",
+        "future_days": days,
+        "future_count": len(launches),
+        "future_updated": _to_beijing(payload.get("generated_at") or ""),
+        "launches": launches,  # 详情页看板逐条展示
     }
 
 
@@ -398,6 +474,18 @@ def _build(days: int) -> tuple[list[dict], dict]:
         except Exception:
             pass
 
+    # 未来发射看板：聚合成「一条」（kind=future，单独标签页，不入「全部」）
+    if _launch_store is not None and hasattr(_launch_store, "load_upcoming"):
+        try:
+            payload = _launch_store.load_upcoming()
+            if payload and (payload.get("items") is not None):
+                it = _norm_future(payload)
+                if it["id"] not in seen:
+                    seen.add(it["id"])
+                    items.append(it)
+        except Exception:
+            pass
+
     # 链接去重：三新栏目命中的原文链接，从国际要闻里删掉重复那条（保守：仅链接完全相同）
     others = {it["link"] for it in items
               if it["kind"] in ("techport", "launch", "debris") and it["link"]}
@@ -411,6 +499,8 @@ def _build(days: int) -> tuple[list[dict], dict]:
 
 _PREWARM_LOCK = threading.Lock()
 _PREWARM_BUSY = False
+# 单次预热最多下载多少张（首屏可见范围足矣），避免长时间占用带宽与 GIL。
+_PREWARM_MAX = 60
 
 
 def _prewarm_images(items: list[dict]) -> None:
@@ -429,7 +519,10 @@ def _prewarm_images(items: list[dict]) -> None:
         _PREWARM_BUSY = True
     try:
         seen: set[str] = set()
+        done = 0
         for it in items:
+            if done >= _PREWARM_MAX:
+                break
             img = it.get("image", "") or ""
             if "/img?" not in img:
                 continue
@@ -442,9 +535,10 @@ def _prewarm_images(items: list[dict]) -> None:
             if not u or u in seen:
                 continue
             seen.add(u)
+            done += 1
             try:
                 # 预热的是「列表实际请求的缩略图变体」（w=THUMB_W），命中率才有意义
-                _img_proxy.prefetch(u, r or None, width=THUMB_W, quality=THUMB_Q, timeout=12.0)
+                _img_proxy.prefetch(u, r or None, width=THUMB_W, quality=THUMB_Q, timeout=6.0)
             except Exception:
                 pass
     finally:
@@ -480,15 +574,43 @@ def _sources_mtime() -> float:
     return m
 
 
+_REBUILD_LOCK = threading.Lock()
+_REBUILD_BUSY = False
+
+
+def _schedule_bg_rebuild() -> None:
+    """后台重建缓存，绝不阻塞请求线程。同一时刻只允许一个重建。"""
+    global _REBUILD_BUSY
+    with _REBUILD_LOCK:
+        if _REBUILD_BUSY:
+            return
+        _REBUILD_BUSY = True
+
+    def _run() -> None:
+        global _REBUILD_BUSY
+        try:
+            with _BUILD_LOCK:
+                if _sources_mtime() > _CACHE["ts"]:
+                    _do_build_and_store()
+        except Exception:
+            pass
+        finally:
+            with _REBUILD_LOCK:
+                _REBUILD_BUSY = False
+
+    threading.Thread(target=_run, daemon=True).start()
+
+
 def _ensure() -> tuple[list[dict], dict]:
     """返回全量数据集（近 _WINDOW_DAYS 天），days-agnostic。
 
-    构建极快（实测 ~25ms / 数百条），因此采用「按数据新鲜度重建」：
+    stale-while-revalidate：只要有旧缓存，请求**永不阻塞**在重建上。
     - TTL 内：直接返回缓存（不做任何磁盘 stat）。
-    - TTL 到期且**数据源确有更新**（mtime 比缓存新）：**同步重建**，保证首次打开
-      就能看到今日刚生成/入库的内容（不再出现"要再刷一次才更新"）。
-    - TTL 到期但数据没变：续期后直接返回旧缓存，不做无谓重建。
-    - 完全无缓存（首次）：同步构建。
+    - TTL 到期且数据源有更新：**立即返回旧缓存**，同时后台线程重建（下次请求即新）。
+      这样每天调度写入新内容后的「首次打开」不再卡 8~15s（此前是同步重建，且与
+      图片预热线程抢 GIL 被进一步放大）。
+    - TTL 到期但数据没变：续期后直接返回旧缓存。
+    - 完全无缓存（仅进程刚起、warm 未跑完时）：才同步构建一次。
     """
     now = time.time()
     if (now - _CACHE["ts"] < _CACHE_TTL) and _CACHE["items"]:
@@ -496,16 +618,12 @@ def _ensure() -> tuple[list[dict], dict]:
 
     if _CACHE["items"]:
         if _sources_mtime() > _CACHE["ts"]:
-            with _BUILD_LOCK:
-                # 双检：可能已被其它线程重建
-                if _CACHE["items"] and _sources_mtime() <= _CACHE["ts"]:
-                    return _CACHE["items"], _CACHE["index"]
-                return _do_build_and_store()
-        # 数据未变，仅 TTL 老化 → 续期，避免每次请求都 stat
-        _CACHE["ts"] = now
+            _schedule_bg_rebuild()  # 后台重建，不阻塞；本次先返回旧数据
+        else:
+            _CACHE["ts"] = now      # 数据未变，仅续期
         return _CACHE["items"], _CACHE["index"]
 
-    # 首次：同步构建（双检锁，避免并发重复构建）
+    # 完全无缓存（首次）：同步构建一次（双检锁，避免并发重复构建）
     with _BUILD_LOCK:
         if _CACHE["items"]:
             return _CACHE["items"], _CACHE["index"]
@@ -549,13 +667,7 @@ def week(days: int = 14, kind: str | None = None, offset: int = 0, limit: int = 
     cutoff = time.time() - days * 86400
     # published_ts==0 表示日期无法解析，保留以免误删
     items = [it for it in items if (it["published_ts"] == 0 or it["published_ts"] >= cutoff)]
-    if kind:
-        items = [it for it in items if it["kind"] == kind]
-    else:
-        # 「全部」不展示政要社媒、碎片更新（均有独立栏目），避免与其它内容混排
-        items = [it for it in items if it["kind"] not in ("social", "debris")]
-
-    total = len(items)
+    # kinds 角标口径：日期过滤后、分类过滤前的全集，保证各标签计数都真实（含独立栏目）
     kinds = {
         "intl": sum(1 for c in items if c["kind"] == "intl"),
         "gzh": sum(1 for c in items if c["kind"] == "gzh"),
@@ -563,8 +675,16 @@ def week(days: int = 14, kind: str | None = None, offset: int = 0, limit: int = 
         "social": sum(1 for c in items if c["kind"] == "social"),
         "techport": sum(1 for c in items if c["kind"] == "techport"),
         "launch": sum(1 for c in items if c["kind"] == "launch"),
+        "future": sum(1 for c in items if c["kind"] == "future"),
         "debris": sum(1 for c in items if c["kind"] == "debris"),
     }
+    if kind:
+        items = [it for it in items if it["kind"] == kind]
+    else:
+        # 「全部」不展示政要社媒、碎片更新、未来发射（均有独立栏目），避免与其它内容混排
+        items = [it for it in items if it["kind"] not in ("social", "debris", "future")]
+
+    total = len(items)
     # 分页：limit>0 时只取一页，单页响应小、任何网络都能秒开
     page = items[offset:offset + limit] if limit > 0 else items
     cards = [_card(it) for it in page]

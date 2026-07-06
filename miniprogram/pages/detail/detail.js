@@ -29,9 +29,14 @@ Page({
     api.get(path, { auth: false })
       .then((res) => {
         const item = res.item;
+        // 技术港/每日发射：正文只取「描述」，结构化字段单独成卡片，避免与卡片重复
+        let bodySrc = item.body;
+        if (item.kind === 'techport') bodySrc = item.tp_summary || item.body;
+        else if (item.kind === 'launch') bodySrc = item.launch_summary || '';
+        else if (item.kind === 'future') bodySrc = '';
         this.setData({
           item,
-          paragraphs: toParagraphs(item.body),
+          paragraphs: toParagraphs(bodySrc),
           loading: false,
         });
         wx.setNavigationBarTitle({ title: item.main_tag || '详情' });
