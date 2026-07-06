@@ -45,6 +45,11 @@ const EXPAND_MS = 15 * 1000;
 // 首屏只渲染一小页（快出内容、setData 轻），随后每 15s 追加一整段（≈3 天）。
 const FIRST_LIMIT = 15;
 const EXPAND_LIMIT = 100; // 与后端单页上限对齐
+// 渐进加载（首屏小窗→每 15s 向后扩到 MAX_DAYS）仅用于内容量大/更新频繁的栏目；
+// 值为「首屏起始天数」。未列出的栏目（公众号/航天视频/未来发射/碎片更新）内容少且
+// 发布日期可能偏旧，直接用整窗首屏，避免首屏空态、十几秒后才突然刷出。
+// key '' = 全部。每日发射(launch)/技术港(techport)从 7 天起扩到 15。
+const PROGRESSIVE_START = { '': PAGE_DAYS, intl: PAGE_DAYS, launch: 7, techport: 7, social: PAGE_DAYS };
 // 久置/隔天再回到页面时自动刷新的阈值
 const REFRESH_IDLE_MS = 10 * 60 * 1000;
 // 首屏本地缓存：冷启动先渲染上次内容（秒开），再后台静默刷新，缓解微信冷启动等待。
@@ -214,7 +219,10 @@ Page({
   load(fromPull, quiet) {
     this._lastLoadAt = Date.now();
     this._loadDay = fmtToday();
-    this._days = PAGE_DAYS;         // 每次首屏/刷新都从近 3 天重新开始渐进加载
+    // 渐进栏目（全部/国际要闻/每日发射/技术港/政要社媒）用配置的起始天数逐步扩窗；
+    // 其余栏目内容少、发布日期可能偏旧 → 直接整窗首屏，避免首屏空态、十几秒后才刷出。
+    const start = PROGRESSIVE_START[this.data.active];
+    this._days = (start !== undefined) ? start : MAX_DAYS;
     this._windowHasMore = false;
     this._stopExpandTimer();
     const seq = ++this._reqSeq;
