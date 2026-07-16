@@ -96,6 +96,30 @@ def _zh_lookup() -> dict[str, tuple[str, str]]:
     return out
 
 
+def _index_add(index: dict[str, dict], cutoff: float, kind: str, norm, raw: dict) -> None:
+    try:
+        it = norm(raw)
+    except Exception:
+        return
+    ts = it.get("published_ts") or 0
+    if ts and ts >= cutoff:
+        return  # 近窗口内已由实时聚合覆盖
+    index.setdefault(it["id"], it)
+
+
+def _iter_daily_payloads():
+    """把「每日整包快照」（cache/digest 归档）展开成逐条 spacenews/opml/douyin。
+
+    有些条目只在整包快照里出现过（比如接入 intl/gzh/douyin 单条归档之前抓到的旧
+    内容，或当天没被选中推送、只留在 cache 快照里的），单条归档扫不到它们，
+    必须回到整包快照里找——这里的 spacenews 字段已含中文译文，比单条归档更完整。
+    """
+    for row in _iter_archive("cache"):
+        yield row.get("payload") or {}
+    for row in _iter_archive("digest"):
+        yield row.get("record") or {}
+
+
 def _build_index() -> tuple[list[dict], dict[str, dict]]:
     live_items, live_index = news_store._ensure()
     index: dict[str, dict] = dict(live_index)
@@ -103,6 +127,17 @@ def _build_index() -> tuple[list[dict], dict[str, dict]]:
     # 更早的历史，避免同一篇文章因链接改写等差异在索引里出现两次。
     cutoff = time.time() - news_store._WINDOW_DAYS * 86400
 
+    # 1) 每日整包快照（cache/digest）逐条展开：spacenews 已含中文译文，最完整、优先入索引。
+    for payload in _iter_daily_payloads():
+        for a in payload.get("spacenews") or []:
+            _index_add(index, cutoff, "intl", news_store._norm_intl, a)
+        for a in payload.get("opml") or []:
+            _index_add(index, cutoff, "gzh", news_store._norm_gzh, a)
+        for a in payload.get("douyin") or []:
+            _index_add(index, cutoff, "douyin", news_store._norm_dy, a)
+
+    # 2) 逐条归档（intl/gzh/douyin/social/techport/launch/debris）兜底补漏：整包快照
+    #    只含「当天实际推送/选中」的条目，抓到但未推送的仍只落在这里。
     zh = _zh_lookup()
     for kind, norm in _ARCHIVE_KINDS.items():
         for raw in _iter_archive(kind):
@@ -111,14 +146,7 @@ def _build_index() -> tuple[list[dict], dict[str, dict]]:
                 if hit:
                     raw = dict(raw)
                     raw["title_zh"], raw["body_zh"] = hit
-            try:
-                it = norm(raw)
-            except Exception:
-                continue
-            ts = it.get("published_ts") or 0
-            if ts and ts >= cutoff:
-                continue
-            index.setdefault(it["id"], it)
+            _index_add(index, cutoff, kind, norm, raw)
 
     items = list(index.values())
     items.sort(key=lambda x: x.get("published_ts") or 0, reverse=True)

@@ -58,8 +58,11 @@ const HOME_CACHE_KEY = 'news_home_cache_v1';
 
 // 搜索：覆盖全部历史（后端 /news/search 会回补 15 天窗口之外的归档），输入停顿
 // SEARCH_DEBOUNCE_MS 后自动触发，避免每敲一个字就发请求。
+// 结果分页：先只出 10 条，多于 10 条时每隔 SEARCH_EXPAND_MS 自动追加 10 条
+//（与列表页「渐进加载」同一思路，避免搜到几十条时一次性把长列表都渲染出来）。
 const SEARCH_DEBOUNCE_MS = 500;
-const SEARCH_PAGE_SIZE = 20;
+const SEARCH_PAGE_SIZE = 10;
+const SEARCH_EXPAND_MS = 10 * 1000;
 
 function fmtToday() {
   return fmtDate(new Date());
@@ -102,7 +105,8 @@ Page({
   _loadDay: '',      // 上次加载所属日期
   _searchOffset: 0,
   _searchReqSeq: 0,
-  _searchTimer: null,
+  _searchTimer: null,       // 输入防抖定时器
+  _searchExpandTimer: null, // 搜索结果「每 10s 自动追加下一页」定时器
 
   onLoad() {
     // 审核受限期：速递不展示，直接跳到计算器。
@@ -142,11 +146,13 @@ Page({
 
   onHide() {
     this._stopExpandTimer();
+    this._stopSearchExpandTimer();
     clearTimeout(this._searchTimer);
   },
 
   onUnload() {
     this._stopExpandTimer();
+    this._stopSearchExpandTimer();
     clearTimeout(this._searchTimer);
   },
 
@@ -376,10 +382,24 @@ Page({
   },
 
   _exitSearch() {
+    this._stopSearchExpandTimer();
     this.setData({
       searching: false, searchResults: [], searchError: '', searchTotal: 0, searchHasMore: false,
     });
     this.load();
+  },
+
+  _startSearchExpandTimer() {
+    this._stopSearchExpandTimer();
+    this._searchExpandTimer = setInterval(() => {
+      if (!this.data.searching || !this.data.searchHasMore) { this._stopSearchExpandTimer(); return; }
+      if (this.data.searchLoadingMore) return;
+      this._runSearch(false);
+    }, SEARCH_EXPAND_MS);
+  },
+
+  _stopSearchExpandTimer() {
+    if (this._searchExpandTimer) { clearInterval(this._searchExpandTimer); this._searchExpandTimer = null; }
   },
 
   switchSearchSort(e) {
@@ -394,11 +414,13 @@ Page({
     this.setData({ searchScope: scope }, () => this._runSearch(true));
   },
 
-  // reset=true：新搜索/换 tab/换排序，从第一页开始；false：上拉加载下一页
+  // reset=true：新搜索/换 tab/换排序/换范围，从第一页开始（且重启「每 10s 自动追加」）；
+  // false：加载下一页 10 条（由定时器或上拉触发）。
   _runSearch(reset) {
     const q = this.data.searchText.trim();
     if (!q) return;
     this._stopExpandTimer(); // 搜索时不需要「全部」栏目的渐进扩窗定时器
+    if (reset) this._stopSearchExpandTimer();
     const seq = ++this._searchReqSeq;
     if (reset) {
       this._searchOffset = 0;
@@ -420,15 +442,19 @@ Page({
         const items = res.items || [];
         this._searchOffset += items.length;
         const merged = reset ? items : this.data.searchResults.concat(items);
+        const hasMore = !!res.has_more;
         this.setData({
           searching: true,
           searchLoading: false,
           searchLoadingMore: false,
           searchResults: merged,
           searchTotal: res.total || 0,
-          searchHasMore: !!res.has_more,
+          searchHasMore: hasMore,
           searchError: '',
         });
+        // 结果多于一页（>10 条）：每 10s 自动追加下一页，直到取完；上拉也可随时手动加载。
+        if (hasMore) this._startSearchExpandTimer();
+        else this._stopSearchExpandTimer();
       })
       .catch((e) => {
         if (seq !== this._searchReqSeq) return;

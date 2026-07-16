@@ -58,7 +58,7 @@
       <view wx:if="{{!searchLoading && searchError}}" class="hint">{{searchError}}</view>
       <view wx:if="{{!searchLoading && !searchError && !searchResults.length}}" class="hint">没有找到匹配的内容</view>
       <view wx:if="{{!searchLoading && !searchError && searchResults.length && searchLoadingMore}}" class="hint">加载中…</view>
-      <view wx:if="{{!searchLoading && !searchError && searchResults.length && searchHasMore && !searchLoadingMore}}" class="hint">上拉加载更多…</view>
+      <view wx:if="{{!searchLoading && !searchError && searchResults.length && searchHasMore && !searchLoadingMore}}" class="hint">已显示 {{searchResults.length}}/{{searchTotal}} 条，10 秒后自动加载更多，也可上拉立即加载</view>
       <view wx:if="{{!searchLoading && !searchError && searchResults.length && !searchHasMore}}" class="hint">已经到底啦</view>
     </block>
 
