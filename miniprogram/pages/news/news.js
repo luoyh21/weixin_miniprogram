@@ -56,6 +56,11 @@ const REFRESH_IDLE_MS = 10 * 60 * 1000;
 // 仅缓存默认「全部」分类的第一页。
 const HOME_CACHE_KEY = 'news_home_cache_v1';
 
+// 搜索：覆盖全部历史（后端 /news/search 会回补 15 天窗口之外的归档），输入停顿
+// SEARCH_DEBOUNCE_MS 后自动触发，避免每敲一个字就发请求。
+const SEARCH_DEBOUNCE_MS = 500;
+const SEARCH_PAGE_SIZE = 20;
+
 function fmtToday() {
   return fmtDate(new Date());
 }
@@ -71,6 +76,18 @@ Page({
     loading: true,
     error: '',
     imgErr: {}, // 加载失败的图（按条目 id 标记）→ 隐藏，不显示破图
+
+    // 搜索：与当前分类 tab 联动（active 变化时若在搜索中会自动换 kind 重搜），
+    // 搜索的是全部历史（不受下面渐进加载的 14 天窗口限制）。
+    searchText: '',
+    searching: false,
+    searchSort: 'time', // time | score
+    searchLoading: false,
+    searchLoadingMore: false,
+    searchError: '',
+    searchResults: [],
+    searchHasMore: false,
+    searchTotal: 0,
   },
 
   // 渲染分组的真源放实例上，配合「定点 setData」增量追加，避免每页重建整列表
@@ -82,6 +99,9 @@ Page({
   _reqSeq: 0,        // 防止快速切换分类时旧请求把新结果覆盖
   _lastLoadAt: 0,    // 上次成功发起加载的时刻（onShow 判断是否需刷新）
   _loadDay: '',      // 上次加载所属日期
+  _searchOffset: 0,
+  _searchReqSeq: 0,
+  _searchTimer: null,
 
   onLoad() {
     // 审核受限期：速递不展示，直接跳到计算器。
@@ -109,6 +129,7 @@ Page({
     const tb = this.getTabBar && this.getTabBar();
     if (tb) { tb.refresh(); tb.setSelectedByPath('/pages/news/news'); }
     gate.refresh().then((r) => { if (r.changed) gate.applyToCurrentPage(); });
+    if (this.data.searching) return; // 搜索中：不被后台刷新/渐进加载打扰
     // 切后台再回来 / 隔天再打开时拉取今日新内容（静默，不闪白屏）
     if (!this._lastLoadAt) return;
     const staleDay = this._loadDay !== fmtToday();
@@ -120,10 +141,12 @@ Page({
 
   onHide() {
     this._stopExpandTimer();
+    clearTimeout(this._searchTimer);
   },
 
   onUnload() {
     this._stopExpandTimer();
+    clearTimeout(this._searchTimer);
   },
 
   _readHomeCache() {
@@ -161,6 +184,11 @@ Page({
   },
 
   onPullDownRefresh() {
+    if (this.data.searching) {
+      this._runSearch(true);
+      setTimeout(() => wx.stopPullDownRefresh(), 400);
+      return;
+    }
     this.load(true);
   },
 
@@ -295,13 +323,18 @@ Page({
   },
 
   onReachBottom() {
+    if (this.data.searching) { this._loadMoreSearch(); return; }
     this._loadNext();
   },
 
   switchFilter(e) {
     const key = e.currentTarget.dataset.key;
     if (key === this.data.active) return;
-    this.setData({ active: key }, () => this.load());
+    this.setData({ active: key }, () => {
+      // 搜索中切 tab：保持搜索态，换个分类范围重搜；否则走常规分类加载
+      if (this.data.searching) this._runSearch(true);
+      else this.load();
+    });
   },
 
   // 图片加载失败 → 标记该条目隐藏缩略图（境内偶发拉不到的境外图不留破框）
@@ -313,5 +346,92 @@ Page({
   openDetail(e) {
     const id = e.currentTarget.dataset.id;
     wx.navigateTo({ url: '/pages/detail/detail?id=' + id });
+  },
+
+  // ---------------- 搜索：模糊匹配，覆盖全部历史（不受 14 天窗口限制） ----------------
+
+  onSearchInput(e) {
+    const v = e.detail.value;
+    this.setData({ searchText: v });
+    clearTimeout(this._searchTimer);
+    if (!v.trim()) {
+      if (this.data.searching) this._exitSearch();
+      return;
+    }
+    this._searchTimer = setTimeout(() => this._runSearch(true), SEARCH_DEBOUNCE_MS);
+  },
+
+  onSearchConfirm() {
+    clearTimeout(this._searchTimer);
+    const v = this.data.searchText.trim();
+    if (!v) { this._exitSearch(); return; }
+    this._runSearch(true);
+  },
+
+  clearSearch() {
+    clearTimeout(this._searchTimer);
+    this.setData({ searchText: '' });
+    this._exitSearch();
+  },
+
+  _exitSearch() {
+    this.setData({
+      searching: false, searchResults: [], searchError: '', searchTotal: 0, searchHasMore: false,
+    });
+    this.load();
+  },
+
+  switchSearchSort(e) {
+    const sort = e.currentTarget.dataset.sort;
+    if (sort === this.data.searchSort) return;
+    this.setData({ searchSort: sort }, () => this._runSearch(true));
+  },
+
+  // reset=true：新搜索/换 tab/换排序，从第一页开始；false：上拉加载下一页
+  _runSearch(reset) {
+    const q = this.data.searchText.trim();
+    if (!q) return;
+    this._stopExpandTimer(); // 搜索时不需要「全部」栏目的渐进扩窗定时器
+    const seq = ++this._searchReqSeq;
+    if (reset) {
+      this._searchOffset = 0;
+      this.setData({
+        searching: true, searchLoading: true, searchError: '', searchResults: [], searchHasMore: false,
+      });
+    } else {
+      this.setData({ searchLoadingMore: true });
+    }
+    const kind = this.data.active;
+    let url = '/news/search?q=' + encodeURIComponent(q) +
+      '&sort=' + this.data.searchSort +
+      '&offset=' + this._searchOffset + '&limit=' + SEARCH_PAGE_SIZE;
+    if (kind) url += '&kind=' + kind;
+    api.get(url, { auth: false })
+      .then((res) => {
+        if (seq !== this._searchReqSeq) return;
+        const items = res.items || [];
+        this._searchOffset += items.length;
+        const merged = reset ? items : this.data.searchResults.concat(items);
+        this.setData({
+          searching: true,
+          searchLoading: false,
+          searchLoadingMore: false,
+          searchResults: merged,
+          searchTotal: res.total || 0,
+          searchHasMore: !!res.has_more,
+          searchError: '',
+        });
+      })
+      .catch((e) => {
+        if (seq !== this._searchReqSeq) return;
+        this.setData({
+          searchLoading: false, searchLoadingMore: false, searchError: e.message || '搜索失败',
+        });
+      });
+  },
+
+  _loadMoreSearch() {
+    if (this.data.searchLoadingMore || !this.data.searchHasMore) return;
+    this._runSearch(false);
   },
 });

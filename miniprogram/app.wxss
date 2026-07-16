@@ -81,3 +81,33 @@ page {
 .muted { color: var(--muted); font-size: 24rpx; }
 .center { text-align: center; }
 .hint { color: var(--muted); font-size: 24rpx; text-align: center; padding: 40rpx 0; }
+
+/* ---- 搜索栏（速递/专题列表/专题内部通用）：模糊搜索输入 + 时间/匹配度排序切换 ---- */
+.searchbar {
+  padding: 16rpx 24rpx 4rpx;
+  background: var(--bg);
+}
+.search-input-wrap {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 999rpx;
+  padding: 14rpx 22rpx;
+  box-shadow: 0 4rpx 14rpx rgba(20, 40, 90, 0.05);
+}
+.search-icon { font-size: 26rpx; margin-right: 10rpx; opacity: 0.6; }
+.search-input { flex: 1; font-size: 27rpx; color: var(--ink); }
+.search-clear {
+  color: var(--muted);
+  font-size: 32rpx;
+  line-height: 1;
+  padding: 0 6rpx 0 14rpx;
+}
+.sortbar {
+  display: flex;
+  align-items: center;
+  gap: 14rpx;
+  padding: 14rpx 24rpx 4rpx;
+}
+.chip.small { padding: 8rpx 22rpx; font-size: 23rpx; }
+.search-total { margin-left: auto; color: var(--muted); font-size: 22rpx; }

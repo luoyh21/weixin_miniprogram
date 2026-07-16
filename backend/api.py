@@ -13,7 +13,7 @@ import os
 from fastapi import APIRouter, Header, HTTPException
 from pydantic import BaseModel
 
-from . import auth, news_store, qa, douyin_cookie, topic_intel
+from . import auth, news_store, qa, douyin_cookie, topic_intel, search_store
 from .paths import DATA_DIR
 
 log = logging.getLogger(__name__)
@@ -145,8 +145,25 @@ def api_news_week(days: int = 14, kind: str | None = None, offset: int = 0, limi
 def api_news_item(id: str):
     it = news_store.detail(id)
     if not it:
+        # 近两周窗口之外的搜索结果，回退到全量搜索索引里找（覆盖历史归档）
+        it = search_store.get_item(id)
+    if not it:
         raise HTTPException(status_code=404, detail="未找到该条目（可能已超出保留期）")
     return {"ok": True, "item": it}
+
+
+@router.get("/news/search")
+def api_news_search(q: str = "", kind: str | None = None, sort: str = "time",
+                     offset: int = 0, limit: int = 20):
+    """全量模糊搜索：覆盖归档以来的全部历史，不受 /news/week 的 14 天窗口限制。"""
+    q = (q or "").strip()
+    offset = max(0, offset)
+    limit = min(limit, 50) if limit and limit > 0 else 20
+    sort = sort if sort in ("time", "score") else "time"
+    if not q:
+        return {"ok": True, "q": "", "sort": sort, "total": 0, "count": 0,
+                "offset": offset, "limit": limit, "has_more": False, "items": []}
+    return {"ok": True, **search_store.search(q, kind=kind, sort=sort, offset=offset, limit=limit)}
 
 
 # ---------------- 问答 ----------------

@@ -11,6 +11,20 @@
     <view class="h-time">更新于 {{topic.updated_at}}</view>
   </view>
 
+  <view class="searchbar">
+    <view class="search-input-wrap">
+      <text class="search-icon">🔍</text>
+      <input
+        class="search-input"
+        placeholder="在本专题内搜索标题/正文关键词"
+        value="{{searchText}}"
+        confirm-type="search"
+        bindinput="onSearchInput"
+      />
+      <text wx:if="{{searchText}}" class="search-clear" bindtap="clearSearch">×</text>
+    </view>
+  </view>
+
   <view class="filterbar">
     <view
       wx:for="{{filters}}"
@@ -19,6 +33,12 @@
       data-key="{{item.key}}"
       bindtap="switchFilter"
     >{{item.label}}</view>
+  </view>
+
+  <view wx:if="{{searchText}}" class="sortbar">
+    <view class="chip small {{searchSort === 'time' ? 'on' : ''}}" data-sort="time" bindtap="switchSearchSort">按时间</view>
+    <view class="chip small {{searchSort === 'score' ? 'on' : ''}}" data-sort="score" bindtap="switchSearchSort">按匹配度</view>
+    <text class="search-total">共 {{shown.length}} 条</text>
   </view>
 
   <view class="list">
@@ -37,7 +57,7 @@
       </view>
     </view>
 
-    <view wx:if="{{!shown.length}}" class="hint">该分类暂无内容</view>
+    <view wx:if="{{!shown.length}}" class="hint">{{searchText ? '没有找到匹配的内容' : '该分类暂无内容'}}</view>
   </view>
 </view>
 

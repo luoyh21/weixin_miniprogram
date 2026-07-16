@@ -1,4 +1,19 @@
 <view class="page">
+  <view class="searchbar">
+    <view class="search-input-wrap">
+      <text class="search-icon">🔍</text>
+      <input
+        class="search-input"
+        placeholder="搜索标题/正文关键词（覆盖全部历史）"
+        value="{{searchText}}"
+        confirm-type="search"
+        bindinput="onSearchInput"
+        bindconfirm="onSearchConfirm"
+      />
+      <text wx:if="{{searchText}}" class="search-clear" bindtap="clearSearch">×</text>
+    </view>
+  </view>
+
   <view class="filterbar">
     <view
       wx:for="{{filters}}"
@@ -9,41 +24,77 @@
     >{{item.label}}</view>
   </view>
 
-  <view class="list">
-    <block wx:if="{{!loading && groups.length}}">
-      <view wx:for="{{groups}}" wx:key="date" class="day-group">
-        <view class="day-head">
-          <text class="day-label">{{item.label}}</text>
-          <text class="day-count">{{item.items.length}} 条</text>
-        </view>
+  <view wx:if="{{searching}}" class="sortbar">
+    <view class="chip small {{searchSort === 'time' ? 'on' : ''}}" data-sort="time" bindtap="switchSearchSort">按时间</view>
+    <view class="chip small {{searchSort === 'score' ? 'on' : ''}}" data-sort="score" bindtap="switchSearchSort">按匹配度</view>
+    <text class="search-total">共 {{searchTotal}} 条</text>
+  </view>
 
-        <view
-          wx:for="{{item.items}}"
-          wx:for-item="news"
-          wx:key="id"
-          class="news-card"
-          data-id="{{news.id}}"
-          bindtap="openDetail"
-        >
-          <view class="nc-body">
-            <view class="nc-tagline">
-              <text class="tag {{news.kind}}">#{{news.main_tag}}</text>
-              <text class="nc-source">{{news.source}}</text>
-            </view>
-            <view class="nc-title">{{news.title}}</view>
-            <view class="nc-summary">{{news.summary}}</view>
-            <view class="nc-meta">{{news.published}}</view>
+  <view class="list">
+    <block wx:if="{{searching}}">
+      <view
+        wx:for="{{searchResults}}"
+        wx:key="id"
+        class="news-card"
+        data-id="{{item.id}}"
+        bindtap="openDetail"
+      >
+        <view class="nc-body">
+          <view class="nc-tagline">
+            <text class="tag {{item.kind}}">#{{item.main_tag}}</text>
+            <text class="nc-source">{{item.source}}</text>
           </view>
-          <image wx:if="{{news.image && !imgErr[news.id]}}" class="nc-thumb" src="{{news.image}}" mode="aspectFill" lazy-load="true" binderror="onImgError" data-id="{{news.id}}" />
+          <view class="nc-title">{{item.title}}</view>
+          <view class="nc-summary">{{item.summary}}</view>
+          <view class="nc-meta">{{item.published}}</view>
         </view>
+        <image wx:if="{{item.image && !imgErr[item.id]}}" class="nc-thumb" src="{{item.image}}" mode="aspectFill" lazy-load="true" binderror="onImgError" data-id="{{item.id}}" />
       </view>
+
+      <view wx:if="{{searchLoading}}" class="hint">搜索中…</view>
+      <view wx:if="{{!searchLoading && searchError}}" class="hint">{{searchError}}</view>
+      <view wx:if="{{!searchLoading && !searchError && !searchResults.length}}" class="hint">没有找到匹配的内容</view>
+      <view wx:if="{{!searchLoading && !searchError && searchResults.length && searchLoadingMore}}" class="hint">加载中…</view>
+      <view wx:if="{{!searchLoading && !searchError && searchResults.length && searchHasMore && !searchLoadingMore}}" class="hint">上拉加载更多…</view>
+      <view wx:if="{{!searchLoading && !searchError && searchResults.length && !searchHasMore}}" class="hint">已经到底啦</view>
     </block>
 
-    <view wx:if="{{loading}}" class="hint">正在加载近两周速递…</view>
-    <view wx:if="{{!loading && error}}" class="hint">{{error}}</view>
-    <view wx:if="{{!loading && !error && !groups.length}}" class="hint">近两周暂无该类内容</view>
-    <view wx:if="{{!loading && !error && groups.length && loadingMore}}" class="hint">加载中…</view>
-    <view wx:if="{{!loading && !error && groups.length && hasMore && !loadingMore}}" class="hint">上拉加载更多…</view>
-    <view wx:if="{{!loading && !error && groups.length && !hasMore}}" class="hint">已经到底啦 · 近两周速递</view>
+    <block wx:else>
+      <block wx:if="{{!loading && groups.length}}">
+        <view wx:for="{{groups}}" wx:key="date" class="day-group">
+          <view class="day-head">
+            <text class="day-label">{{item.label}}</text>
+            <text class="day-count">{{item.items.length}} 条</text>
+          </view>
+
+          <view
+            wx:for="{{item.items}}"
+            wx:for-item="news"
+            wx:key="id"
+            class="news-card"
+            data-id="{{news.id}}"
+            bindtap="openDetail"
+          >
+            <view class="nc-body">
+              <view class="nc-tagline">
+                <text class="tag {{news.kind}}">#{{news.main_tag}}</text>
+                <text class="nc-source">{{news.source}}</text>
+              </view>
+              <view class="nc-title">{{news.title}}</view>
+              <view class="nc-summary">{{news.summary}}</view>
+              <view class="nc-meta">{{news.published}}</view>
+            </view>
+            <image wx:if="{{news.image && !imgErr[news.id]}}" class="nc-thumb" src="{{news.image}}" mode="aspectFill" lazy-load="true" binderror="onImgError" data-id="{{news.id}}" />
+          </view>
+        </view>
+      </block>
+
+      <view wx:if="{{loading}}" class="hint">正在加载近两周速递…</view>
+      <view wx:if="{{!loading && error}}" class="hint">{{error}}</view>
+      <view wx:if="{{!loading && !error && !groups.length}}" class="hint">近两周暂无该类内容</view>
+      <view wx:if="{{!loading && !error && groups.length && loadingMore}}" class="hint">加载中…</view>
+      <view wx:if="{{!loading && !error && groups.length && hasMore && !loadingMore}}" class="hint">上拉加载更多…</view>
+      <view wx:if="{{!loading && !error && groups.length && !hasMore}}" class="hint">已经到底啦 · 近两周速递</view>
+    </block>
   </view>
 </view>

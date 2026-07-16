@@ -4,9 +4,23 @@
     <view class="hero-sub">围绕指定专题的深度情报合集，非定期更新；每次发起聚合近 3 年、约 18 篇国内外内容。</view>
   </view>
 
+  <view class="searchbar">
+    <view class="search-input-wrap">
+      <text class="search-icon">🔍</text>
+      <input
+        class="search-input"
+        placeholder="搜索专题标题/简介"
+        value="{{searchText}}"
+        confirm-type="search"
+        bindinput="onSearchInput"
+      />
+      <text wx:if="{{searchText}}" class="search-clear" bindtap="clearSearch">×</text>
+    </view>
+  </view>
+
   <view class="list">
     <view
-      wx:for="{{topics}}"
+      wx:for="{{shown}}"
       wx:key="id"
       class="topic-card"
       data-id="{{item.id}}"
@@ -28,5 +42,6 @@
     <view wx:if="{{loading}}" class="hint">正在加载专题…</view>
     <view wx:if="{{!loading && error}}" class="hint">{{error}}</view>
     <view wx:if="{{!loading && !error && !topics.length}}" class="hint">暂无专题</view>
+    <view wx:if="{{!loading && !error && topics.length && !shown.length}}" class="hint">没有找到匹配的专题</view>
   </view>
 </view>

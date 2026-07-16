@@ -1,5 +1,8 @@
 .page { padding: 0 24rpx 40rpx; }
 
+/* .page 本身已有左右内边距，搜索栏（app.wxss 全局样式）不用再叠加一次 */
+.searchbar { padding-left: 0; padding-right: 0; }
+
 .hero {
   margin: 24rpx 0 8rpx;
   padding: 32rpx;
