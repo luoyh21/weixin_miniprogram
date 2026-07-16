@@ -8,7 +8,7 @@ const NORMAL = [
 ];
 
 const RESTRICTED = [
-  { pagePath: '/pages/calc/calc', text: '速递', icon: '🛰️' },
+  { pagePath: '/pages/calc/calc', text: '计算', icon: '🧮' },
   { pagePath: '/pages/account/account', text: '我的', icon: '👤' },
 ];
 

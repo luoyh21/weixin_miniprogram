@@ -6,19 +6,19 @@
   <view class="list">
     <view class="day-group">
       <view class="day-head">
-        <text class="day-label">测试</text>
-        <text class="day-count">3 条</text>
+        <text class="day-label">计算演示</text>
+        <text class="day-count">{{items.length}} 条</text>
       </view>
 
       <view wx:for="{{items}}" wx:key="id" class="news-card">
         <view class="nc-body">
           <view class="nc-tagline">
-            <text class="tag">#测试</text>
-            <text class="nc-source">测试</text>
+            <text class="tag">#计算</text>
+            <text class="nc-source">计算演示</text>
           </view>
-          <view class="nc-title">测试测试测试测试</view>
-          <view class="nc-summary">测试测试测试测试</view>
-          <view class="nc-meta">测试测试测试测试</view>
+          <view class="nc-title">{{item.title}}</view>
+          <view class="nc-summary">{{item.summary}}</view>
+          <view class="nc-meta">{{item.meta}}</view>
         </view>
       </view>
     </view>
