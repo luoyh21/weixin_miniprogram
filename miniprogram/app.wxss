@@ -106,8 +106,10 @@ page {
 .sortbar {
   display: flex;
   align-items: center;
-  gap: 14rpx;
+  flex-wrap: wrap;
+  gap: 12rpx;
   padding: 14rpx 24rpx 4rpx;
 }
-.chip.small { padding: 8rpx 22rpx; font-size: 23rpx; }
+.chip.small { padding: 8rpx 20rpx; font-size: 23rpx; }
+.sortbar-sep { color: var(--line); font-size: 22rpx; }
 .search-total { margin-left: auto; color: var(--muted); font-size: 22rpx; }

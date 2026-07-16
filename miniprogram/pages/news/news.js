@@ -81,7 +81,8 @@ Page({
     // 搜索的是全部历史（不受下面渐进加载的 14 天窗口限制）。
     searchText: '',
     searching: false,
-    searchSort: 'time', // time | score
+    searchSort: 'time',  // time | score
+    searchScope: 'all',  // all（标题+正文+来源） | title（只匹配标题，更精确）
     searchLoading: false,
     searchLoadingMore: false,
     searchError: '',
@@ -387,6 +388,12 @@ Page({
     this.setData({ searchSort: sort }, () => this._runSearch(true));
   },
 
+  switchSearchScope(e) {
+    const scope = e.currentTarget.dataset.scope;
+    if (scope === this.data.searchScope) return;
+    this.setData({ searchScope: scope }, () => this._runSearch(true));
+  },
+
   // reset=true：新搜索/换 tab/换排序，从第一页开始；false：上拉加载下一页
   _runSearch(reset) {
     const q = this.data.searchText.trim();
@@ -404,6 +411,7 @@ Page({
     const kind = this.data.active;
     let url = '/news/search?q=' + encodeURIComponent(q) +
       '&sort=' + this.data.searchSort +
+      '&scope=' + this.data.searchScope +
       '&offset=' + this._searchOffset + '&limit=' + SEARCH_PAGE_SIZE;
     if (kind) url += '&kind=' + kind;
     api.get(url, { auth: false })

@@ -154,16 +154,21 @@ def api_news_item(id: str):
 
 @router.get("/news/search")
 def api_news_search(q: str = "", kind: str | None = None, sort: str = "time",
-                     offset: int = 0, limit: int = 20):
-    """全量模糊搜索：覆盖归档以来的全部历史，不受 /news/week 的 14 天窗口限制。"""
+                     scope: str = "all", offset: int = 0, limit: int = 20):
+    """全量模糊搜索：覆盖归档以来的全部历史，不受 /news/week 的 14 天窗口限制。
+
+    scope=title 只匹配标题（更精确）；scope=all（默认）标题+正文+来源/标签都参与匹配。
+    """
     q = (q or "").strip()
     offset = max(0, offset)
     limit = min(limit, 50) if limit and limit > 0 else 20
     sort = sort if sort in ("time", "score") else "time"
+    scope = scope if scope in ("all", "title") else "all"
     if not q:
-        return {"ok": True, "q": "", "sort": sort, "total": 0, "count": 0,
+        return {"ok": True, "q": "", "sort": sort, "scope": scope, "total": 0, "count": 0,
                 "offset": offset, "limit": limit, "has_more": False, "items": []}
-    return {"ok": True, **search_store.search(q, kind=kind, sort=sort, offset=offset, limit=limit)}
+    return {"ok": True, **search_store.search(q, kind=kind, sort=sort, scope=scope,
+                                               offset=offset, limit=limit)}
 
 
 # ---------------- 问答 ----------------

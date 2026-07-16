@@ -18,6 +18,12 @@
     </view>
   </view>
 
+  <view wx:if="{{searchText}}" class="sortbar">
+    <view class="chip small {{searchScope === 'all' ? 'on' : ''}}" data-scope="all" bindtap="switchSearchScope">标题+简介</view>
+    <view class="chip small {{searchScope === 'title' ? 'on' : ''}}" data-scope="title" bindtap="switchSearchScope">仅标题</view>
+    <text class="search-total">共 {{shown.length}} 条</text>
+  </view>
+
   <view class="list">
     <view
       wx:for="{{shown}}"

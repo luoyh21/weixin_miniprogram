@@ -166,19 +166,27 @@ def _terms(q: str) -> list[str]:
     return parts or [q]
 
 
-def _haystack(it: dict) -> str:
-    bits = (
-        it.get("title", ""), it.get("title_orig", ""), it.get("summary", ""),
-        it.get("body", ""), it.get("source", ""), " ".join(it.get("tags") or []),
-    )
+def _haystack(it: dict, scope: str = "all") -> str:
+    if scope == "title":
+        bits = (it.get("title", ""), it.get("title_orig", ""))
+    else:
+        bits = (
+            it.get("title", ""), it.get("title_orig", ""), it.get("summary", ""),
+            it.get("body", ""), it.get("source", ""), " ".join(it.get("tags") or []),
+        )
     return " ".join(bits).lower()
 
 
-def _score(it: dict, terms: list[str]) -> float:
+def _score(it: dict, terms: list[str], scope: str = "all") -> float:
     title = (it.get("title", "") + " " + it.get("title_orig", "")).lower()
+    score = 0.0
+    if scope == "title":
+        for t in terms:
+            if t in title:
+                score += 5.0
+        return score
     body = (it.get("summary", "") + " " + it.get("body", "")).lower()
     other = (it.get("source", "") + " " + " ".join(it.get("tags") or [])).lower()
-    score = 0.0
     for t in terms:
         if t in title:
             score += 5.0
@@ -189,12 +197,14 @@ def _score(it: dict, terms: list[str]) -> float:
     return score
 
 
-def search(q: str, kind: str | None = None, sort: str = "time",
+def search(q: str, kind: str | None = None, sort: str = "time", scope: str = "all",
            offset: int = 0, limit: int = 20) -> dict:
     """模糊搜索：多个词按 AND 匹配（子串），覆盖全部历史（不受 14 天窗口限制）。
 
-    sort: 'time'（按发布时间倒序，默认） | 'score'（按匹配度，同分再按时间）。
+    scope: 'all'（标题+正文+来源/标签，默认） | 'title'（只匹配标题，更精确、更快找到确切文章）。
+    sort:  'time'（按发布时间倒序，默认） | 'score'（按匹配度，同分再按时间）。
     """
+    scope = scope if scope in ("all", "title") else "all"
     terms = _terms(q)
     items, _ = _ensure_index()
     if kind:
@@ -203,9 +213,9 @@ def search(q: str, kind: str | None = None, sort: str = "time",
     matched: list[tuple[float, dict]] = []
     if terms:
         for it in items:
-            hay = _haystack(it)
+            hay = _haystack(it, scope)
             if all(t in hay for t in terms):
-                matched.append((_score(it, terms), it))
+                matched.append((_score(it, terms, scope), it))
 
     if sort == "score":
         matched.sort(key=lambda p: (p[0], p[1].get("published_ts") or 0), reverse=True)
@@ -223,6 +233,7 @@ def search(q: str, kind: str | None = None, sort: str = "time",
     return {
         "q": q,
         "sort": sort,
+        "scope": scope,
         "total": total,
         "count": len(cards),
         "offset": offset,

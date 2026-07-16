@@ -18,8 +18,17 @@ function applyFilter(items, key) {
 
 // 专题条目数不多（单专题约 20~30 篇），搜索直接在已加载数据上做客户端模糊匹配 + 打分，
 // 无需请求后端；多个词按 AND 匹配（子串），标题命中权重最高。
-function matchScore(it, terms) {
+// scope: 'all'（标题+正文+来源/标签，默认） | 'title'（只匹配标题，更精确）。
+function matchScore(it, terms, scope) {
   const title = (it.title || '').toLowerCase();
+  if (scope === 'title') {
+    let score = 0;
+    for (let i = 0; i < terms.length; i++) {
+      if (title.indexOf(terms[i]) < 0) return -1;
+      score += 5;
+    }
+    return score;
+  }
   const body = ((it.summary || '') + ' ' + (it.body_zh || '')).toLowerCase();
   const other = ((it.source || '') + ' ' + (it.tags || []).join(' ')).toLowerCase();
   let score = 0;
@@ -36,12 +45,12 @@ function matchScore(it, terms) {
   return score;
 }
 
-function applySearch(items, q, sort) {
+function applySearch(items, q, sort, scope) {
   const terms = (q || '').trim().toLowerCase().split(SPLIT_RE).filter(Boolean);
   if (!terms.length) return items;
   const scored = [];
   (items || []).forEach((it) => {
-    const s = matchScore(it, terms);
+    const s = matchScore(it, terms, scope);
     if (s >= 0) scored.push([s, it]);
   });
   if (sort === 'score') scored.sort((a, b) => b[0] - a[0]);
@@ -59,7 +68,8 @@ Page({
     loading: true,
     error: '',
     searchText: '',
-    searchSort: 'time', // time | score
+    searchSort: 'time',  // time | score
+    searchScope: 'all',  // all | title
   },
 
   onLoad(query) {
@@ -89,7 +99,7 @@ Page({
     if (!this.data.topic) return;
     const base = applyFilter(this.data.topic.items, this.data.active);
     const q = this.data.searchText;
-    const shown = q.trim() ? applySearch(base, q, this.data.searchSort) : base;
+    const shown = q.trim() ? applySearch(base, q, this.data.searchSort, this.data.searchScope) : base;
     this.setData({ shown });
   },
 
@@ -111,6 +121,12 @@ Page({
     const sort = e.currentTarget.dataset.sort;
     if (sort === this.data.searchSort) return;
     this.setData({ searchSort: sort }, () => this._recompute());
+  },
+
+  switchSearchScope(e) {
+    const scope = e.currentTarget.dataset.scope;
+    if (scope === this.data.searchScope) return;
+    this.setData({ searchScope: scope }, () => this._recompute());
   },
 
   openItem(e) {

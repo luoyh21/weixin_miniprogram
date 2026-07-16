@@ -36,6 +36,9 @@
   </view>
 
   <view wx:if="{{searchText}}" class="sortbar">
+    <view class="chip small {{searchScope === 'all' ? 'on' : ''}}" data-scope="all" bindtap="switchSearchScope">全文搜索</view>
+    <view class="chip small {{searchScope === 'title' ? 'on' : ''}}" data-scope="title" bindtap="switchSearchScope">标题搜索</view>
+    <text class="sortbar-sep">|</text>
     <view class="chip small {{searchSort === 'time' ? 'on' : ''}}" data-sort="time" bindtap="switchSearchSort">按时间</view>
     <view class="chip small {{searchSort === 'score' ? 'on' : ''}}" data-sort="score" bindtap="switchSearchSort">按匹配度</view>
     <text class="search-total">共 {{shown.length}} 条</text>
