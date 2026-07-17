@@ -68,6 +68,21 @@
     <view wx:if="{{!item.launches.length}}" class="muted center">未来暂无已排期发射</view>
   </block>
 
+  <!-- 国际要闻：正文前展示内容概要 -->
+  <block wx:elif="{{item.kind === 'intl'}}">
+    <view class="blurb" wx:if="{{item.summary_zh}}">
+      <view class="blurb-label">内容概要</view>
+      <view class="blurb-txt">{{item.summary_zh}}</view>
+    </view>
+    <view class="d-body">
+      <view wx:for="{{paragraphs}}" wx:key="index" class="d-p">{{item}}</view>
+    </view>
+    <view wx:if="{{item.images.length}}" class="d-gallery">
+      <image wx:for="{{item.images}}" wx:for-item="img" wx:key="*this"
+        class="d-gimg" src="{{img}}" mode="widthFix" lazy-load="true" />
+    </view>
+  </block>
+
   <block wx:else>
     <view class="d-body">
       <view wx:for="{{paragraphs}}" wx:key="index" class="d-p">{{item}}</view>

@@ -113,6 +113,7 @@ def _short(s: str, n: int = 80) -> str:
 def _norm_intl(a: dict) -> dict:
     title = a.get("title_zh") or a.get("title") or ""
     body = a.get("body_zh") or a.get("summary") or ""
+    blurb = (a.get("summary_zh") or "").strip()
     tags = a.get("tags") or []
     link = a.get("link") or a.get("original_link") or ""
     pub = a.get("published") or ""
@@ -121,8 +122,10 @@ def _norm_intl(a: dict) -> dict:
         "kind": "intl",
         "title": title,
         "title_orig": a.get("title") or "",
-        "summary": _short(body, 90),
+        # 列表卡优先用内容概要；没有时回退正文截断
+        "summary": _short(blurb or body, 90),
         "body": body,
+        "summary_zh": blurb,  # 详情页「内容概要」完整展示
         "source": a.get("source") or "SpaceNews",
         "published": _to_beijing(pub),
         "published_ts": _ts(pub),

@@ -12,6 +12,24 @@
   margin: 26rpx 0 10rpx;
   background: #f0f2f6;
 }
+.blurb {
+  margin: 20rpx 0 8rpx;
+  padding: 22rpx 24rpx;
+  background: #f5f8ff;
+  border: 2rpx solid #e6eeff;
+  border-radius: 18rpx;
+}
+.blurb-label {
+  font-size: 24rpx;
+  font-weight: 600;
+  color: #1664ff;
+  margin-bottom: 10rpx;
+}
+.blurb-txt {
+  font-size: 29rpx;
+  line-height: 1.75;
+  color: #2a3344;
+}
 .d-body { margin-top: 16rpx; }
 .d-p {
   font-size: 31rpx;

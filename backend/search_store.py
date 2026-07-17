@@ -200,7 +200,8 @@ def _haystack(it: dict, scope: str = "all") -> str:
     else:
         bits = (
             it.get("title", ""), it.get("title_orig", ""), it.get("summary", ""),
-            it.get("body", ""), it.get("source", ""), " ".join(it.get("tags") or []),
+            it.get("summary_zh", ""), it.get("body", ""), it.get("source", ""),
+            " ".join(it.get("tags") or []),
         )
     return " ".join(bits).lower()
 
