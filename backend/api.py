@@ -155,9 +155,9 @@ def api_news_item(id: str):
 @router.get("/news/search")
 def api_news_search(q: str = "", kind: str | None = None, sort: str = "time",
                      scope: str = "all", offset: int = 0, limit: int = 20):
-    """全量模糊搜索：覆盖归档以来的全部历史，不受 /news/week 的 14 天窗口限制。
+    """全量语义搜索（embedding 跨中英）+ 双语关键词补强；覆盖归档以来全部历史。
 
-    scope=title 只匹配标题（更精确）；scope=all（默认）标题+正文+来源/标签都参与匹配。
+    scope=title 只匹配标题；scope=all（默认）标题+正文等。sort=score 按相关度。
     """
     q = (q or "").strip()
     offset = max(0, offset)

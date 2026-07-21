@@ -7,5 +7,7 @@ private.*.key
 backend/data/users.json
 backend/data/secret.key
 backend/data/*.tmp
+backend/data/search_embeddings.json
+backend/data/gate.json
 dist/
 *.log
