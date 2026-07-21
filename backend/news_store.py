@@ -114,6 +114,10 @@ def _norm_intl(a: dict) -> dict:
     title = a.get("title_zh") or a.get("title") or ""
     body = a.get("body_zh") or a.get("summary") or ""
     blurb = (a.get("summary_zh") or "").strip()
+    title_en = a.get("title") or ""
+    # 英文原文：优先完整正文 body_en；否则回退 RSS/ingest 英文摘要
+    body_en = (a.get("body_en") or "").strip()
+    summary_en = (a.get("summary_en") or a.get("summary") or "").strip()
     tags = a.get("tags") or []
     link = a.get("link") or a.get("original_link") or ""
     pub = a.get("published") or ""
@@ -121,11 +125,14 @@ def _norm_intl(a: dict) -> dict:
         "id": _mk_id("intl", link, title),
         "kind": "intl",
         "title": title,
-        "title_orig": a.get("title") or "",
+        "title_orig": title_en,
+        "title_en": title_en,
         # 列表卡优先用内容概要；没有时回退正文截断
         "summary": _short(blurb or body, 90),
         "body": body,
+        "body_en": body_en,
         "summary_zh": blurb,  # 详情页「内容概要」完整展示
+        "summary_en": summary_en,
         "source": a.get("source") or "SpaceNews",
         "published": _to_beijing(pub),
         "published_ts": _ts(pub),
@@ -240,6 +247,7 @@ def _norm_techport(a: dict) -> dict:
     """技术港（NASA TechPort 每日更新项目，标题/摘要已译中文，含结构化项目信息）。"""
     title = a.get("title") or ""
     body = a.get("summary") or ""
+    summary_en = a.get("summary_en") or ""
     link = a.get("link") or ""
     pub = a.get("published") or ""
 
@@ -252,34 +260,45 @@ def _norm_techport(a: dict) -> dict:
     tb, te = a.get("trl_begin"), a.get("trl_end")
     if tb or te:
         trl = f"TRL {tb or '?'} → {te or '?'}"
+    if a.get("trl_current") not in (None, ""):
+        cur = f"当前 TRL {a.get('trl_current')}"
+        trl = f"{trl}（{cur}）" if trl else cur
+
+    cat_disp = a.get("category") or ""
+    if a.get("category_code"):
+        cat_disp = f"{a.get('category_code')} {cat_disp}".strip()
+    prog_disp = a.get("program") or ""
+    if a.get("program_title") and a.get("program_title") != prog_disp:
+        prog_disp = f"{prog_disp}（{a.get('program_title')}）" if prog_disp else a.get("program_title")
 
     meta_fields = {
+        "project_id": str(a.get("project_id") or ""),
+        "acronym": a.get("acronym") or "",
         "period": period,
+        "start_date": a.get("start_date") or "",
+        "end_date": a.get("end_date") or "",
         "trl": trl,
+        "trl_begin": a.get("trl_begin"),
+        "trl_end": a.get("trl_end"),
+        "trl_current": a.get("trl_current"),
         "category": a.get("category") or "",
         "category_code": a.get("category_code") or "",
+        "category_disp": cat_disp,
         "program": a.get("program") or "",
+        "program_title": a.get("program_title") or "",
+        "program_disp": prog_disp,
+        "directorate": a.get("directorate") or "",
+        "lead_org": a.get("lead_org") or "",
+        "destinations": a.get("destinations") or "",
+        "website": a.get("website") or "",
+        "status": a.get("status") or "",
         "status_zh": a.get("status_zh") or a.get("status") or "",
         "title_en": a.get("title_en") or "",
+        "summary_en": summary_en,
+        "benefits": a.get("benefits") or "",
+        "benefits_en": a.get("benefits_en") or "",
+        "updated_raw": a.get("updated_raw") or "",
     }
-
-    extra = []
-    if period:
-        extra.append(f"项目周期：{period}")
-    if trl:
-        extra.append(f"技术成熟度：{trl}")
-    if meta_fields["category"]:
-        cat = meta_fields["category"]
-        if meta_fields["category_code"]:
-            cat = f"{meta_fields['category_code']} {cat}"
-        extra.append(f"技术类别：{cat}")
-    if meta_fields["program"]:
-        extra.append(f"所属计划：{meta_fields['program']}")
-    if meta_fields["status_zh"]:
-        extra.append(f"项目状态：{meta_fields['status_zh']}")
-    if meta_fields["title_en"]:
-        extra.append(f"原题：{meta_fields['title_en']}")
-    full = (body + ("\n\n" + "\n".join(extra) if extra else "")).strip()
 
     item = {
         "id": _mk_id("techport", link, title),
@@ -287,7 +306,7 @@ def _norm_techport(a: dict) -> dict:
         "title": title,
         "title_orig": a.get("title_en") or title,
         "summary": _short(body, 90),
-        "body": full,
+        "body": body,
         "source": "NASA TechPort",
         "published": _to_beijing(pub),
         "published_ts": _ts(pub),
@@ -318,6 +337,7 @@ def _norm_launch(a: dict) -> dict:
     if a.get("status"):
         parts.append(f"状态：{a['status']}")
     summary_zh = a.get("summary") or ""
+    summary_en = a.get("summary_en") or ""
     body = "\n".join(parts) + (("\n\n" + summary_zh) if summary_zh else "")
     card_bits = [b for b in (
         provider, location,
@@ -329,7 +349,9 @@ def _norm_launch(a: dict) -> dict:
         "kind": "launch",
         "title": title,
         "title_orig": a.get("name_en") or title,
+        "title_en": a.get("name_en") or "",
         "summary": card,
+        "summary_en": summary_en,
         "body": body.strip(),
         "source": "The Space Devs",
         "published": _to_beijing(pub),

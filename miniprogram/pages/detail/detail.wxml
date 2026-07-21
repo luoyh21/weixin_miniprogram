@@ -27,17 +27,36 @@
       <view class="s-val">{{item.analysis}}</view>
     </view>
   </block>
-  <!-- 技术港：项目结构化信息 -->
+  <!-- 技术港：项目结构化信息（尽量展示全部入库字段） -->
   <block wx:elif="{{item.kind === 'techport'}}">
     <view class="meta-card">
+      <view class="meta-row" wx:if="{{item.project_id}}"><text class="meta-k">项目 ID</text><text class="meta-v">{{item.project_id}}</text></view>
+      <view class="meta-row" wx:if="{{item.title_en}}"><text class="meta-k">英文标题</text><text class="meta-v">{{item.title_en}}</text></view>
+      <view class="meta-row" wx:if="{{item.acronym}}"><text class="meta-k">缩写</text><text class="meta-v">{{item.acronym}}</text></view>
+      <view class="meta-row" wx:if="{{item.status_zh}}"><text class="meta-k">项目状态</text><text class="meta-v">{{item.status_zh}}<text wx:if="{{item.status && item.status !== item.status_zh}}">（{{item.status}}）</text></text></view>
       <view class="meta-row" wx:if="{{item.period}}"><text class="meta-k">项目周期</text><text class="meta-v">{{item.period}}</text></view>
+      <view class="meta-row" wx:if="{{item.start_date}}"><text class="meta-k">开始时间</text><text class="meta-v">{{item.start_date}}</text></view>
+      <view class="meta-row" wx:if="{{item.end_date}}"><text class="meta-k">结束时间</text><text class="meta-v">{{item.end_date}}</text></view>
       <view class="meta-row" wx:if="{{item.trl}}"><text class="meta-k">技术成熟度</text><text class="meta-v">{{item.trl}}</text></view>
-      <view class="meta-row" wx:if="{{item.category}}"><text class="meta-k">技术类别</text><text class="meta-v">{{item.category_code}} {{item.category}}</text></view>
-      <view class="meta-row" wx:if="{{item.program}}"><text class="meta-k">所属计划</text><text class="meta-v">{{item.program}}</text></view>
-      <view class="meta-row" wx:if="{{item.status_zh}}"><text class="meta-k">项目状态</text><text class="meta-v">{{item.status_zh}}</text></view>
+      <view class="meta-row" wx:if="{{item.category_disp || item.category}}"><text class="meta-k">技术类别</text><text class="meta-v">{{item.category_disp || item.category}}</text></view>
+      <view class="meta-row" wx:if="{{item.program_disp || item.program}}"><text class="meta-k">所属计划</text><text class="meta-v">{{item.program_disp || item.program}}</text></view>
+      <view class="meta-row" wx:if="{{item.directorate}}"><text class="meta-k">主管司局</text><text class="meta-v">{{item.directorate}}</text></view>
+      <view class="meta-row" wx:if="{{item.lead_org}}"><text class="meta-k">牵头机构</text><text class="meta-v">{{item.lead_org}}</text></view>
+      <view class="meta-row" wx:if="{{item.destinations}}"><text class="meta-k">任务目的地</text><text class="meta-v">{{item.destinations}}</text></view>
+      <view class="meta-row" wx:if="{{item.updated_raw}}"><text class="meta-k">源站更新</text><text class="meta-v">{{item.updated_raw}}</text></view>
+      <view class="meta-row" wx:if="{{item.website}}"><text class="meta-k">项目网站</text><text class="meta-v">{{item.website}}</text></view>
     </view>
     <view class="d-body">
       <view wx:for="{{paragraphs}}" wx:key="index" class="d-p">{{item}}</view>
+    </view>
+    <view class="s-block" wx:if="{{item.benefits || item.benefits_en}}">
+      <view class="s-label">项目收益</view>
+      <view class="s-val" wx:if="{{item.benefits}}">{{item.benefits}}</view>
+      <view class="s-orig" wx:if="{{item.benefits_en}}">{{item.benefits_en}}</view>
+    </view>
+    <view class="s-block" wx:if="{{item.summary_en}}">
+      <view class="s-label">英文原文</view>
+      <view class="s-orig">{{item.summary_en}}</view>
     </view>
   </block>
 
@@ -68,7 +87,7 @@
     <view wx:if="{{!item.launches.length}}" class="muted center">未来暂无已排期发射</view>
   </block>
 
-  <!-- 国际要闻：正文前展示内容概要 -->
+  <!-- 国际要闻：正文前展示内容概要；文末附英文原文（若有） -->
   <block wx:elif="{{item.kind === 'intl'}}">
     <view class="blurb" wx:if="{{item.summary_zh}}">
       <view class="blurb-label">内容概要</view>
@@ -80,6 +99,10 @@
     <view wx:if="{{item.images.length}}" class="d-gallery">
       <image wx:for="{{item.images}}" wx:for-item="img" wx:key="*this"
         class="d-gimg" src="{{img}}" mode="widthFix" lazy-load="true" />
+    </view>
+    <view class="s-block" wx:if="{{item.body_en || item.summary_en}}">
+      <view class="s-label">英文原文</view>
+      <view class="s-orig">{{item.body_en || item.summary_en}}</view>
     </view>
   </block>
 

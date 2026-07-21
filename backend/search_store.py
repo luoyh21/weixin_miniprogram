@@ -194,27 +194,38 @@ def _terms(q: str) -> list[str]:
     return parts or [q]
 
 
+def _title_blob(it: dict) -> str:
+    return " ".join((
+        it.get("title", ""), it.get("title_orig", ""), it.get("title_en", ""),
+    )).lower()
+
+
 def _haystack(it: dict, scope: str = "all") -> str:
     if scope == "title":
-        bits = (it.get("title", ""), it.get("title_orig", ""))
-    else:
-        bits = (
-            it.get("title", ""), it.get("title_orig", ""), it.get("summary", ""),
-            it.get("summary_zh", ""), it.get("body", ""), it.get("source", ""),
-            " ".join(it.get("tags") or []),
-        )
+        return _title_blob(it)
+    bits = (
+        it.get("title", ""), it.get("title_orig", ""), it.get("title_en", ""),
+        it.get("summary", ""), it.get("summary_zh", ""), it.get("summary_en", ""),
+        it.get("body", ""), it.get("body_en", ""), it.get("tp_summary", ""),
+        it.get("benefits", ""), it.get("benefits_en", ""),
+        it.get("source", ""), " ".join(it.get("tags") or []),
+    )
     return " ".join(bits).lower()
 
 
 def _score(it: dict, terms: list[str], scope: str = "all") -> float:
-    title = (it.get("title", "") + " " + it.get("title_orig", "")).lower()
+    title = _title_blob(it)
     score = 0.0
     if scope == "title":
         for t in terms:
             if t in title:
                 score += 5.0
         return score
-    body = (it.get("summary", "") + " " + it.get("body", "")).lower()
+    body = " ".join((
+        it.get("summary", ""), it.get("summary_zh", ""), it.get("summary_en", ""),
+        it.get("body", ""), it.get("body_en", ""), it.get("tp_summary", ""),
+        it.get("benefits", ""), it.get("benefits_en", ""),
+    )).lower()
     other = (it.get("source", "") + " " + " ".join(it.get("tags") or [])).lower()
     for t in terms:
         if t in title:
@@ -226,12 +237,20 @@ def _score(it: dict, terms: list[str], scope: str = "all") -> float:
     return score
 
 
+def _title_hit(it: dict, terms: list[str]) -> bool:
+    title = _title_blob(it)
+    return bool(terms) and all(t in title for t in terms)
+
+
 def search(q: str, kind: str | None = None, sort: str = "time", scope: str = "all",
            offset: int = 0, limit: int = 20) -> dict:
     """模糊搜索：多个词按 AND 匹配（子串），覆盖全部历史（不受 14 天窗口限制）。
 
     scope: 'all'（标题+正文+来源/标签，默认） | 'title'（只匹配标题，更精确、更快找到确切文章）。
     sort:  'time'（按发布时间倒序，默认） | 'score'（按匹配度，同分再按时间）。
+
+    全文检索时：若存在「标题命中」结果，则只保留标题命中项，避免正文里顺带提到
+    关键词的近似条目（如搜「核热推进」却因摘要对比句命中「核电推进」）造成「重复」感。
     """
     scope = scope if scope in ("all", "title") else "all"
     terms = _terms(q)
@@ -245,6 +264,10 @@ def search(q: str, kind: str | None = None, sort: str = "time", scope: str = "al
             hay = _haystack(it, scope)
             if all(t in hay for t in terms):
                 matched.append((_score(it, terms, scope), it))
+        if scope == "all":
+            titled = [(s, it) for s, it in matched if _title_hit(it, terms)]
+            if titled:
+                matched = titled
 
     if sort == "score":
         matched.sort(key=lambda p: (p[0], p[1].get("published_ts") or 0), reverse=True)
