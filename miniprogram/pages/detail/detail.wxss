@@ -112,13 +112,17 @@
   color: var(--sub);
 }
 .fut-upd { color: var(--muted); }
-.fut-list { margin-top: 14rpx; }
+.fut-list { margin-top: 20rpx; }
+/* 每条发射任务独立成块：更大内边距 + 块间空白 + 底部分割线，避免信息粘连 */
 .fut-item {
-  padding: 20rpx 22rpx;
-  margin-bottom: 16rpx;
-  background: #fff;
-  border: 2rpx solid #eceff5;
-  border-radius: 16rpx;
+  padding: 28rpx 8rpx 32rpx;
+  margin-bottom: 8rpx;
+  border-bottom: 2rpx solid #e5e9f0;
+}
+.fut-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 12rpx;
 }
 .fut-time {
   font-size: 28rpx;
@@ -131,9 +135,9 @@
   font-weight: 400;
   margin-left: 10rpx;
 }
-.fut-name { font-size: 30rpx; color: var(--ink); margin-top: 8rpx; line-height: 1.5; }
-.fut-sub { font-size: 25rpx; color: var(--sub); margin-top: 8rpx; }
-.fut-status { font-size: 23rpx; color: var(--muted); margin-top: 6rpx; }
+.fut-name { font-size: 30rpx; color: var(--ink); margin-top: 12rpx; line-height: 1.5; }
+.fut-sub { font-size: 25rpx; color: var(--sub); margin-top: 10rpx; }
+.fut-status { font-size: 23rpx; color: var(--muted); margin-top: 8rpx; }
 
 /* 原文网址直显（在「复制原文链接」上方） */
 .d-url {
