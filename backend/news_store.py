@@ -43,6 +43,11 @@ try:
     from src import img_proxy as _img_proxy  # type: ignore
 except Exception:
     _img_proxy = None
+try:
+    from src.news_pages import utc_times_to_beijing as _utc_to_bj  # type: ignore
+except Exception:
+    def _utc_to_bj(s: str) -> str:  # type: ignore
+        return s or ""
 
 CST = timezone(timedelta(hours=8))
 _CN_DT_RE = re.compile(r"(\d{4})\D+(\d{1,2})\D+(\d{1,2})\D+(\d{1,2}):(\d{2})(?::(\d{2}))?")
@@ -112,8 +117,9 @@ def _short(s: str, n: int = 80) -> str:
 
 def _norm_intl(a: dict) -> dict:
     title = a.get("title_zh") or a.get("title") or ""
-    body = a.get("body_zh") or a.get("summary") or ""
-    blurb = (a.get("summary_zh") or "").strip()
+    # 正文/概要里残留的 UTC、协调世界时统一换成北京时间（与翻译页一致）
+    body = _utc_to_bj(a.get("body_zh") or a.get("summary") or "")
+    blurb = _utc_to_bj((a.get("summary_zh") or "").strip())
     title_en = a.get("title") or ""
     # 英文原文：优先完整正文 body_en；否则回退 RSS/ingest 英文摘要
     body_en = (a.get("body_en") or "").strip()
