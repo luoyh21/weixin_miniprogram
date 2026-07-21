@@ -395,11 +395,54 @@ def _cosine(a: list[float], b: list[float]) -> float:
     return dot / ((na ** 0.5) * (nb ** 0.5))
 
 
+# 检索专用名词对照（优先于 LLM 互译，避免「星落→Falling Stars」这类误译）
+_TERM_ALIASES: dict[str, str] = {
+    "星落": "starfall",
+    "starfall": "星落",
+    "星舰": "starship",
+    "starship": "星舰",
+    "星链": "starlink",
+    "starlink": "星链",
+    "猎鹰9": "falcon 9",
+    "猎鹰 9": "falcon 9",
+    "falcon 9": "猎鹰9",
+    "falcon9": "猎鹰9",
+}
+
+
+def _alias_alt(q: str) -> str:
+    """整词/整句命中对照表则直接返回对译；否则在查询中替换已知专名。"""
+    q0 = (q or "").strip()
+    if not q0:
+        return ""
+    low = q0.lower()
+    if low in _TERM_ALIASES:
+        return _TERM_ALIASES[low]
+    if q0 in _TERM_ALIASES:
+        return _TERM_ALIASES[q0]
+    # 子串替换（长短语优先）
+    out = q0
+    for src, dst in sorted(_TERM_ALIASES.items(), key=lambda kv: -len(kv[0])):
+        if _HAS_CJK.search(src):
+            if src in out:
+                out = out.replace(src, dst)
+        else:
+            # 英文按词边界忽略大小写替换
+            out = re.sub(re.escape(src), dst, out, flags=re.IGNORECASE)
+    return out if out != q0 else ""
+
+
 def _translate_query_bilingual(q: str) -> str:
-    """中英互译扩展查询词：中文→英、英文→中，失败则返回空串。"""
+    """中英互译扩展查询词：中文→英、英文→中，失败则返回空串。
+
+    先查专有名词对照表（如 星落↔starfall），再回退 LLM。
+    """
     q = (q or "").strip()
     if not q:
         return ""
+    aliased = _alias_alt(q)
+    if aliased:
+        return aliased
     has_cjk = bool(_HAS_CJK.search(q))
     has_lat = bool(_HAS_LATIN.search(q))
     # 已中英混杂则不再译
@@ -479,18 +522,25 @@ def search(q: str, kind: str | None = None, sort: str = "time", scope: str = "al
     q2 = _translate_query_bilingual(q)
     queries = [q] + ([q2] if q2 else [])
 
-    # 语义召回
+    # 语义召回（原查询 + 对照/互译查询取较高相似度，保证「星落」也能命中 starfall 文档）
     mode = "semantic"
     sem_scores: dict[str, float] = {}
-    qvec = _embed_query(q, scope)
-    if qvec is not None:
+    qvecs = []
+    v0 = _embed_query(q, scope)
+    if v0 is not None:
+        qvecs.append(v0)
+    if q2:
+        v1 = _embed_query(q2, scope)
+        if v1 is not None:
+            qvecs.append(v1)
+    if qvecs:
         id2vec = _ensure_embeddings(items, scope=scope)
         scored = []
         for it in items:
             vec = id2vec.get(it["id"])
             if not vec:
                 continue
-            sim = _cosine(qvec, vec)
+            sim = max(_cosine(qv, vec) for qv in qvecs)
             if sim >= _SEM_MIN:
                 scored.append((sim, it["id"]))
         scored.sort(reverse=True)
