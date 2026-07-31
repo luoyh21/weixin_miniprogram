@@ -11,6 +11,7 @@ const FILTERS = [
   { key: 'future', label: '未来发射' },
   { key: 'debris', label: '碎片更新' },
   { key: 'social', label: '政要社媒' },
+  { key: 'weekly', label: '每周概览' },
 ];
 
 const WEEKDAYS = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
@@ -75,6 +76,7 @@ Page({
     hasMore: false,
     loadingMore: false,
     groups: [],
+    weekly: null,
     kinds: { intl: 0, gzh: 0, douyin: 0, social: 0, techport: 0, launch: 0, future: 0, debris: 0 },
     loading: true,
     error: '',
@@ -108,9 +110,15 @@ Page({
   _searchTimer: null,       // 输入防抖定时器
   _searchExpandTimer: null, // 搜索结果「每 10s 自动追加下一页」定时器
 
-  onLoad() {
+  onLoad(query) {
     // 审核受限期：速递不展示，直接跳到计算器。
     if (gate.restricted()) { wx.reLaunch({ url: '/pages/calc/calc' }); return; }
+    if (query && query.tab === 'weekly') {
+      this._weeklyWeek = query.week || '';
+      this.setData({ active: 'weekly' });
+      this._loadWeekly();
+      return;
+    }
     // 冷启动先吃本地缓存秒开（仅默认分类），再静默拉最新覆盖；无缓存才走常规加载。
     const cached = this._readHomeCache();
     if (cached && cached.groups && cached.groups.length) {
@@ -134,6 +142,7 @@ Page({
     const tb = this.getTabBar && this.getTabBar();
     if (tb) { tb.refresh(); tb.setSelectedByPath('/pages/news/news'); }
     gate.refresh().then((r) => { if (r.changed) gate.applyToCurrentPage(); });
+    if (this.data.active === 'weekly') return;
     if (this.data.searching) return; // 搜索中：不被后台刷新/渐进加载打扰
     // 切后台再回来 / 隔天再打开时拉取今日新内容（静默，不闪白屏）
     if (!this._lastLoadAt) return;
@@ -191,6 +200,11 @@ Page({
   },
 
   onPullDownRefresh() {
+    if (this.data.active === 'weekly') {
+      this._loadWeekly();
+      setTimeout(() => wx.stopPullDownRefresh(), 400);
+      return;
+    }
     if (this.data.searching) {
       this._runSearch(true);
       setTimeout(() => wx.stopPullDownRefresh(), 400);
@@ -330,6 +344,7 @@ Page({
   },
 
   onReachBottom() {
+    if (this.data.active === 'weekly') return;
     if (this.data.searching) { this._loadMoreSearch(); return; }
     this._loadNext();
   },
@@ -337,11 +352,43 @@ Page({
   switchFilter(e) {
     const key = e.currentTarget.dataset.key;
     if (key === this.data.active) return;
+    if (key === 'weekly') {
+      this._stopExpandTimer();
+      this._stopSearchExpandTimer();
+      clearTimeout(this._searchTimer);
+      this._weeklyWeek = '';
+      this.setData({
+        active: key,
+        searching: false,
+        searchText: '',
+        searchResults: [],
+      });
+      this._loadWeekly();
+      return;
+    }
     this.setData({ active: key }, () => {
       // 搜索中切 tab：保持搜索态，换个分类范围重搜；否则走常规分类加载
       if (this.data.searching) this._runSearch(true);
       else this.load();
     });
+  },
+
+  _loadWeekly() {
+    const suffix = this._weeklyWeek ? '?week=' + encodeURIComponent(this._weeklyWeek) : '';
+    this.setData({ loading: true, error: '', weekly: null, groups: [], hasMore: false });
+    api.get('/weekly/get' + suffix, { auth: false })
+      .then((res) => {
+        this._weeklyWeek = res.week_id || '';
+        this.setData({ weekly: res, loading: false, error: '' });
+      })
+      .catch((e) => {
+        this.setData({ weekly: null, loading: false, error: e.message || '每周概览加载失败' });
+      });
+  },
+
+  showAllNews() {
+    this._weeklyWeek = '';
+    this.setData({ active: '', weekly: null, error: '' }, () => this.load());
   },
 
   // 图片加载失败 → 标记该条目隐藏缩略图（境内偶发拉不到的境外图不留破框）

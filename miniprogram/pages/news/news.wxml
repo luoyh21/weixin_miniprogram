@@ -1,5 +1,5 @@
 <view class="page">
-  <view class="searchbar">
+  <view wx:if="{{active !== 'weekly'}}" class="searchbar">
     <view class="search-input-wrap">
       <text class="search-icon">🔍</text>
       <input
@@ -34,7 +34,49 @@
   </view>
 
   <view class="list">
-    <block wx:if="{{searching}}">
+    <block wx:if="{{active === 'weekly'}}">
+      <view wx:if="{{weekly}}" class="weekly-hero">
+        <view class="weekly-kicker">WEEKLY SPACE BRIEF</view>
+        <view class="weekly-title">{{weekly.title}}</view>
+        <view class="weekly-period">{{weekly.period}} · 共 {{weekly.item_count}} 条动态</view>
+        <view class="weekly-summary">{{weekly.summary}}</view>
+      </view>
+
+      <view
+        wx:for="{{weekly.items}}"
+        wx:key="id"
+        wx:for-index="idx"
+        class="news-card"
+        data-id="{{item.id}}"
+        bindtap="openDetail"
+      >
+        <view class="weekly-number">{{idx + 1 < 10 ? '0' : ''}}{{idx + 1}}</view>
+        <view class="nc-body">
+          <view class="nc-tagline">
+            <text class="tag {{item.kind}}">#{{item.main_tag}}</text>
+            <text class="nc-source">{{item.source}}</text>
+          </view>
+          <view class="nc-title">{{item.title}}</view>
+          <view class="nc-summary">{{item.summary_zh || item.summary}}</view>
+          <view class="nc-meta">{{item.published}}</view>
+        </view>
+        <image wx:if="{{item.image && !imgErr[item.id]}}" class="nc-thumb" src="{{item.image}}" mode="aspectFill" lazy-load="true" binderror="onImgError" data-id="{{item.id}}" />
+      </view>
+
+      <view wx:if="{{weekly}}" class="weekly-all" bindtap="showAllNews">
+        <view>
+          <view class="weekly-all-title">查看全部新闻</view>
+          <view class="weekly-all-sub">返回速递主页，浏览全部栏目与历史搜索</view>
+        </view>
+        <text class="weekly-all-arrow">›</text>
+      </view>
+
+      <view wx:if="{{loading}}" class="hint">正在加载每周概览…</view>
+      <view wx:if="{{!loading && error}}" class="hint">{{error}}</view>
+      <view wx:if="{{!loading && !error && !weekly}}" class="hint">暂无每周概览</view>
+    </block>
+
+    <block wx:elif="{{searching}}">
       <view
         wx:for="{{searchResults}}"
         wx:key="id"

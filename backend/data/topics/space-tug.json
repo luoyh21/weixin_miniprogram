@@ -1,0 +1,629 @@
+{
+  "id": "space-tug",
+  "title": "太空拖车 · 轨道转移与在轨服务",
+  "intro": "“太空拖车”（Space Tug / 轨道转移飞行器 OTV）是一类介于火箭上面级与卫星之间的航天器，可把载荷从一个轨道转移到另一个轨道，并衍生出在轨部署、延寿、加注、维修与碎片清理等在轨服务能力，被视为商业航天“最后一公里交付”和太空可持续运营的关键基础设施。本专题汇集近 3 年国内外在总体设计与专业技术两条主线上的代表性进展。",
+  "years": 3,
+  "updated_at": "2026-06-19 10:35",
+  "stats": {
+    "count": 24,
+    "domestic": 8,
+    "intl": 16,
+    "design": 12,
+    "tech": 12
+  },
+  "items": [
+    {
+      "id": "21e60c659e607168",
+      "title": "Impulse Space 公布 Helios 高能上面级：一天内把 5 吨载荷从 LEO 送到 GEO",
+      "source": "SpaceNews",
+      "url": "https://spacenews.com/impulse-space-announces-plan-to-develop-high-energy-kick-stage/",
+      "published": "2024-01-17",
+      "region": "国外",
+      "aspect": "总体设计",
+      "summary": "Impulse Space 在 Mira 之外推出更大的 Helios 上面级，采用液氧/甲烷的 Deneb 发动机，推力约 15000 磅力，可在不到一天内将最重约 5000 公斤的卫星由近地轨道送入地球静止轨道，兼容 Falcon 9/Vulcan 等中型火箭，计划 2026 年首飞。代表了大运力“太空拖车”的总体设计方向。",
+      "tags": [
+        "国外",
+        "总体设计",
+        "上面级",
+        "LEO-GEO"
+      ],
+      "body_zh": "###@@@SEG1@@@###\n\nImpulse Space 宣布开发高能级助推级的计划 - SpaceNews\n\n华盛顿——Impulse Space 公司去年发射了首个轨道转移飞行器，现已公布了开发更大型运载工具的计划，旨在将卫星送往地球同步轨道及其他轨道。\n\n这家总部位于加利福尼亚雷东多海滩的公司于1月17日宣布，正在研发名为 Helios 的助推级，该助推级采用液氧和甲烷推进剂驱动的发动机。Helios 可作为转移级，将重达约5000公斤的卫星从低地球轨道快速运送至地球同步轨道，时间不到一天。\n\nImpulse Space 首席执行官、SpaceX 创始员工之一汤姆·穆勒表示，Helios 的目标是扩展类似 SpaceX 猎鹰 9 号火箭的运载能力，达到更高轨道。“SpaceX 通过打开低地球轨道的通道真正掀起了太空热潮，”他在采访中说，“Impulse 想做的是 SpaceX 为低地球轨道所做的事情，但面向所有其他高能轨道。”\n\nHelios 将作为猎鹰 9 号的附加级。“它的尺寸设计最大化猎鹰 9 号的能力，”能够在24小时内将卫星送至地球同步轨道。“这基本上相当于你获得了猎鹰重型火箭三分之二的能力，却无需丢弃核心级，成本也大大降低。”\n\n该助推级将由名为 Deneb 的发动机提供动力，推力达15000磅力。穆勒表示，发动机组件已通过初步设计评审，公司计划今年夏季开始发动机测试。\n\nHelios 首飞计划于2026年初进行，初步计划每年飞行四到六次。穆勒称，公司已与一位未透露身份的客户签署意向书，并与其他潜在用户进行了积极的洽谈：“这是一个恰逢其时的合适产品。”\n\n卫星运营商 SES 前首席技术官、Impulse 顾问马丁·哈利韦尔在一份声明中表示，能够在数小时内抵达地球同步轨道，而非数周或数月，“极大地改变了卫星客户的任务价值主张”，使卫星能够更快投入使用，同时减少辐射暴露和有效载荷质量。“Helios 将为中地球轨道和地球同步轨道运营商开启新的机遇，超越当前有限的任务选择标准。”\n\nHelios 设计兼容多种运载火箭。“任何能够搭载它的中型运载工具，其性能都会大幅提升，”穆勒说，“即使是性能卓越的火箭，比如 Vulcan，Helios 也能进一步增强其能力。”\n\nImpulse 视 Helios 为其去年11月首次搭载 SpaceX Transporter-9 拼车任务发射的小型转移飞行器 Mira 的补充。Mira 执行名为 LEO Express-1 的任务，成功部署了一个立方星，并正在测试其推进器。\n\n“现在我们准备进行更长时间的点火和较大轨道变更，”穆勒说。该飞行器已执行过一次规避机动，避免与他所描述的失效立方星近距离接触。\n\n他表示，公司计划继续飞行 Mira，第二次 LEO Express 任务定于10月。客户对 Mira 的兴趣既来自希望调整轨道的用户，也来自对搭载有效载荷（如组件验证）感兴趣的用户。\n\n这家公司拥有近100名员工，2023年7月完成了4500万美元的A轮融资。穆勒表示，公司目前正在筹备B轮融资，以支持 Helios 的研发。“我们只需再进行一轮融资，就能实现 Helios 和 Mira 业务的盈利，”他说。",
+      "image": "https://i0.wp.com/spacenews.com/wp-content/uploads/2025/10/spacenews_logo-crop25.webp?fit=736%2C109&ssl=1",
+      "image_raw": "https://i0.wp.com/spacenews.com/wp-content/uploads/2025/10/spacenews_logo-crop25.webp?fit=736%2C109&ssl=1",
+      "images": [
+        "https://i0.wp.com/spacenews.com/wp-content/uploads/2025/10/spacenews_logo-crop25.webp?fit=736%2C109&ssl=1",
+        "https://spacenews.com/wp-content/uploads/2023/01/jeff_foust-1-150x150.jpg",
+        "https://i0.wp.com/spacenews.com/wp-content/uploads/2024/01/impulse-helios.jpg?fit=1200%2C675&ssl=1",
+        "https://spacenews-newspack.newspackstaging.com/wp-content/uploads/2022/11/logo-footer.png"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-tug/21e60c659e607168"
+    },
+    {
+      "id": "8beeeafff4698979",
+      "title": "Impulse Space 获 1.5 亿美元融资，扩产 Mira / Helios 轨道转移飞行器",
+      "source": "CNBC",
+      "url": "https://www.cnbc.com/2024/10/01/impulse-spacecraft-delivery-startup-raises-150-million-led-by-founders-fund.html",
+      "published": "2024-10-01",
+      "region": "国外",
+      "aspect": "总体设计",
+      "summary": "由前 SpaceX 推进负责人 Tom Mueller 创立的 Impulse Space 完成 1.5 亿美元融资（Founders Fund 领投），用于规模化生产小型 Mira 与大型 Helios 两款“太空拖车”。Mira 首飞（LEO Express-1，2023.11）成功部署小卫星，公司规划年产至少 10 台 Mira，并推进 GEO 拼车服务。体现该赛道的产业化进程。",
+      "tags": [
+        "国外",
+        "总体设计",
+        "商业航天",
+        "融资"
+      ],
+      "body_zh": "###@@@SEG1@@@###\n\n由前SpaceX火箭专家创立的航天器交付初创公司Impulse完成1.5亿美元融资，领投方为Founders Fund\n\n总部位于洛杉矶的航天初创公司Impulse，由著名火箭专家汤姆·穆勒（Tom Mueller）领导，在新一轮融资中筹集了1.5亿美元，领投方为风险投资公司Founders Fund。Impulse正在扩大其轨道转移飞行器产品线——俗称“太空拖船”，目前正在制造两款飞行器，分别是较小的Mira和较大的Helios。该公司在过去一年内完成了首次任务，Mira飞行器携带并部署了一颗小型卫星，穆勒称此次飞行“可能是有史以来最成功的轨道转移飞行器首秀”。\n\nImpulse的一名员工正在组装Mira飞行器。\n\n总部位于洛杉矶的航天初创公司Impulse，由著名火箭专家汤姆·穆勒领导，在新一轮融资中筹集了1.5亿美元，领投方为风险投资公司Founders Fund。\n\nImpulse正在扩大其轨道转移飞行器产品线——俗称“太空拖船”，目前正在制造两款飞行器，较小的是Mira，较大的是Helios。\n\n火箭负责将卫星和有效载荷送入轨道，就像飞机将乘客送到大都市区域一样，而太空拖船则负责将它们送到具体目的地，就像出租车将乘客从机场送回家一样。\n\n阅读更多CNBC航天新闻\n\n订阅CNBC的《投资航天》每周通讯 联邦航空局在猎鹰9号中途爆炸后暂停SpaceX星舰飞行，报告称特克斯和凯科斯群岛财产受损 蓝色起源首枚新格伦火箭进入轨道，但助推器着陆失败\n\n作为SpaceX首位员工并在该公司工作近二十年，负责为CEO埃隆·马斯克开发发动机的穆勒告诉CNBC，这笔资金将保障Impulse Space的未来。穆勒在离开SpaceX后，于三年前创立了Impulse，并担任公司CEO。\n\n“这意味着我们有足够的资金完成Helios和升级版Mira的开发，并且能够支持这两款产品的首次飞行之后的阶段，”穆勒说。\n\n2018年，汤姆·穆勒在爱达荷大学发表毕业典礼演讲。\n\nImpulse完成了首次任务，名为LEO Express-1，使用Mira飞行器携带并部署了一颗小型卫星。该任务于去年11月发射，经过多项额外演示后，Impulse于今年7月宣布任务完全成功，穆勒称其“可能是有史以来最成功的轨道转移飞行器首秀”。\n\n“这次成功极大地促进了本轮融资，同时也带来了大量客户合作机会，”穆勒说。\n\n该公司拥有来自商业和政府客户的合同积压，涵盖从标准卫星交付、为私人空间站建造推进系统，到为美国太空军在遥远的地球同步轨道展示Helios飞行器能力等多个领域。\n\n包括Airbus Ventures、Alumni Ventures、Balerion Space Ventures、Lux Capital、RTX Ventures、Spring Tide、Tamarack Global、137 Ventures、DCVC、Elysium、First Principles Group、Island Green、Overmatch和Trousdale Ventures等众多风险投资机构参与了此次1.5亿美元融资。公司表示，此轮融资使Impulse迄今累计融资总额达到2.25亿美元。\n\n2023年11月发射的LEO Express-1任务中，Mira飞行器在轨道上，数对Saiph推进器清晰可见。\n\nImpulse的下一次任务LEO Express-2计划于今年晚些时候发射。随后，公司计划于2025年底发射升级版Mira飞行器，2026年中期进行Helios的演示任务，并于2027年推出“地球同步轨道共乘”任务。\n\n利用可重复使用火箭，无论是否星舰\n\n在穆勒看来，虽然SpaceX降低了将质量送入轨道的发射成本，但现有的轨道内交付系统仍显不足。随着Rocket Lab、蓝色起源、Relativity等公司开发大型可重复使用火箭，未来发射能力将进一步提升。\n\n“为任何想在太空中移动物体的客户提供可靠的解决方案，将带来大量成本和效率上的提升，”穆勒说。\n\nMira飞行器在公司位于雷东多海滩的总部。\n\n穆勒表示，他创立Impulse“确实是基于我对星舰商业潜力的预期”，但他也指出，“现在我们发现[SpaceX]可能还需要五年左右才能实现商业飞行，而且关于商业安排的信息还很少。”\n\nSpaceX继续开发其庞大的星舰火箭系统，原型机的测试飞行越来越具野心。该火箭对公司未来至关重要，无论是部署自家的星链卫星，还是执行NASA的高调月球任务。\n\n“目前，我们将继续使用猎鹰9号和中型发射载具进行飞行，”穆勒补充道。",
+      "image": "https://image.cnbcfm.com/api/v1/image/107319373-1697645977626-IMG_7547r_sheetz.jpg?v=1697646033&w=60&h=60&ffmt=webp",
+      "image_raw": "https://image.cnbcfm.com/api/v1/image/107319373-1697645977626-IMG_7547r_sheetz.jpg?v=1697646033&w=60&h=60&ffmt=webp",
+      "images": [
+        "https://image.cnbcfm.com/api/v1/image/107319373-1697645977626-IMG_7547r_sheetz.jpg?v=1697646033&w=60&h=60&ffmt=webp",
+        "https://image.cnbcfm.com/api/v1/image/108041398-1727786989754-Mira.jpg?v=1727787096&w=1858&h=1045&vtcrop=y",
+        "https://image.cnbcfm.com/api/v1/image/107013976-1644535900772-S20_Chopstick_Stack_Desktop.jpg?v=1647016871&w=750&h=422&vtcrop=y",
+        "https://image.cnbcfm.com/api/v1/image/108256437-1769187685916-gettyimages-2257634603-_75a0063_zhsczybu.jpeg?v=1777049521&w=200",
+        "https://image.cnbcfm.com/api/v1/image/108323409-1781720878679-gettyimages-2281457845-WARSH_FOMC_NYSE.jpeg?v=1781720917&w=200",
+        "https://image.cnbcfm.com/api/v1/image/108323473-17817230732026-06-17t190008z_118389025_rc2uvla9xt8i_rtrmadp_0_usa-fed.jpeg?v=1781723103&w=200"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-tug/8beeeafff4698979"
+    },
+    {
+      "id": "967e88ca5e4468d6",
+      "title": "Starfish Space 的 Otter 在轨服务航天器获超 1 亿美元 B 轮融资",
+      "source": "行业报道 / BlacKnight Space Labs",
+      "url": "https://blacknightspacelabs.com/blog/satellite-servicing-market-on-orbit-services-competitive-landscape",
+      "published": "2026-04",
+      "region": "国外",
+      "aspect": "总体设计",
+      "summary": "由前蓝色起源工程师创立的 Starfish Space 推进 Otter 多任务在轨服务飞行器，主打对接、位置保持与受控离轨，2026 年完成超 1 亿美元 B 轮融资并拿到太空军合同。显示“碎片清除/在轨服务即业务”正从政府验证走向可重复的商业模式。",
+      "tags": [
+        "国外",
+        "总体设计",
+        "在轨服务",
+        "离轨"
+      ],
+      "body_zh": "轨道卫星服务市场2026：Starfish、Astroscale及竞争者 | BlacKnight Space Labs\n\n价值50亿美元的轨道服务市场：谁在构建卫星维护基础设施\n\nBlacKnight Space Labs 2026年4月8日 7分钟阅读\n\n在太空时代的大部分时间里，卫星都是一次性资产。它们被设计、制造、发射、运行直到故障或燃料耗尽，然后被遗弃在轨道上。卫星出现故障时无法维修，燃料不足时无加注站，寿命终结后成为漂浮的太空碎片。卫星服务的概念——包括检查、维修、加注燃料、重新定位或处置——技术上可行，但经济上不可行。\n\n这一状况正在迅速改变。2026年，轨道卫星服务市场规模达到31.8亿美元，年复合增长率为10.1%，预计到2034年将达到68.7亿美元。增长动力来自塑造整个太空经济的因素：轨道卫星数量增加（带来更多维护和处置需求）、监管要求趋严（强制寿终正寝处置）、发射和卫星成本下降（使服务经济可行）、自主和机器人技术进步（使服务技术上可行）。\n\n主动碎片清除年复合增长率\n\n轨道服务市场主要分为三大部分。寿命延长——通过服务飞行器附着在工作卫星上，提供额外推进、轨道维持或姿态控制——是商业上最成熟的领域，诺斯罗普·格鲁曼的任务延长飞行器（MEV）已在地球同步轨道产生收入。寿终处置——移除失效或即将失效卫星——是增长最快的细分市场，受监管要求和碎片威胁驱动。检查与近距离操作——使用服务器检查卫星损伤、验证部署或评估异常——是最早期但潜力最大的应用。\n\n| 公司 | 总部 | 主要服务 | 关键任务 | 融资/收入 |\n| --- | --- | --- | --- | --- |\n| 诺斯罗普·格鲁曼（SpaceLogistics） | 美国 | GEO寿命延长 | MEV-1、MEV-2（运营中） | 产生收入；计划MRV |\n| Astroscale | 日本 | 碎片清除（ADR） | ADRAS-J（在轨）、ELSA-M（2026发射） | 融资3.84亿美元+；东京IPO |\n| Starfish Space | 美国 | 多任务服务 | Remora演示，2026年3次Otter发射 | 超过1亿美元B轮；超过1.07亿美元太空军合同 |\n| Orbit Fab | 美国 | 轨道加注 | RAFTI演示；计划燃料站 | 早期；NASA/国防部合同 |\n| ClearSpace | 瑞士 | ESA碎片清除 | ClearSpace-1任务（计划中） | ESA资助；1.1亿欧元项目 |\n| D-Orbit | 意大利 | 末端交付/处置 | ION飞行器（运营中） | 产生收入；多次发射 |\n\n诺斯罗普·格鲁曼：先行者\n\n诺斯罗普·格鲁曼旗下SpaceLogistics子公司通过任务延长飞行器项目开创了轨道服务市场。MEV-1于2020年2月与Intelsat 901卫星对接，创下首个商业卫星服务操作。MEV-2于2021年4月对接Intelsat 10-02。两者通过提供轨道维持推进，延长老化地球同步通信卫星寿命，实质上相当于为燃料耗尽的卫星背部装上喷气背包。\n\n下一代任务机器人飞行器（MRV）配备机器人臂，可执行更复杂的服务任务：检查卫星组件、安装升级模块，甚至可能进行维修。MRV代表了从简单寿命延长（仅推动卫星）向实际卫星维护（修复和升级）的演进。然而，诺斯罗普的方案针对的是大型昂贵的地球同步卫星——单颗卫星价值3至5亿美元，寿命延长带来明确投资回报。\n\nAstroscale：碎片清除先锋\n\n总部位于东京的Astroscale于2024年在东京证券交易所上市，定位为全球主动碎片清除领导者。其ADRAS-J任务于2024年发射，是全球首次尝试通过自主近距离操作安全接近并表征大型碎片。2026年与Isar Aerospace合作发射的ELSA-M任务，将演示从轨道移除配备铁磁对接板的合作目标卫星。\n\nAstroscale战略聚焦于构建碎片清除服务的监管和商业框架。公司已与JAXA、ESA、英国国防科学技术实验室及NASA签订合同。ELSA-M架构支持多目标移除——一次任务去轨多颗卫星——这是碎片清除经济性在大规模星座中的关键。已有568颗OneWeb卫星配备兼容对接板，Astroscale拥有内置市场。\n\nStarfish Space：自主多功能服务商\n\nStarfish Space战略定位不同于诺斯罗普和Astroscale。诺斯罗普专注大型地球同步卫星，Astroscale专注碎片清除，Starfish打造多任务服务平台，覆盖处置、寿命延长和检查，适用于低地球轨道和地球同步轨道。其Otter飞行器体积小（约为诺斯罗普MEV的十分之一）、自主导航（无需地面控制）、电推进，具备更广泛客户和任务适应性。\n\n美国太空军合同体现了Starfish的国防市场定位。PWSA处置合同和Otter生产合同合计超过1.07亿美元军事收入，为同时服务商业客户如Intelsat奠定坚实基础。军民双轨收入策略类似SpaceX和Anduril等成功防务科技公司。\n\n新兴企业及相关市场\n\nOrbit Fab开发轨道加注基础设施——太空加油站。其RAFTI技术提供标准化加注接口，未来卫星可在设计阶段集成。加注尚非商业服务，但Orbit Fab方案有望比外部推进模块更显著延长卫星寿命，因为加注后卫星保持完全机动能力，无需依赖外部车辆维持轨道。\n\n总部位于意大利的D-Orbit提供末端轨道交付和寿终处置服务，使用ION航天器载具。ESA资助的ClearSpace开发ClearSpace-1任务，计划用捕获机制移除ESA轨道碎片——Vespa有效载荷适配器。各公司覆盖服务生态不同细分领域，表明市场足够大，支持多家专业公司共存，而非单一赢家通吃。\n\n服务与空间态势感知（SSA）的融合\n\n轨道服务正与空间态势感知融合——即轨道物体跟踪与表征能力。能接近并检查卫星的公司具备独特SSA能力：近距离观察、损伤评估、身份验证及地面跟踪无法比拟的图像采集。对军事客户而言，这种服务与情报双重用途使Starfish和Astroscale等公司在核心服务任务之外具备战略价值。\n\n常见问题\n\n轨道卫星服务市场规模多大？\n\n2026年市场规模达31.8亿美元，预计2034年达68.7亿美元，年复合增长率10.1%。增长最快子领域为主动碎片清除，年增长约38%，受监管要求和碎片威胁驱动。\n\n主要卫星服务公司有哪些？\n\n关键玩家包括诺斯罗普·格鲁曼（SpaceLogistics，首个与地球同步卫星对接的MEV）、Astroscale（碎片清除领导者，东京IPO，ADRAS-J任务在轨）、Starfish Space（自主多任务服务，超1亿美元B轮融资，超1.07亿美元太空军合同）、Orbit Fab（轨道加注）、ClearSpace（ESA资助碎片清除）及D-Orbit（末端交付与处置）。\n\n卫星服务公司提供哪些服务？\n\n三大主要服务为寿命延长（附着推进/轨道维持）、寿终处置（移除失效卫星）及检查/近距离操作（检测损伤或异常）。新兴服务包括轨道加注、维修和有效载荷升级。",
+      "image": "https://blacknightspacelabs.com/assets/BlacknightSpaceLabs_OnTransparent-04_1773272820875-eXojIcTl.png",
+      "image_raw": "https://blacknightspacelabs.com/assets/BlacknightSpaceLabs_OnTransparent-04_1773272820875-eXojIcTl.png",
+      "images": [
+        "https://blacknightspacelabs.com/assets/BlacknightSpaceLabs_OnTransparent-04_1773272820875-eXojIcTl.png"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-tug/967e88ca5e4468d6"
+    },
+    {
+      "id": "f80610691b134d34",
+      "title": "欧洲 ArianeGroup ASTRIS 上面级与历代 OTV 概念综述",
+      "source": "DLR / EUCASS",
+      "url": "https://elib.dlr.de/221991/1/EUCASS-25_Overview_of_Past_and_Contemporary_Concepts_for_OTVs.pdf",
+      "published": "2025",
+      "region": "国外",
+      "aspect": "总体设计",
+      "summary": "DLR 在 EUCASS 的综述系统梳理了历史与当代轨道转移飞行器（OTV）的分类：多数面向地球轨道任务、偏好液体推进、常以“踢级（kick stage）”形式随发射任务上行。Ariane 6 配套的 ASTRIS 踢级可执行 GTO→GEO、星座多轨部署与探测任务，载荷可达 4500 公斤，是欧洲“太空拖车”的总体设计代表。",
+      "tags": [
+        "国外",
+        "总体设计",
+        "踢级",
+        "欧洲"
+      ],
+      "body_zh": "这篇综述系统梳理了轨道转移飞行器（OTV）的历史与现有设计，重点分析了它们的任务类型、推进方式和运行模式。研究发现，大多数OTV主要服务于地球轨道任务，普遍采用液体推进技术，且多以“踢级”形式随发射任务一同升空，以实现轨道转移和精确部署。作为欧洲代表，ArianeGroup开发的ASTRIS踢级能够支持地球同步转移轨道（GTO）到地球同步轨道（GEO）的转移，以及星座多轨部署和探测任务，最大载荷可达4500公斤。该设计体现了欧洲在“太空拖车”领域的先进水平，为提升轨道任务的灵活性和效率提供了重要技术支撑。整体来看，OTV的发展不仅推动了发射系统的多样化，也为未来在轨服务和卫星管理开辟了新方向。",
+      "image": "",
+      "image_raw": "",
+      "images": [],
+      "page_url": "https://links.he-ting.com/t/space-tug/f80610691b134d34"
+    },
+    {
+      "id": "f89c64e2c7d9f200",
+      "title": "NASA《小航天器技术现状(SOA)》：OTV/OMV 谱系与“太空拖车”术语演变",
+      "source": "NASA",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/10-soa-launch-2026-final.pdf",
+      "published": "2026-05",
+      "region": "国外",
+      "aspect": "总体设计",
+      "summary": "NASA 年度《State of the Art》报告系统盘点了 Impulse Mira/Helios、Momentus Vigoride、D-Orbit ION、Firefly Elytra（含 SHERPA）、Rocket Lab Photon、Atomos Quark 等轨道转移/机动飞行器，并指出业界正逐步用“在轨物流/OTV/OMV”替代旧称“space tug”。是把握全球总体技术格局的权威参考。",
+      "tags": [
+        "国外",
+        "总体设计",
+        "综述",
+        "产品谱系"
+      ],
+      "body_zh": "NASA年度发布的《小航天器技术现状》报告系统梳理了当前轨道转移和机动飞行器的发展情况，涵盖了Impulse Mira/Helios、Momentus Vigoride、D-Orbit ION、Firefly Elytra（含SHERPA）、Rocket Lab Photon、Atomos Quark等多个代表性平台。报告指出，业界正逐渐用“在轨物流”、“轨道转移飞行器（OTV）”和“轨道机动飞行器（OMV）”等术语，取代传统的“太空拖车”称呼，反映了技术和服务理念的演进。这些飞行器在卫星部署、轨道调整和太空资源管理中发挥着关键作用，推动了商业航天的多样化和高效化。该报告为把握全球小航天器技术格局和发展趋势提供了权威参考，具有重要的战略和应用价值。",
+      "image": "",
+      "image_raw": "",
+      "images": [],
+      "page_url": "https://links.he-ting.com/t/space-tug/f89c64e2c7d9f200"
+    },
+    {
+      "id": "edefd6a1e4dda549",
+      "title": "诺斯罗普·格鲁曼 MEV-1/MEV-2：商业 GEO 卫星对接延寿的首例",
+      "source": "eoPortal",
+      "url": "https://www.eoportal.org/satellite-missions/mev-1",
+      "published": "2024-05-23",
+      "region": "国外",
+      "aspect": "专业技术",
+      "summary": "任务延寿飞行器 MEV-1/MEV-2 分别于 2019/2020 年发射，与燃料将尽的 Intelsat 卫星对接后接管其推进与姿控。MEV-1 为 IS-901 提供 5 年延寿后于 2024 年释放至坟墓轨道转入下一目标；MEV-2 与 IS-10-02 续约 4 年。验证了 GEO 非合作/半合作对接与接管控制的工程可行性。",
+      "tags": [
+        "国外",
+        "专业技术",
+        "延寿",
+        "GEO对接"
+      ],
+      "body_zh": "MEV-1与MEV-2（任务延长飞行器-1和-2） - eoPortal\n\n卫星任务 其他太空活动\n\n卫星任务目录 目录\n\nMEV-1与MEV-2（任务延长飞行器-1和-2）\n\n最后更新：2025年3月24日\n\n诺斯罗普·格鲁曼（前身为Orbital ATK），一家总部位于美国弗吉尼亚的商业公司，开发了首批商业卫星服务飞行器——任务延长飞行器MEV-1和MEV-2。MEV-1和MEV-2分别于2019年10月和2020年8月发射，设计用于服务功能正常但老化的卫星。MEV-1通过接管推进和姿态控制功能，为客户卫星提供寿命延长服务，负责引导、指向和重新定位；MEV-2则作为燃料补给，为缺乏显著推进能力的卫星提供动力。\n\n任务类型 EO 机构 诺斯罗普·格鲁曼 任务状态 运行中（正常） 发射日期 2019年10月9日 CEOS EO手册 查看MEV-1与MEV-2摘要\n\nMEV-1与Intelsat 901对接（图片来源：NASA）\n\n摘要\n\n任务延长服务的首个客户为Intelsat，MEV-1于2020年2月成功对接Intelsat 901，MEV-2于2021年4月对接Intelsat 10-02。每台飞行器设计寿命15年，具备多次对接与分离能力。当前Intelsat的MEV-1和MEV-2任务延长服务均计划为期五年。\n\n诺斯罗普·格鲁曼计划建立一支空间物流飞行器舰队，积极与NASA、DARPA（国防高级研究计划局）及美国空军合作，开发包括机器人技术和高功率太阳能电推进在内的下一代技术。未来服务预计涵盖流体和气体补给、检查与维修、零部件更换及辅助推进、导航、电力和有效载荷集成。除商业用途外，未来MEV还计划配合国防部服务军事航天器。\n\n性能规格\n\nMEV-1于2019年10月由国际发射服务公司（ILS）发射，利用电推进系统约四个月抵达Intelsat 901。MEV-2于2020年8月由阿丽亚娜航天发射，历时近八个月抵达Intelsat 10-02。\n\n对接后，MEV-1使用自身推进器和燃料控制客户卫星轨道。MEV-2则不控制轨道，而是作为新发动机和燃料箱延长客户卫星寿命。客户不再需要服务时，MEV将分离并转向新客户。\n\n空间与硬件组件\n\nMEV-1和MEV-2基于GEOStar 3平台，经过改装以安全对接地球同步轨道卫星。改装包括集成近距离传感器套件和简易机械对接系统，能附着于客户卫星现有结构。该对接系统兼容约80%的地球同步卫星。MEV-1和MEV-2质量分别为2330公斤和2875公斤，配备混合化学与电推进系统，具备六自由度操作控制、10千瓦太阳能电池板、精密星跟踪器和动量轮姿态控制。\n\nMEV-1与MEV-2（任务延长飞行器-1和-2）\n\n航天器 发射 任务状态 参考文献\n\n2016年4月，Orbital ATK与Intelsat签署协议，成为其新型卫星寿命延长服务的首个客户。作为全球领先的商业卫星服务提供商，Intelsat在全球运营中长期采用创新卫星技术。根据协议，Orbital ATK将制造、测试并发射首个商业服务飞行器（CSV）MEV-1，采用公司在商业卫星和空间物流业务中验证过的技术。完成轨道测试后，MEV-1将于2019年开始为Intelsat执行任务延长服务。\n\nOrbital ATK将通过基于GEOStar平台的MEV-1引入轨道卫星服务。由公司卫星运营团队控制，MEV-1采用低风险对接系统，附着于客户卫星现有结构。MEV-1通过接管推进和姿态控制功能提供寿命延长服务。设计寿命15年，具备多次对接和分离能力。\n\n首个MEV计划于2018年底发射，随后进行轨道测试和演示，预计2019年初完成。MEV-1将转移至计划执行任务延长服务的Intelsat卫星，服务期为五年。Intelsat可选择使用同一MEV服务多颗卫星。\n\n国防部也有意使用Orbital ATK的新型轨道卫星寿命延长飞行器为军事及商业航天器提供服务。\n\nSpace Logistics LLC是Orbital ATK全资子公司，向地球同步卫星运营商提供合作式轨道卫星寿命延长和机动服务，使用MEV对接客户卫星，提供推进和姿态控制以延长寿命。\n\nOrbital ATK愿景是建立空间物流飞行器舰队，满足未来多样需求。公司持续加大轨道服务投资，积极与NASA、DARPA、美国空军等政府机构合作，开发下一代空间物流技术，包括机器人和高功率太阳能电推进，基于简化寿命延长方案，未来服务将包括：\n\n• 流体和气体补给\n\n• 零部件更换或升级\n\n• 集成辅助推进、导航、电力、有效载荷等功能，提升性能或延长寿命\n\n注：2018年6月6日，诺斯罗普·格鲁曼宣布完成对Orbital ATK的收购。Orbital ATK现为诺斯罗普·格鲁曼创新系统（NGIS）第四业务部门。\n\nMEV-1基于GEOStar 3平台，改装以安全与地球同步轨道卫星会合对接。配备集成近距离传感器套件，实现可靠安全会合。采用简易机械对接系统，附着于客户卫星现有结构，兼容约80%地球同步卫星。\n\n• 全六自由度操作控制\n\n• 冗余会合近距离操作与对接（RPOD）传感器套件\n\n• 对接机制兼容标准液体近地点发动机和发射适配器\n\n• 半自主会合与近距离操作\n\n• 高低速下行链路，实时地面操作员态势感知\n\n• 混合化学与电推进系统\n\n• 电推进推力矢量控制，用于轨道维持和动量管理\n\n• 显著的变轨能力",
+      "image": "https://www.eoportal.org/api/cms/documents/163813/6584772/Pi7_Image_MEV-1.jpg/f3edb1b5-7900-d72c-9e97-bdf35db2db5a?t=1666526805304",
+      "image_raw": "https://www.eoportal.org/api/cms/documents/163813/6584772/Pi7_Image_MEV-1.jpg/f3edb1b5-7900-d72c-9e97-bdf35db2db5a?t=1666526805304",
+      "images": [
+        "https://www.eoportal.org/api/cms/documents/163813/6584772/Pi7_Image_MEV-1.jpg/f3edb1b5-7900-d72c-9e97-bdf35db2db5a?t=1666526805304",
+        "https://www.eoportal.org/api/cms/documents/d/eoportal/mev1_2_auto7-jpeg",
+        "https://www.eoportal.org/api/cms/documents/d/eoportal/mev1_2_auto5-jpeg",
+        "https://www.eoportal.org/api/cms/documents/d/eoportal/mev1_2_auto4-jpeg",
+        "https://www.eoportal.org/api/cms/documents/d/eoportal/mev1_2_auto3-jpeg",
+        "https://www.eoportal.org/api/cms/documents/d/eoportal/mev1_2_auto2-jpeg"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-tug/edefd6a1e4dda549"
+    },
+    {
+      "id": "0df838a9f7f400f5",
+      "title": "诺·格 MRV + 任务延寿舱(MEP)：机械臂在轨安装“电推背包”",
+      "source": "Via Satellite",
+      "url": "https://www.satellitetoday.com/technology/2026/05/19/northrop-grummans-first-mrv-readies-for-summer-launch-to-expand-the-space-servicing-toolkit/",
+      "published": "2026-05-19",
+      "region": "国外",
+      "aspect": "专业技术",
+      "summary": "新一代任务机器人飞行器 MRV 配备海军研究实验室研制的机械臂，可对 GEO 卫星做巡检、维修，并安装约 350 公斤的任务延寿舱（MEP）——一种贴附在卫星发动机喷管上、用电推提供约 6 年额外寿命的“喷气背包”。代表在轨服务从“整星接管”走向“模块化、机械臂作业”。",
+      "tags": [
+        "国外",
+        "专业技术",
+        "机械臂",
+        "电推延寿"
+      ],
+      "body_zh": "###@@@SEG1@@@###\n\n诺斯罗普·格鲁曼首个任务机器人飞行器准备于夏季发射，扩展太空服务工具包 - Via Satellite\n\n在弗吉尼亚州达勒斯的诺斯罗普·格鲁曼制造工厂，任务机器人飞行器（MRV）正在进行最后准备，随后将运往发射现场。照片来源：诺斯罗普·格鲁曼\n\n弗吉尼亚州斯特林——诺斯罗普·格鲁曼旗下的SpaceLogistics公司计划于今年夏季发射其下一代轨道加注和卫星寿命延长空间飞行器，项目负责人周二向记者透露。该公司表示，已为其任务机器人飞行器（MRV）获得了专属的SpaceX发射机会，该飞行器目前正在弗吉尼亚的卫星制造工厂进行测试。此次发射还将携带三个任务延长舱（MEP），用于地球同步轨道（GEO）卫星的寿命延长服务。\n\nMRV将成为首个商业化的机器人轨道服务任务，进入日益竞争激烈的轨道服务、组装和制造新兴市场。项目负责人表示，该飞行器配备了两只机械臂和一套先进技术，奠定了卫星寿命延长和加注的基础能力，同时为未来的轨道检测、维修和组装等服务铺平道路。\n\n“目前我们在太空中遇到问题时所拥有的工具包非常有限，”诺斯罗普·格鲁曼空间优势部门副总裁兼总经理瑞安·廷特纳说。“这将得到大幅扩展。”\n\nVia Satellite参加了周二在诺斯罗普·格鲁曼达勒斯卫星制造工厂举办的活动，公司展示了MRV的双重任务能力——加注和寿命延长，随后该飞行器将运往发射现场。\n\nMRV的机械臂由海军研究实验室和NASA合作开发，飞行器设有多个未来工具接口端口，并配备了为美国太空军和太空系统司令部Elixir任务设计的标准化加注接口。该飞行器将首次搭载一套传感器，以及用于会合、近距离操作和对接（RPOD）的推进和机器人技术。\n\n“很多公司都在做会合与对接（RPO），但对接是一个更高层次的复杂技术，”SpaceLogistics总裁罗布·霍格说。MRV设计用于通过抓取客户卫星的液体近地点发动机进行加注，该发动机是大多数部署的地球同步卫星上锥形喷嘴。为实现软捕获，飞行器使用可见光传感器、红外和激光雷达引导接近，然后将探针插入发动机喷嘴，固定航天器后完成对接服务。\n\n美国太空军和国防创新单位推动了加注接口——被称为被动加注模块（PRM）的开发，该接口作为标准接口，与现有航天器设计具有高度硬件共性。首次加注能力演示尚未公布，但将随着太空军准备其机动战策略而推出，重点是“无悔机动”。\n\n诺斯罗普·格鲁曼轨道加注项目经理劳伦·史密斯表示，加注有潜力改变任务设计者对机动极限、设计框架和作战概念的思考。“有太多因素限制了我们的行动，”她说。“我认为这套基础设施……真正打开了视野，让我们质疑是否可以用不同的方式做事。”\n\nMRV及其他轨道作业机器人飞行器的发展得益于政府投资和政策推动，旨在培育商业可行的轨道服务、组装和制造（ISAM）市场。Analysys Mason估计，到2031年，ISAM市场可能成为一个价值150亿美元的全球机遇。\n\n根据国防高级研究计划局（DARPA）战术技术办公室项目经理詹姆斯·舒梅克的说法，数百颗地球同步轨道卫星处于相同轨道倾角，每年约有10至20颗卫星达到寿命终点，潜在的可服务市场规模巨大。\n\n“如果回顾地球同步轨道的异常情况和服务机会，商业和政府市场平均每年有20至25次机会，”舒梅克告诉记者。他提到卫星重新定位、退役、远距离检测、协同检测和部署异常等情况，并指出轨道上有服务飞行器可以缩短地球同步轨道出现问题时的响应时间。\n\nISAM市场格局正在演变，竞争日益激烈，多家公司已成功执行各种轨道服务任务。去年底，SES与Infinite Orbits签署协议，使用该公司的Endurance对接飞行器执行地球同步轨道寿命延长任务。美国Astroscale和轨道加注初创公司Orbit Fab预计将于今年春季发射首个国防部卫星加注任务。此外，Astroscale已成功部署了具备先进会合与对接及机器人捕获能力的ADRAS-J和ELSA平台，目前正在开发LEXI寿命延长轨道飞行器。Impulse Space、Rocket Lab和Starfish Space均已展示或部署了轨道拖船或轨道转移飞行器。\n\n今年夏季发射后，MRV将花费大约一年时间抵达其工作轨道。诺斯罗普·格鲁曼未透露该MRV将服务哪些卫星，但已向澳大利亚运营商Optus和SES的Intelsat出售了任务延长舱。\n\n根据SpaceLogistics总裁罗布·霍格的介绍，任务延长舱设计用于延长一颗平均质量为2000公斤的地球同步卫星寿命至少六年。MRV设计寿命超过10年，计划在完成初始任务后继续交付更多任务延长舱。\n\nMRV基于SpaceLogistics的飞行遗产，即任务延长飞行器（MEV）MEV-1和MEV-2，这两款一代大型任务延长舱飞行器于2020年创造历史，成功对接并延长了两颗Intelsat卫星的寿命。\n\n优特尔网络解决方案将Get SAT Aero Blade终端加入产品线",
+      "image": "https://ipv4.d.adroll.com/px4/CESIUE7DDVGDHOLE4XJV3D/7THYCWPP6NFHHGOSCO3IEW?af0=2ecb2fce&adroll_fpc=64f5e5a0ec93b1f833a96f94d1f1e7bf-1781776369013&pv=20213482524.09482&arrfrr=https%3A%2F%2Fwww.satellitetoday.com%2Ftechnology%2F2026%2F05%2F19%2Fnorthrop-grummans-first-mrv-readies-for-summer-launch-to-expand-the-space-servicing-toolkit%2F&cookie=&adroll_s_ref=&keyw=&p0=1989",
+      "image_raw": "https://ipv4.d.adroll.com/px4/CESIUE7DDVGDHOLE4XJV3D/7THYCWPP6NFHHGOSCO3IEW?af0=2ecb2fce&adroll_fpc=64f5e5a0ec93b1f833a96f94d1f1e7bf-1781776369013&pv=20213482524.09482&arrfrr=https%3A%2F%2Fwww.satellitetoday.com%2Ftechnology%2F2026%2F05%2F19%2Fnorthrop-grummans-first-mrv-readies-for-summer-launch-to-expand-the-space-servicing-toolkit%2F&cookie=&adroll_s_ref=&keyw=&p0=1989",
+      "images": [
+        "https://ipv4.d.adroll.com/px4/CESIUE7DDVGDHOLE4XJV3D/7THYCWPP6NFHHGOSCO3IEW?af0=2ecb2fce&adroll_fpc=64f5e5a0ec93b1f833a96f94d1f1e7bf-1781776369013&pv=20213482524.09482&arrfrr=https%3A%2F%2Fwww.satellitetoday.com%2Ftechnology%2F2026%2F05%2F19%2Fnorthrop-grummans-first-mrv-readies-for-summer-launch-to-expand-the-space-servicing-toolkit%2F&cookie=&adroll_s_ref=&keyw=&p0=1989",
+        "https://d.adroll.com/cm/b/out?af0=2ecb2fce&adroll_fpc=64f5e5a0ec93b1f833a96f94d1f1e7bf-1781776369013&pv=20213482524.09482&arrfrr=https%3A%2F%2Fwww.satellitetoday.com%2Ftechnology%2F2026%2F05%2F19%2Fnorthrop-grummans-first-mrv-readies-for-summer-launch-to-expand-the-space-servicing-toolkit%2F&advertisable=CESIUE7DDVGDHOLE4XJV3D",
+        "https://d.adroll.com/cm/bombora/out?af0=2ecb2fce&adroll_fpc=64f5e5a0ec93b1f833a96f94d1f1e7bf-1781776369013&pv=20213482524.09482&arrfrr=https%3A%2F%2Fwww.satellitetoday.com%2Ftechnology%2F2026%2F05%2F19%2Fnorthrop-grummans-first-mrv-readies-for-summer-launch-to-expand-the-space-servicing-toolkit%2F&advertisable=CESIUE7DDVGDHOLE4XJV3D",
+        "https://d.adroll.com/cm/equativ/out?af0=2ecb2fce&adroll_fpc=64f5e5a0ec93b1f833a96f94d1f1e7bf-1781776369013&pv=20213482524.09482&arrfrr=https%3A%2F%2Fwww.satellitetoday.com%2Ftechnology%2F2026%2F05%2F19%2Fnorthrop-grummans-first-mrv-readies-for-summer-launch-to-expand-the-space-servicing-toolkit%2F&advertisable=CESIUE7DDVGDHOLE4XJV3D",
+        "https://d.adroll.com/cm/experian/out?af0=2ecb2fce&adroll_fpc=64f5e5a0ec93b1f833a96f94d1f1e7bf-1781776369013&pv=20213482524.09482&arrfrr=https%3A%2F%2Fwww.satellitetoday.com%2Ftechnology%2F2026%2F05%2F19%2Fnorthrop-grummans-first-mrv-readies-for-summer-launch-to-expand-the-space-servicing-toolkit%2F&advertisable=CESIUE7DDVGDHOLE4XJV3D",
+        "https://d.adroll.com/cm/eyeota/out?af0=2ecb2fce&adroll_fpc=64f5e5a0ec93b1f833a96f94d1f1e7bf-1781776369013&pv=20213482524.09482&arrfrr=https%3A%2F%2Fwww.satellitetoday.com%2Ftechnology%2F2026%2F05%2F19%2Fnorthrop-grummans-first-mrv-readies-for-summer-launch-to-expand-the-space-servicing-toolkit%2F&advertisable=CESIUE7DDVGDHOLE4XJV3D"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-tug/0df838a9f7f400f5"
+    },
+    {
+      "id": "d10dcbd563045d8a",
+      "title": "诺·格 PRM 加注接口成为美军首个优选标准，并研制 GAS-T 加油星",
+      "source": "SpaceNews",
+      "url": "https://spacenews.com/northrop-grummans-orbital-refueling-port-selected-for-u-s-military-satellites/",
+      "published": "2024-01",
+      "region": "国外",
+      "aspect": "专业技术",
+      "summary": "美太空军太空系统司令部把诺·格的被动加注模块（PRM）选为军星首个优选在轨加注接口；公司还在 ESPAStar-D 平台上研制可携带约 1000 公斤肼的地球同步加油星 GAS-T。在轨加注接口标准化正在重塑卫星采购与运营方式。",
+      "tags": [
+        "国外",
+        "专业技术",
+        "在轨加注",
+        "接口标准"
+      ],
+      "body_zh": "###@@@SEG1@@@###\n\n诺斯罗普·格鲁曼的轨道加注端口被选为美国军用卫星标准 - SpaceNews\n\n华盛顿——诺斯罗普·格鲁曼公司1月29日宣布，其开发的卫星加注喷嘴成为首个被选为美国军用卫星首选标准的接口。\n\n这一举措可能将影响轨道卫星服务市场，美国太空军的太空系统司令部指定诺斯罗普·格鲁曼的被动加注模块（PRM）为首选接口，以支持未来军用卫星的轨道加注。该PRM配备对接机构，允许轨道加注飞行器向另一颗卫星转移推进剂，从而延长卫星的使用寿命。\n\n诺斯罗普·格鲁曼表示，负责轨道物流和服务项目的太空系统司令部还将支持公司开发一款用于地球同步轨道任务的轨道燃料加注飞行器，该飞行器可携带多达1000公斤的肼燃料，并按需向客户卫星供给燃料。\n\n诺斯罗普·格鲁曼轨道加注项目经理劳伦·史密斯表示，PRM被选中是基于设计的成熟度和技术可行性，以及公司在轨道卫星服务方面的经验。诺斯罗普·格鲁曼旗下的SpaceLogistics子公司仍是唯一一家成功为地球静止轨道卫星提供服务的商业公司，曾两次与客户英特尔卫星对接，距离地球约22000英里，延长了航天器寿命。\n\n###@@@SEG2@@@###\n\n新兴市场的优势\n\n虽然诺斯罗普·格鲁曼的PRM并非独家采用，但这是太空军首次公开确认首选系统。\n\n太空军也在评估其他技术，包括初创公司Orbit Fab开发的加注接口，称为快速可连接流体传输接口（RAFTI）。其他公司如洛克希德·马丁和Astroscale也在开发连接卫星与服务飞行器的接口。\n\n行业分析人士指出，制定技术标准对该行业获得发展动力至关重要。鉴于卫星加注产业仍处于初期阶段，太空军的认可无疑赋予诺斯罗普·格鲁曼先发优势，并在尚未形成正式规范的市场中树立了早期标准。\n\n###@@@SEG3@@@###\n\n技术规格将公开发布\n\n史密斯在接受SpaceNews采访时表示，太空系统司令部计划向整个行业公开PRM模块的技术规格。“太空系统司令部掌握完整资料，他们将发布足够的信息，使任何有意者都能制造PRM，”她说，“我们非常希望PRM能够广泛推广。标准对于推动整个卫星服务生态系统的发展非常重要。”\n\n史密斯补充说，宣布PRM为首选接口是在经过“严格的工程评审，评估我们的方案、技术成熟度及成功可行性”后做出的决定。但她也指出，随着商业市场技术的成熟，太空军“当然可能选择其他方案”。\n\n国防创新单位为PRM的开发提供了资金支持。史密斯表示，配备该适配器的政府和商业卫星预计将在2025年前进入轨道。她未透露具体哪些军用卫星将搭载该模块，但表示PRM将搭载诺斯罗普·格鲁曼SpaceLogistics新型服务航天器“任务机器人飞行器”（MRV）的首飞任务，目标时间为2025年。\n\n###@@@SEG4@@@###\n\n诺斯罗普·格鲁曼还获得了一份太空军合同，金额未披露，用于开发一款专门的轨道燃料加注卫星，执行地球同步轨道任务，携带最多1000公斤肼燃料并在轨道上加注。\n\n这座被称为地球同步辅助支持加注器（GAS-T）的“空中加油站”将基于诺斯罗普·格鲁曼的ESPAStar D型环形平台建造，该平台相对较大，重约2000公斤。\n\n轨道加注器将携带足够的肼燃料为多颗客户卫星加注。GAS-T不仅仅是燃料仓库，还将接近并对接客户卫星，执行会合和近距离操作。\n\n史密斯表示，GAS-T的资金来源包括太空军和公司内部投资。目前尚无交付或部署轨道的具体时间表。\n\n“GAS-T将帮助太空系统司令部制定未来潜在需求，评估风险，若他们希望推进技术演示或运营系统，”史密斯说，“我们视GAS-T为开路先锋。”",
+      "image": "https://i0.wp.com/spacenews.com/wp-content/uploads/2025/10/spacenews_logo-crop25.webp?fit=736%2C109&ssl=1",
+      "image_raw": "https://i0.wp.com/spacenews.com/wp-content/uploads/2025/10/spacenews_logo-crop25.webp?fit=736%2C109&ssl=1",
+      "images": [
+        "https://i0.wp.com/spacenews.com/wp-content/uploads/2025/10/spacenews_logo-crop25.webp?fit=736%2C109&ssl=1",
+        "https://spacenews.com/wp-content/uploads/2023/01/Sandra-Erwin-150x150.jpg",
+        "https://i0.wp.com/spacenews.com/wp-content/uploads/2024/01/GAS-T_Client_Docked_1-16-24-scaled.jpg?fit=1200%2C675&ssl=1",
+        "https://spacenews-newspack.newspackstaging.com/wp-content/uploads/2022/11/logo-footer.png"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-tug/d10dcbd563045d8a"
+    },
+    {
+      "id": "5bdeecad03353dd6",
+      "title": "Orbit Fab RAFTI 加注接口与 AIAA S-157-2025 在轨流体传输标准",
+      "source": "SpaceNews / AIAA",
+      "url": "https://spacenews.com/northrop-grummans-orbital-refueling-port-selected-for-u-s-military-satellites/",
+      "published": "2024-2025",
+      "region": "国外",
+      "aspect": "专业技术",
+      "summary": "初创公司 Orbit Fab 推动 RAFTI 快接式流体传输接口与在轨推进剂补给站，2024 年被太空军接纳为军星加注接口之一；AIAA 于 2025 年 3 月发布 ANSI/AIAA S-157-2025，规定在轨可储存流体传输系统的最佳实践，为“太空加油”建立行业标准。",
+      "tags": [
+        "国外",
+        "专业技术",
+        "在轨加注",
+        "标准"
+      ],
+      "body_zh": "###@@@SEG1@@@###\n\n诺斯罗普·格鲁曼的轨道加注端口被选为美国军用卫星标准 - SpaceNews\n\n华盛顿——诺斯罗普·格鲁曼公司1月29日宣布，其开发的卫星加注喷嘴成为首个被选为美国军用卫星首选标准的接口。\n\n这一举措可能将塑造轨道卫星服务市场，美国太空军太空系统司令部指定诺斯罗普·格鲁曼的被动加注模块（Passive Refueling Module，PRM）作为未来军用卫星轨道加注的首选接口。该PRM配备对接机构，允许轨道上的加注飞行器向另一颗卫星转移推进剂，从而延长卫星的使用寿命。\n\n诺斯罗普·格鲁曼表示，负责轨道物流和服务项目的太空系统司令部还将支持公司开发一款用于地球同步轨道任务的轨道燃料加注飞行器，该飞行器可携带多达1000公斤的肼燃料，并按需向客户卫星输送燃料。\n\n诺斯罗普·格鲁曼轨道加注项目经理劳伦·史密斯表示，PRM被选中是基于其设计的成熟度和技术可行性，以及公司在轨道卫星服务方面的经验。诺斯罗普·格鲁曼旗下的SpaceLogistics子公司仍是唯一一家成功为地球同步轨道卫星提供服务的商业公司，曾两次与客户英特尔卫星对接，距离地球约22000英里，延长了航天器寿命。\n\n###@@@SEG2@@@###\n\n新兴市场的优势\n\n诺斯罗普·格鲁曼的PRM被采纳，虽然并非独家，但标志着太空军首次公开确认了首选系统。\n\n太空军也在评估其他技术，包括初创公司Orbit Fab开发的加注接口，称为快速可连接流体传输接口（Rapidly Attachable Fluid Transfer Interface，RAFTI）。其他公司如洛克希德·马丁和Astroscale也在开发连接卫星与服务飞行器的接口。\n\n行业分析师指出，制定技术标准对该行业板块获得动力至关重要。鉴于卫星加注产业仍处于起步阶段，太空军的认可无疑赋予诺斯罗普·格鲁曼先发优势，并在尚未形成正式规范的市场中确立了早期标准。\n\n###@@@SEG3@@@###\n\n技术规格将公开发布\n\n史密斯在接受SpaceNews采访时表示，太空系统司令部计划向整个行业公开PRM模块的技术规格。“SSC掌握着完整资料。他们将发布足够的信息，使任何人都能制造PRM，如果他们愿意的话，”她说。“我们非常希望PRM能够广泛推广。标准对于推动整个卫星服务生态系统的发展非常重要。”\n\n史密斯补充说，宣布PRM为首选接口的决定是在“严格的工程评审”之后做出的，评审内容涵盖了该方案的技术成熟度和成功的可行性。但她也指出，随着商业市场技术的成熟，太空军“当然可能会选择其他方案”。\n\n国防创新单位为PRM的开发提供了资金支持。史密斯表示，装备该适配器的政府和商业卫星预计将在2025年前进入轨道。她未透露具体哪些军用卫星将搭载该模块，但表示PRM将搭载在SpaceLogistics新型服务航天器“任务机器人飞行器”（Mission Robotic Vehicle，MRV）的首飞任务上，目标时间为2025年。\n\n###@@@SEG4@@@###\n\n诺斯罗普·格鲁曼还获得了一份太空军合同，金额未公开，用于开发一款专门的轨道加注燃料卫星，执行地球同步轨道任务，携带多达1000公斤的肼燃料，并在轨道上进行燃料输送。\n\n这座被称为地球同步辅助支援加注器（Geosynchronous Auxiliary Support Tanker，GAS-T）的“飞行加油站”，将基于诺斯罗普·格鲁曼的ESPAStar D环形平台建造，该平台相对较大，重约2000公斤。\n\n轨道加注器将携带足够的肼燃料为多颗客户卫星加注。GAS-T不仅仅作为燃料仓库，还将接近并对接客户卫星，执行会合和近距离操作。\n\n史密斯表示，GAS-T的资金来源为太空军和公司内部投资的组合。目前尚无具体交付或部署轨道的时间表。\n\n“GAS-T将帮助太空系统司令部了解潜在的未来需求，评估风险降低措施，以便他们在技术演示或运营系统方面做出决策，”史密斯说。“我们将GAS-T视为开路先锋。”",
+      "image": "https://i0.wp.com/spacenews.com/wp-content/uploads/2025/10/spacenews_logo-crop25.webp?fit=736%2C109&ssl=1",
+      "image_raw": "https://i0.wp.com/spacenews.com/wp-content/uploads/2025/10/spacenews_logo-crop25.webp?fit=736%2C109&ssl=1",
+      "images": [
+        "https://i0.wp.com/spacenews.com/wp-content/uploads/2025/10/spacenews_logo-crop25.webp?fit=736%2C109&ssl=1",
+        "https://spacenews.com/wp-content/uploads/2023/01/Sandra-Erwin-150x150.jpg",
+        "https://i0.wp.com/spacenews.com/wp-content/uploads/2024/01/GAS-T_Client_Docked_1-16-24-scaled.jpg?fit=1200%2C675&ssl=1",
+        "https://spacenews-newspack.newspackstaging.com/wp-content/uploads/2022/11/logo-footer.png"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-tug/5bdeecad03353dd6"
+    },
+    {
+      "id": "117a19a8af6d4d8f",
+      "title": "Astroscale ADRAS-J 抵近观测与 ELSA-M 碎片清除：RPO 与机械捕获",
+      "source": "行业报道 / BlacKnight Space Labs",
+      "url": "https://blacknightspacelabs.com/blog/satellite-servicing-market-on-orbit-services-competitive-landscape",
+      "published": "2024",
+      "region": "国外",
+      "aspect": "专业技术",
+      "summary": "Astroscale 的 ADRAS-J（2024 发射）首次以自主交会抵近（RPO）安全接近并环绕表征一块在轨大型碎片；后续 ELSA-M 将演示对带磁性对接板合作目标的离轨清除。代表非合作目标交会抵近与捕获这一在轨服务核心技术。",
+      "tags": [
+        "国外",
+        "专业技术",
+        "碎片清除",
+        "RPO"
+      ],
+      "body_zh": "2026年轨道卫星服务市场：Starfish、Astroscale及竞争者 | BlacKnight Space Labs\n\n价值50亿美元的轨道服务市场：谁在建设卫星维护基础设施\n\nBlacKnight Space Labs 2026年4月8日 7分钟阅读\n\n在太空时代的大部分时间里，卫星都是一次性资产。它们被设计、制造、发射、运行，直到损坏或燃料耗尽，然后被遗弃在轨道上。如果卫星发生故障，没有维修选项；如果燃料不足，没有加注站；如果达到寿命终点，就被遗弃成为太空碎片。卫星服务的概念——检查、维修、加注、迁移或处置——技术上可行，但经济上不切实际。\n\n这一状况正在迅速改变。2026年轨道卫星服务市场规模达到31.8亿美元，年增长率为10.1%，预计到2034年将达到68.7亿美元。增长动力来自重塑太空经济各方面的因素：轨道卫星数量增加（带来更多维护和处置需求）、监管要求趋严（强制寿命终结处置）、发射和卫星成本下降（使服务经济上可行）、自主和机器人技术进步（使服务技术上可行）。\n\n主动碎片清除复合年增长率\n\n轨道服务市场主要分为三大部分。寿命延长——通过服务飞行器连接工作卫星，提供额外推进、轨道保持或姿态控制——是商业上最成熟的领域，诺斯罗普·格鲁曼的任务延长飞行器（MEV）已在地球静止轨道产生收入。寿命终结处置——移除失效或即将失效卫星——是增长最快的部分，受监管要求和碎片威胁驱动。检查与近距离操作——使用服务器检查卫星损伤、验证部署或评估异常——是最早期但潜力最大的应用。\n\n| 公司 | 总部 | 主要服务 | 关键任务 | 融资/收入 |  \n| --- | --- | --- | --- | --- |  \n| 诺斯罗普·格鲁曼（SpaceLogistics） | 美国 | 地球同步轨道寿命延长 | MEV-1、MEV-2（运营中） | 产生收入；计划MRV |  \n| Astroscale | 日本 | 碎片清除（ADR） | ADRAS-J（在轨），ELSA-M（2026年发射） | 融资3.84亿美元以上；东京IPO |  \n| Starfish Space | 美国 | 多任务服务 | Remora演示，2026年3次Otter发射 | 超过1亿美元B轮融资；超过1.07亿美元太空军合同 |  \n| Orbit Fab | 美国 | 轨道加注 | RAFTI演示；计划燃料仓库 | 初期阶段；NASA/国防部合同 |  \n| ClearSpace | 瑞士 | 欧洲航天局碎片清除 | ClearSpace-1任务（计划中） | 欧洲航天局资助；超1.1亿欧元项目 |  \n| D-Orbit | 意大利 | 末端交付/处置 | ION飞行器（运营中） | 产生收入；多次发射 |\n\n诺斯罗普·格鲁曼：先行者\n\n诺斯罗普·格鲁曼旗下SpaceLogistics子公司通过任务延长飞行器项目开创了轨道服务市场。MEV-1于2020年2月与英特尔卫星901号对接，成为历史上首个商业卫星服务操作。MEV-2于2021年4月对接英特尔卫星10-02。这两台飞行器通过提供轨道保持推进延长了老旧地球同步通信卫星的寿命，实质上就像给燃料耗尽的卫星背上了喷气背包。\n\n诺斯罗普的下一代任务机器人飞行器（MRV）配备机器人臂，能执行更复杂的服务任务：检查卫星部件、安装升级模块，甚至可能进行维修。MRV代表了从简单寿命延长（仅推动卫星）向实际卫星维护（修复和升级）的演进。然而，诺斯罗普的方案主要面向大型昂贵的地球同步卫星——单颗卫星造价3至5亿美元，寿命延长带来明确投资回报的市场细分。\n\nAstroscale：碎片清除先锋\n\n总部位于东京的Astroscale于2024年在东京证券交易所上市，定位为全球主动碎片清除领导者。公司2024年发射的ADRAS-J任务是全球首次尝试通过自主会合、近距离操作安全接近并表征大型碎片。2026年与Isar Aerospace合作发射的ELSA-M任务将演示从轨道移除配备铁磁对接板的合作目标卫星。\n\nAstroscale战略聚焦于建立碎片清除的监管和商业框架。公司已与日本宇宙航空研究开发机构（JAXA）、欧洲航天局（ESA）、英国国防科学技术实验室及NASA签订合同。其ELSA-M架构设计支持多目标移除——一次任务去轨多颗卫星——这是碎片清除在大规模星座经济性实现的关键。已有568颗OneWeb卫星配备兼容对接板，Astroscale拥有内建的合作移除市场。\n\nStarfish Space：自主多面手\n\nStarfish Space的战略定位不同于诺斯罗普和Astroscale。诺斯罗普专注大型地球同步卫星，Astroscale专注碎片清除，而Starfish打造多任务服务平台，能在低轨和地球同步轨道执行处置、寿命延长和检查任务。其Otter飞行器体积小（比诺斯罗普MEV小10倍）、自主导航（无需地面控制接近）和电推进系统赋予其更广泛的客户和任务适应性。\n\n美国太空军合同体现了Starfish的国防市场定位。PWSA处置合同和Otter生产合同合计超过1.07亿美元军事收入，为同时服务商业客户如英特尔奠定坚实基础。军民双轨收入策略类似SpaceX和Anduril等成功防务科技公司的做法。\n\n新兴企业与邻近市场\n\nOrbit Fab开发轨道加注基础设施——太空加油站。其RAFTI（快速可连接流体传输接口）技术提供标准化加注端口，未来卫星可在设计阶段集成。虽然加注尚未成为商业服务，Orbit Fab的方案可能比外部推进模块更显著延长卫星寿命，因为加注后卫星保持完全机动性，而非依赖外部飞行器维持轨道。\n\n总部位于意大利的D-Orbit通过其ION航天器载具提供末端轨道交付和寿命终结处置服务。欧洲航天局资助的ClearSpace正在开发ClearSpace-1任务，计划用捕获机制移除轨道上的ESA碎片——Vespa有效载荷适配器。各家公司各司其职，覆盖更广泛的服务生态系统，表明市场足够大，支持多家专业公司共存，而非单一赢家通吃。\n\n服务与空间态势感知的融合\n\n轨道服务正与空间态势感知（SSA）融合——即跟踪和表征轨道物体的能力。能接近并检查卫星的公司具备独特的SSA能力：可近距离观察物体、评估损伤、验证身份并提供地面跟踪无法比拟的图像。对军事客户而言，这种服务与情报的双重用途使Starfish和Astroscale等公司在核心服务任务之外具有战略价值。\n\n常见问题\n\n轨道卫星服务市场规模多大？\n\n2026年市场规模为31.8亿美元，预计2034年达到68.7亿美元，年复合增长率为10.1%。增长最快的子领域是主动碎片清除，年增长约38%，受监管要求和轨道碎片威胁驱动。\n\n主要卫星服务公司有哪些？\n\n主要参与者包括诺斯罗普·格鲁曼（SpaceLogistics，首个与地球同步卫星对接的MEV）、Astroscale（碎片清除领导者，东京IPO，ADRAS-J任务在轨）、Starfish Space（自主多任务服务，超过1亿美元B轮融资，超过1.07亿美元太空军合同）、Orbit Fab（轨道加注）、ClearSpace（欧洲航天局资助碎片清除）和D-Orbit（末端交付和处置）。\n\n卫星服务公司提供哪些服务？\n\n三大主要服务是寿命延长（连接飞行器提供额外推进/轨道保持）、寿命终结处置（移除失效卫星）和检查/近距离操作（检查卫星损伤或异常）。新兴服务包括轨道加注、维修和有效载荷升级。",
+      "image": "https://blacknightspacelabs.com/assets/BlacknightSpaceLabs_OnTransparent-04_1773272820875-eXojIcTl.png",
+      "image_raw": "https://blacknightspacelabs.com/assets/BlacknightSpaceLabs_OnTransparent-04_1773272820875-eXojIcTl.png",
+      "images": [
+        "https://blacknightspacelabs.com/assets/BlacknightSpaceLabs_OnTransparent-04_1773272820875-eXojIcTl.png"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-tug/117a19a8af6d4d8f"
+    },
+    {
+      "id": "641fd6e2c53b5342",
+      "title": "低推力 LEO→GEO 多飞行器转移网络的燃料最优设计",
+      "source": "Utah State Univ. / SmallSat",
+      "url": "https://digitalcommons.usu.edu/cgi/viewcontent.cgi?article=6130&context=smallsat",
+      "published": "2024",
+      "region": "国外",
+      "aspect": "专业技术",
+      "summary": "该论文研究连续小推力下从 LEO 向 GEO 转移载荷的单/多飞行器服务架构，联合优化推进剂补给站布置与服务器轨迹，利用 J2 摄动引起的升交点进动降低推进剂消耗，并建立燃料消耗与飞行时间的解析模型。属于“太空拖车”轨迹与任务规划的前沿专业技术。",
+      "tags": [
+        "国外",
+        "专业技术",
+        "轨迹优化",
+        "电推进"
+      ],
+      "body_zh": "该论文针对低地球轨道（LEO）到地球同步轨道（GEO）之间的多飞行器转移问题，提出了一种燃料最优的设计方法。研究中结合了推进剂补给站的布置与服务飞行器轨迹的联合优化，利用地球引力场中的J2摄动效应，通过升交点进动降低推进剂消耗。作者建立了燃料消耗与飞行时间的解析模型，并采用遗传算法优化多飞行器网络的结构和作业顺序，从而实现了高效的轨迹规划和任务调度。这种方法为未来“太空拖车”式的轨道服务和在轨运输提供了理论基础和技术支持，有助于延长卫星寿命并降低空间运输成本。",
+      "image": "",
+      "image_raw": "",
+      "images": [],
+      "page_url": "https://links.he-ting.com/t/space-tug/641fd6e2c53b5342"
+    },
+    {
+      "id": "6cb7fa2cdf33b838",
+      "title": "星辰空间“太空拖车”随谷神星一号入轨：国内首个商业火箭末级留轨平台",
+      "source": "中国航天 (chinaerospace.com)",
+      "url": "https://www.chinaerospace.com/article/25149",
+      "published": "2024-06-06",
+      "region": "国内",
+      "aspect": "总体设计",
+      "summary": "2024 年 6 月，北京星辰空间联合科工二院 206 所、星河动力研制的“太空拖车”随谷神星一号入轨，用于解决一箭多星不同轨位的“最后一公里”精确入轨。该平台为国内首个商业火箭末级留轨试验平台，计划在轨超 6 个月，验证轨道调相/维持与 400W 纯氪霍尔电推，为在轨制造、维修、操控、延寿打基础。",
+      "tags": [
+        "国内",
+        "总体设计",
+        "霍尔电推",
+        "末级留轨"
+      ],
+      "body_zh": "星辰空间科技、科工二院206所和星河动力航天共同研制的太空拖车随谷神星一号（遥十三）运载火箭在酒泉卫星发射中心成功发射入轨\n\n星辰空间科技、科工二院206所和星河动力航天共同研制的太空拖车随谷神星一号（遥十三）运载火箭在酒泉卫星发射中心成功发射入轨\n\n2024年6月6日13时，由北京星辰空间科技有限公司、科工二院206所和星河动力航天公司共同研制的太空拖车随谷神星一号（遥十三）运载火箭在酒泉卫星发射中心成功发射入轨，将会在未来一段时间内开展拖车在轨验证，用于解决当前一箭多星不同轨位的精确入轨任务。\n\n此次太空拖车是星辰空间未来为用户提供的一种在轨服务产品，其主要目的是协助解决一箭多星释放方式下卫星最后一公里精确入轨问题。\n\n目前考虑到经济性，商业航天卫星大多采用一箭多星的“拼车”方式完成发射，火箭完成入轨后会将搭载卫星在同一个轨道面不同高度上释放。这对星下点有一定要求的光学遥感卫星而言，会造成卫星实际轨道与预定轨道不匹配。如若这个问题无法解决，将使卫星的任务完成受到极大限制。\n\n在没有太空拖车的情况下，星箭分离后要实现预定轨道精确入轨，卫星就要通过消耗自身推进系统工质到达预期执行任务的轨道，这极大地增加卫星入轨的成本。而借助太空拖车可以利用高比冲推进系统，如霍尔电推，可满足卫星最后一公里精确入轨的需求，一方面显著减少了火箭直接入轨所需的燃料；另一方面也可以减轻卫星自身重量降低发射成本，或者增加其它有效载荷重量来提高卫星的功能密度。因此太空拖车是未来解决一箭多星精确入轨的重要手段。\n\n此次发射的太空拖车试验平台是国内首个商业火箭末级留轨试验平台，此次平台将会突破6个月的长时间留轨，将验证轨道调相、轨道维持等轨控能力，同时验证400w低功率纯氪工质霍尔电推进系统，本次太空拖车的在轨验证可对未来空间内的在轨制造、在轨维修、空间操控、飞行器延寿等轨道服务打下坚实基础，实现新技术的在轨验证和在轨迭代。\n\n太空拖车的核心部件来自于公司自主研发的低成本高比冲的氪工质电推进系统，比冲可达1400s，是传统化推系统的4倍多。意味着，对产生同样速度增量的变轨能力所需的燃料而言，电推进系统所需工质是化推系统的25%，即高比冲的电推极大地减少了末子级的重量，释放了更多有效的运载能力给搭载卫星，助力其实现商业的获利。\n\n星辰空间电推进系统聚焦低轨卫星组网所需的低成本、高可靠、高性能等特点，具备从百瓦级至千瓦级霍尔电推进产品研发能力，可满足微纳星到大卫星（10-1500KG）的轨道维持、相位保持、轨道爬升等需求。公司推进产品技术成熟可靠，具有多次在轨飞行经历，公司重庆全资子公司具备年产1000台的批生产能力，星辰空间也是唯一为某国家级重点星座电推进配套的民营商业公司。\n\n北京星河动力航天科技股份有限公司 南京星辰空间科技有限公司\n\n广州航润航空技术有限公司完成B+轮融资，投资方为：同创伟业,白云基金\n\n中国无人机企业／eVTOL制造企业分布图（2023）\n\nCopyright @ 捷一科技（北京）有限公司. All Right Reserved.京ICP备18059609号-1.增值电信业务许可证：京B2-20190637.\n\n地址 : 北京市朝阳区东三环北路2号南银大厦2801",
+      "image": "https://cas-public.oss-cn-beijing.aliyuncs.com/logo/logo3.png",
+      "image_raw": "https://cas-public.oss-cn-beijing.aliyuncs.com/logo/logo3.png",
+      "images": [
+        "https://cas-public.oss-cn-beijing.aliyuncs.com/logo/logo3.png",
+        "https://chinaerospace.oss-cn-beijing.aliyuncs.com/uploads/2026/02/09/fd59453eddba4c7d86be6737342630ce.png",
+        "https://cas-public.oss-cn-beijing.aliyuncs.com/uploads/2022/04/24/XZUTH_%E8%88%AA%E5%8F%91.png",
+        "https://cas-public.oss-cn-beijing.aliyuncs.com/uploads/2022/04/20/EtrR8_IMG_20210929_091052.jpg",
+        "https://cas-public.oss-cn-beijing.aliyuncs.com/uploads/2023/03/20/8yysd_dvb2D_1657257376877.jpg",
+        "https://chinaerospace.oss-cn-beijing.aliyuncs.com/articles/35/12.jpg"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-tug/6cb7fa2cdf33b838"
+    },
+    {
+      "id": "550e23397425bb1c",
+      "title": "未来宇航发布 FX“锋行”系列空间飞行器：国内首个服务组网与在轨业务的商业平台",
+      "source": "网易 / 36氪",
+      "url": "https://c.m.163.com/news/a/KRMAS0FK05118DFD.html",
+      "published": "2026-04-28",
+      "region": "国内",
+      "aspect": "总体设计",
+      "summary": "未来宇航在雄安发布 FX“锋行”系列空间飞行器，面向 300kg–4000kg 任务，主攻高精度姿轨控、柔性承载与快速轨道响应，兼具火箭变轨与卫星在轨驻留能力，可承担入轨部署、在轨服务与离轨处置，被类比为“太空 4S 店”，定位为支撑在轨服务工程化落地的基础平台。",
+      "tags": [
+        "国内",
+        "总体设计",
+        "太空4S店",
+        "平台化"
+      ],
+      "body_zh": "最前线｜未来宇航发布FX锋行系列空间飞行器，切入卫星组网部署与在轨服务市场\n\n最前线｜未来宇航发布FX锋行系列空间飞行器，切入卫星组网部署与在轨服务市场\n\n2026-04-29 12:03·北京·36氪 官方网易号\n\n4月28日，未来宇航在雄安新区举行FX锋行系列空间飞行器发布会，并同步举行商业航天生态供应链合作伙伴签约仪式。\n\n此次发布的FX“锋行”系列，是国内首个服务卫星组网和在轨业务的商业飞行器。面向300kg至4000kg级任务需求，重点突破高精度姿轨控、柔性化承载与快速轨道响应等关键技术，强调低成本、高可靠与快响应能力。其定位不仅是单一飞行器产品，也是支撑在轨服务工程化落地的基础平台，可服务于星座组网、在轨加注及深空探测等场景。\n\n未来宇航CTO刘春保在接受36氪采访时介绍，空间飞行器的核心价值在于提升部署效率与降低成本：一方面，通过更高效的轨道转移能力，空间飞行器可显著加快星座部署节奏，缩短组网周期；另一方面，通过空间飞行器的在轨调配能力，同等火箭运力下可搭载更多卫星，从而降低单星发射成本。\n\n在工程适配上，“锋行”系列具备较强通用性，可适配多型火箭，具备跨平台服务能力。\n\n围绕“锋行”系列，未来宇航进一步提出“一站式在轨交付工程能力”，覆盖从平台研制、载荷集成、轨道部署到在轨操控及数据应用的全链条流程，面向卫星公司、科研机构及商业用户提供一体化解决方案。\n\n从行业视角来看，中国商业航天正从技术验证阶段迈入规模化、工程化与应用化的关键窗口期，行业竞争也从“能不能做”转向“能否更高效、更低成本、更稳定”。这一过程中，平台化、通用化的空间运输装备被认为是未来发展的核心方向之一。\n\n其中，空间飞行器正逐渐成为产业链中的关键补位角色。该类产品兼具火箭的变轨能力与卫星的在轨驻留能力，可承担卫星入轨部署、在轨服务及离轨处置等多环节任务，常被类比为“太空4S店”。\n\n未来宇航创始人牛旼在接受采访时表示，空间飞行器需求的出现，本质上源于技术与需求的双重驱动。一方面，卫星分布在不同轨道，而火箭发射更类似“定点运输”，难以实现精准入轨；另一方面，随着大规模卫星组网推进，火箭运力不足的问题逐渐显现，难以直接将卫星送达目标轨道。基于此，公司通过不同类型飞行器，分别解决入轨部署与在轨服务等场景需求。随着商业航天的发展，空间飞行器的应用将分阶段展开：初期以卫星部署为核心，后续逐步拓展至在轨维护、碎片清理、深空转移等更复杂场景。\n\n基础建设方面，未来宇航同步宣布雄安总装测试中心已正式落地雄安。该中心具备空间飞行器研发、总装、集成、测试与试验的全流程能力，规划年产60台左右，标志着公司进入工程化交付与批量化制造阶段。\n\n目前，未来宇航的首飞产品“锋行一号”已完成总装，预计将于今年下半年执行首次飞行任务。\n\n此外，未来宇航还在大会上与生态伙伴签署战略合作协议，未来将围绕卫星数据服务与空间信息应用展开进一步合作。\n\n特别声明：本文为网易自媒体平台“网易号”作者上传并发布，仅代表该作者观点。网易仅提供信息发布平台。\n\n以后卫星组网这么简单，我也能当卫星公司老板了，先给家里wifi装个卫星组网！\n\n热 专家称河北麦田超大怪石是罕见“闪电熔岩”，田主已将石头运走，律师：该类石头属无主动产，先占先得\n\n新 杭州深山老林里，一辆酷炫的路特斯跑车趴窝了近半年，轮胎也全瘪了，每天都有人去打卡拍照，是被主人遗弃了？\n\n15元买数百万Token，但一句“你好”烧掉5万！运营商的“低价”算力套餐，开发者为何直呼“用不起”\n\n大学生火车上问乘务员要试吃，想多要两个直接说自己“馋”\n\n上海市民惊呆：知名品牌进口牛奶怎么是淡黄色的水，还有股酸臭味？类似情况不止一次发生，网友：万一小朋友直接用吸管吸\n\n重庆30年老面馆招牌上的“高”字是“被迫”加的，老板：以前不懂商标，打官司没要回\n\n热 专家称河北麦田超大怪石是罕见“闪电熔岩”，田主已将石头运走，律师：该类石头属无主动产，先占先得\n\n从组网到变现：时空道宇走到商业航天新拐点 36氪 SpaceX要让太空算力从科幻走向现实，但它划算吗？ 钛媒体APP GATOR：把传统火箭升级为具备穿透打击能力的智能火箭 军械百科 APP专享\n\n导航战：一个比导弹更恐怖的现代战争形态 战研所 APP专享 仁顷事件 MUSICANCER 15.6万次播放 云音乐特供 00:02 普京宣布研发卫星系统，对标星链控制无人机，战场格局将变？ 人生就是要简单 飞天之箭2.3回收火箭 CRAZY262 一颗神秘的中国探测器正绕着一颗地球“准卫星”飞行，很快就要做一件史无前例的事 科学边界哦 德国军官爆料，俄计划将核弹送入太空，一旦出事全球卫星遭殃 心灵得以滋养 航天员陈冬与妻子汪晓燕合影，美满幸福的一家人 浔阳咸鱼 1跟贴 重磅！美记曝凯鹿交易需要第三方！火箭乌杜卡或是最关键因素！ 各生欢喜者 1跟贴 高空坠落千钧一发！大哥火箭成救命符改写命运 搞笑壮汉夫妻 德国成功测试无人战斗车，激光制导火箭百步穿杨 装甲铲史官 飞机乘客捕捉登月火箭轨迹，时隔半世纪人类重返月球 装甲铲史官 越军展示超简易无人艇，RPG+遥控冲浪板 装甲铲史官 等待卫星过境的人 CNMO科技 实力出圈！解放军侦察兵把无人机玩出武侠飞剑既视感 杨风 APP专享 火箭休赛期引援计划遭到曝光 吕坾极限手工 1跟贴 重磅！再见了，1号布克！ 技巧君侃球 1跟贴 印度最强的火箭柠檬苏打水！ 是鸽子呀 1跟贴\n\n习近平给新华社老党员张连生回信1 货拉拉将退还不合理费用1.2亿元 23720122 端午假期天气如何 23079853 全国夏粮丰收成定局 22910864 有银行开始下架2年期定存 22391755 我国首次开展输电权交易 21960016 市场监管总局督导货拉拉落实反垄断合规整改 20704187 中方回应有关国家炒作“南海仲裁案”19780428 第三批国补来了 19525649 我国将启动2026年新能源汽车下乡 191869310 成品油价降回7元时代 1847312",
+      "image": "https://static.ws.126.net/163/frontend/images/logo-netease.png",
+      "image_raw": "https://static.ws.126.net/163/frontend/images/logo-netease.png",
+      "images": [
+        "https://static.ws.126.net/163/frontend/images/logo-netease.png",
+        "https://nimg.ws.126.net/?url=http%3A%2F%2Fdingyue.ws.126.net%2F2026%2F0429%2Fae594e2bj00te8lsl0028d000pw00heg.jpg&thumbnail=750x2147483647&quality=75&type=jpg",
+        "https://nimg.ws.126.net/?url=http%3A%2F%2Fdingyue.ws.126.net%2F2025%2F0116%2Ff54682d8j00sq65ru000bd000eg00egp.jpg&thumbnail=90x2147483647&quality=75&type=jpg",
+        "https://img2.cache.netease.com/m/newsapp/reading/vip/bluenew.png",
+        "https://nimg.ws.126.net/?url=http%3A%2F%2Fdingyue.ws.126.net%2F2026%2F0429%2Fae594e2bj00te8lsl0028d000pw00heg.jpg&thumbnail=750x2147483647&quality=75&type=webp",
+        "https://nimg.ws.126.net/?url=http%3A%2F%2Fdingyue.ws.126.net%2F2026%2F0429%2F48b08f30j00te8lsl001ud000xa00nsg.jpg&thumbnail=750x2147483647&quality=75&type=webp"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-tug/550e23397425bb1c"
+    },
+    {
+      "id": "875e3b847da4d1ea",
+      "title": "太空拖船科普：概念、“最后一公里”交付与“拖船即服务”模式",
+      "source": "澎湃新闻",
+      "url": "https://www.thepaper.cn/newsDetail_forward_26182492",
+      "published": "2024",
+      "region": "国内",
+      "aspect": "总体设计",
+      "summary": "文章厘清太空拖船的定义：把太空物体从一个轨道转移到另一个轨道（如 LEO→GTO/月球转移/逃逸轨道），类似港口大马力拖船，拖到位即“分手”。卫星依托拖船可削减自身变轨能力以降本，由此催生“太空拖船即服务”这一商业“最后一英里”交付新模式。适合作为专题入门导读。",
+      "tags": [
+        "国内",
+        "总体设计",
+        "科普",
+        "最后一公里"
+      ],
+      "body_zh": "科幻小说中的太空拖船到底是什么？它有什么作用呢？澎湃号·政务澎湃新闻-The Paper )\n\n太空拖船最早出现在科幻小说中，航天科学家们也对它兴趣盎然。那么，太空拖船到底是什么？它能为太空探索带来哪些便利呢？\n\n在几乎每一个海港里，我们都可以看到一种奇异的船只。它们个头不大，有高高的艏楼和地坪的尾部。这些船装着超大功率的发动机，它们自己不能载货也不能载人，却能拖着巨轮进进出出，这就是拖船。如今在太空里，也有它们的兄弟了。这些太空拖船，说不定还能把飞船拖到月球和火星上去呢。\n\n在传统的卫星发射当中，经常会遇到变轨的需求，也就是改变卫星的轨道。有的时候，火箭只能把卫星送到某一个高度或者倾角，然后卫星要靠自己的发动机，逐步前往预定轨道。在发射地球静止轨道卫星的时候，这样的案例最为明显。\n\n另外在有些时候，一颗卫星在某个轨道上完成了任务，就要机动到另外一个轨道上去。当卫星彻底完成了自己的使命，准备退休的时候，还需要把自己拖到墓地轨道上，把轨道位置让给自己的继任者，同时也避免成为轨道垃圾。\n\n在传统上，这样的工作都要靠卫星自己携带的发动机来进行。静止轨道卫星上的远地点发动机，就是用来将卫星从同步转移轨道送往静止轨道的设备。\n\n但是卫星自己携带这么大的变轨发动机是很重的负担。在发射的时候，它是作为卫星的一部分用火箭来送进太空的。在卫星飞行的绝大多数时间里，变轨发动机都是处在闲置的状态。轨道保持的任务，也并不一定需要大推力的变轨发动机。等到卫星寿命结束，它又要随着卫星一起前往墓地轨道。终其一生，发挥作用的时间也没有多少。变轨发动机还需要携带相当数量的燃料，当卫星寿命结束，如果燃料还没有用完，就白白浪费掉了。\n\n要知道，人类送进太空的每一克重量都是非常宝贵的。能不能有一种办法，把变轨发动机和卫星分离开来，用其他的航天器把它们拖到要去的轨道上呢。宇航科学家们一直在考虑一种太空拖船的概念，也就是把一种具有强大推力的航天器部署在轨道里。它没有通信、遥感或者导航载荷，唯一的用处就像港口的大马力拖船一样，帮助其他船只进港和离港，也可以抢救故障的船只。\n\n于是乎，商业太空拖船成了这几年的一项新兴业务。如果我们搜索航天媒体的关键词“Spacetug”，就会出现几个名不见经传的企业，比如澳大利亚的“太空机器公司”、美国的“太空飞行公司”、“向量公司”等等。\n\n很少有人知道，太空拖船的概念早在上世纪40年代就出现了。埃里克·弗兰克·罗素在1942年的短篇小说《描述一个圆》中发明了这个概念。这篇小说没有中文版，作者本人也名不见经传。不过，spacetug这个词汇确实是他发明的。也有人认为是二战后科幻作家默里·莱恩斯特提出了这个概念，他出版了一部小说就叫做《太空拖船》，是《太空平台》的续集。不过看来，罗素的想法确实更早一些。\n\n在《描述一个圆》这篇小说里，罗素想象了一艘采用四溴化铀作为核燃料的宇宙飞船新泽西号，它试图进入赫克特小行星上的殖民地。这颗小行星是木星最大的特洛伊小行星。但是按照小行星殖民地的法律，外来飞船不能在距离100千米的轨道上开启发动机，所以殖民地派遣了一艘核动力拖船布鲁图斯号前来接应。布鲁图斯号采用核热火箭发动机，核裂变材料密封在一个熔融石英室中，所以被称作核灯泡。罗素还很贴心地设想了两艘核动力飞船的对接方式，必须是鼻子对鼻子，装有反应堆的动力部分必须处在远端的防护罩后面，不能直接面对驾驶舱。\n\n按照这些早期概念，太空拖船是有人驾驶的小型飞船，配备了不成比例的超大型发动机和机械手，这与港口的拖轮概念一模一样。拖船有两种方式来驱动自己的服务对象。如果是推动，船头就要设置一个巨大的推板，其中有一个结构件核心，把发动机的推力传递给推板。如果是拖拽，船尾会有缆绳和绞车，发动机要倾斜一定的角度向后喷射，这样不会烧坏被拖拽的航天器。但是这种情况下要损失一点推力。\n\n到了今天，太空拖船的定义更加清晰了，它是一种航天器，可以把太空里的物体从一个轨道转移到另一个轨道。例如，将航天器从低地球轨道（LEO）移动到高轨道，如地球静止转移轨道、月球转移轨道或逃逸轨道。\n\n一般来说，太空拖船指的是可重复使用的天基飞行器。有些人把火箭上面级也叫做太空拖船。上面级是运载火箭的一部分，在很多时候都是用来实施一箭多星发射任务的，比如中国的远征一号上面级、美国的半人马座上面级、俄罗斯的微风上面级。但是上面级的使用时间也是有限的，当所有的卫星都进入了预定轨道，上面级的任务就完成了，而这个时候上面级的绝大多数部件包括结构、燃料储罐、推力器、姿态和轨道控制系统都处在完好的状态，就这样扔在太空里实在有点浪费。还有一种新概念航天器，也被支持者们归入太空拖船的行列，那就是诺斯罗普-格鲁曼公司首发的地球静止轨道卫星延寿器MEV。它所采用的技术和太空拖船有很多相似之处。\n\n但火箭上面级和卫星延寿器这些航天器和太空拖船还是有所差异。太空拖船仅是那种把航天器在不同轨道甚至不同星体之间拖来拖去的设备，拖拽到位，两者就分手了，就像港口的大马力拖船一样。\n\n进入21世纪后，试图开展太空拖船研制的企业很多。俄罗斯能源公司于2005年提出了一种名为Parom的太空拖船概念。当时俄罗斯正在考虑研制“快帆”新一代载人飞船。有了Parom拖船，“快帆”可以不带燃料上天，进入转移轨道后靠拖船送到国际空间站。这样可以降低发射成本。2015年，洛克希德·马丁公司向美国宇航局提出了一个名为“木星”太空拖船的概念方案，该方案基于洛克希德·马丁公司的两个早期航天器“火星大气和挥发性演化任务”和“朱诺”的设计，安装一个加拿大MDA公司的机械臂。不过美国宇航局没有为它提供资金，洛克希德·马丁公司也就放弃了。\n\n这几个型号没有成功，是因为在航天发射还不算太频繁，商业发射市场并不成熟的时候，太空拖船找不到足够的客户，也就没有了研制和运行的基础。\n\n如今随着各种火箭频繁发射，宇航发射越来越接近于航班化运行。猎鹰9号火箭已经实现了每年超过40次的发射，几乎每个星期都能发射一次，未来有可能实现一个星期发射两次，那么再加上其他国家正在研制的有希望实现航班化飞行的火箭，在今后几年时间里，很可能出现一天发射好几次火箭的情况。\n\n对于火箭发射来说，比较理想的方式就是把卫星统一送到某一个轨道面上，再用别的办把卫星送往预定轨道，这样可以极大地提高火箭飞行的效率。如果有一种长期在轨运行的拖船，不停地从原始轨道把卫星拖到各自的预定轨道上，那不就成了一门有利可图的生意吗？\n\n在很多海港里，就有这样的服务。很多大型船只在靠港或者离港的时候，因为船身庞大、操作不灵，容易发生碰撞事故，这时候就需要拖船来把它们准确送到预定位置。如果船只在海上发生事故，也需要拖船去抢救。一些失去动力的船想要长途航行，只能靠大马力拖船来拉着走。当船只报废，要进入拆船厂，同样需要拖船把船只推到海滩上。太空拖船正好可以承担同类任务，只是场景换到了太空里而已。\n\n从航天技术本身的角度来说，这相当于设置了一个长期在轨运行的上面级，可以分享给很多的卫星来使用，每颗卫星的业主只需要支付自己那一段航程就可以了，而不用买一套完整的变轨发动机系统或者上面级，想起来还是蛮划算的。\n\n于是乎，有不少新兴企业提出了一种“太空拖船即服务”的概念，希望能让卫星业主在部署和维护卫星方面拥有更大的灵活性。\n\n太空拖船的市场需求，号称是商业化最后一英里交付服务。美国太空飞行公司的工程副总裁菲尔·布拉肯说：“太空拖船有潜力从根本上改变小型卫星市场。有了这种服务，此前一度无法到达的轨道，对卫星业主就是可行的选择，能够满足日益增长的市场对轨道多样化的需求。”\n\n最近几年，有大量的小卫星入轨，但大多数小卫星客户都只是在进行技术演示验证。有一些大规模星座的业主会购买大型火箭服务来部署星座。但是很多小卫星必须达到非常特殊的轨道，才能获得最佳的创收服务。这种“极端的最终轨道状态”，无论是搭载发射服务、拼车发射服务，还是专用小型运载火箭都无法实现，这就给太空拖船提供了机会。\n\n另外，为减少空间碎片，报废卫星的脱轨问题，也对太空拖船提出了需求。一部分企业已经表示，要提供从摇篮到坟墓服务的太空拖船服务。\n\n比如美国太空飞行公司开发了一种叫“夏尔巴人”的系统。它其实是一种类似于上面级的型号，带有推进和电力系统。2018年12月，“夏尔巴人”搭乘猎鹰9号火箭首飞，部署了来自17个国家的64颗小型卫星。但它更接近于上面级，而不是反复使用的拖船。\n\n意大利空间物流和运输公司D-Orbit开发了InOrbitNOW（ION）卫星载体。2022年5月25日，该公司在猎鹰9号火箭的Transporter-5任务中搭载发射了第六颗飞行器“无限蓝”。\n\n有了太空拖船，卫星在发射后进入某个等待轨道，然后用拖船送到预定轨道。有了这样的服务，业主可以减小卫星的自身变轨能力，甚至完全不考虑变轨能力，完全依靠拖船，以此来降低成本。\n\n“太空拖船有潜力从根本上改变小型卫星市场，”太空飞行工程副总裁菲尔·布拉肯说。“有了在轨推进能力，由于成本或推进能力，一度无法到达的轨道将是可行的选择，可满足日益增长的市场对轨道多样化的需求。”\n\n既然是长期运行的拖船，那么就不可能采用那种很快就消耗完的化学燃料，比如说无水肼之类的。太空拖船需要一种能够使用好几年也不用补充耗材的能源方式。到目前为止，有两种技术手段可以实现这样的要求，第一种就是电火箭发动机，第二种是核动力发动机，当然这两种技术之间可能存在交叉。电火箭发动机是我们非常熟悉的，它依靠太阳能或者核能提供电力，通过高速喷射离子的方式来产生推力。这种发动机的问题是推力比较小，比如说一两牛顿，用它来拖带卫星，可能需要消耗比较长的时间，适合于那种不着急让卫星投入使用的客户。核动力也有两种，一种是用同位素电池来发电，提供给离子发动机使用；另一种就是核热火箭发电机，它通过反应堆把水之类的介质加热到气态，具备很高的压力，然后用每秒9000多米的速度喷射出去。核热火箭发动机的比冲虽然比离子发动机要小很多，但是能够实现的总推力是非常可观的。比如俄罗斯提出的VASIMR等离子体火箭，只需9吨氩气推进剂即可往返月球，将34吨货物从低地球轨道运送到低月球轨道。\n\n太空拖船怎么才能把卫星拖走，同样是一个需要解决的技术问题。如果仅仅是打算把一颗卫星拖到墓地轨道上报废，那么在拖船上装一套机械手就可以了，用机械手不分青红皂白地抓住旧卫星，启动发动机就可以启航了，但是如果要把新卫星送到工作轨道上，机械手的粗暴操作很可能就会损坏卫星。因此必须要为后一种用途设计标准化的接口，将拖船用机械臂或者其他的连接器与受服务的卫星稳妥地连接在一起，再拖着它前往预定轨道。这实际上就是一种合作目标的空间交会对接。在这个问题上，载人航天器的舱段对接能够为我们提供很多技术参考，特别是空间站的机械臂和舱段部件之间采用了标准化的接口，为机械臂进行舱段转位提供了良好的条件。\n\n如果太空拖船要为整个航天产业提供服务，那么业界就必须统一出一种普遍适用的接口标准来。目前这项工作还没有完全提上议事日程。按照产业的一般规则，这件事需要通过商业竞争来决定。\n\n原名《太空拖船：助力航天器实现高效变轨》，载于《太空探索》杂志2022年第12期。\n\n本文为澎湃号作者或机构在澎湃新闻上传并发布，仅代表该作者或机构观点，不代表澎湃新闻的观点或立场，澎湃新闻仅提供信息发布平台。申请澎湃号请用电脑访问http://renzheng.thepaper.cn。\n\n从畅销书到动画电影，郭妮如何将科幻IP搬上银幕？",
+      "image": "https://www.thepaper.cn/_next/static/media/logo_light.4da59bed.png",
+      "image_raw": "https://www.thepaper.cn/_next/static/media/logo_light.4da59bed.png",
+      "images": [
+        "https://www.thepaper.cn/_next/static/media/logo_light.4da59bed.png",
+        "https://image.thepaper.cn/publish/interaction/image/5/629/323.jpg",
+        "https://imagepphcloud.thepaper.cn/pph/image/288/973/571.png",
+        "https://imagepphcloud.thepaper.cn/pph/image/288/973/574.png",
+        "https://imagepphcloud.thepaper.cn/pph/image/288/973/577.png",
+        "https://imagepphcloud.thepaper.cn/pph/image/288/973/579.png"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-tug/875e3b847da4d1ea"
+    },
+    {
+      "id": "35f1b7735e75ede6",
+      "title": "湖科大二号：国内商业航天首颗柔性机械臂在轨操作验证星",
+      "source": "网易号",
+      "url": "https://www.163.com/dy/article/KOUFUVTS0556EYKS.html",
+      "published": "2026",
+      "region": "国内",
+      "aspect": "专业技术",
+      "summary": "由湖南科技大学与苏州三垣航天联合研制的“湖科大二号”，是我国商业航天首颗配置柔性机械臂的在轨操作技术验证星，任务目标为验证机械臂的伸展、抓取、搬运、释放等能力，为后续在轨维修、加注、升级与碎片捕获等复杂在轨服务奠定基础。",
+      "tags": [
+        "国内",
+        "专业技术",
+        "柔性机械臂",
+        "在轨操作"
+      ],
+      "body_zh": "在轨服务来了！中国首颗机械臂卫星意味着什么？|航天器|通信卫星|卫星发射|太空垃圾|微厘空间组卫星网易订阅 )\n\n2026年3月16日12时12分，酒泉卫星发射中心，快舟十一号遥七运载火箭点火升空。约4分钟后，8颗卫星依次与火箭分离，进入预定轨道。在这些卫星中，有一颗格外特殊——它不仅是一颗普通的通信卫星，更是一位太空“医生”，配备了能够为其他卫星“做手术”的机械臂。\n\n这颗卫星就是“湖科大二号”，由湖南科技大学与苏州三垣航天科技有限公司联合研制。它是我国商业航天领域首颗配置柔性机械臂的在轨操作技术验证试验卫星，标志着中国正式进入商业航天在轨服务时代。\n\n在轨服务（On-Orbit Servicing，简称OOS），是指利用专门的航天器对在轨运行的其他航天器进行检查、维修、燃料补给、轨道调整甚至升级改造的技术。这项技术的核心理念是：让卫星“延寿”，让太空资产“保值”。\n\n在传统观念中，卫星发射入轨后，其寿命就基本固定了。燃料耗尽、部件老化、轨道衰减——这些问题最终会导致卫星失效，届时只能发射新的卫星进行替代。这种“一次性使用”的模式，不仅成本高昂，而且造成大量太空垃圾。\n\n但在轨服务改变了这一逻辑。如果卫星在运行过程中出现问题，可以派遣“服务卫星”进行维修；如果燃料不足，可以进行在轨加注；如果技术落后，还可以进行升级改造。从“一次性使用”到“可维修、可升级”，这将是航天产业的一次革命性变革。\n\n国际上多数在轨服务项目仍处于技术攻关与演示验证阶段，真正实现常态化、商业化在轨服务仍需进一步成熟。\n\n湖科大二号的发射，标志着中国在这一领域的实质性突破。\n\n根据公开信息，湖科大二号的核心创新在于其配备的柔性机械臂。\n\n与传统的刚性机械臂不同，柔性机械臂采用新材料和新技术，能够在太空环境中实现更加精细、灵活的 操作。它可以像人的手臂一样弯曲、扭转，适应不同形状、不同姿态的目标卫星。\n\n这种柔性设计带来多重优势。首先，它可以在狭小空间中完成精细操作，不易对目标卫星造成损伤。其次，它适应性更强，可以应对不同类型的在轨服务任务。第三，它的重量相对较轻，有利于降低发射成本。\n\n湖科大二号的任务目标是验证柔性机械臂的在轨操作能力。具体而言，它将测试机械臂的伸展、抓取、搬运、释放等功能，验证其在太空环境中的工作性能。如果验证成功，将为后续更复杂的在轨服务任务奠定基础。\n\n湖南科技大学在机器人领域有着深厚积累，其机器人视觉 、精密控制等技术为湖科大二号提供了核心支撑。苏州三垣航天科技有限公司则专注于商业航天技术创新，其在卫星平台研制方面积累的经验，为项目的顺利实施提供了保障。\n\n这种“高校+企业”的合作模式，也是中国商业航天创新的重要路径。高校提供基础研究和人才培养，企业提供工程经验和市场敏锐度，两者结合能够加速技术从实验室走向应用。\n\n湖科大二号的成功发射，折射出的是一个正在快速成长的万亿级市场。\n\n根据国际航天界主流预测，全球在轨服务（OOS）市场规模在未来 10–15 年将达到百亿美元级别，是商业航天增长最快的细分赛道之一。这一市场主要包括以下几个方面：\n\n卫星延寿服务：通过在轨加注燃料、修复故障等方式，延长卫星使用寿命。目前，一颗大型通信卫星的造价通常在数亿美元甚至更多，如果能够将其寿命从15年延长至20年甚至25年，将为运营 商节省大量成本。\n\n轨道清理服务：随着太空垃圾日益增多，轨道清理成为迫切需求。在轨服务卫星可以捕获失效卫星或碎片，将其推入大气层销毁，或转移至“坟墓轨道”。\n\n在轨升级服务：随着技术进步，早期发射的卫星可能变得“落后”。通过在轨升级，可以为卫星更换更先进的处理器、通信模块等，延长其技术生命周期 。\n\n太空制造服务：利用在轨服务平台的独特环境，开展太空材料加工、药品生产等增值服务。\n\n对于中国而言，在轨服务技术的发展具有多重战略意义。首先，它能够提升我国卫星资产的利用效率，降低航天成本。其次，它能够增强我国在太空安全领域的能力——在轨服务技术既可以用于“维修”友好卫星，也可以用于“捕获”潜在威胁目标。第三，它能够培育新的产业增长点，推动商业航天发展。\n\n当机械臂在太空中缓缓伸展，它不仅在验证一项技术，更在打开一扇通往未来的大门。\n\n从“一次性使用”到“可维修、可升级”，从“卫星报废”到“太空4S店”，人类对太空的利用方式正在发生深刻变革。在这场变革中，中国不再是旁观者，而是积极的参与者。湖科大二号的成功，让我们看到了中国航天的更多可能性。\n\n特别声明：以上内容(如有图片或视频亦包括在内)为自媒体平台“网易号”用户上传并发布，本平台仅提供信息存储服务。",
+      "image": "https://www.163.com/dy/article/KOUFUVTS0556EYKS.html",
+      "image_raw": "https://www.163.com/dy/article/KOUFUVTS0556EYKS.html",
+      "images": [
+        "https://www.163.com/dy/article/KOUFUVTS0556EYKS.html",
+        "https://static.ws.126.net/f2e/include/common_nav/images/topapp.jpg",
+        "https://nimg.ws.126.net/?url=http%3A%2F%2Fdingyue.ws.126.net%2F2026%2F0326%2F2f2e600ej00tchfna0018d000z700jtp.jpg&thumbnail=660x2147483647&quality=80&type=jpg",
+        "https://static.ws.126.net/tie/2017/5/tie_box_ad_2.jpg",
+        "https://nimg.ws.126.net/?url=http://bjnewsrec-cv.ws.126.net/three19643c3e86aj00tgt41j003ld200k000f0g00k000f0.jpg&thumbnail=140y88&quality=80&type=jpg",
+        "https://nimg.ws.126.net/?url=http://videoimg.ws.126.net/cover/20260618/kxf8XZbh7_cover.jpg&thumbnail=140y88&quality=80&type=jpg"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-tug/35f1b7735e75ede6"
+    },
+    {
+      "id": "24668423fc6518ad",
+      "title": "实践二十五号与实践二十一号完成我国首次卫星在轨加注",
+      "source": "公开报道",
+      "url": "https://www.chinaerospace.com/",
+      "published": "2025-11",
+      "region": "国内",
+      "aspect": "专业技术",
+      "summary": "实践二十五号（2025 年初发射，面向燃料补加与延寿技术验证）于 2025 年 11 月与实践二十一号交会对接，完成我国首次卫星在轨加注任务，打通了非合作/半合作目标交会对接与推进剂传输的关键技术链路，是“太空加油”的里程碑。",
+      "tags": [
+        "国内",
+        "专业技术",
+        "在轨加注",
+        "交会对接"
+      ],
+      "body_zh": "实践二十五号（2025 年初发射，面向燃料补加与延寿技术验证）于 2025 年 11 月与实践二十一号交会对接，完成我国首次卫星在轨加注任务，打通了非合作/半合作目标交会对接与推进剂传输的关键技术链路，是“太空加油”的里程碑。",
+      "image": "https://cas-public.oss-cn-beijing.aliyuncs.com/logo/logo3.png",
+      "image_raw": "https://cas-public.oss-cn-beijing.aliyuncs.com/logo/logo3.png",
+      "images": [
+        "https://cas-public.oss-cn-beijing.aliyuncs.com/logo/logo3.png",
+        "https://chinaerospace.oss-cn-beijing.aliyuncs.com/images/20241020/jingdu.jpg",
+        "https://chinaerospace.oss-cn-beijing.aliyuncs.com/images/index/20240515_bg/WechatIMG9776.jpg",
+        "https://chinaerospace.oss-cn-beijing.aliyuncs.com/images/20241020/large_aircraft.jpg",
+        "https://chinaerospace.oss-cn-beijing.aliyuncs.com/images/index/20260115_bg/index_banner_xiaochengxu.png",
+        "https://chinaerospace.oss-cn-beijing.aliyuncs.com/images/20241020/WechatIMG326.jpg"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-tug/24668423fc6518ad"
+    },
+    {
+      "id": "e68599e08d411998",
+      "title": "驭星三号 06 星“太空加油站”：柔性机械臂模拟燃料加注在轨验证",
+      "source": "新华网",
+      "url": "https://www.news.cn/sci-tech/20260424/edd54bfc4d8b43e284cb80cd36b16d2f/c.html",
+      "published": "2026-04",
+      "region": "国内",
+      "aspect": "专业技术",
+      "summary": "由航天驭星旗下苏州三垣航天研制的驭星三号 06 星（外号“太空加油站”）发射入轨，作为我国首颗配置柔性机械臂的商用试验星，在数百公里高空完成柔性机械臂模拟燃料加注等高难度在轨操作，验证了大量在轨服务关键技术。",
+      "tags": [
+        "国内",
+        "专业技术",
+        "模拟加注",
+        "柔性机械臂"
+      ],
+      "body_zh": "2026-04-24 09:08:53 来源：人民日报\n\n驭星三号06星柔性机械臂载荷执行在轨加注对接技术验证。\n\n数据来源：国家航天局、中国电子信息产业发展研究院等\n\n4月24日是第十一个“中国航天日”，今年航天日的主题为“七秩问天路 携手探九霄”。\n\n从古至今，中国人探索浩瀚宇宙的脚步从未停歇。商业航天是培育新质生产力、建设航天强国的重要力量。2015年《国家民用空间基础设施中长期发展规划（2015—2025年）》印发，鼓励社会资本步入航天领域；2025年我国商业航天完成发射50次，占我国全年宇航发射总数的54%；2026年，国家航天局在“中国航天日”新闻发布会上介绍，多型重复使用火箭将开展飞行验证，商业航天将以高水平安全保障高质量发展……10年来，我国商业航天加速成长，新技术、新突破、新应用不断涌现，从星辰大海走进千家万户。目前我国商业航天有何前沿进展？哪些曾经的太空畅想正照进现实？本期特别报道，我们共同关注。\n\n浩瀚宇宙中，人造卫星都会面临一项难题：当自身推进剂（燃料）耗尽，是不是注定陨落？\n\n一颗在轨维护卫星迅速抵近需要加注推进剂的卫星，通过一条柔性机械臂自主寻找加注口，把“油”加满后驶向下一颗卫星——这是未来将发生于太空中的一幕。\n\n前不久，由北京航天驭星科技所属苏州三垣航天科技有限公司研制的驭星三号06星，从酒泉发射场升空入轨。这颗卫星有个特别的外号——“太空加油站”。作为我国首颗配置柔性机械臂的商用试验卫星，在距离地面数百公里的高空，它完成了柔性机械臂模拟燃料加注等一系列高难度在轨操作任务，验证了大量关键技术，标志着我国商业航天在空间在轨服务领域迈出了坚实一步。\n\n航天驭星副总裁曹梦介绍，担任“加油小卫士”角色的这颗卫星，未来瞄准的应用场景是在茫茫宇宙中，迅速定位目标卫星的精确位置，再通过严谨周密的变轨操作等，实现两颗卫星“穿针引线”般的交会对接，然后开展“加油”步骤。\n\n这颗技术验证星最关键的部件是柔性机械臂。“我们创新设计理念，确保柔性机械臂更加轻量化、高灵活、高可靠。”三垣航天CTO（首席技术官）陈京说。\n\n在模拟加注环节，这颗技术验证星通过3种控制模式实现，以适应不同应用场景。陈京介绍，第一种是机械臂收到任务预设指令后，自主规划运动路径；第二种需要地面操作人员根据相机画面，实时生成控制指令，远程操控机械臂完成对接动作；第三种是在视觉伺服系统的引导下，地面根据柔性机械臂末端拍摄的视觉靶标信息，规划运动路径并生成控制指令，引导机械臂完成对接动作。\n\n专家认为，随着未来空间资产越来越多，包括卫星在内的大量航天器都会产生推进剂加注以及在轨维修的需求。“我们希望打造未来的‘太空4S店’，为太空资产提供一站式维护维修解决方案。”曹梦说。\n\n距离地面约500千米的近地轨道中，12颗计算卫星正在稳定运行。这些配备了高性能星载智能计算单元的卫星群，通过卫星互联互通，共同构建起太空算力网络。\n\n中国工程院院士、之江实验室主任王坚说，构建太空计算星座，是为了解决太空算力缺失和人工智能怎么到太空的问题，让现在在太空的数据能够发挥出以前无法发挥的作用。“我们不是把地面数据中心搬到太空，而是把算力和智能送到太空去，让天上的事情在天上干。”王坚说。\n\n现在太空大概有800颗在轨遥感卫星，数量还在快速增长。但卫星距离地面遥远，携带的计算机计算规模太小，数据传输能力和处理能力远远不够，近九成数据在没被传回地面前，就被白白丢弃浪费。\n\n为了不让人工智能因为缺失算力而缺席太空，之江实验室协同全球合作伙伴打造“三体计算星座”。这个太空计算基础设施通过算力“上天”、卫星互联，实现人工智能模型“上天”。\n\n在位于浙江杭州的之江实验室“三体计算星座”指挥中心，遥测数据实时传回，大屏上12颗计算卫星的运行轨迹一览无遗。王坚补充道，“三体计算星座”把人工智能模型送到太空，来处理太空数据，并且保证数据的时效性。“有了时效性后，我们可以想象非常多的应用场景，包括应急救灾、城市治理等。”\n\n截至目前，之江实验室的科研团队已成功完成了10个人工智能模型与应用的在轨部署与验证，包括80亿参数天基遥感模型、80亿参数天基天文时域模型、1.5亿参数“伏羲”气象模型等。实验室计算星座总体部技术总师李超介绍，“我们的模型可以从地面实时上传和迭代，未来的智能处理也会在轨道上就地完成。”\n\n沙漠深处拍段视频，立马就能上传到朋友圈；远洋货轮上，随时可以和家人视频通话；万米高空的飞机上，手机信号依然满格……这些场景正一步步成为现实。\n\n“长期以来，通信网络受限于地面基站的覆盖范围。一旦进入沙漠、海洋等区域，往往就成了‘信息孤岛’。”中国科学院微小卫星创新研究院技术研发中心副主任田丰介绍，一张张织在太空中的“网”，正破解这一难题。\n\n前不久，我国成功将卫星互联网低轨21组卫星发射升空，低轨卫星组网明显提速。“与高轨卫星相比，低轨卫星通信速率更快，资费也较低，是当下我国卫星通信发展的主攻方向。”田丰说。\n\n“一颗颗低轨卫星组成的星座，能够实现把地面网络‘搬’上太空的效果，相当于建了一条太空信息高速路。”银河航天星座通信系统架构师林广荣表示，我国首个卫星互联网试验星座“小蜘蛛网”已经在空中、地面、海洋等多个场景完成了低轨应用示范。比如，通过卫星互联网远程操控，无人机出色完成了灭火工作；人形机器人通过低轨卫星同步传输视觉数据，实现“远程感知”。\n\n林广荣说，卫星批量制造与发射技术的创新，使得低轨卫星互联网星座规模化组网提速。\n\n中国信息通信研究院技术与标准研究所总工程师李侠宇表示，卫星通信正从应急通信、远洋船舶等专业领域加速向手机、汽车、无人机等大众消费领域延伸，催生一系列规模化应用场景。“手机直连卫星、车载卫星互联网等新应用，既能满足老百姓在各类场景中的需求，也能带动终端、芯片、运营等产业链升级，打开新的消费市场。”李侠宇说。\n\n“通信的本质，是让信息不再有边界。”田丰表示，未来，卫星通信将成为天地一体化的新基础设施，为各行各业增添便利、提供支撑。\n\n力箭二号遥一运载火箭成功发射；力鸿一号遥一飞行器亚轨道飞行试验顺利实现；卫星互联网加快建设，多组低轨卫星接连升空……开年以来，我国商业航天捷报频传。\n\n越来越快的发射节奏，凸显了国家政策引导下商业航天产业的明显变化——在政策和市场的双轮驱动下，中国商业航天正在从技术验证加速迈向规模化商业部署，构建太空经济的长远未来。\n\n从火箭到卫星，从上游到下游，商业航天赛道各方主体正在加快自主创新步伐，助力中国航天低成本、规模化发展。其中，持续、大规模的火箭发射需求和目前较高的一次性火箭运力成本，使得火箭可回收关键技术成为产业焦点。有专家测算，一旦突破可重复使用技术，可以让火箭总发射成本下降40%—60%。\n\n强大的生产制造能力是支撑商业航天高密度发射的基石。像批产汽车和手机一样批产火箭卫星，正在成为商业航天行业共识。\n\n力箭二号火箭，芯级和两个助推器长得几乎一样——力箭二号副总师廉洁介绍，这种设计被称作“通用助推器核心”构型，主要部件可批量生产，像“搭积木”一样造火箭，简化制造流程。也正因为关键部件“统一尺寸”，如果发射时发现某个部件有问题，可以快速替换，重新“拼”在火箭上，有利于打造高频次的发射能力。力箭二号大型液体运载火箭超级工厂即将全面竣工并投入使用，为火箭规模化生产和航班化发射提供支撑。\n\n从“手搓”到流水线生产，从稀缺品到工业品，商业航天正在颠覆着人们对航天制造的定义。\n\n银河航天智慧卫星工厂已构建起100至2000公斤级卫星的完整制造链条，年产中型卫星能力稳定在100至150颗，卫星研制周期较传统模式缩短80%。\n\n发射基地也加速提质增效。在海南商业航天发射场，为保障长征八号火箭，一号工位可以实现“7天发射、7天恢复”的快速响应能力。\n\n全国多地加快布局商业航天，构建更加完备的商业航天产业生态圈。\n\n在北京，一座规划了卫星研发区、卫星运营区、卫星应用区等板块的卫星小镇正在建设，将配套建设卫星展示中心、卫星交流中心、卫星孵化中心等机构。离此不远的“火箭大街”聚集多家商业火箭企业，构建“上下楼即上下游”的紧密型产业生态。\n\n在山东烟台海阳，东方航天港打造商业航天全链条，一条“航天大道”将火箭总装测试厂房、卫星产业园、数据应用中心与发射码头紧密串联，火箭在总装厂房诞生后，仅需十几分钟车程，便能直接运抵专属码头，平稳地移上发射船。\n\n近年来，国家密集出台一系列支持商业航天发展的利好政策。随着卫星数据与数字经济、智慧城市等领域深度融合，商业应用场景不断拓展，市场环境更加开放、有序，商业航天将为经济社会发展注入更多新动能。",
+      "image": "https://www.news.cn/detail2020/images/ewm.png",
+      "image_raw": "https://www.news.cn/detail2020/images/ewm.png",
+      "images": [
+        "https://www.news.cn/detail2020/images/ewm.png",
+        "https://www.news.cn/sci-tech/20260424/edd54bfc4d8b43e284cb80cd36b16d2f/zxcode_20260424edd54bfc4d8b43e284cb80cd36b16d2f.jpg",
+        "https://www.news.cn/sci-tech/20260424/edd54bfc4d8b43e284cb80cd36b16d2f/c.html",
+        "https://www.news.cn/2021detail/images/qrcode-app.png",
+        "https://www.news.cn/sci-tech/20260424/edd54bfc4d8b43e284cb80cd36b16d2f/20260424edd54bfc4d8b43e284cb80cd36b16d2f_20260424a5fe609ca1c24bafae5aa1cf6667ff46.jpg",
+        "https://www.news.cn/sci-tech/20260424/edd54bfc4d8b43e284cb80cd36b16d2f/20260424edd54bfc4d8b43e284cb80cd36b16d2f_202604244b608b6ccf9f4cba823bb0d323b342d1.jpg"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-tug/e68599e08d411998"
+    },
+    {
+      "id": "468bfb66d8e73307",
+      "title": "轻舟试验飞船：黏附器完成非合作目标捕获与拖曳演示",
+      "source": "中华网 / 中科院微小卫星创新院",
+      "url": "https://tech.china.com/article/20260416/202604161848337.html",
+      "published": "2026-04",
+      "region": "国内",
+      "aspect": "专业技术",
+      "summary": "2026 年 3 月发射的轻舟试验飞船（4.2 吨、一体化单舱、设计寿命 3 年）完成 200→600 公里大范围轨道机动，累计在轨点火超 3000 秒；其搭载的“黏附器”完成非合作目标捕获与拖曳演示，为空间碎片清理与物资转运提供了新的技术路径。",
+      "tags": [
+        "国内",
+        "专业技术",
+        "非合作捕获",
+        "拖曳"
+      ],
+      "body_zh": "轻舟试验飞船已在轨完成关键技术验证 多项成果发布中华网\n\n2026-04-16 09:48:34 来源：央视新闻\n\n记者今天（15日）从中国科学院微小卫星创新研究院获悉，2026年3月30日19时，由我国自主研制的轻舟试验飞船顺利发射入轨，目前已完成初期飞控测试，主动抬升至600公里轨道开展长期试验，标志着我国新一代低成本货运飞船技术验证取得重要突破。\n\n轻舟试验飞船重4.2吨，搭载了1吨载荷，采用一体化单舱设计，空间利用率高、适配多型火箭，能为密封与真空环境载荷提供长期在轨试验平台，设计寿命为3年。本次轻舟试验飞船的主要工程验证目标包括：\n\n入轨后，飞船完成从200公里到600公里的大范围轨道机动，累计在轨点火时长达3000秒以上，完成了单次数百秒的长时稳态变轨点火，全工况下工作稳定、表现良好。\n\n此次试飞验证了总体设计、结构、热控、控制、推进等核心系统的可靠性，为轻舟正样货运飞船的研制奠定了技术基础，也为中国空间站灵活补给、商业航天运营开辟了新路径。后续飞船将持续在轨运行，开展更多科学研究工作。\n\n轻舟试验飞船搭载的20多台套设备，覆盖空间制造、生命健康、在轨服务等领域的新技术研究。目前已完成水电解、黏附器、太空发泡器、金属在轨制造、无创光疗仪、苔藓培养等实验。\n\n·在先进制造领域，我国首次实现太空激光熔丝金属3D打印，突破微重力物料输送、能量匹配等技术，建立在轨制造工艺数据库，为未来空间站维修、太空原位建造提供支撑。\n\n·空间生命与医学实验方面，接触式无创光疗仪的目标是解决航天员长期在轨光照不足、骨密度流失难题，填补微重力骨骼健康维护技术空白。苔藓培养实验验证极端抗逆植物在轨复苏能力，可为深空探测提供低能耗生态方案。\n\n·在轨服务技术方面，黏附器完成非合作目标捕获与拖曳演示，为空间碎片清理、物资转运提供新的技术路径。水电解燃料电池实现氢氧制备与能源循环验证，为空间可持续能源系统提供技术支撑。\n\n目前仍有多项科学研究有序开展，将持续产出科学实验与工程试验成果。相关研究既突破了一批关键技术，也在推动产学研用协同创新，为我国太空经济与深空探测持续赋能。\n\n整体来看，轻舟试验飞船在轨运行期间，多项低成本航天新技术与新材料得到成功验证，有效降低了研制成本，功能性能满足任务要求，有望推动太空运输、在轨试验从高成本走向普惠化，为商业航天规模化发展奠定基础。\n\n2026-04-12 13:55:18 创新开气象，胸怀纳百川——董现君的徐州三十年\n\n2026大湾区数据中心展|百奥：让精密温控成为绿色算力的隐形护航者\n\n2026-04-10 09:54:25 2026大湾区数据中心展|百奥：让精密温控成为绿色算力的隐形护航者\n\n2026年Q1中国宠物CT&宠物DR影像市场格局：开放式CBCT主导地位，行业集中度进一步提升\n\n2026-04-03 21:08:36 2026年Q1中国宠物CT&宠物DR影像市场格局：开放式CBCT主导地位，行业集中度进一步提升\n\n2026-04-03 21:05:37 看永定合仿真实训平台如何破解职教实训痛点\n\n因颈髓损伤而高位截瘫的患者，植入脑机接口系统后，凭借“意念”操控智能轮椅在小区遛弯、指挥机器狗取回外卖……这是我国近期公布的临床试验成果。目前，我国脑机接口技术已达到植入人脑的新阶段，密集涌现出一批突破性成果。科幻场景成为现实，比很多人预想的更快。脑机接口技术，通过在人脑与机器之间建立信息通道，实现...\n\n记者今天（15日）从中国科学院微小卫星创新研究院获悉，2026年3月30日19时，由我国自主研制的轻舟试验飞船顺利发射入轨，目前已完成初期飞控测试，主动抬升至600公里轨道开展长期试验，标志着我国新一代低成本货运飞船技术验证取得重要突破。轻舟试验飞船重4.2吨，搭载了1吨载荷，采用一体化单舱设计，空...\n\n记者从中国科学院大连化学物理研究所获悉，近日该所联合南方科技大学科研团队在多相催化的溢流效应认识上取得了重要进展。科研人员首次在原子尺度上观察并证实了金属与载体界面控制的体相氧溢流现象，明确了该现象在多相催化反应中的重要作用，并据此提出了金属-载体的“表面-界面-体相”协同催化的新机制。相关成果4月...\n\n由北京市人民政府、中央广播电视总台等联合主办的2026人形机器人半程马拉松将于4月19日上午在北京亦庄开跑。在之前的全要素测试活动中，一款机器人凭借亮眼的红色涂装和优秀的运动性能引起了许多观众的注意。这款机器人就是来自荣耀机器人战队的“闪电”。总台记者带您一起探访机器人“闪电”的准备情况。作为在此次...\n\n长久以来，科学家探究大脑机制主要依赖动物模型与稀缺的人体脑组织。如今，实验室培育的“微型大脑”类器官（脑类器官）的问世，彻底打破了这一研究瓶颈。据英国《自然》杂志网站近日报道，类器官技术于十余年前初现雏形，近年来，随着培养工艺的不断精进，脑类器官研究正步入快车道，科学家已构建出涵盖多脑区、结构更趋复...\n\n首飞成功！我国自主研发“无人飞行卡车”HH-200来了\n\n记者今天从中国航空工业集团获悉，我国自主研发的HH-200航空商用无人运输系统在陕西蒲城进行了首次飞行试验。试验持续22分钟，试验过程中，飞机各系统设备工作正常，飞机姿态平稳，状态保持良好，完成了预定飞行科目，首飞获得圆满成功。HH-200航空商用无人运输系统由无人机和地面系统组成，其中，无人机最大...\n\n全球最大万吨级纯电动智能集装箱海船从宁波舟山港首航\n\n4月15日，全球最大、国内首艘万吨级纯电动智能集装箱海船“宁远电鲲”轮从宁波舟山港北仑港区启航，驶向嘉兴港乍浦港区，标志着该船正式投入商业航线运营。“宁远电鲲”轮由宁波远洋运输股份有限公司打造，总长127.8米、宽21.6米，可装载742标准箱货物。船舶采用10个标准化箱式电池作为核心动力，总储电量...\n\n河北省秦皇岛市海港区河北大街秦邦医药连锁有限公司的一家店内，药品分区摆放整齐有序，店员马红梅正向顾客叮嘱用药须知。“以前顾客问得细一点，我就紧张，生怕讲错了。现在点开手机上的小程序就能学习各种药品的使用说明，讲解起来特别有底气。”马红梅说的“小程序”，是一整套药房经营管理数字化系统中的一个模块。这套...\n\n今天（14日）我国最大规模科学智能计算集群在位于郑州的国家超算互联网核心节点投入使用。这标志着我国在人工智能驱动科学研究算力基础设施领域实现关键突破，将助力我国抢占人工智能产业应用制高点。当前，全球正迎来第五代科学研究范式革命，人工智能驱动科学研究，已成为全球科技竞争的制高点，其规模化落地离不开高端...",
+      "image": "https://p5.img.cctvpic.com/photoworkspace/contentimg/2026/04/15/2026041517500765817.png",
+      "image_raw": "https://p5.img.cctvpic.com/photoworkspace/contentimg/2026/04/15/2026041517500765817.png",
+      "images": [
+        "https://p5.img.cctvpic.com/photoworkspace/contentimg/2026/04/15/2026041517500765817.png",
+        "https://techchina.nancai.net/2025/1031/6c644e36771dcb0.png",
+        "https://techchina.nancai.net/2025/1030/78b299ee8e95.png",
+        "https://techchina.nancai.net/2025/1030/1a85b170513b6cf.png",
+        "https://techchina.nancai.net/2025/1029/b3d3094df6bc23f.jpg",
+        "https://techchina.nancai.net/2025/1024/c186c5a3bb4c120.png"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-tug/468bfb66d8e73307"
+    },
+    {
+      "id": "1d7a43a4651e743e",
+      "title": "Momentus 联手 Astroscale，向 NASA 提出哈勃望远镜重轨/延寿的商业方案",
+      "source": "Momentus / 投资者新闻",
+      "url": "https://investors.momentus.space/news-releases/news-release-details/need-lift-astroscale-and-momentus-team-offer-nasa-commercial",
+      "published": "2023",
+      "region": "国外",
+      "aspect": "总体设计",
+      "summary": "Momentus 以其在轨的 Vigoride 服务飞行器结合 Astroscale 的交会抵近与机器人捕获（RPOD）能力，向 NASA 提出用小型在轨服务飞行器抵近、捕获并把哈勃望远镜抬升约 50 公里、并清理周边碎片的低成本商业方案，展示“太空拖车 + 在轨服务”叠加的总体设计思路。",
+      "tags": [
+        "国外",
+        "总体设计",
+        "哈勃延寿",
+        "RPOD"
+      ],
+      "body_zh": "需要助力吗？Astroscale与Momentus合作为NASA提供商业方案，助推哈勃望远镜并提供额外轨道服务 | Momentus Inc\n\n加注将延长这台标志性、服役33年的价值数十亿美元的空间望远镜寿命，延续其无数科学发现和轨道服务的成功传统。\n\n加利福尼亚圣何塞——2023年5月9日——轨道可持续发展领域的市场领导者Astroscale美国公司与美国商业航天公司Momentus Inc.（纳斯达克代码：MNTS）宣布合作，为NASA提供哈勃望远镜加注的可持续商业解决方案。\n\n两家公司近期联合响应了NASA关于哈勃加注的征询信息（RFI）。该任务目标包括安全迁移哈勃望远镜，并清除其新轨道附近的威胁碎片。\n\nMomentus首席执行官约翰·鲁德表示：“凭借Momentus目前在轨的三台轨道服务飞行器的飞行经验，以及Astroscale在会合、近距离操作和对接（RPOD）方面的专业技术，我们发现双方产品组合在支持NASA重大任务上具有协同效应。尽管哈勃已服役33年，但其任务仍完全可行；其老化主要体现在轨道稳定性上。我很高兴我们合作为NASA提供了一种极具成本效益的方式，利用新型机器人轨道服务技术继续运营这项价值数十亿美元的科学投资。”\n\n提议的任务方案是一种商业解决方案，旨在延长这一重要国家资产的寿命，且无人员风险。方案包括利用小型运载火箭将Momentus的Vigoride轨道服务飞行器（OSV）发射至低地轨道。进入轨道后，OSV内置的Astroscale RPOD技术将用于安全会合、接近并完成对望远镜的机器人捕获。对接后，OSV将执行一系列机动，将哈勃提升50公里。完成主要加注任务后，将优先利用Vigoride和Astroscale的RPOD能力清除哈勃新轨道上的周边威胁碎片。\n\nAstroscale美国公司总裁兼董事总经理罗恩·洛佩兹表示：“哈勃需要加注应成为太空产业的警钟，提醒我们为何需要动态响应的轨道基础设施，进而拓展探索宇宙的机会。轨道服务和组装的普及使我们重新构想太空资产管理方式；这是新太空时代的基石。我们向NASA提出的方案提供了新的选择——这些选择在之前五次载人服务任务中不可用，且利用了最先进的轨道服务技术，实现任务目标并推动美国在太空领域的领导地位。”\n\nAstroscale美国公司为商业运营商、美国政府及合作国家提供全轨道的轨道服务和物流。总部位于科罗拉多州丹佛，是东京Astroscale Holdings Inc.的子公司，后者是首家致力于确保太空安全可持续发展的私营企业，也是唯一专注于全轨道轨道服务的公司。总部设在特拉维夫的Astroscale以色列有限公司是其子公司，负责研发和有效载荷开发。Astroscale美国公司整合了日本、英国和以色列的工程、政策和业务团队的最佳成果，为美国及合作国家的太空运营提供灵活性和价值。\n\nMomentus是一家美国商业航天公司，提供轨道运输、搭载有效载荷和轨道服务等轨道基础设施服务。Momentus计划通过创新的水等离子体推进系统，推出轨道转移和服务飞行器，开创太空运营新方式。\n\n前瞻性声明\n\n本新闻稿包含可能构成联邦证券法意义上的“前瞻性声明”的内容。前瞻性声明包括但不限于Momentus或其管理团队对未来的期望、希望、信念、意图或战略、预测、展望或对未来事件或情况的其他描述（包括任何基本假设），但不保证未来业绩。由于前瞻性声明涉及未来，存在固有不确定性、风险和难以预测的环境变化，且许多因素超出Momentus控制范围。实际未来事件可能与本新闻稿中的前瞻性声明存在重大差异，具体风险和不确定性详见公司2023年3月8日提交的10-K年度报告中的“风险因素”章节，以及公司向美国证券交易委员会（SEC）提交的其他文件，相关文件可在SEC网站www.sec.gov及公司投资者关系网站investors.momentus.space查阅。前瞻性声明仅反映声明发布之日的情况，读者应谨慎对待，不应过度依赖，除法律要求外，公司无义务更新或修订这些声明，无论是基于新信息、未来事件还是其他原因。\n\n新闻稿原文链接：https://www.businesswire.com/news/home/20230508005772/en/\n\nAstroscale美国媒体联系人：\n\n[k.scordo@astroscale-us.com](mailto:k.scordo@astroscale-us.com)\n\nMomentus媒体联系人：\n\n[Press@momentus.space](mailto:Press@momentus.space)\n\nMomentus投资者联系人：\n\n[Investors@momentus.space](mailto:Investors@momentus.space)\n\n© 2026 Momentus Inc. 版权所有。",
+      "image": "https://investors.momentus.space/sites/g/files/knoqqb58256/themes/site/nir_pid3882/dist/images/momentus-logo-longform-color.png",
+      "image_raw": "https://investors.momentus.space/sites/g/files/knoqqb58256/themes/site/nir_pid3882/dist/images/momentus-logo-longform-color.png",
+      "images": [
+        "https://investors.momentus.space/sites/g/files/knoqqb58256/themes/site/nir_pid3882/dist/images/momentus-logo-longform-color.png",
+        "https://mms.businesswire.com/media/20230508005772/en/1787313/4/Hubble.jpg",
+        "https://cts.businesswire.com/ct/CT?id=bwnews&sty=20230508005772r1&sid=acqr8&distro=nx&lang=en"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-tug/1d7a43a4651e743e"
+    },
+    {
+      "id": "551298a847d5f962",
+      "title": "蓝色起源 Blue Ring：可托管 3 吨级载荷的多用途在轨机动平台",
+      "source": "Ars Technica",
+      "url": "https://arstechnica.com/space/2024/01/meet-helios-a-new-class-of-space-tug-with-some-real-muscle/",
+      "published": "2024-01",
+      "region": "国外",
+      "aspect": "总体设计",
+      "summary": "蓝色起源公布 Blue Ring 航天平台，可托管最高约 3 吨载荷，提供在轨机动、转移与托管服务，瞄准更大质量卫星的轨道转移与在轨基础设施市场，是与 Impulse Helios 并行的大运力“太空拖车”总体设计路线。",
+      "tags": [
+        "国外",
+        "总体设计",
+        "在轨平台",
+        "大运力"
+      ],
+      "body_zh": "近年来，已有多款小型“牵引器”投入使用，用于将小卫星运送至指定轨道。这些微型航天器提供所谓的“末端服务”，特别适用于搭乘共乘任务发射、但需达到与主载荷不同高度或倾角的卫星。\n\n然而，目前市场缺乏能够拖运更大卫星至更远轨道的较大型轨道牵引器。这正是Impulse Space公司新研制的航天器Helios所瞄准的市场。\n\nHelios直径略小于5米，尺寸适合装入猎鹰9号整流罩。Impulse Space创始人兼首席执行官汤姆·穆勒表示，基本理念是利用低成本的猎鹰9号火箭将大型卫星直接送入地球同步轨道。\n\n“我们基本上是在中型运载火箭上加装第三级，”他说，“这基本上能以更低成本完成猎鹰重型火箭的大部分任务，且无需抛弃核心级。”\n\n穆勒曾是SpaceX创始员工，负责设计猎鹰火箭的梅林发动机。但他表示，Helios设计可搭载任何中型或重型运载火箭，提升单颗卫星的运载能力。例如，Helios计划将猎鹰9号发射的最多4吨卫星，或Relativity的Terran R火箭发射的最多5吨卫星，直接送入地球同步轨道。\n\n目前，中大型卫星直接进入地球同步轨道有两种方式。客户可以购买猎鹰重型或联合发射联盟的Vulcan火箭发射，费用较高，约为单次猎鹰9号发射成本的两倍。或者卫星搭乘中型运载火箭进入地球同步转移轨道，需配备强大的机载推进系统，携带高达500万美元的氙气或其他推进剂，并在转移期间损失六至八个月的收入。",
+      "image": "https://cdn.arstechnica.net/wp-content/uploads/2024/01/01_001_IMP_Helios_v09-1-1152x648.png",
+      "image_raw": "https://cdn.arstechnica.net/wp-content/uploads/2024/01/01_001_IMP_Helios_v09-1-1152x648.png",
+      "images": [
+        "https://cdn.arstechnica.net/wp-content/uploads/2024/01/helios-specs.jpg"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-tug/551298a847d5f962"
+    },
+    {
+      "id": "9e4d060035d9b4cb",
+      "title": "Rocket Lab Photon 与 Firefly Elytra(SHERPA)：在轨机动飞行器产品谱系",
+      "source": "NASA SOA 报告",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/10-soa-launch-2026-final.pdf",
+      "published": "2026-05",
+      "region": "国外",
+      "aspect": "总体设计",
+      "summary": "Rocket Lab 基于电子火箭衍生的 Photon 上面级可把载荷送入电子火箭单独难以到达的轨道，并可挂载于其它火箭的 ESPA 口；Firefly 在收购 Spaceflight(SHERPA) 后推出 Elytra 系列（Dawn/Dark），覆盖 LEO 内机动到月球轨道转移，体现成熟商业“太空拖车”的产品化与谱系化。",
+      "tags": [
+        "国外",
+        "总体设计",
+        "上面级",
+        "产品谱系"
+      ],
+      "body_zh": "这篇报告系统梳理了Rocket Lab的Photon和Firefly收购Spaceflight后推出的Elytra系列在轨机动飞行器的发展脉络。Photon作为一种基于电子火箭的上面级，能够将载荷送入电子火箭自身难以到达的轨道，且可搭载于其他火箭的ESPA接口，实现灵活的轨道部署。Firefly的Elytra系列则涵盖了从近地轨道机动到月球轨道转移的能力，体现了商业化“太空拖车”产品的成熟与谱系化发展。这些技术进展不仅丰富了轨道转移和机动的手段，也为多样化的卫星发射和深空任务提供了更高效、经济的解决方案。整体来看，该研究展示了轨道运输工具在商业航天领域的创新应用及其未来潜力。",
+      "image": "",
+      "image_raw": "",
+      "images": [],
+      "page_url": "https://links.he-ting.com/t/space-tug/9e4d060035d9b4cb"
+    },
+    {
+      "id": "b5be971eac55c50c",
+      "title": "Atomos(Katalyst) Quark-LITE：小卫星在轨交会对接与加注能力验证",
+      "source": "NASA SOA 报告",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/05/10-soa-launch-2026-final.pdf",
+      "published": "2024",
+      "region": "国外",
+      "aspect": "专业技术",
+      "summary": "Atomos（现并入 Katalyst Space Technologies）的 Quark 系列面向小卫星提供部署、变轨（升轨/调相/变倾角）、交会、对接与延寿等在轨服务。首版 Quark-LITE 于 2024 年春发射，尽管出现通信与翻滚问题，仍演示了交会、对接与加注能力，为后续 GEO 任务奠定专业技术基础。",
+      "tags": [
+        "国外",
+        "专业技术",
+        "交会对接",
+        "加注验证"
+      ],
+      "body_zh": "该报告介绍了Atomos（现为Katalyst Space Technologies）开发的Quark系列小卫星在轨服务能力，特别聚焦于其首版Quark-LITE卫星的任务验证。Quark系列旨在为小卫星提供部署、轨道调整、交会对接及延寿等多种关键技术支持。2024年春季发射的Quark-LITE尽管遇到通信和姿态控制翻滚问题，仍成功演示了在轨交会、对接及燃料加注的核心能力。这些技术的实现为未来地球同步轨道（GEO）任务中小卫星的维护和延寿奠定了重要基础，推动了小卫星在轨服务的发展和应用。",
+      "image": "",
+      "image_raw": "",
+      "images": [],
+      "page_url": "https://links.he-ting.com/t/space-tug/b5be971eac55c50c"
+    },
+    {
+      "id": "28b188856a9c5fdb",
+      "title": "EUCASS 论文：上面级/踢级推进系统参数敏感性与多轨注入轨迹优化",
+      "source": "EUCASS 2023",
+      "url": "https://www.eucass.eu/doi/EUCASS2023-927.pdf",
+      "published": "2023",
+      "region": "国外",
+      "aspect": "专业技术",
+      "summary": "该研究以踢级系统把 6U 立方星分发到 8 个不同近地轨道为例，分析推进剂选型、发动机故障再点火、最小比冲与推进系统质量对最优轨迹与任务成功率的影响，给出完成全部入轨所需的最小比冲约 210 秒等结论，是“太空拖车”推进与轨迹规划的专业技术参考。",
+      "tags": [
+        "国外",
+        "专业技术",
+        "推进",
+        "轨迹优化"
+      ],
+      "body_zh": "该研究以使用踢级推进系统将6U立方星分发到8个不同近地轨道为案例，系统分析了推进剂类型选择、发动机故障再点火能力、推进系统的最小比冲以及推进系统质量对轨迹优化和任务成功率的影响。通过敏感性分析，研究确定完成全部入轨任务所需的最小比冲约为210秒，确保了轨迹规划的鲁棒性和推进系统的可靠性。这些成果为多轨道多星发射任务中的推进与轨迹设计提供了重要的技术参考，有助于提升“太空拖车”类运载工具的效率和任务成功率，推动小卫星多轨道部署技术的发展。",
+      "image": "",
+      "image_raw": "",
+      "images": [],
+      "page_url": "https://links.he-ting.com/t/space-tug/28b188856a9c5fdb"
+    },
+    {
+      "id": "580c8345bac6c07d",
+      "title": "新华网：我国商业航天加速，在轨服务从技术验证迈向规模化",
+      "source": "新华网",
+      "url": "https://www.news.cn/sci-tech/20260424/edd54bfc4d8b43e284cb80cd36b16d2f/c.html",
+      "published": "2026-04-24",
+      "region": "国内",
+      "aspect": "总体设计",
+      "summary": "新华网综述指出，2025 年我国商业航天完成 50 次发射、占全年宇航发射的 54%，在轨服务（柔性机械臂、模拟加注、非合作目标捕获拖曳等）密集取得突破，空间飞行器/“太空拖车”作为产业链关键补位，正推动商业航天从技术验证走向规模化部署。",
+      "tags": [
+        "国内",
+        "总体设计",
+        "商业航天",
+        "产业"
+      ],
+      "body_zh": "2026-04-24 09:08:53 来源：人民日报\n\n驭星三号06星柔性机械臂载荷执行在轨加注对接技术验证。\n\n数据来源：国家航天局、中国电子信息产业发展研究院等\n\n4月24日是第十一个“中国航天日”，今年航天日的主题为“七秩问天路 携手探九霄”。\n\n从古至今，中国人探索浩瀚宇宙的脚步从未停歇。商业航天是培育新质生产力、建设航天强国的重要力量。2015年《国家民用空间基础设施中长期发展规划（2015—2025年）》印发，鼓励社会资本步入航天领域；2025年我国商业航天完成发射50次，占我国全年宇航发射总数的54%；2026年，国家航天局在“中国航天日”新闻发布会上介绍，多型重复使用火箭将开展飞行验证，商业航天将以高水平安全保障高质量发展……10年来，我国商业航天加速成长，新技术、新突破、新应用不断涌现，从星辰大海走进千家万户。目前我国商业航天有何前沿进展？哪些曾经的太空畅想正照进现实？本期特别报道，我们共同关注。\n\n浩瀚宇宙中，人造卫星都会面临一项难题：当自身推进剂（燃料）耗尽，是不是注定陨落？\n\n一颗在轨维护卫星迅速抵近需要加注推进剂的卫星，通过一条柔性机械臂自主寻找加注口，把“油”加满后驶向下一颗卫星——这是未来将发生于太空中的一幕。\n\n前不久，由北京航天驭星科技所属苏州三垣航天科技有限公司研制的驭星三号06星，从酒泉发射场升空入轨。这颗卫星有个特别的外号——“太空加油站”。作为我国首颗配置柔性机械臂的商用试验卫星，在距离地面数百公里的高空，它完成了柔性机械臂模拟燃料加注等一系列高难度在轨操作任务，验证了大量关键技术，标志着我国商业航天在空间在轨服务领域迈出了坚实一步。\n\n航天驭星副总裁曹梦介绍，担任“加油小卫士”角色的这颗卫星，未来瞄准的应用场景是在茫茫宇宙中，迅速定位目标卫星的精确位置，再通过严谨周密的变轨操作等，实现两颗卫星“穿针引线”般的交会对接，然后开展“加油”步骤。\n\n这颗技术验证星最关键的部件是柔性机械臂。“我们创新设计理念，确保柔性机械臂更加轻量化、高灵活、高可靠。”三垣航天CTO（首席技术官）陈京说。\n\n在模拟加注环节，这颗技术验证星通过3种控制模式实现，以适应不同应用场景。陈京介绍，第一种是机械臂收到任务预设指令后，自主规划运动路径；第二种需要地面操作人员根据相机画面，实时生成控制指令，远程操控机械臂完成对接动作；第三种是在视觉伺服系统的引导下，地面根据柔性机械臂末端拍摄的视觉靶标信息，规划运动路径并生成控制指令，引导机械臂完成对接动作。\n\n专家认为，随着未来空间资产越来越多，包括卫星在内的大量航天器都会产生推进剂加注以及在轨维修的需求。“我们希望打造未来的‘太空4S店’，为太空资产提供一站式维护维修解决方案。”曹梦说。\n\n距离地面约500千米的近地轨道中，12颗计算卫星正在稳定运行。这些配备了高性能星载智能计算单元的卫星群，通过卫星互联互通，共同构建起太空算力网络。\n\n中国工程院院士、之江实验室主任王坚说，构建太空计算星座，是为了解决太空算力缺失和人工智能怎么到太空的问题，让现在在太空的数据能够发挥出以前无法发挥的作用。“我们不是把地面数据中心搬到太空，而是把算力和智能送到太空去，让天上的事情在天上干。”王坚说。\n\n现在太空大概有800颗在轨遥感卫星，数量还在快速增长。但卫星距离地面遥远，携带的计算机计算规模太小，数据传输能力和处理能力远远不够，近九成数据在没被传回地面前，就被白白丢弃浪费。\n\n为了不让人工智能因为缺失算力而缺席太空，之江实验室协同全球合作伙伴打造“三体计算星座”。这个太空计算基础设施通过算力“上天”、卫星互联，实现人工智能模型“上天”。\n\n在位于浙江杭州的之江实验室“三体计算星座”指挥中心，遥测数据实时传回，大屏上12颗计算卫星的运行轨迹一览无遗。王坚补充道，“三体计算星座”把人工智能模型送到太空，来处理太空数据，并且保证数据的时效性。“有了时效性后，我们可以想象非常多的应用场景，包括应急救灾、城市治理等。”\n\n截至目前，之江实验室的科研团队已成功完成了10个人工智能模型与应用的在轨部署与验证，包括80亿参数天基遥感模型、80亿参数天基天文时域模型、1.5亿参数“伏羲”气象模型等。实验室计算星座总体部技术总师李超介绍，“我们的模型可以从地面实时上传和迭代，未来的智能处理也会在轨道上就地完成。”\n\n沙漠深处拍段视频，立马就能上传到朋友圈；远洋货轮上，随时可以和家人视频通话；万米高空的飞机上，手机信号依然满格……这些场景正一步步成为现实。\n\n“长期以来，通信网络受限于地面基站的覆盖范围。一旦进入沙漠、海洋等区域，往往就成了‘信息孤岛’。”中国科学院微小卫星创新研究院技术研发中心副主任田丰介绍，一张张织在太空中的“网”，正破解这一难题。\n\n前不久，我国成功将卫星互联网低轨21组卫星发射升空，低轨卫星组网明显提速。“与高轨卫星相比，低轨卫星通信速率更快，资费也较低，是当下我国卫星通信发展的主攻方向。”田丰说。\n\n“一颗颗低轨卫星组成的星座，能够实现把地面网络‘搬’上太空的效果，相当于建了一条太空信息高速路。”银河航天星座通信系统架构师林广荣表示，我国首个卫星互联网试验星座“小蜘蛛网”已经在空中、地面、海洋等多个场景完成了低轨应用示范。比如，通过卫星互联网远程操控，无人机出色完成了灭火工作；人形机器人通过低轨卫星同步传输视觉数据，实现“远程感知”。\n\n林广荣说，卫星批量制造与发射技术的创新，使得低轨卫星互联网星座规模化组网提速。\n\n中国信息通信研究院技术与标准研究所总工程师李侠宇表示，卫星通信正从应急通信、远洋船舶等专业领域加速向手机、汽车、无人机等大众消费领域延伸，催生一系列规模化应用场景。“手机直连卫星、车载卫星互联网等新应用，既能满足老百姓在各类场景中的需求，也能带动终端、芯片、运营等产业链升级，打开新的消费市场。”李侠宇说。\n\n“通信的本质，是让信息不再有边界。”田丰表示，未来，卫星通信将成为天地一体化的新基础设施，为各行各业增添便利、提供支撑。\n\n力箭二号遥一运载火箭成功发射；力鸿一号遥一飞行器亚轨道飞行试验顺利实现；卫星互联网加快建设，多组低轨卫星接连升空……开年以来，我国商业航天捷报频传。\n\n越来越快的发射节奏，凸显了国家政策引导下商业航天产业的明显变化——在政策和市场的双轮驱动下，中国商业航天正在从技术验证加速迈向规模化商业部署，构建太空经济的长远未来。\n\n从火箭到卫星，从上游到下游，商业航天赛道各方主体正在加快自主创新步伐，助力中国航天低成本、规模化发展。其中，持续、大规模的火箭发射需求和目前较高的一次性火箭运力成本，使得火箭可回收关键技术成为产业焦点。有专家测算，一旦突破可重复使用技术，可以让火箭总发射成本下降40%—60%。\n\n强大的生产制造能力是支撑商业航天高密度发射的基石。像批产汽车和手机一样批产火箭卫星，正在成为商业航天行业共识。\n\n力箭二号火箭，芯级和两个助推器长得几乎一样——力箭二号副总师廉洁介绍，这种设计被称作“通用助推器核心”构型，主要部件可批量生产，像“搭积木”一样造火箭，简化制造流程。也正因为关键部件“统一尺寸”，如果发射时发现某个部件有问题，可以快速替换，重新“拼”在火箭上，有利于打造高频次的发射能力。力箭二号大型液体运载火箭超级工厂即将全面竣工并投入使用，为火箭规模化生产和航班化发射提供支撑。\n\n从“手搓”到流水线生产，从稀缺品到工业品，商业航天正在颠覆着人们对航天制造的定义。\n\n银河航天智慧卫星工厂已构建起100至2000公斤级卫星的完整制造链条，年产中型卫星能力稳定在100至150颗，卫星研制周期较传统模式缩短80%。\n\n发射基地也加速提质增效。在海南商业航天发射场，为保障长征八号火箭，一号工位可以实现“7天发射、7天恢复”的快速响应能力。\n\n全国多地加快布局商业航天，构建更加完备的商业航天产业生态圈。\n\n在北京，一座规划了卫星研发区、卫星运营区、卫星应用区等板块的卫星小镇正在建设，将配套建设卫星展示中心、卫星交流中心、卫星孵化中心等机构。离此不远的“火箭大街”聚集多家商业火箭企业，构建“上下楼即上下游”的紧密型产业生态。\n\n在山东烟台海阳，东方航天港打造商业航天全链条，一条“航天大道”将火箭总装测试厂房、卫星产业园、数据应用中心与发射码头紧密串联，火箭在总装厂房诞生后，仅需十几分钟车程，便能直接运抵专属码头，平稳地移上发射船。\n\n近年来，国家密集出台一系列支持商业航天发展的利好政策。随着卫星数据与数字经济、智慧城市等领域深度融合，商业应用场景不断拓展，市场环境更加开放、有序，商业航天将为经济社会发展注入更多新动能。",
+      "image": "https://www.news.cn/detail2020/images/ewm.png",
+      "image_raw": "https://www.news.cn/detail2020/images/ewm.png",
+      "images": [
+        "https://www.news.cn/detail2020/images/ewm.png",
+        "https://www.news.cn/sci-tech/20260424/edd54bfc4d8b43e284cb80cd36b16d2f/zxcode_20260424edd54bfc4d8b43e284cb80cd36b16d2f.jpg",
+        "https://www.news.cn/sci-tech/20260424/edd54bfc4d8b43e284cb80cd36b16d2f/c.html",
+        "https://www.news.cn/2021detail/images/qrcode-app.png",
+        "https://www.news.cn/sci-tech/20260424/edd54bfc4d8b43e284cb80cd36b16d2f/20260424edd54bfc4d8b43e284cb80cd36b16d2f_20260424a5fe609ca1c24bafae5aa1cf6667ff46.jpg",
+        "https://www.news.cn/sci-tech/20260424/edd54bfc4d8b43e284cb80cd36b16d2f/20260424edd54bfc4d8b43e284cb80cd36b16d2f_202604244b608b6ccf9f4cba823bb0d323b342d1.jpg"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-tug/580c8345bac6c07d"
+    }
+  ],
+  "created_at": "2026-06-18 16:28",
+  "pushed": {
+    "admin": true,
+    "admin_at": "2026-06-19 10:48",
+    "all": true,
+    "all_at": "2026-06-19 15:46"
+  }
+}

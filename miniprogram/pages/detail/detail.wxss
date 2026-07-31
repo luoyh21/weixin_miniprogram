@@ -27,15 +27,28 @@
 }
 .blurb-txt {
   font-size: 29rpx;
-  line-height: 1.75;
+  line-height: 1.5;
   color: #2a3344;
+  text-indent: 2em;
+  font-family: "KaiTi", "STKaiti", "楷体", "FangSong", "STFangsong", "仿宋", serif;
 }
 .d-body { margin-top: 16rpx; }
+.d-h {
+  font-size: 34rpx;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--ink);
+  margin: 36rpx 0 16rpx;
+  padding-bottom: 10rpx;
+  border-bottom: 2rpx solid #eef0f4;
+  text-indent: 0;
+}
 .d-p {
   font-size: 31rpx;
   line-height: 1.8;
   color: #2a3344;
   margin-bottom: 22rpx;
+  text-indent: 2em;
 }
 .d-gallery { margin-top: 8rpx; }
 .d-gimg {

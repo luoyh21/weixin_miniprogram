@@ -94,3 +94,68 @@
   flex: none;
   background: #f0f2f6;
 }
+
+.weekly-hero {
+  margin: 12rpx 0 26rpx;
+  padding: 38rpx 32rpx;
+  border-radius: 28rpx;
+  color: #fff;
+  background: linear-gradient(135deg, #07162f, #174b83);
+  box-shadow: 0 12rpx 34rpx rgba(7, 36, 78, 0.18);
+}
+.weekly-kicker {
+  color: #79baff;
+  font-size: 21rpx;
+  font-weight: 700;
+  letter-spacing: 3rpx;
+}
+.weekly-title {
+  margin-top: 15rpx;
+  font-size: 39rpx;
+  line-height: 1.4;
+  font-weight: 700;
+}
+.weekly-period {
+  margin-top: 12rpx;
+  color: #a9c8e8;
+  font-size: 23rpx;
+}
+.weekly-summary {
+  margin-top: 22rpx;
+  color: #e1efff;
+  font-size: 27rpx;
+  line-height: 1.7;
+}
+.weekly-number {
+  width: 54rpx;
+  flex: none;
+  padding-top: 2rpx;
+  color: var(--brand);
+  font-size: 25rpx;
+  font-weight: 700;
+}
+.weekly-all {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 12rpx 0 24rpx;
+  padding: 30rpx;
+  border-radius: 24rpx;
+  background: #fff;
+  box-shadow: 0 8rpx 30rpx rgba(20, 40, 90, 0.06);
+}
+.weekly-all-title {
+  color: var(--ink);
+  font-size: 31rpx;
+  font-weight: 600;
+}
+.weekly-all-sub {
+  margin-top: 8rpx;
+  color: var(--muted);
+  font-size: 23rpx;
+}
+.weekly-all-arrow {
+  color: var(--brand);
+  font-size: 52rpx;
+  line-height: 1;
+}

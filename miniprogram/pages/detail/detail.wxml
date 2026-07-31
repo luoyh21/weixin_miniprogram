@@ -46,8 +46,11 @@
       <view class="meta-row" wx:if="{{item.updated_raw}}"><text class="meta-k">源站更新</text><text class="meta-v">{{item.updated_raw}}</text></view>
       <view class="meta-row" wx:if="{{item.website}}"><text class="meta-k">项目网站</text><text class="meta-v">{{item.website}}</text></view>
     </view>
-    <view class="d-body">
-      <view wx:for="{{paragraphs}}" wx:key="index" class="d-p">{{item}}</view>
+    <view class="d-body" wx:if="{{blocks.length}}">
+      <block wx:for="{{blocks}}" wx:key="index">
+        <view wx:if="{{item.type === 'h'}}" class="d-h">{{item.text}}</view>
+        <view wx:else class="d-p">{{item.text}}</view>
+      </block>
     </view>
     <view class="s-block" wx:if="{{item.benefits || item.benefits_en}}">
       <view class="s-label">项目收益</view>
@@ -68,8 +71,11 @@
       <view class="meta-row" wx:if="{{item.net_bj}}"><text class="meta-k">计划时间</text><text class="meta-v">{{item.net_bj}} 北京</text></view>
       <view class="meta-row" wx:if="{{item.status}}"><text class="meta-k">状态</text><text class="meta-v">{{item.status}}</text></view>
     </view>
-    <view class="d-body" wx:if="{{paragraphs.length}}">
-      <view wx:for="{{paragraphs}}" wx:key="index" class="d-p">{{item}}</view>
+    <view class="d-body" wx:if="{{blocks.length}}">
+      <block wx:for="{{blocks}}" wx:key="index">
+        <view wx:if="{{item.type === 'h'}}" class="d-h">{{item.text}}</view>
+        <view wx:else class="d-p">{{item.text}}</view>
+      </block>
     </view>
   </block>
 
@@ -94,7 +100,10 @@
       <view class="blurb-txt">{{item.summary_zh}}</view>
     </view>
     <view class="d-body">
-      <view wx:for="{{paragraphs}}" wx:key="index" class="d-p">{{item}}</view>
+      <block wx:for="{{blocks}}" wx:key="index">
+        <view wx:if="{{item.type === 'h'}}" class="d-h">{{item.text}}</view>
+        <view wx:else class="d-p">{{item.text}}</view>
+      </block>
     </view>
     <view wx:if="{{item.images.length}}" class="d-gallery">
       <image wx:for="{{item.images}}" wx:for-item="img" wx:key="*this"
@@ -108,7 +117,10 @@
 
   <block wx:else>
     <view class="d-body">
-      <view wx:for="{{paragraphs}}" wx:key="index" class="d-p">{{item}}</view>
+      <block wx:for="{{blocks}}" wx:key="index">
+        <view wx:if="{{item.type === 'h'}}" class="d-h">{{item.text}}</view>
+        <view wx:else class="d-p">{{item.text}}</view>
+      </block>
     </view>
     <view wx:if="{{item.images.length}}" class="d-gallery">
       <image wx:for="{{item.images}}" wx:for-item="img" wx:key="*this"

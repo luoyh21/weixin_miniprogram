@@ -44,10 +44,20 @@ try:
 except Exception:
     _img_proxy = None
 try:
-    from src.news_pages import utc_times_to_beijing as _utc_to_bj  # type: ignore
+    from src.news_pages import (  # type: ignore
+        utc_times_to_beijing as _utc_to_bj,
+        normalize_article_zh as _normalize_article_zh,
+        strip_title_tags as _strip_title_tags,
+    )
 except Exception:
     def _utc_to_bj(s: str) -> str:  # type: ignore
         return s or ""
+
+    def _strip_title_tags(s: str) -> str:  # type: ignore
+        return re.sub(r"^#([^\s#]+)\s+", "", (s or "").strip()).strip()
+
+    def _normalize_article_zh(title: str, body: str, summary: str = "") -> tuple:  # type: ignore
+        return _strip_title_tags(title or ""), body or "", summary or ""
 
 CST = timezone(timedelta(hours=8))
 _CN_DT_RE = re.compile(r"(\d{4})\D+(\d{1,2})\D+(\d{1,2})\D+(\d{1,2}):(\d{2})(?::(\d{2}))?")
@@ -117,9 +127,10 @@ def _short(s: str, n: int = 80) -> str:
 
 def _norm_intl(a: dict) -> dict:
     title = a.get("title_zh") or a.get("title") or ""
-    # 正文/概要里残留的 UTC、协调世界时统一换成北京时间（与翻译页一致）
-    body = _utc_to_bj(a.get("body_zh") or a.get("summary") or "")
-    blurb = _utc_to_bj((a.get("summary_zh") or "").strip())
+    body = a.get("body_zh") or a.get("summary") or ""
+    blurb = (a.get("summary_zh") or "").strip()
+    # 去 #分类标签 / SEG / #### 噪声；UTC→北京时间（与翻译页一致）
+    title, body, blurb = _normalize_article_zh(title, body, blurb)
     title_en = a.get("title") or ""
     # 英文原文：优先完整正文 body_en；否则回退 RSS/ingest 英文摘要
     body_en = (a.get("body_en") or "").strip()

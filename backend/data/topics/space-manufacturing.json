@@ -1,0 +1,725 @@
+{
+  "id": "space-manufacturing",
+  "title": "太空制造 · 在轨 3D 打印 / 装配 / 加工",
+  "intro": "“太空制造”（In-Space Manufacturing / ISM）指在微重力、真空、强辐射的空间环境中直接制造、装配与加工产品，涵盖太空 3D 打印（增材制造）、在轨装配（大型天线/桁架/结构）与太空加工（材料/光纤/晶体/生物制品的空间制备）三大方向。它一方面让空间站与深空任务能“就地造零件”、摆脱对地面补给的依赖，另一方面利用太空独有环境制造地面难以获得的高价值材料，被视为近地轨道经济与月球/火星长期驻留的关键使能技术。本专题汇集近 3 年国内外在总体设计与专业技术两条主线上的代表性进展。",
+  "years": 3,
+  "updated_at": "2026-07-03 13:50",
+  "stats": {
+    "count": 28,
+    "domestic": 10,
+    "intl": 18,
+    "design": 11,
+    "tech": 17
+  },
+  "items": [
+    {
+      "id": "41734f40749d4cce",
+      "title": "Varda W-4：首个完全自研的在轨制造航天器发射入轨",
+      "source": "SpaceNews",
+      "url": "https://spacenews.com/varda-to-launch-its-first-in-house-designed-spacecraft-for-on-orbit-manufacturing/",
+      "published": "2026-06",
+      "region": "国外",
+      "aspect": "专业技术",
+      "summary": "2026 年 6 月，Varda 发射第四艘飞行器 W-4，这是其首个完全自研的在轨制造航天器，由卫星平台（供电/推进/通信/导航）与携带制药处理载荷的返回舱组成。任务结束后返回舱以超过 25 马赫再入、开伞回收药物成品。随着国际空间站预计 2030 年前后退役，Varda 把这种自主平台定位为微重力研究与太空加工的更易获得替代方案。",
+      "tags": [
+        "国外",
+        "专业技术",
+        "太空加工",
+        "返回式"
+      ],
+      "body_zh": "华盛顿——Varda Space Industries 正准备在一项由 SpaceX 组织的搭载发射任务中发射其第四艘航天器 W-4，该任务计划于6月21日从加利福尼亚的范登堡太空军基地发射。\n\n这家总部位于洛杉矶的初创公司在轨道上制造药品，并利用专门的再入舱将其带回地球。这些舱体也被军事客户用来测试高超音速飞行极端条件下的技术。\n\nVarda 的首席技术官尼古拉斯·西亚尔德拉（Nicholas Cialdella）告诉《SpaceNews》，W-4 是该公司首次完全自主制造的航天器。\n\n他说，公司正在内部整合设计和生产，以缩短任务间的时间线，并提高根据客户需求定制航天器的灵活性。\n\n西亚尔德拉表示，Varda 认为垂直整合对于扩大运营规模是必要的。过去18个月内完成的前三次任务均使用了 Rocket Lab 提供的航天器总线。\n\n“我们需要能够为众多客户打造一个适配我们舱体的平台，”他说，“而且我们真的需要这项工作能在内部快速完成，因为我们的主要价值主张是高频率，真正提高再入的速率。”\n\nVarda 的航天器被称为“Winnebago”或 W 系列，重量约300公斤，设计用于通常持续数周或数月的轨道任务。\n\n该航天器由卫星总线和搭载药物处理有效载荷的舱体组成。卫星总线包含航天器的基本系统：电力、推进、通信和导航。\n\n任务完成后，航天器将脱轨并着陆，携带药物产品的再入舱将返回地球。舱体配备了先进的隔热盾牌，并以超过25马赫的速度重返地球大气层，即约每小时18000英里。舱体最终通过降落伞缓降至地面。\n\nW-4 任务将测试新的总线设计，并尝试一种称为溶液结晶的制造工艺。这种技术通过溶剂溶解化合物并控制环境形成晶体。在微重力环境下，这种结晶可以产生在地球上难以或无法复制的结构。\n\n“从晶体中获得的数据有助于研究人员理解太空环境及其对药物制造的影响，”西亚尔德拉说。\n\nW-4 舱体也是首个配备完全由 Varda 自主制造的隔热盾牌的舱体，该盾牌是通过 NASA 的“转折点”技术转让协议开发的。通过该项目，Varda 获得资金开始商业化生产 C-PICA（全称为共形酚醛浸渍碳烧蚀材料）——这是一种最初由 NASA 艾姆斯研究中心开发的高性能热防护材料。\n\nC-PICA 设计用于在大气再入过程中通过受控缓慢侵蚀保护再入航天器免受极端高温。它由树脂和碳基毡混合制成，之前用于 Varda 之前三次舱体，材料均来自 NASA。\n\n在 W-4 任务中，虽然 Varda 生产了完整的隔热盾牌，但两个肩部瓦片由艾姆斯工程师使用原始工艺制造。再入过程中，Varda 和 NASA 团队将比较 NASA 制造的瓦片与其余隔热盾牌的性能，以评估新的商业生产方法。\n\n西亚尔德拉表示，公司目标是最终实现每月发射一次任务。迈向这一目标的重要一步是在五月，美国联邦航空管理局批准了一项为期五年的再入许可，允许在澳大利亚无限次着陆。\n\nVarda 的 W-1 任务于2024年在美国犹他州完成了首次商业再入。W-2 和 W-3 任务则于今年早些时候在澳大利亚南部的库尼巴测试场着陆，确立了该澳大利亚场地作为公司主要着陆点。\n\n该 FAA 许可涵盖该场地的再入任务直至2029年2月。\n\n该许可依据 FAA 于2021年推出的第450部分监管框架授予，旨在使商业航天运营更具灵活性。它用基于性能的模型替代了针对单次任务的审批，允许在单一授权下进行多次飞行。\n\nFAA 商业航天运输副局长凯尔文·科尔曼（Kelvin Coleman）表示：“在该许可下，只要他们不改变任务配置，就可以按需飞行任意次数。”\n\n科尔曼告诉《SpaceNews》，Varda 是首家充分利用新许可流程的公司。“他们通过提供高质量的输入和引入专注于许可的必要专业知识，成功获得了多任务批准。”\n\n根据第450部分许可，FAA 仍会监控运营，要求公司遵守安全和风险阈值，包括个体和集体风险评估。检查员通常会在发射和再入操作期间在场。\n\n西亚尔德拉说，凭借自主卫星平台和更高效的许可流程，Varda 正在加利福尼亚埃尔塞贡多扩展其生产和测试基础设施，以支持更快的任务周转。\n\n他表示，公司预计来自制药公司和国防机构的需求将持续增长，以及那些原本依赖国际空间站进行实验的组织。随着空间站预计最早于2030年退役且商业替代方案尚不明朗，Varda 正将其自主平台定位为微重力研究更易获得的替代方案。",
+      "image": "https://spacenews.com/wp-content/uploads/2025/06/P5150343-copy-scaled-e1750173327191.jpeg",
+      "image_raw": "https://spacenews.com/wp-content/uploads/2025/06/P5150343-copy-scaled-e1750173327191.jpeg",
+      "images": [
+        "https://i0.wp.com/spacenews.com/wp-content/uploads/2025/06/P5150313-copy.jpeg?resize=780%2C585&ssl=1"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-manufacturing/41734f40749d4cce"
+    },
+    {
+      "id": "78ca1200749590d2",
+      "title": "Varda 第六次任务成功返回，并达成首个商业太空制药协议",
+      "source": "SpaceNews",
+      "url": "https://spacenews.com/sixth-varda-mission-successfully-returns/",
+      "published": "2026-05",
+      "region": "国外",
+      "aspect": "总体设计",
+      "summary": "2026 年 5 月，Varda 的 W-6 返回舱在澳大利亚 Koonibba 试验场着陆——这是 15 个月内第四个在该场回收的返回舱。该任务由美国空军研究实验室（AFRL）Prometheus 计划资助，测试高超声速再入自主导航等技术，并搭载 NASA 新工艺制造的隔热瓦。同期 Varda 与制药公司联合治疗（United Therapeutics）签署首个商业太空制药协议，研究在微重力中开发罕见肺病药物的新晶型，预计 2027 年首飞药物，最快 2030 年进入临床。",
+      "tags": [
+        "国外",
+        "总体设计",
+        "太空加工",
+        "制药"
+      ],
+      "body_zh": "华盛顿——Varda Space Industries 于5月18日完成了其最新的再入任务，公司正努力平衡支持药物研究和高超音速测试。\n\nVarda W-6 任务的舱体于5月20日凌晨再入，并在由 Southern Launch 运营的澳大利亚南部库尼巴测试场着陆。这是15个月内第四个在该地着陆的 Varda 舱体。该航天器于3月30日搭乘 SpaceX Transporter-16 搭载发射任务升空。\n\n此次任务由空军研究实验室通过其普罗米修斯计划资助，旨在利用商业航天器测试高超音速技术。一项研究测试了通过观测星星和低地轨卫星位置进行自主导航的能力。另一项研究在舱体鼻部嵌入温度传感器，收集数据以与模型进行对比。舱体还搭载了两块由 NASA 提供、采用新生产技术制造的仪器化瓦片。\n\nVarda 高超音速测试与目标副总裁戴夫·麦克法兰（Dave McFarland）在一份声明中表示：“每次再入都是对上一次的积累。W-6 再次证明了频繁、低成本、可靠的返回是轻松可及的。我们的合作伙伴从这次任务中带回的数据，如果用传统测试方法，可能需要数年时间才能收集。”\n\nVarda 认为其在高超音速领域取得成功，是因为其测试成本低于使用导弹或火箭。\n\nVarda 首席执行官威尔·布鲁伊（Will Bruey）在5月20日举行的 ASCEND 会议上表示：“我们防务业务的描述方式是‘速度差价套利’。我们以低价从猎鹰9号购买速度，然后将其卖给习惯于购买专用发射的市场。”\n\n该公司使用同一航天器执行微重力研究任务，尤其是制药任务。“每一辆下线的航天器都可以用于商业药物任务或防务任务，”他说。他估计 Varda 80%的资本投入用于开发航天器装配线，剩余20%用于其药物实验室。\n\n5月13日，Varda 宣布与制药公司 United Therapeutics 达成协议，研究在微重力环境下开发新型药物配方，首批研究针对罕见肺部疾病的治疗药物。\n\n布鲁伊表示，两家公司于年初开始合作。双方科学家正在审查 United Therapeutics 的药物组合，筛选哪些药物适合在微重力中重新配方，以及其中哪些具有经济意义。\n\n“客户对 Varda 的看法是，太空部分很酷，但他们最终并不关心，”他说，“他们关注的是更好的药物。所以，对他们来说，我们其实不是一家航天公司，而是一家药物公司。”\n\n布鲁伊预计 Varda 将于2027年为 United Therapeutics 运输首批药物。如果结果积极，公司将进入临床测试阶段。“最乐观的情况是2030年，我们将首次用微重力制药注射人体，”他说，“时间可能在2030年至2035年之间。”\n\n一旦实现，他说，“那时就无法忽视了。太空药物正式成为现实”，并且对一种药物有效的方法可能适用于许多其他药物。\n\n“在 Varda，真的是‘不做大事就回家’，”他说，“我们要么彻底革新制药行业，要么就成为一家无聊的高超音速公司，别无选择。”",
+      "image": "https://spacenews.com/wp-content/uploads/2026/05/varda-w6.jpeg",
+      "image_raw": "https://spacenews.com/wp-content/uploads/2026/05/varda-w6.jpeg",
+      "images": [],
+      "page_url": "https://links.he-ting.com/t/space-manufacturing/78ca1200749590d2"
+    },
+    {
+      "id": "5600646e761dcd1e",
+      "title": "轻舟试验飞船完成太空金属增材制造演示验证（货运飞船平台）",
+      "source": "中国科学院 / 人民网",
+      "url": "https://www.cas.cn/cm/202604/t20260428_5108269.shtml",
+      "published": "2026-04",
+      "region": "国内",
+      "aspect": "专业技术",
+      "summary": "2026 年 4 月，中科院力学所联合微小卫星创新研究院，在“轻舟”试验飞船（力箭二号遥一发射、600 公里轨道）上完成太空金属增材制造演示验证。任务重点验证货运飞船平台下的系统集成、地面遥控多次启动稳定性与激光熔丝金属熔融沉积工艺，表明我国已初步具备太空金属增材制造关键技术的系统验证能力，为货运飞船常态化搭载、在轨制造与维修、备件与结构件修复奠定基础，推动航天由“带什么用什么”向“需要什么造什么”转变。",
+      "tags": [
+        "国内",
+        "专业技术",
+        "太空3D打印",
+        "货运平台"
+      ],
+      "body_zh": "中国科学院贯彻落实党中央关于科技创新的方针政策和决策部署，在履行职责过程中坚持党中央对科技工作的集中统一领导。主要职责是： 一、开展使命导向的自然科学领域基础研究，承担国家重大基础研究、应用基础研究、前沿交叉共性技术研究和引领性颠覆性技术研究任务，打造原始创新策源地。 更多+\n\n面向世界科技前沿，面向经济主战场，面向国家重大需求，面向人民生命健康，率先实现科学技术跨越发展，率先建成国家创新人才高地，率先建成国家高水平科技智库，率先建设国际一流科研机构，加快打造原始创新策源地，加快突破关键核心技术，努力抢占科技制高点。\n\n中国科学院是国家科学技术界最高学术机构、国家科学技术思想库，自然科学基础研究与高技术综合研究的国家战略科技力量。 1949年，伴随着新中国的诞生，中国科学院成立。建院70余年来，中国科学院时刻牢记使命，与科学共进，与祖国同行，以国家富强、人民幸福为己任，人才辈出，硕果累累，为我国科技进步、经济社会发展和国家安全作出了不可替代的重要贡献。 更多+\n\n为方便科研人员全面快捷了解院级科技专项信息并进行项目申报等相关操作，特搭建中国科学院院级科技专项信息管理服务平台。了解科技专项更多内容，请点击进入→\n\n中国科学技术大学（简称“中国科大”）于1958年由中国科学院创建于北京，1970年学校迁至安徽省合肥市。中国科大坚持“全院办校、所系结合”的办学方针，是一所以前沿科学和高新技术为主、兼有特色管理与人文学科的研究型大学。\n\n中国科学院大学（简称“国科大”）始建于1978年，其前身为中国科学院研究生院，2012年经教育部批准更名为中国科学院大学。国科大以“科教融合、育人为本、协同创新、服务国家”为办学理念，与中国科学院直属研究机构（包括所、院、台、中心等），在管理体制、师资队伍、培养体系、科研工作等方面高度融合，是一所以研究生教育为主的独具特色的高等学校。\n\n上海科技大学（简称“上科大”），由上海市人民政府与中国科学院共同举办、共同建设，由上海市人民政府主管，2013年经教育部正式批准。上科大致力于服务国家经济社会发展战略，培养科技创新创业人才，努力建设一所小规模、高水平、国际化的研究型、创新型大学。\n\n近日，中国科学院力学研究所联合中国科学院微小卫星创新研究院，在轻舟试验飞船上完成太空金属增材制造技术演示验证。\n\n太空金属增材制造载荷搭载轻舟试验飞船，由中科宇航力箭二号遥一火箭发射，飞船在600公里轨道成功开展太空金属增材制造技术演示验证，顺利完成预定实验任务。\n\n此次任务重点验证了金属增材制造载荷与货运飞船平台匹配性、安全可靠性、地面遥测控制、状态监测、数据与图像传输、全流程自动化执行、空间环境下金属熔融沉积工艺等关键能力，标志着太空金属制造领域取得又一项重要技术进步。\n\n与地面制造相比，太空金属增材制造不仅要面对微重力条件下熔滴过渡、液桥稳定、熔池演化等复杂机理问题，还必须解决载荷轻量化、精密器件抗发射振动、能源接口适配、遥测遥控和受限操作窗口下自主运行、以及在轨操作安全性等一系列工程难题，是国际太空制造领域的前沿方向。\n\n中国科学院力学研究所团队依托微重力科学与空间实验研究基础，围绕微重力条件下金属增材制造机理、工艺方法和装备研制持续攻关，并与中国科学院微小卫星创新研究院协同建立了基于货运飞船平台的太空金属增材制造验证技术体系。本次任务突出在货运飞船平台条件下的系统集成与工程验证，通过地面遥测方式启动太空金属增材制造载荷，采用激光熔丝方式实现金属熔融沉积，稳定完成了金属熔融沉积成形的过程演示，验证了载荷设备多次遥控启动的稳定性，顺利达成预定实验目标。\n\n此次实验表明，我国已初步具备太空金属增材制造关键技术的系统验证能力，为后续货运飞船常态化搭载验证奠定了基础。未来，相关技术有望服务于在轨制造与维修应用、空间设施备件制造、结构件修复、深空任务自主保障以及深空探测原位制造能力建设等重大场景，推动航天任务由“带什么用什么”向“需要什么造什么”转变。\n\n下一步，联合团队将与院内外优势单位开展广泛合作，完成更长时、更复杂工况下的太空制造技术验证任务，加快构建我国太空制造技术标准体系和工程应用能力，推动太空制造从技术演示走向“天造天用”工程应用，为航天强国建设和太空经济发展提供新的技术支撑。\n\n地址：北京市西城区三里河路52号 邮编：100864",
+      "image": "https://www.cas.cn/images/z19_logo.png",
+      "image_raw": "https://www.cas.cn/images/z19_logo.png",
+      "images": [
+        "https://www.cas.cn/images/z19_logo.png",
+        "https://www.cas.cn/images/dsb01_20251217.png",
+        "https://www.cas.cn/images/dsb02_20251217.png",
+        "https://www.cas.cn/images/z19_pc_m.png",
+        "https://www.cas.cn/images/z19_en_m.png",
+        "https://www.cas.cn/images/wza_2024.png"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-manufacturing/5600646e761dcd1e"
+    },
+    {
+      "id": "7717b7ce2e0fc2f7",
+      "title": "NASA 追加 400 万美元支持 Redwire PIL-BOX 在轨药物结晶研究",
+      "source": "Redwire",
+      "url": "https://rdw.com/newsroom/nasa-awards-redwire-4-million-in-additional-funding-to-support-trailblazing-drug-development-in-microgravity/",
+      "published": "2026-03",
+      "region": "国外",
+      "aspect": "专业技术",
+      "summary": "2026 年 3 月，NASA 在其“空间生产应用（InSPA）”计划下向 Redwire 追加 400 万美元，扩展利用 PIL-BOX 在国际空间站开展的新药结晶研究（涵盖癌症、骨质疏松、肥胖等）。当时 PIL-BOX 已飞行 43 套，并支持 Aspera Biomedicines 的 Rebecsinib（ADAR1 抑制剂）抗癌药随 Crew-12 上行研究。微重力可获得更均匀、更高质量的药物晶体，有望催生新型药物剂型。",
+      "tags": [
+        "国外",
+        "专业技术",
+        "太空加工",
+        "制药",
+        "晶体"
+      ],
+      "body_zh": "佛罗里达州杰克逊维尔（2026年3月11日）——全球领先的航天与防务技术解决方案提供商 Redwire 公司（纽约证券交易所代码：RDW）今日宣布，NASA 已向公司追加400万美元资金，用于支持利用 Redwire 的太空制药实验室（PIL-BOX）技术在国际空间站（ISS）进行新药开发研究。此次追加资金扩展了 NASA “太空生产应用”（InSPA）项目下的一项价值2500万美元、为期五年的无限交付/无限数量合同中的现有任务订单。\n\nRedwire 太空业务部门总裁迈克·戈尔德（Mike Gold）表示：“航天和制药行业正以前所未有的方式融合，将彻底改变这两个领域。NASA 和 InSPA 项目在其中发挥着关键催化作用，推动公共和私营部门革命性新能力的诞生。我们为被选中与 NASA 合作开展涵盖癌症、骨质疏松和肥胖等疾病的研究感到自豪和感激。通过与 NASA 合作进入太空，我们能够改善地球上的生命。”\n\nPIL-BOX 已飞行43个单元，助力生长高质量晶体，这些晶体有望改变救命药物的开发方式。Redwire 最近支持了由 Aspera Biomedicines（Aspera）领导的癌症疗法研究，该研究随 SpaceX Crew-12 任务飞往国际空间站。Aspera 和 Redwire 利用 PIL-BOX 推进 ADAR1 抑制剂 Rebecsinib 的开发。研究结果有望实现新药配方，提供更广泛的癌症治疗选择。\n\n通过支持 Aspera、百时美施贵宝（Bristol Myers Squibb）、礼来公司（Eli Lilly and Company）、ExesaLibero Pharma、普渡大学和巴特勒大学等合作伙伴，Redwire 正推动生物技术新时代，利用微重力环境解锁可改善世界上一些最具挑战性疾病治疗的新见解。\n\n关于 Redwire  \nRedwire 公司（纽约证券交易所代码：RDW）是一家专注于先进技术的综合航天与防务技术公司。我们致力于构建航空航天基础设施、自主系统和多域作战的未来，利用数字工程和人工智能自动化。Redwire 在北美和欧洲拥有约1400名员工，致力于提供创新的空间和空中平台，变革多域作战的未来。更多信息请访问 RDW.com。\n\n媒体联系人：Tere Riley Tere.Riley@rdw.com  \n投资者联系：Investorrelations@rdw.com",
+      "image": "https://rdw.com/wp-content/uploads/2024/08/cropped-Team-PIL-Photo_EditedV1-1.jpg",
+      "image_raw": "https://rdw.com/wp-content/uploads/2024/08/cropped-Team-PIL-Photo_EditedV1-1.jpg",
+      "images": [
+        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABQAAAAPAAQMAAABQEkY6AAAAA1BMVEVHcEyC+tLSAAAAAXRSTlMAQObYZgAAAKxJREFUeNrtwTEBAAAAwqD1T+1vBqAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA3W94AASueSe0AAAAASUVORK5CYII=",
+        "https://rdw.com/wp-content/uploads/2024/08/Team-PIL-Photo_EditedV1-1.jpg",
+        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWAQMAAAAGz+OhAAAAA1BMVEVHcEyC+tLSAAAAAXRSTlMAQObYZgAAABpJREFUSMftwTEBAAAAwqD1T20ND6AAAIB3Awu4AAFdkeOZAAAAAElFTkSuQmCC",
+        "https://rdw.com/wp-content/uploads/2025/12/cropped-Penguin-C-VTOL-In-Flight-Riga-150x150.jpg",
+        "https://rdw.com/wp-content/uploads/2026/06/RDW-Image-Resize-1920x1440-1-150x150.jpg"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-manufacturing/7717b7ce2e0fc2f7"
+    },
+    {
+      "id": "05eb3de9eb4bcca9",
+      "title": "太空金属3D打印意义解读：国家航天局行动计划支持“太空制造”新领域",
+      "source": "科学网 / 中国科学报",
+      "url": "https://news.sciencenet.cn/htmlnews/2026/1/559500.shtm",
+      "published": "2026-01",
+      "region": "国内",
+      "aspect": "总体设计",
+      "summary": "围绕我国首次火箭平台太空金属3D打印，科学网报道解读其战略意义：太空金属增材制造可实现航天器零部件在轨快速制造与自主修复，减少对地面补给依赖。2025 年《国家航天局推进商业航天高质量安全发展行动计划》已明确支持在太空资源利用、太空制造、在轨服务等新领域开展技术攻关；力鸿一号返回式载荷舱未来将升级为可在轨不少于 1 年、复用不小于 10 次的轨道级太空制造航天器。",
+      "tags": [
+        "国内",
+        "总体设计",
+        "太空制造",
+        "政策"
+      ],
+      "body_zh": "1æ22æ¥ï¼å¾®éåéå±å¢æå¶é è¿åå¼ç§å­¦å®éªè½½è·å¨ä¸­å½ç§å­¦é¢åå­¦ç ç©¶æï¼ä»¥ä¸ç®ç§°åå­¦æï¼ä¸¾è¡äº¤ä»ä»ªå¼ã\n\nè¯¥è½½è·ç±åå­¦æèªä¸»ç å¶ï¼äº1æ12æ¥æ­è½½ä¸­ç§å®èªâåé¸¿ä¸å·âé¥ä¸é£è¡å¨ï¼æåå¨å¤ªç©ºä¸­å®æéå±3Dæå°å®éªï¼å¶å¤åºéå±é¶é¨ä»¶ï¼æ´ä½ææ¯è¾¾å°ä¸çä¸æµæ°´å¹³ã\n\nâè¿æ¯æå½é¦æ¬¡åºäºç«ç®­å¹³å°ï¼å®æ½å¤ªç©ºéå±3Dæå°å®éªï¼ç¬¬ä¸æ¬¡å¨å¾®éåç¯å¢ä¸æåæå°åºå®æ´çéå±æä»¶ï¼æåæ¨å¨æå½å¤ªç©ºå¶é ææ¯çåå±ï¼ä¸ºæªæ¥å¤ªç©ºåºç¡è®¾æ½å»ºè®¾æä¾å ³é®æ¯æãâè½½è·æ»è®¾è®¡å¸ãåå­¦æç ç©¶åå§æè¯´ã\n\nâåé¸¿ä¸å·âãä¸­ç§å®èªä¾å¾\n\nä¸ºäºå¨å¤ªç©ºâè¿æ¥å­â\n\nå½åï¼å¤ªç©ºå¶é å·²æä¸ºå ¨çç©ºé´ææ¯ç«äºçæç¥é«å°ï¼å¤ªç©ºéå±3Dæå°ä¹æ¯èªå¤©ç»æµé¢åå ³æ³¨çææ¯ç­ç¹ä¹ä¸ã\n\nâå¨å¤ªç©ºæå°éå±çæ ¸å¿ç®çï¼æ¯è¦è§£å³æªæ¥äººç±»å¨å¤ªç©ºâè¿æ¥å­âçç°å®é®é¢ãå¨ç©ºé´ç«æ©å»ºãæ·±ç©ºæ¢æµåå°å¤åºå°å»ºè®¾ç­é¿è¿ä»»å¡ä¸­ï¼åä½å¶é è½åå°åæ¥ä¸å¯æ¿ä»£çä½ç¨ãâå§æè¯´ã\n\nè¿ä¸ææ¯å¯ä»¥å¨å¤ªç©ºä¸­å»ºä¸ä¸ªâåºæ¥ä¿®çéºâãâç°å¨ç©ºé´ç«ææçä¸è¥¿é½å¾ä»å°é¢è¿ä¸å»ï¼æªæ¥å¦æå»æçãç«æï¼è·ç¦»è¿ãè¿è´¹è´µï¼åªæåä¸ªèºä¸ï¼é½è¦èå ä¸ªææ¶é´ï¼ç­çå°ççè¡¥ç»ãå¤ªç©ºéå±3Dæå°å°±æ¯è¦è®©èªå¤©åç¼ºä»ä¹å°±è½ç´æ¥é ï¼ä»âå¸¦å®¶å½ä¸å¤©âåæâå¨å¤©ä¸é å®¶å½âãâå§æè¯´ã\n\nä¸è¿ï¼ä¸å°é¢3Dæå°ç¸æ¯ï¼å¤ªç©ºéå±3Dæå°çææ¯é¾åº¦å¤§å¾å¤ã\n\nå§æä»ç»ï¼å¤ªç©ºéå±3Dæå°çå ³é®ææ¯é¾åº¦å¨äºï¼å¾®éåç¯å¢ä¸çéå±çåè¿ç¨å­å¨å¤±æ§é£é©ãå¤±éç¶æä½¿æ¶²æéå±ä¸åéåä¸æµ®åå½±åï¼å®å ¨ç±è¡¨é¢å¼ åãæ¯ç»åç­æ§å¶ï¼ææåºç°çæ»´çåãæ­ä¸ãæ°æ³¡æ»çç­é®é¢ï¼å¯¹éå±æå½¢çç²¾åº¦é æææã\n\nâéå±ä¸ä¸çåï¼å®ä¸æ¯å¾ä¸æµï¼èæ¯èªå·±çæä¸ä¸ªå°çï¼è¿ä¼æ²¿çä¸å¾åç¬ï¼éå¸¸é¾ä»¥æ§å¶ï¼è¿éé¢æå¾®éåç¯å¢ä¸çæµä½æ§å¶ãç­ä¼ å¯¼æºå¶åå¶éç©çç­åºç¡ç§å­¦é¾é¢ãâå§æè¯´ã\n\nè½å¡å¾®éåå®éªæ¶å¤±æ§çéå±çæ»´ãåå­¦æä¾å¾\n\nä»âå°é¢ç ç©¶âå°âå¤ªç©ºå·¥ç¨éªè¯â\n\nä»ä¸ä¸çºª90å¹´ä»£ï¼å½å¤å°±å¸å±äºä»ç©ºé´ç«è¿åå°è¡æãæçåç«æçä¸ç³»åå¤ªç©ºå¶é ä»»å¡ãè¿å¹´æ¥ï¼å½å å¼å§éæ¸å éå¸å±ä»å°é¢éªè¯ãç«ç®­å®éªãå¨è½¨å¤ªç©ºå¶é ç­ä»»å¡ï¼å·²ç»ä¸å½å¤è¿å ¥äºææ¯å¹¶è·ç«äºé¶æ®µã\n\n2025å¹´ãå½å®¶èªå¤©å±æ¨è¿åä¸èªå¤©é«è´¨éå®å ¨åå±è¡å¨è®¡åãæç¡®æåºï¼æ¯æåä¸èªå¤©å¨å¤ªç©ºèµæºå©ç¨ãå¤ªç©ºå¶é ãå¨è½¨æå¡ç­æ°é¢åå¼å±ææ¯æ»å ³ã\n\nå§æä»ç»ï¼è¿å»ï¼å½å å®éªé½æ¯å°é¢å®éªï¼ä¸»è¦ä¾é è½å¡æå¤±éé£æºï¼éè¿èªç±è½ä½äº§çå¾®éåç¯å¢ï¼æ¨¡æå¤ªç©ºç¶æçå°é¢å®éªè£ ç½®ã\n\nâè½å¡å®éªå¯ä»¥éªè¯å¾å¤ææ¯åçï¼ä½å®æå¤§çé®é¢æ¯å®éªæ¶é´å¾ç­ï¼åªæ3.6ç§ãâå§æè¯´ã\n\næ­¤æ¬¡ï¼å®éªå¢éèªä¸»ç å¶åºå¾®éåéå±å¢æå¶é è¿åå¼ç§å­¦å®éªè½½è·ï¼æ­è½½çâåé¸¿ä¸å·âé¥ä¸é£è¡å¨ï¼åä¸è·å°é¢120å ¬éçäºè½¨éï¼è·å¾äºæ°åéçå®éªæ¶é´ï¼å¹¶å¨è¿ä¸æ¶é´å æåå¶å¤åºå®æ´éå±é¶é¨ä»¶ã\n\nè½½è·å¯æ»è®¾è®¡å¸ãåå­¦æå¯ç ç©¶åå¾æå¸ ä»ç»ï¼ä»»å¡è¿ç¨ä¸­ï¼å¢éçªç ´äºå¾®éåæ¡ä»¶ä¸éå±å¢æå¶é çç©æç¨³å®è¾è¿ä¸æå½¢ãå ¨æµç¨é­ç¯æ§å¶ãè½½è·ä¸ç«ç®­é«å¯é ååç­ä¸ç³»åå ³é®ææ¯ã\n\nå®éªç»æåï¼è½½è·è±ç»ä¼éç³»ç»å¹³ç¨³çéåæ¶ãç§ç å¢éæåè·åäºå¤ªç©ºå¾®éåç¯å¢ä¸­éå±3Dæå°ççæ± å¨æç¹å¾ãç©æè¾è¿ãååºè¡ä¸ºç­è¿ç¨æ°æ®ï¼ä»¥åå¤ªç©ºå¢æå¶é éå±ä»¶çæå½¢ç²¾åº¦ä¸åå­¦æ§è½ç­åæ°ï¼ä¸ºæå½å¤ªç©ºéå±å¢æå¶é ææ¯çå¿«éè¿­ä»£ç§¯ç´¯äºå®è´µå®éªèµæã\n\nâè¯¥ä»»å¡æ å¿çæå½å¤ªç©ºéå±å¢æå¶é æ­£å¼ä»âå°é¢ç ç©¶âé¶æ®µè¿å ¥âå¤ªç©ºå·¥ç¨éªè¯âçæ°é¶æ®µãâå§æè¯´ã\n\nç§ç é¢æä¸åä¸èªå¤©åååæ°\n\nå¨å§æçæ¥ï¼æ­¤æ¬¡å®éªçæåï¼ç¦»ä¸å¼åå­¦æå¢éä¸ä¸­ç§å®èªå¢éçåä½ã\n\nâåé¸¿ä¸å·âæ»è®¾è®¡å¸ãæ»ææ¥å²æå®è¡¨ç¤ºï¼æ¬æ¬¡å¾®éåå¢æå¶é è½½è·æ¯âåé¸¿ä¸å·âé¦é£ä»»å¡çå ³é®ç§å­¦è½½è·ãä»»å¡ä¸ä» å®æäºä»åå°ãå¨è½¨å®éªå°å®å ¨è¿åçå ¨æµç¨é­ç¯éªè¯ï¼æ´é¦æ¬¡å¨å¤ªç©ºç¯å¢ä¸­å®ç°éå±æä»¶çâå°å¤å¶é âï¼å»ä¸äºæå½å¤ªç©ºå¶é ææ¯åå±å²ä¸çä¸ä¸ªå ³é®å°è®°ã\n\nâè¿ä½¿å¾âåé¸¿ä¸å·âä»»å¡è¶ è¶äºç«ç®­ææ¯éªè¯æ¬èº«ï¼è¿å ¥äºå¤ªç©ºå¶é è½åå»ºè®¾çå®è¯é¶æ®µãæªæ¥ï¼âåé¸¿ä¸å·âå°ç»§ç»­ä½ä¸ºçµæ´»ãå¯é ãä½ææ¬çå¤ªç©ºå®éªå¹³å°ï¼ä¸ºæ´å¤åæ²¿ç©ºé´ç§å­¦å®éªæä¾å¨è½¨éªè¯è½åï¼ä¸ºæå½æ·±ç©ºæ¢æµä¸å¤ªç©ºåæ²¿ææ¯èªä¸»åå±æ³¨å ¥åæ°å¨åãâå²æå®è¯´ã",
+      "image": "https://news.sciencenet.cn/images/news.jpg",
+      "image_raw": "https://news.sciencenet.cn/images/news.jpg",
+      "images": [
+        "https://news.sciencenet.cn/images/news.jpg",
+        "https://rmtzx.sciencenet.cn/kxwsprint/697986d0e4b078fce44a5106.jpeg",
+        "https://rmtzx.sciencenet.cn/kxwsprint/6979874fe4b078fce44a5108.png",
+        "https://rmtzx.sciencenet.cn/kxwsprint/69798805e4b078fce44a510c.jpg",
+        "https://rmtzx.sciencenet.cn/kxwsprint/6979876fe4b078fce44a510a.png",
+        "https://rmtzx.sciencenet.cn/kxwsprint/6979887ee4b078fce44a510e.jpg"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-manufacturing/05eb3de9eb4bcca9"
+    },
+    {
+      "id": "b4222b4d43b4a79a",
+      "title": "我国首次太空金属3D打印：力鸿一号亚轨道制备出完整金属构件",
+      "source": "中国科学院",
+      "url": "https://www.cas.cn/syky/202601/t20260123_5097065.shtml",
+      "published": "2026-01",
+      "region": "国内",
+      "aspect": "专业技术",
+      "summary": "2026 年 1 月，中科院力学研究所自主研制的微重力金属增材制造返回式载荷，搭载中科宇航“力鸿一号”遥一飞行器升至约 120 公里亚轨道，首次在太空微重力环境下用激光熔丝工艺打印出完整金属零部件，并经伞降回收。任务突破了微重力下物料稳定输运与成形、全流程闭环调控、载荷—火箭高可靠协同等关键技术，标志我国太空金属制造从“地面研究”迈入“太空工程验证”阶段，整体技术达到世界一流水平。",
+      "tags": [
+        "国内",
+        "专业技术",
+        "太空3D打印",
+        "金属"
+      ],
+      "body_zh": "中国科学院贯彻落实党中央关于科技创新的方针政策和决策部署，在履行职责过程中坚持党中央对科技工作的集中统一领导。主要职责是： 一、开展使命导向的自然科学领域基础研究，承担国家重大基础研究、应用基础研究、前沿交叉共性技术研究和引领性颠覆性技术研究任务，打造原始创新策源地。 更多+\n\n面向世界科技前沿，面向经济主战场，面向国家重大需求，面向人民生命健康，率先实现科学技术跨越发展，率先建成国家创新人才高地，率先建成国家高水平科技智库，率先建设国际一流科研机构，加快打造原始创新策源地，加快突破关键核心技术，努力抢占科技制高点。\n\n中国科学院是国家科学技术界最高学术机构、国家科学技术思想库，自然科学基础研究与高技术综合研究的国家战略科技力量。 1949年，伴随着新中国的诞生，中国科学院成立。建院70余年来，中国科学院时刻牢记使命，与科学共进，与祖国同行，以国家富强、人民幸福为己任，人才辈出，硕果累累，为我国科技进步、经济社会发展和国家安全作出了不可替代的重要贡献。 更多+\n\n为方便科研人员全面快捷了解院级科技专项信息并进行项目申报等相关操作，特搭建中国科学院院级科技专项信息管理服务平台。了解科技专项更多内容，请点击进入→\n\n中国科学技术大学（简称“中国科大”）于1958年由中国科学院创建于北京，1970年学校迁至安徽省合肥市。中国科大坚持“全院办校、所系结合”的办学方针，是一所以前沿科学和高新技术为主、兼有特色管理与人文学科的研究型大学。\n\n中国科学院大学（简称“国科大”）始建于1978年，其前身为中国科学院研究生院，2012年经教育部批准更名为中国科学院大学。国科大以“科教融合、育人为本、协同创新、服务国家”为办学理念，与中国科学院直属研究机构（包括所、院、台、中心等），在管理体制、师资队伍、培养体系、科研工作等方面高度融合，是一所以研究生教育为主的独具特色的高等学校。\n\n上海科技大学（简称“上科大”），由上海市人民政府与中国科学院共同举办、共同建设，由上海市人民政府主管，2013年经教育部正式批准。上科大致力于服务国家经济社会发展战略，培养科技创新创业人才，努力建设一所小规模、高水平、国际化的研究型、创新型大学。\n\n近日，由中国科学院力学研究所自主研制的微重力金属增材制造返回式科学实验载荷，成功在太空中完成金属增材制造实验。\n\n本次任务是我国首次基于火箭平台实施的太空金属增材制造返回式科学实验，相关载荷搭载于中科宇航力鸿一号遥一飞行器。\n\n任务过程中，团队突破了微重力条件下金属增材制造的物料稳定输运与成形、全流程闭环调控、载荷—火箭高可靠协同等一系列关键技术。\n\n实验结束后，载荷舱经伞降系统平稳着陆回收。科研人员成功获取了太空微重力环境中金属增材制造的过程数据（包括熔池动态特征、物料输运、凝固行为等），以及太空增材制造金属件的成形精度与力学性能等参数，为我国太空金属增材制造技术的快速迭代积累了宝贵实验资料。\n\n实验成功在太空微重力环境下利用增材制造技术（“3D打印”）制备出金属零部件，标志着我国太空金属增材制造正式从“地面研究”阶段迈入“太空工程验证”新阶段，整体技术达到世界一流水平。这一突破将有力推动我国太空制造技术的发展，为未来太空基础设施建设提供关键支撑。\n\n执行本次任务的力鸿一号飞行器在首飞中攀升至约120千米高度，穿越卡门线进入太空。该平台具备发射成本低、灵活性高、支持载荷回收等优势。\n\n地址：北京市西城区三里河路52号 邮编：100864",
+      "image": "https://www.cas.cn/images/z19_logo.png",
+      "image_raw": "https://www.cas.cn/images/z19_logo.png",
+      "images": [
+        "https://www.cas.cn/images/z19_logo.png",
+        "https://www.cas.cn/images/dsb01_20251217.png",
+        "https://www.cas.cn/images/dsb02_20251217.png",
+        "https://www.cas.cn/images/z19_pc_m.png",
+        "https://www.cas.cn/images/z19_en_m.png",
+        "https://www.cas.cn/images/wza_2024.png"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-manufacturing/b4222b4d43b4a79a"
+    },
+    {
+      "id": "361e09e0b45484d9",
+      "title": "Space Forge ForgeStar-1：全球首个自由飞行的商业半导体“太空工厂”在轨产等离子体",
+      "source": "Space Forge",
+      "url": "https://www.spaceforge.com/news/space-forge-ignites-a-new-industrial-era-delivering-world-first-capability-for-orbital-semiconductor-manufacturing",
+      "published": "2025-12",
+      "region": "国外",
+      "aspect": "专业技术",
+      "summary": "英国 Space Forge 的 ForgeStar-1 于 2025 年 6 月随 SpaceX Transporter-14 发射，2025 年 12 月首次在轨点燃微型熔炉、产生约 1000℃ 等离子体——这是商业航天首次在自由飞行平台上实现半导体“气相晶体生长”所需的极端条件，使 ForgeStar-1 成为全球首个在轨运行的自由飞行商业半导体制造工具。公司计划把太空生长的晶体“种子”带回地面加工，制造地面难以获得的宽禁带/超宽禁带半导体材料。",
+      "tags": [
+        "国外",
+        "专业技术",
+        "太空加工",
+        "半导体"
+      ],
+      "body_zh": "英国 Space Forge 的 ForgeStar-1 于 2025 年 6 月随 SpaceX Transporter-14 发射，2025 年 12 月首次在轨点燃微型熔炉、产生约 1000℃ 等离子体——这是商业航天首次在自由飞行平台上实现半导体“气相晶体生长”所需的极端条件，使 ForgeStar-1 成为全球首个在轨运行的自由飞行商业半导体制造工具。公司计划把太空生长的晶体“种子”带回地面加工，制造地面难以获得的宽禁带/超宽禁带半导体材料。",
+      "image": "",
+      "image_raw": "",
+      "images": [],
+      "page_url": "https://links.he-ting.com/t/space-manufacturing/361e09e0b45484d9"
+    },
+    {
+      "id": "dc02443451b1062f",
+      "title": "Redwire 成立子公司 SpaceMD，把 PIL-BOX 太空制药推向商业化",
+      "source": "SpaceNews",
+      "url": "https://spacenews.com/redwire-pushes-into-space-pharmaceutical-business/",
+      "published": "2025-08",
+      "region": "国外",
+      "aspect": "总体设计",
+      "summary": "2025 年 8 月，Redwire 宣布成立子公司 SpaceMD，专注用其在国际空间站验证过的“太空制药实验室”PIL-BOX，在微重力中培育种子晶体，再返回地面用于研制新药或改良剂型。此前 PIL-BOX 已飞行 28 套、在轨结晶 17 种化合物（含胰岛素）。SpaceMD 以出售/授权种子晶体为商业模式，把太空制药从实验推向可运营业务，是在轨制造平台化的代表性一步。",
+      "tags": [
+        "国外",
+        "总体设计",
+        "太空加工",
+        "制药",
+        "平台化"
+      ],
+      "body_zh": "华盛顿——Redwire 正加大对太空制药开发的投入，成立了专门从事该领域的新业务实体。\n\nRedwire 于8月4日宣布成立 SpaceMD，该实体将商业化其已在国际空间站飞行的太空制药实验室（PIL-BOX）技术。SpaceMD 将专注于利用 PIL-BOX 在微重力环境中生长种子晶体，随后将其带回地球，用于制造新药或重新配方药物。\n\nRedwire 首席执行官彼得·坎尼托（Peter Cannito）在8月7日的财报电话会议上表示：“团队将开发一系列独特在微重力中制造的新药和改良药物，加速疾病治疗方案的解决，并通过销售或许可产生新的收入来源。”\n\nSpaceMD 已与开发骨病药物的 ExesaLibero Pharma 签署了一项许可协议。坎尼托在电话会议中表示，Redwire 将从通过该协议开发的任何药物的商业销售中获得版税。\n\n“这项协议标志着微重力商业利用的革命性范式转变，”他说，“SpaceMD 正将微重力研究的益处转化为终端客户的产品价值，目标是变革治疗学的未来，同时为股东创造价值。”\n\n长期以来，航天公司一直将制药行业视为空间站和自由飞行航天器的潜在主要客户，因为微重力环境可实现地球上无法生产的蛋白质晶体等产品。但成功利用太空能力开发药物的案例寥寥无几。\n\nRedwire 太空产业总裁约翰·韦林格（John Vellinger）在8月5日由 Redwire 在国会山举办的太空制药活动上表示：“那么，现在有什么不同呢？”\n\n他认为有三大因素使这项工作在商业上更具可行性。其一是更好的太空访问能力，其二是改进的太空制药研究技术，其三是行业对太空制药益处的日益认识。\n\n“行业已认识到太空的商业机会，并看到了太空独特环境的潜力，”他说，“他们以前没有看到这一点，我想。”\n\nExesaLibero Pharma 总裁兼首席科学官约翰·巴内特（John Barnett）在活动中表示：“在太空进行研究将开启药物开发的全新领域。”他公司正在开发一种旨在“调节”破骨细胞活性的药物，既适用于地球，也适用于在微重力环境中骨密度流失的宇航员。\n\n“地球上有效的药物在太空中不起作用，这给了我们机会进入太空，开发这些药物的新形式，带回地球，看看是否能增强它们，”他说。\n\n这一活动正值国际空间站向商业空间站过渡的不确定时期。NASA 计划运营空间站至2030年，届时预计一座或多座商业空间站将投入使用。\n\n韦林格认为，未来几年对太空制药产业的发展至关重要。“我们都知道空间站寿命有限——它不会永远飞行——但我们现在需要它，因为商业航天提供商正在建设他们的平台，”他说，“我们需要在短期内，即未来三到五年内，能够进入太空，争取多次尝试。”\n\nNASA 最近的一项政策变动可能颠覆这一过渡。代理局长肖恩·达菲（Sean Duffy）发布的最新指令改变了商业低地轨道目的地（CLD）项目的下一阶段计划，包括将 NASA 要求从持续有人驻留改为最短一个月的停留时间。这可能彻底改变商业空间站公司的设计和商业计划。\n\n该变动在8月5日的活动中未被讨论，因为当时该指令尚未广为人知。然而，中央佛罗里达大学太空商业化与战略副教务长格雷格·奥特里（Greg Autry）表示，太空药物开发的成功可增强商业空间站的非 NASA 商业案例。\n\n“制药业务是‘全垒打’游戏，”他说，“一旦有一两种药物为公司带来数十亿美元的收益，投资者回报丰厚，大家都会争相进入空间站。届时，关于是否需要 CLD 的争论将不复存在。”",
+      "image": "https://spacenews.com/wp-content/uploads/2025/08/redwire-pilbox.jpeg",
+      "image_raw": "https://spacenews.com/wp-content/uploads/2025/08/redwire-pilbox.jpeg",
+      "images": [],
+      "page_url": "https://links.he-ting.com/t/space-manufacturing/dc02443451b1062f"
+    },
+    {
+      "id": "8f74dae694c0c6f5",
+      "title": "Varda 完成 1.87 亿美元 C 轮融资，扩建在轨制药“轨道实验室”",
+      "source": "BioProcess International",
+      "url": "https://www.bioprocessintl.com/facilities-capacity/defying-gravity-while-defining-medicine-varda-secures-187m-for-space-orbital-laboratories",
+      "published": "2025-07",
+      "region": "国外",
+      "aspect": "总体设计",
+      "summary": "2025 年 7 月，微重力制药公司 Varda Space 完成 1.87 亿美元 C 轮融资（累计融资约 3.29 亿美元），用于扩大其“在轨实验室 + 再入返回舱”的规模化产能。截至当时已成功发射并回收 W-1/W-2/W-3 三个返回舱、W-4 在轨，均聚焦药物结晶；第五舱 W-5 将优化“溶液结晶反应器”以精确控制小分子药物的粒径与晶型。体现太空加工正从单次试验走向可持续的商业产能建设。",
+      "tags": [
+        "国外",
+        "总体设计",
+        "太空加工",
+        "制药",
+        "融资"
+      ],
+      "body_zh": "2025 年 7 月，微重力制药公司 Varda Space 完成 1.87 亿美元 C 轮融资（累计融资约 3.29 亿美元），用于扩大其“在轨实验室 + 再入返回舱”的规模化产能。截至当时已成功发射并回收 W-1/W-2/W-3 三个返回舱、W-4 在轨，均聚焦药物结晶；第五舱 W-5 将优化“溶液结晶反应器”以精确控制小分子药物的粒径与晶型。体现太空加工正从单次试验走向可持续的商业产能建设。",
+      "image": "",
+      "image_raw": "",
+      "images": [],
+      "page_url": "https://links.he-ting.com/t/space-manufacturing/8f74dae694c0c6f5"
+    },
+    {
+      "id": "b2da37d3763d3690",
+      "title": "Varda W-1：首次在轨制备抗病毒药物晶体并成功再入回收",
+      "source": "Varda Space Industries",
+      "url": "https://www.varda.com/",
+      "published": "2024-02",
+      "region": "国外",
+      "aspect": "专业技术",
+      "summary": "Varda 的 W-1 返回舱于 2024 年 2 月在美国犹他州着陆，舱内完成了抗艾滋病药物成分利托那韦（ritonavir）的在轨结晶。微重力可获得更均匀、缺陷更少的药物晶型，影响药效与稳定性。这是商业公司首次完成“在轨加工—返地回收”的太空制药闭环。",
+      "tags": [
+        "国外",
+        "专业技术",
+        "太空加工",
+        "制药"
+      ],
+      "body_zh": "Varda 是一家利用微重力环境进行生命科学研究的公司，专门在轨道上处理材料并将其返回地球。",
+      "image": "https://cdn.prod.website-files.com/69737782e8f70a763e5f85d4/6982fee85f22aa4de2a260b2_6b69c889f13087fc46c07f7db80559ce_social_facebook.jpg",
+      "image_raw": "https://cdn.prod.website-files.com/69737782e8f70a763e5f85d4/6982fee85f22aa4de2a260b2_6b69c889f13087fc46c07f7db80559ce_social_facebook.jpg",
+      "images": [
+        "https://cdn.prod.website-files.com/69737782e8f70a763e5f85d4/69861251f287a208d02734e0_video-cover.avif",
+        "https://cdn.prod.website-files.com/69737782e8f70a763e5f85d4/69861cf62a8dea95c3072ec3_capsule.webp",
+        "https://cdn.prod.website-files.com/69737782e8f70a763e5f85d4/6989dae56bb05a3942bbb955_afbca0f17c533e866e9f2969a3d73000__image.avif"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-manufacturing/b2da37d3763d3690"
+    },
+    {
+      "id": "a2ce032d02de2e10",
+      "title": "NASA 在轨制造（In-Space Manufacturing）计划：从“造零件”到“造基础设施”",
+      "source": "NASA",
+      "url": "https://www.nasa.gov/space-technology-mission-directorate/in-space-manufacturing/",
+      "published": "2024",
+      "region": "国外",
+      "aspect": "总体设计",
+      "summary": "NASA 在轨制造计划把太空制造分为“太空用于地球（在微重力中制造高价值产品运回地面）”与“太空用于太空（在轨/月面就地制造零件、备件与结构）”两条主线，覆盖增材制造、回收再造、在轨装配与月面原位资源利用（ISRU），目标是让深空任务摆脱对地面补给链的依赖。",
+      "tags": [
+        "国外",
+        "总体设计",
+        "在轨制造",
+        "路线图"
+      ],
+      "body_zh": "NASA 在轨制造计划把太空制造分为“太空用于地球（在微重力中制造高价值产品运回地面）”与“太空用于太空（在轨/月面就地制造零件、备件与结构）”两条主线，覆盖增材制造、回收再造、在轨装配与月面原位资源利用（ISRU），目标是让深空任务摆脱对地面补给链的依赖。",
+      "image": "",
+      "image_raw": "",
+      "images": [],
+      "page_url": "https://links.he-ting.com/t/space-manufacturing/a2ce032d02de2e10"
+    },
+    {
+      "id": "60e2a9387b6b1a57",
+      "title": "DARPA NOM4D：面向在轨与月面的大质量高效结构制造",
+      "source": "DARPA",
+      "url": "https://www.darpa.mil/research/programs/novel-orbital-moon-manufacturing-materials-mass-efficient-design",
+      "published": "2024",
+      "region": "国外",
+      "aspect": "总体设计",
+      "summary": "DARPA 的 NOM4D（Novel Orbital and Moon Manufacturing, Materials and Mass-efficient Design）项目主张“在太空造、为太空造”：结构无需承受发射时的巨大过载，可采用极致轻量化设计，在轨制造并成形大型精密结构（如大口径天线、桁架）。项目推动材料、成形工艺与在轨精度控制等基础技术验证。",
+      "tags": [
+        "国外",
+        "总体设计",
+        "在轨制造",
+        "大型结构"
+      ],
+      "body_zh": "DARPA 的 NOM4D（Novel Orbital and Moon Manufacturing, Materials and Mass-efficient Design）项目主张“在太空造、为太空造”：结构无需承受发射时的巨大过载，可采用极致轻量化设计，在轨制造并成形大型精密结构（如大口径天线、桁架）。项目推动材料、成形工艺与在轨精度控制等基础技术验证。",
+      "image": "",
+      "image_raw": "",
+      "images": [],
+      "page_url": "https://links.he-ting.com/t/space-manufacturing/60e2a9387b6b1a57"
+    },
+    {
+      "id": "13b25f8f9fe7d3e9",
+      "title": "Varda Space：把制药车间搬上轨道，胶囊返地回收",
+      "source": "Varda Space Industries",
+      "url": "https://www.varda.com/",
+      "published": "2024",
+      "region": "国外",
+      "aspect": "总体设计",
+      "summary": "Varda Space 以“微重力制造 + 再入返回舱”为核心商业模式，在自由飞行小卫星上利用微重力开展药物结晶等空间加工，再用返回舱把成品带回地面。其 W 系列首舱 W-1（2023 发射）成功完成在轨制药并于 2024 年 2 月再入回收，开创了商业太空加工闭环。",
+      "tags": [
+        "国外",
+        "总体设计",
+        "太空加工",
+        "制药"
+      ],
+      "body_zh": "Varda是一家利用微重力环境进行生命科学研究的公司，专注于在轨道上处理材料并将其带回地球。",
+      "image": "https://cdn.prod.website-files.com/69737782e8f70a763e5f85d4/6982fee85f22aa4de2a260b2_6b69c889f13087fc46c07f7db80559ce_social_facebook.jpg",
+      "image_raw": "https://cdn.prod.website-files.com/69737782e8f70a763e5f85d4/6982fee85f22aa4de2a260b2_6b69c889f13087fc46c07f7db80559ce_social_facebook.jpg",
+      "images": [
+        "https://cdn.prod.website-files.com/69737782e8f70a763e5f85d4/69861251f287a208d02734e0_video-cover.avif",
+        "https://cdn.prod.website-files.com/69737782e8f70a763e5f85d4/69861cf62a8dea95c3072ec3_capsule.webp",
+        "https://cdn.prod.website-files.com/69737782e8f70a763e5f85d4/6989dae56bb05a3942bbb955_afbca0f17c533e866e9f2969a3d73000__image.avif"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-manufacturing/13b25f8f9fe7d3e9"
+    },
+    {
+      "id": "8f15f170490aaf69",
+      "title": "Redwire：由 Made In Space 整合而来的在轨制造平台化企业",
+      "source": "Redwire Space",
+      "url": "https://redwirespace.com/",
+      "published": "2024",
+      "region": "国外",
+      "aspect": "总体设计",
+      "summary": "Redwire 整合了太空 3D 打印先驱 Made In Space，形成覆盖增材制造（AMF）、陶瓷制造（CMM）、生物制造（BFF）、在轨装配（Archinaut/OSAM-2）与 ZBLAN 光纤拉制的在轨制造产品矩阵，把太空制造从单点实验推向可运营的商业基础设施。",
+      "tags": [
+        "国外",
+        "总体设计",
+        "太空3D打印",
+        "平台化"
+      ],
+      "body_zh": "Redwire的先进光学成像和太阳传感器技术作为NASA阿尔忒弥斯II任务的一部分，搭载于猎户座飞船上，这是阿尔忒弥斯计划的首次载人任务。\n\nRedwire宣布获得美国海军陆战队价值2000万美元的后续订单，用于交付Stalker无人机系统的先进导航和标准系统。\n\n美国国防部（DoD）视觉信息的出现并不意味着或构成对DoD的认可。\n\nRedwire获得合同，将为Moog公司交付新的ELSA高性能、低质量太阳能电池阵列，用于国家安全项目。\n\nRedwire正在利用现有能力，探索技术价值链中的多种解决方案，以帮助保卫美国。\n\n为美国及其盟军战士创造新的集成能力，利用空间和空中作战的互联性。\n\n开发经过验证且可靠的空间基础设施，支持下一代空间经济。\n\n我们提供关键技术和能力，支持人类最大胆的任务。\n\n我们提供颠覆性的空间防御技术，以满足当前和未来战士的需求。\n\n远程侦察（LRR）项目展示了陆军推进无人机技术和作战效能的承诺。作为一种力量倍增器，LRR无人机系统将为机动营指挥官提供有机的侦察、监视和目标获取能力。\n\nRedwire负责PROBA-3航天器的集成、测试、机载计算机以及其中一个技术演示载荷——三维能量电子谱仪的开发。\n\nRedwire成功设计、分析、制造、测试并交付了8个国际空间站的IROSA翼板。新阵列设计功率超过160千瓦，可提升空间站电力20%至30%。\n\nRedwire负责组建团队，打造SabreSat平台，并推进DARPA Otter项目所需的关键技术，展示支持极低地轨（VLEO）作战的技术。\n\nRedwire为美国太空军和空军研究实验室的Tetra-5项目交付两台Mako航天器平台，验证卫星在轨加注燃料技术。\n\n我们荣幸地获得了“最佳工作场所”、《大众科学》等多个奖项的认可。",
+      "image": "https://rdw.com/wp-content/uploads/2023/08/redwire-logo-announcement-herald.png",
+      "image_raw": "https://rdw.com/wp-content/uploads/2023/08/redwire-logo-announcement-herald.png",
+      "images": [
+        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAE8AAAAEAQMAAAD1ZfBqAAAAA1BMVEVHcEyC+tLSAAAAAXRSTlMAQObYZgAAAAtJREFUCB1jIAEAAAAsAAF4BY7OAAAAAElFTkSuQmCC",
+        "https://rdw.com/wp-content/uploads/2025/06/seperator.png",
+        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA+gAAADIAQMAAABBKVkMAAAAA1BMVEVHcEyC+tLSAAAAAXRSTlMAQObYZgAAAC9JREFUeNrtwQENAAAAwqD3T20ON6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4MmJwAAE+EICoAAAAAElFTkSuQmCC",
+        "https://rdw.com/wp-content/uploads/2025/11/Combat-Proven-Logo-White.png"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-manufacturing/8f15f170490aaf69"
+    },
+    {
+      "id": "41aa4227b7c06cdb",
+      "title": "NASA OSAM-2（Archinaut）：在轨增材制造 + 自主装配一体化演示",
+      "source": "NASA",
+      "url": "https://www.nasa.gov/mission/on-orbit-servicing-assembly-and-manufacturing-2/",
+      "published": "2024",
+      "region": "国外",
+      "aspect": "总体设计",
+      "summary": "OSAM-2（原 Archinaut One）计划在小卫星上演示一体化的“打印 + 装配”：入轨后用增材制造打印出两条约 10 米长的桁架梁，再由机械臂装配展开太阳翼。它验证了在轨制造大尺寸、发射整流罩装不下的结构这一总体设计思路。",
+      "tags": [
+        "国外",
+        "总体设计",
+        "太空3D打印",
+        "太空装配"
+      ],
+      "body_zh": "OSAM-2（原 Archinaut One）计划在小卫星上演示一体化的“打印 + 装配”：入轨后用增材制造打印出两条约 10 米长的桁架梁，再由机械臂装配展开太阳翼。它验证了在轨制造大尺寸、发射整流罩装不下的结构这一总体设计思路。",
+      "image": "",
+      "image_raw": "",
+      "images": [],
+      "page_url": "https://links.he-ting.com/t/space-manufacturing/41aa4227b7c06cdb"
+    },
+    {
+      "id": "3ae8427378f53a1f",
+      "title": "Made In Space AMF：国际空间站上的首台商业 3D 打印机",
+      "source": "NASA / Redwire",
+      "url": "https://redwirespace.com/products/amf/",
+      "published": "2024",
+      "region": "国外",
+      "aspect": "专业技术",
+      "summary": "增材制造设施 AMF 于 2016 年装上国际空间站，是首台在轨的商业 3D 打印机，采用熔融沉积（FDM）工艺，可用多种航天级聚合物为空间站按需打印工具与备件，实现“把设计文件上传、在轨即造”，显著缩短备件补给周期。",
+      "tags": [
+        "国外",
+        "专业技术",
+        "太空3D打印",
+        "聚合物"
+      ],
+      "body_zh": "Redwire是关键的任务推动者，其产品几乎适用于所有空间任务。\n\nRedwire正在开发对人类在太空生活和工作至关重要的能力。\n\nRedwire支持雄心勃勃的多国空间探索。\n\n极低地轨（VLEO）平台\n\n太阳能电池阵列和可展开结构\n\n装备商业空间站\n\n未来工厂的工程设计",
+      "image": "https://rdw.com/wp-content/themes/redwire/images/redwire-global-social.jpg",
+      "image_raw": "https://rdw.com/wp-content/themes/redwire/images/redwire-global-social.jpg",
+      "images": [
+        "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==",
+        "https://rdw.com/wp-content/uploads/2021/08/redwire-shield.svg",
+        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWAQMAAAAGz+OhAAAAA1BMVEVHcEyC+tLSAAAAAXRSTlMAQObYZgAAABpJREFUSMftwTEBAAAAwqD1T20ND6AAAIB3Awu4AAFdkeOZAAAAAElFTkSuQmCC",
+        "https://rdw.com/wp-content/uploads/2022/10/civil-gateway-orion-rosa-moon-150x150.jpg",
+        "https://rdw.com/wp-content/uploads/2023/05/iss065e093498_large-150x150.jpg"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-manufacturing/3ae8427378f53a1f"
+    },
+    {
+      "id": "9c167d4d56eacf20",
+      "title": "ESA / Airbus：国际空间站上完成首次金属 3D 打印",
+      "source": "ESA",
+      "url": "https://www.esa.int/Science_Exploration/Human_and_Robotic_Exploration/Research/First_metal_3D_printing_on_the_Space_Station",
+      "published": "2024",
+      "region": "国外",
+      "aspect": "专业技术",
+      "summary": "2024 年，ESA 与空客研制的金属 3D 打印机在国际空间站哥伦布舱打印出首个微重力金属零件，采用不锈钢丝 + 激光熔化工艺。相比聚合物打印，微重力下的金属熔池控制、飞溅与散热更具挑战，该验证为在轨制造金属工具与结构件迈出关键一步。",
+      "tags": [
+        "国外",
+        "专业技术",
+        "太空3D打印",
+        "金属"
+      ],
+      "body_zh": "2024 年，ESA 与空客研制的金属 3D 打印机在国际空间站哥伦布舱打印出首个微重力金属零件，采用不锈钢丝 + 激光熔化工艺。相比聚合物打印，微重力下的金属熔池控制、飞溅与散热更具挑战，该验证为在轨制造金属工具与结构件迈出关键一步。",
+      "image": "",
+      "image_raw": "",
+      "images": [],
+      "page_url": "https://links.he-ting.com/t/space-manufacturing/9c167d4d56eacf20"
+    },
+    {
+      "id": "79bfe2b7fd7f7743",
+      "title": "ZBLAN 太空光纤：微重力拉制超低损耗光纤",
+      "source": "Flawless Photonics / Made In Space",
+      "url": "https://www.flawlessphotonics.com/",
+      "published": "2024",
+      "region": "国外",
+      "aspect": "专业技术",
+      "summary": "ZBLAN 是一种氟化物玻璃光纤，理论损耗远低于普通石英光纤，但在地面重力下拉制易结晶而性能受限。在微重力中拉制可抑制结晶、逼近理论性能。Flawless Photonics 等在国际空间站上开展 ZBLAN 光纤在轨拉制，是“利用太空环境制造地面造不出的高价值材料”的典型太空加工案例。",
+      "tags": [
+        "国外",
+        "专业技术",
+        "太空加工",
+        "光纤"
+      ],
+      "body_zh": "ZBLAN的历史几乎与硅石一样悠久。ZBLAN独特的特性——更宽的传输窗口和更低的光学损耗——使光信号传输更远更快，性能优于传统的硅石光纤。问题在于其制造极为复杂。许多领先的光学公司曾尝试实现ZBLAN相较硅石的优越性能，但均告失败。他们缺少的是太空，只有在太空中才能消除ZBLAN中由重力引起的缺陷。Flawless团队在微重力环境下工作，开启了实现ZBLAN全部潜能的道路，革新了光学玻璃产业。\n\nSpaceFiber™可实现更远距离的传输。\n\n关键性能指标表现更佳（增益平坦性、非线性效应、声子能量）。\n\nSpaceFiber提供更多数据传输通道，降低每比特成本。\n\n降低长距离传输和功率放大所需的能耗。\n\nFlawless Photonics是唯一一家成功在微重力环境中制造出商业可用长度光纤的公司，在国际空间站拉制了超过11公里的光纤并带回地球。未来更多补给任务将使我们能够生产更多，同时我们也在与其他太空制造合作伙伴合作以提升产能。\n\ninfo@flawlessphotonics.com",
+      "image": "https://static.wixstatic.com/media/11062b_51fb2bb09b734af1a1af2793d58104faf000.jpg/v1/fill/w_147,h_83,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/11062b_51fb2bb09b734af1a1af2793d58104faf000.jpg",
+      "image_raw": "https://static.wixstatic.com/media/11062b_51fb2bb09b734af1a1af2793d58104faf000.jpg/v1/fill/w_147,h_83,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/11062b_51fb2bb09b734af1a1af2793d58104faf000.jpg",
+      "images": [
+        "https://static.wixstatic.com/media/11062b_51fb2bb09b734af1a1af2793d58104faf000.jpg/v1/fill/w_147,h_83,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/11062b_51fb2bb09b734af1a1af2793d58104faf000.jpg",
+        "https://static.wixstatic.com/media/46dd91_d112d72351a4497d8cab9a1ac40b4c34~mv2.jpg/v1/fill/w_120,h_90,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/46dd91_d112d72351a4497d8cab9a1ac40b4c34~mv2.jpg",
+        "https://static.wixstatic.com/media/46dd91_33800d1fb6a44988a29ac7484985bd9a~mv2.jpg/v1/fill/w_120,h_72,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/46dd91_33800d1fb6a44988a29ac7484985bd9a~mv2.jpg",
+        "https://static.wixstatic.com/media/46dd91_f031d1dfbe1a41129c02b5c8fc06c1f1~mv2.jpg/v1/fill/w_120,h_80,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/46dd91_f031d1dfbe1a41129c02b5c8fc06c1f1~mv2.jpg",
+        "https://static.wixstatic.com/media/46dd91_9e3bbe60244d4d529970b7b9f41cd167~mv2.webp/v1/fill/w_57,h_61,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/46dd91_9e3bbe60244d4d529970b7b9f41cd167~mv2.webp",
+        "https://static.wixstatic.com/media/46dd91_3436d489e8fc40fc93ecb2f1af8d7926~mv2.png/v1/fill/w_50,h_50,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/399790-200.png"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-manufacturing/79bfe2b7fd7f7743"
+    },
+    {
+      "id": "a94335a5d0739929",
+      "title": "Redwire 生物制造设施 BFF：微重力 3D 生物打印人体组织",
+      "source": "Redwire Space",
+      "url": "https://redwirespace.com/products/bff/",
+      "published": "2024",
+      "region": "国外",
+      "aspect": "专业技术",
+      "summary": "生物制造设施 BFF 在国际空间站利用微重力打印人体细胞与组织——地面重力下软组织会在固化前塌陷，而微重力可维持三维结构直至培养成形。已开展半月板、心肌组织等打印试验，为在轨制造移植用组织/器官探索路径。",
+      "tags": [
+        "国外",
+        "专业技术",
+        "生物制造",
+        "生物打印"
+      ],
+      "body_zh": "Redwire是关键的任务推动者，其产品几乎适用于所有空间任务。\n\nRedwire正在开发对人类在太空生活和工作至关重要的能力。\n\nRedwire支持雄心勃勃的多国空间探索。\n\n极低地轨（VLEO）平台\n\n太阳能电池阵列和可展开结构\n\n装备商业空间站\n\n未来工厂的工程设计",
+      "image": "https://rdw.com/wp-content/themes/redwire/images/redwire-global-social.jpg",
+      "image_raw": "https://rdw.com/wp-content/themes/redwire/images/redwire-global-social.jpg",
+      "images": [
+        "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==",
+        "https://rdw.com/wp-content/uploads/2021/08/redwire-shield.svg",
+        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWAQMAAAAGz+OhAAAAA1BMVEVHcEyC+tLSAAAAAXRSTlMAQObYZgAAABpJREFUSMftwTEBAAAAwqD1T20ND6AAAIB3Awu4AAFdkeOZAAAAAElFTkSuQmCC",
+        "https://rdw.com/wp-content/uploads/2022/10/civil-gateway-orion-rosa-moon-150x150.jpg",
+        "https://rdw.com/wp-content/uploads/2023/05/iss065e093498_large-150x150.jpg"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-manufacturing/a94335a5d0739929"
+    },
+    {
+      "id": "9c9eab246033ed7b",
+      "title": "Redwire 陶瓷制造模块 CMM：在轨增材制造陶瓷精密件",
+      "source": "Redwire Space",
+      "url": "https://redwirespace.com/products/cmm/",
+      "published": "2024",
+      "region": "国外",
+      "aspect": "专业技术",
+      "summary": "陶瓷制造模块 CMM 采用立体光固化（SLA）工艺在国际空间站上打印陶瓷部件。微重力可减少沉降与内部缺陷，有望制得强度更高、更均匀的陶瓷件（如涡轮叶片、光学元件），验证太空环境对高性能陶瓷制造的增益。",
+      "tags": [
+        "国外",
+        "专业技术",
+        "太空3D打印",
+        "陶瓷"
+      ],
+      "body_zh": "Redwire是关键的任务推动者，其产品几乎适用于所有空间任务。\n\nRedwire正在开发对人类在太空生活和工作至关重要的能力。\n\nRedwire支持雄心勃勃的多国空间探索。\n\n极低地轨（VLEO）平台\n\n太阳能电池阵列和可展开结构\n\n装备商业空间站\n\n未来工厂的工程设计",
+      "image": "https://rdw.com/wp-content/themes/redwire/images/redwire-global-social.jpg",
+      "image_raw": "https://rdw.com/wp-content/themes/redwire/images/redwire-global-social.jpg",
+      "images": [
+        "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==",
+        "https://rdw.com/wp-content/uploads/2021/08/redwire-shield.svg",
+        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWAQMAAAAGz+OhAAAAA1BMVEVHcEyC+tLSAAAAAXRSTlMAQObYZgAAABpJREFUSMftwTEBAAAAwqD1T20ND6AAAIB3Awu4AAFdkeOZAAAAAElFTkSuQmCC",
+        "https://rdw.com/wp-content/uploads/2022/10/civil-gateway-orion-rosa-moon-150x150.jpg",
+        "https://rdw.com/wp-content/uploads/2023/05/iss065e093498_large-150x150.jpg"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-manufacturing/9c9eab246033ed7b"
+    },
+    {
+      "id": "ac6939b0409ff4f9",
+      "title": "GITAI 机器人：国际空间站上自主完成在轨装配作业演示",
+      "source": "GITAI",
+      "url": "https://gitai.tech/",
+      "published": "2024",
+      "region": "国外",
+      "aspect": "专业技术",
+      "summary": "日本/美国机器人公司 GITAI 在国际空间站商业气闸舱外用机械臂自主完成结构件拼装、面板搬运与配线等在轨装配任务，验证了以机器人替代/辅助航天员开展舱外制造装配作业的可行性，为大型在轨结构的低成本自动化建造提供技术积累。",
+      "tags": [
+        "国外",
+        "专业技术",
+        "太空装配",
+        "机器人"
+      ],
+      "body_zh": "在GITAI，我们正通过开创性的机器人技术重塑空间探索的格局。我们的使命不仅是让太空作业更安全、更具成本效益，更是要在人类未来留下不可磨灭的印记。我们只寻求最卓越的人才加入这场激励人心的征程。\n\n作为GITAI精英团队的一员，您将与该领域最具远见的专家合作，包括东京大学的知名研究人员以及曾成功将企业出售给谷歌和美国运通等行业巨头的创始人和首席执行官。我们快速发展的公司提供一个充满活力且智力激荡的环境，专为不断追求创新而打造。\n\n与这些杰出人才并肩工作，您将助力开发开创性的机器人解决方案，彻底改变卫星、月球基地和火星城市的建设与维护。您的工作将涵盖从早期概念开发、实验室原型到目前部署在国际空间站商业舱模块中的最先进技术演示机器人。\n\n我们正在积极寻找不仅具备技术专长，还拥有坚定奉献精神和热情的卓越工程师及业务发展专业人士，推动我们雄心勃勃的使命。如果您是那种能够迎接挑战、重新定义空间探索边界的稀有人才，我们诚邀您加入GITAI，开创空间机器人技术的未来。",
+      "image": "https://gitai.tech/wp-content/uploads/2024/09/00_exterior_3-scaled.jpg",
+      "image_raw": "https://gitai.tech/wp-content/uploads/2024/09/00_exterior_3-scaled.jpg",
+      "images": [
+        "https://gitai.tech/wp-content/uploads/2020/03/fv-bg-24.png",
+        "https://gitai.tech/wp-content/uploads/2025/10/GSAT50-16-9-1030x579.jpg",
+        "https://gitai.tech/wp-content/uploads/2025/10/STT_1-1030x514.jpg",
+        "https://gitai.tech/wp-content/uploads/2023/03/ISS_IN1x2-copy-1024x555.jpg",
+        "https://gitai.tech/wp-content/uploads/2020/03/n-pro-bg-low-281x300.jpg"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-manufacturing/ac6939b0409ff4f9"
+    },
+    {
+      "id": "575286a5ce4b586d",
+      "title": "中国空间站：面向空间应用与在轨建造的太空制造布局",
+      "source": "中国载人航天工程办公室",
+      "url": "http://www.cmse.gov.cn/",
+      "published": "2024",
+      "region": "国内",
+      "aspect": "总体设计",
+      "summary": "中国空间站进入应用与发展阶段后，依托无容器材料、高温材料、流体物理等科学实验柜与舱外机械臂能力，系统开展微重力材料制备与在轨操作研究，并规划面向大型天线、桁架的在轨建造技术验证，为太空制造从实验走向工程化奠定平台基础。",
+      "tags": [
+        "国内",
+        "总体设计",
+        "空间站",
+        "在轨建造"
+      ],
+      "body_zh": "中国空间站进入应用与发展阶段后，依托无容器材料、高温材料、流体物理等科学实验柜与舱外机械臂能力，系统开展微重力材料制备与在轨操作研究，并规划面向大型天线、桁架的在轨建造技术验证，为太空制造从实验走向工程化奠定平台基础。",
+      "image": "http://www.cmse.gov.cn/images/indexImg1400_20200220_03.png",
+      "image_raw": "http://www.cmse.gov.cn/images/indexImg1400_20200220_03.png",
+      "images": [
+        "http://www.cmse.gov.cn/images/indexImg1400_20200220_03.png",
+        "http://www.cmse.gov.cn/synr/banner/202605/W020260525021053123037.jpg",
+        "http://www.cmse.gov.cn/synr/banner/202605/W020260511324211311289.png",
+        "http://www.cmse.gov.cn/synr/banner/202510/W020251101002701377147.jpg",
+        "http://www.cmse.gov.cn/synr/banner/202507/W020250715255672087587.png"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-manufacturing/575286a5ce4b586d"
+    },
+    {
+      "id": "7e1ad6654b728bad",
+      "title": "综述：我国太空制造/在轨制造技术发展与产业化前景",
+      "source": "新华网 / 中国航天报",
+      "url": "http://www.xinhuanet.com/tech/",
+      "published": "2024",
+      "region": "国内",
+      "aspect": "总体设计",
+      "summary": "公开报道综述指出，我国已在太空 3D 打印、微重力材料制备、在轨装配等方向取得阶段性突破，正推动太空制造从单项技术验证向体系化、工程化发展，并与商业航天、空间站应用结合，探索“太空造、造太空”的产业化路径。",
+      "tags": [
+        "国内",
+        "总体设计",
+        "产业",
+        "综述"
+      ],
+      "body_zh": "公开报道综述指出，我国已在太空 3D 打印、微重力材料制备、在轨装配等方向取得阶段性突破，正推动太空制造从单项技术验证向体系化、工程化发展，并与商业航天、空间站应用结合，探索“太空造、造太空”的产业化路径。",
+      "image": "http://www.news.cn/tech/newpage2020/images/icon-logo.png",
+      "image_raw": "http://www.news.cn/tech/newpage2020/images/icon-logo.png",
+      "images": [
+        "http://www.news.cn/tech/newpage2020/images/icon-logo.png",
+        "http://www.xinhuanet.com/tech/20260703/861365066f9f40cbbad8a4f747e40f41/20260703861365066f9f40cbbad8a4f747e40f41_20260703a9fd1d5caa2a49358fd6bedb6a009b3e.jpg",
+        "http://www.xinhuanet.com/tech/20260702/821e76ba32f94260b6e2623e6638623d/f92d557c1c434dc8b55175a591657fa2.jpg",
+        "http://www.xinhuanet.com/tech/20260626/f04dac05e0f642a9b7f885553e444487/20260626f04dac05e0f642a9b7f885553e444487_20260626c6bdd4750c5a459c8eeb7eb3d0c95702.jpg",
+        "http://www.xinhuanet.com/tech/20260625/7f20c2362395425396e25d2cdbf0c99d/202606257f20c2362395425396e25d2cdbf0c99d_20260625ba74e3c50a6748a79ce21890675486b3.jpg",
+        "http://www.xinhuanet.com/tech/20260624/1430113f52c44972ac2651e458a98976/17da910325004367bf93069554b32dd4.jpg"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-manufacturing/7e1ad6654b728bad"
+    },
+    {
+      "id": "1b778f19892e8d72",
+      "title": "长征五号B首飞搭载：国际首次连续纤维增强复合材料太空 3D 打印",
+      "source": "中国航天科技集团",
+      "url": "http://www.spacechina.com/",
+      "published": "2024",
+      "region": "国内",
+      "aspect": "专业技术",
+      "summary": "2020 年 5 月长征五号B运载火箭首飞任务中，新一代载人飞船试验船搭载“复合材料空间 3D 打印系统”，在轨自主完成连续纤维增强复合材料的样件打印，为国际上首次开展该类材料的太空 3D 打印，验证了微重力下增材制造成形工艺，为空间站在轨制造大尺寸构件积累关键技术。",
+      "tags": [
+        "国内",
+        "专业技术",
+        "太空3D打印",
+        "复合材料"
+      ],
+      "body_zh": "2020 年 5 月长征五号B运载火箭首飞任务中，新一代载人飞船试验船搭载“复合材料空间 3D 打印系统”，在轨自主完成连续纤维增强复合材料的样件打印，为国际上首次开展该类材料的太空 3D 打印，验证了微重力下增材制造成形工艺，为空间站在轨制造大尺寸构件积累关键技术。",
+      "image": "",
+      "image_raw": "",
+      "images": [],
+      "page_url": "https://links.he-ting.com/t/space-manufacturing/1b778f19892e8d72"
+    },
+    {
+      "id": "2f2da4f487b060d4",
+      "title": "中国空间站无容器材料实验柜：悬浮熔炼制备高性能材料",
+      "source": "中国科学院空间应用工程与技术中心",
+      "url": "http://www.csu.cas.cn/",
+      "published": "2024",
+      "region": "国内",
+      "aspect": "专业技术",
+      "summary": "中国空间站的无容器材料实验柜利用静电悬浮，使金属/合金样品在不接触容器壁的条件下熔化与凝固，避免容器污染并实现深过冷，用于研究微重力下新型合金、非晶与高温材料的凝固机理，是太空加工/材料制备的核心专业设备。",
+      "tags": [
+        "国内",
+        "专业技术",
+        "太空加工",
+        "材料"
+      ],
+      "body_zh": "中国空间站的无容器材料实验柜利用静电悬浮，使金属/合金样品在不接触容器壁的条件下熔化与凝固，避免容器污染并实现深过冷，用于研究微重力下新型合金、非晶与高温材料的凝固机理，是太空加工/材料制备的核心专业设备。",
+      "image": "http://www.csu.cas.cn/images/2022-logo.png",
+      "image_raw": "http://www.csu.cas.cn/images/2022-logo.png",
+      "images": [
+        "http://www.csu.cas.cn/images/2022-logo.png",
+        "http://www.csu.cas.cn/images/2022-logo-sm.png",
+        "http://www.csu.cas.cn/images/2022-logo-xs.png",
+        "http://www.csu.cas.cn/gb/zyxw/202607/W020260701659513703116.jpg",
+        "http://www.csu.cas.cn/gb/zyxw/202606/W020260630313112051595.jpg"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-manufacturing/2f2da4f487b060d4"
+    },
+    {
+      "id": "8db48ccc5181b3cf",
+      "title": "中国空间站高温材料科学实验柜：1600℃以上在轨材料制备",
+      "source": "中国载人航天工程办公室",
+      "url": "http://www.cmse.gov.cn/",
+      "published": "2024",
+      "region": "国内",
+      "aspect": "专业技术",
+      "summary": "高温材料科学实验柜可在轨提供 1600℃ 以上的高温环境，开展微重力下的晶体生长、金属凝固与相变研究。微重力抑制了对流与浮力效应，有助于制备更均匀、缺陷更少的高性能晶体与合金，服务于太空加工机理研究。",
+      "tags": [
+        "国内",
+        "专业技术",
+        "太空加工",
+        "晶体生长"
+      ],
+      "body_zh": "高温材料科学实验柜可在轨提供 1600℃ 以上的高温环境，开展微重力下的晶体生长、金属凝固与相变研究。微重力抑制了对流与浮力效应，有助于制备更均匀、缺陷更少的高性能晶体与合金，服务于太空加工机理研究。",
+      "image": "http://www.cmse.gov.cn/images/indexImg1400_20200220_03.png",
+      "image_raw": "http://www.cmse.gov.cn/images/indexImg1400_20200220_03.png",
+      "images": [
+        "http://www.cmse.gov.cn/images/indexImg1400_20200220_03.png",
+        "http://www.cmse.gov.cn/synr/banner/202605/W020260525021053123037.jpg",
+        "http://www.cmse.gov.cn/synr/banner/202605/W020260511324211311289.png",
+        "http://www.cmse.gov.cn/synr/banner/202510/W020251101002701377147.jpg",
+        "http://www.cmse.gov.cn/synr/banner/202507/W020250715255672087587.png"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-manufacturing/8db48ccc5181b3cf"
+    },
+    {
+      "id": "f5358b9f708caf9f",
+      "title": "空间站机械臂在轨操作：为大型结构在轨装配积累能力",
+      "source": "中国载人航天工程办公室",
+      "url": "http://www.cmse.gov.cn/",
+      "published": "2024",
+      "region": "国内",
+      "aspect": "专业技术",
+      "summary": "天和核心舱大机械臂与问天实验舱小机械臂具备级联、爬行与精细操作能力，已完成舱段转位、舱外载荷搬运与安装等任务。这些在轨操作能力是未来在轨装配大型天线、桁架等空间结构、支撑太空制造工程化的关键基础。",
+      "tags": [
+        "国内",
+        "专业技术",
+        "太空装配",
+        "机械臂"
+      ],
+      "body_zh": "天和核心舱大机械臂与问天实验舱小机械臂具备级联、爬行与精细操作能力，已完成舱段转位、舱外载荷搬运与安装等任务。这些在轨操作能力是未来在轨装配大型天线、桁架等空间结构、支撑太空制造工程化的关键基础。",
+      "image": "http://www.cmse.gov.cn/images/indexImg1400_20200220_03.png",
+      "image_raw": "http://www.cmse.gov.cn/images/indexImg1400_20200220_03.png",
+      "images": [
+        "http://www.cmse.gov.cn/images/indexImg1400_20200220_03.png",
+        "http://www.cmse.gov.cn/synr/banner/202605/W020260525021053123037.jpg",
+        "http://www.cmse.gov.cn/synr/banner/202605/W020260511324211311289.png",
+        "http://www.cmse.gov.cn/synr/banner/202510/W020251101002701377147.jpg",
+        "http://www.cmse.gov.cn/synr/banner/202507/W020250715255672087587.png"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-manufacturing/f5358b9f708caf9f"
+    },
+    {
+      "id": "482265c0c9805b91",
+      "title": "微重力增材制造工艺研究：面向在轨按需制造备件",
+      "source": "中国科学院 / 高校研究",
+      "url": "http://www.cas.cn/",
+      "published": "2024",
+      "region": "国内",
+      "aspect": "专业技术",
+      "summary": "国内多家科研机构与高校围绕微重力/真空环境下的熔融沉积、金属增材与陶瓷成形工艺开展地面模拟与在轨试验，研究熔池行为、层间结合与缺陷控制，目标是让空间站与深空任务能在轨按需打印工具、备件乃至结构件，减少对地面补给的依赖。",
+      "tags": [
+        "国内",
+        "专业技术",
+        "太空3D打印",
+        "备件制造"
+      ],
+      "body_zh": "国内多家科研机构与高校围绕微重力/真空环境下的熔融沉积、金属增材与陶瓷成形工艺开展地面模拟与在轨试验，研究熔池行为、层间结合与缺陷控制，目标是让空间站与深空任务能在轨按需打印工具、备件乃至结构件，减少对地面补给的依赖。",
+      "image": "http://www.cas.cn/images/z19_logo.png",
+      "image_raw": "http://www.cas.cn/images/z19_logo.png",
+      "images": [
+        "http://www.cas.cn/images/z19_logo.png",
+        "http://www.cas.cn/images/dsb01_20251217.png",
+        "http://www.cas.cn/images/dsb02_20251217.png",
+        "http://www.cas.cn/images/z19_pc_m.png",
+        "http://www.cas.cn/images/z19_en_m.png",
+        "http://www.cas.cn/images/wza_2024.png"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-manufacturing/482265c0c9805b91"
+    }
+  ],
+  "created_at": "2026-07-03 10:38",
+  "pushed": {
+    "admin": false,
+    "admin_at": null,
+    "all": false,
+    "all_at": null
+  }
+}

@@ -9,12 +9,13 @@ from __future__ import annotations
 import json
 import logging
 import os
+import re
 
 from fastapi import APIRouter, Header, HTTPException
 from pydantic import BaseModel
 
 from . import auth, news_store, qa, douyin_cookie, topic_intel, search_store
-from .paths import DATA_DIR
+from .paths import DATA_DIR, WAM_DIR
 
 log = logging.getLogger(__name__)
 
@@ -169,6 +170,52 @@ def api_news_search(q: str = "", kind: str | None = None, sort: str = "time",
                 "offset": offset, "limit": limit, "has_more": False, "items": []}
     return {"ok": True, **search_store.search(q, kind=kind, sort=sort, scope=scope,
                                                offset=offset, limit=limit)}
+
+
+# ---------------- 每周概览 ----------------
+_WEEK_ID_RE = re.compile(r"^\d{4}-W\d{2}$")
+_HIGHLIGHTS_DIR = WAM_DIR / "data" / "highlights"
+
+
+@router.get("/weekly/get")
+def api_weekly_get(week: str = ""):
+    """返回群发任务对应的冻结周快照，而不是随时间滚动的新闻窗口。"""
+    week = (week or "").strip()
+    if week and not _WEEK_ID_RE.fullmatch(week):
+        raise HTTPException(status_code=400, detail="week 格式应为 YYYY-Www")
+    if not week:
+        candidates = sorted(
+            path.parent.name
+            for path in _HIGHLIGHTS_DIR.glob("*/manifest.json")
+            if _WEEK_ID_RE.fullmatch(path.parent.name)
+        )
+        if not candidates:
+            raise HTTPException(status_code=404, detail="暂无每周概览")
+        week = candidates[-1]
+
+    path = _HIGHLIGHTS_DIR / week / "manifest.json"
+    try:
+        manifest = json.loads(path.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        raise HTTPException(status_code=404, detail="未找到该周概览")
+    except (OSError, json.JSONDecodeError) as exc:
+        log.warning("读取周概览失败 week=%s: %s", week, exc)
+        raise HTTPException(status_code=500, detail="周概览数据暂不可用")
+
+    overview = manifest.get("weekly_overview") or {}
+    item_ids = overview.get("item_ids") or []
+    by_id = {str(item.get("id")): item for item in manifest.get("items") or [] if item.get("id")}
+    items = [by_id[item_id] for item_id in item_ids if item_id in by_id]
+    return {
+        "ok": True,
+        "week_id": week,
+        "title": manifest.get("title", ""),
+        "period": manifest.get("period", ""),
+        "summary": manifest.get("summary", ""),
+        "overview_text": overview.get("text", ""),
+        "item_count": manifest.get("item_count", len(manifest.get("items") or [])),
+        "items": items,
+    }
 
 
 # ---------------- 问答 ----------------
