@@ -82,6 +82,26 @@
       </view>
     </block>
 
+    <block wx:if="{{isSuper}}">
+      <view class="sec-title">超管控制台 · 专题申请</view>
+      <view class="card">
+        <view wx:if="{{topicRequestsLoading}}" class="muted center">加载申请中…</view>
+        <view wx:if="{{!topicRequestsLoading && !topicRequests.length}}" class="muted center">暂无专题申请</view>
+        <view wx:for="{{topicRequests}}" wx:key="id" class="u-row"
+          data-request="{{item}}" bindtap="manageTopicRequest">
+          <view class="u-left">
+            <view class="u-name">{{item.title}}
+              <text class="badge sm {{item.cost_tier === 'high' ? 'super' : ''}}">{{item.cost_tier === 'high' ? '高开销' : '低开销'}}</text>
+            </view>
+            <view class="u-acc">申请人：{{item.applicant}} · {{item.estimate.reason}}</view>
+            <view wx:if="{{item.error}}" class="danger-text">{{item.error}}</view>
+          </view>
+          <text class="arrow">{{item.statusLabel}}{{item.status === 'pending' || item.status === 'failed' ? ' ›' : ''}}</text>
+        </view>
+      </view>
+      <view class="muted" style="margin:0 6rpx;">高开销申请需点击后补充可靠种子网址，再批准执行。</view>
+    </block>
+
     <!-- 用户管理：管理员与超管均可见 -->
     <block wx:if="{{isAdmin}}">
       <view class="sec-title">{{isSuper ? '超管控制台' : '管理控制台'}} · 用户管理（{{users.length}}）</view>

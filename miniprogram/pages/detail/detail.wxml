@@ -8,6 +8,11 @@
 
   <image wx:if="{{item.image}}" class="d-hero" src="{{item.image}}" mode="widthFix" />
 
+  <view wx:if="{{item.content_complete === false}}" class="d-guide incomplete">
+    <view class="d-guide-t">正文疑似不完整</view>
+    <view class="d-guide-s">{{item.content_notice}}</view>
+  </view>
+
   <!-- 政要社媒：结构化展示 渠道 / 原文 / 译文 / 解读 -->
   <block wx:if="{{item.kind === 'social'}}">
     <view class="s-block">
@@ -171,6 +176,9 @@
       <button class="btn ghost" bindtap="copyLink">复制原文链接</button>
     </view>
   </block>
+  <view class="d-actions">
+    <button class="btn" open-type="share">分享这条情报</button>
+  </view>
   <view class="muted center" style="margin-top:24rpx;">译文与解读由 AI 生成，仅供参考，以原文为准</view>
 </view>
 

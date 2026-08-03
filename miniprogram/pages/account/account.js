@@ -1,6 +1,11 @@
 const api = require('../../utils/api');
 const gate = require('../../utils/gate');
 
+const TOPIC_STATUS = {
+  pending: '待审批', queued: '等待执行', running: '生成中', done: '已生成',
+  rejected: '已拒绝', failed: '失败',
+};
+
 Page({
   data: {
     restricted: false,
@@ -23,6 +28,8 @@ Page({
     dyChecked: false,
     dyCookie: '',
     dySubmitting: false,
+    topicRequests: [],
+    topicRequestsLoading: false,
   },
 
   onShow() {
@@ -47,6 +54,7 @@ Page({
     if (restricted) return;
     if (loggedIn) this.refreshMe();
     if (loggedIn && u.is_admin) this.loadUsers();
+    if (loggedIn && u.is_super) this.loadTopicRequests();
     // 抖音抓取检测改为按钮触发（避免每次进页面都阻塞等待 ~20-45s）
   },
 
@@ -56,6 +64,7 @@ Page({
       app.setAuth(app.globalData.token, res.user);
       this.setData({ user: res.user, isAdmin: !!res.user.is_admin, isSuper: !!res.user.is_super });
       if (res.user.is_admin && !this.data.users.length) this.loadUsers();
+      if (res.user.is_super) this.loadTopicRequests();
     }).catch(() => {});
   },
 
@@ -96,6 +105,7 @@ Page({
     });
     wx.showToast({ title: '欢迎，' + res.user.real_name, icon: 'none' });
     if (res.user.is_admin) this.loadUsers();
+    if (res.user.is_super) this.loadTopicRequests();
   },
 
   logout() {
@@ -199,6 +209,67 @@ Page({
           .catch((e) => wx.showToast({ title: e.message, icon: 'none' }));
       },
     });
+  },
+
+  // ---------- 超级管理员：专题审批 ----------
+  loadTopicRequests() {
+    if (this.data.topicRequestsLoading) return;
+    this.setData({ topicRequestsLoading: true });
+    api.get('/admin/topic/requests')
+      .then((res) => {
+        const rows = (res.requests || []).map((row) => ({
+          ...row,
+          statusLabel: TOPIC_STATUS[row.status] || row.status,
+        }));
+        this.setData({ topicRequests: rows });
+      })
+      .catch((e) => wx.showToast({ title: e.message || '加载申请失败', icon: 'none' }))
+      .then(() => this.setData({ topicRequestsLoading: false }));
+  },
+
+  manageTopicRequest(e) {
+    const request = e.currentTarget.dataset.request;
+    if (!request || ['done', 'rejected', 'running', 'queued'].indexOf(request.status) >= 0) return;
+    const items = request.status === 'failed' ? ['重试', '拒绝'] : ['批准并执行', '拒绝'];
+    wx.showActionSheet({
+      itemList: items,
+      success: (result) => {
+        if (result.tapIndex === 1) {
+          this.decideTopicRequest(request, 'reject', []);
+          return;
+        }
+        if (request.cost_tier !== 'high' || (request.seed_urls || []).length) {
+          this.decideTopicRequest(request, request.status === 'failed' ? 'retry' : 'approve', []);
+          return;
+        }
+        const needed = (request.estimate && request.estimate.estimated_fetches) || 1;
+        wx.showModal({
+          title: '补充至少 ' + needed + ' 个网址',
+          content: '请提供可靠来源；多个网址可用空格、逗号或换行分隔。',
+          editable: true,
+          placeholderText: 'https://example.com/article',
+          success: (modal) => {
+            if (!modal.confirm) return;
+            const urls = (modal.content || '').split(/[\s,，;；]+/).filter(Boolean);
+            if (urls.length < needed) {
+              return wx.showToast({ title: '至少需要 ' + needed + ' 个网址', icon: 'none' });
+            }
+            this.decideTopicRequest(request, request.status === 'failed' ? 'retry' : 'approve', urls);
+          },
+        });
+      },
+    });
+  },
+
+  decideTopicRequest(request, action, seedUrls) {
+    api.post('/admin/topic/requests/decide', {
+      id: request.id, action, seed_urls: seedUrls,
+    })
+      .then(() => {
+        wx.showToast({ title: action === 'reject' ? '已拒绝' : '已开始执行', icon: 'none' });
+        this.loadTopicRequests();
+      })
+      .catch((e) => wx.showToast({ title: e.message || '操作失败', icon: 'none' }));
   },
 
   // ---------- 管理员：抖音 cookie ----------

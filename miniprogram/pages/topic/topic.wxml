@@ -4,6 +4,32 @@
     <view class="hero-sub">围绕指定专题的深度情报合集，非定期更新；每次发起聚合近 3 年、约 18 篇国内外内容。</view>
   </view>
 
+  <block wx:if="{{isAdmin}}">
+    <button class="btn apply-toggle" bindtap="toggleApply">{{showApply ? '收起申请' : '申请新增专题'}}</button>
+    <view wx:if="{{showApply}}" class="apply-card">
+      <view class="apply-title">新增专题申请</view>
+      <view class="apply-tip">系统先估算资料与模型开销：低开销自动生成，高开销交由超级管理员审批。</view>
+      <input class="apply-input" placeholder="专题名称（必填）" value="{{applyTitle}}"
+        data-field="applyTitle" bindinput="onApplyInput" />
+      <textarea class="apply-textarea" placeholder="专题简介（可选）" value="{{applyIntro}}"
+        data-field="applyIntro" bindinput="onApplyInput" maxlength="300" auto-height />
+      <input class="apply-input" placeholder="关键词，以逗号分隔" value="{{applyKeywords}}"
+        data-field="applyKeywords" bindinput="onApplyInput" />
+      <button class="btn" bindtap="submitApply" loading="{{applying}}" disabled="{{applying}}">提交申请</button>
+    </view>
+    <view wx:if="{{myRequests.length}}" class="request-card">
+      <view class="apply-title">我的申请</view>
+      <view wx:for="{{myRequests}}" wx:key="id" class="request-row">
+        <view class="request-main">
+          <text class="request-name">{{item.title}}</text>
+          <text class="request-reason">{{item.estimate.reason}}</text>
+          <text wx:if="{{item.error}}" class="request-error">{{item.error}}</text>
+        </view>
+        <text class="request-status {{item.status}}">{{item.statusLabel}}</text>
+      </view>
+    </view>
+  </block>
+
   <view class="searchbar">
     <view class="search-input-wrap">
       <text class="search-icon">🔍</text>

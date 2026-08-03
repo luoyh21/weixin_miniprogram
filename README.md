@@ -6,6 +6,8 @@
 - 底部 Tab 切换到**问答**页，向大模型提问并获得带链接的回答；
 - **我的**页提供注册 / 登录（真实姓名 + 账号 + 密码）；
 - 管理员（默认 `lq3525926` 罗一鹤，可多个）在「我的」页会额外出现**管理控制台**：查看 / 修改用户、抖音 Cookie 快捷更新。
+- 管理员可申请新增专题：已有完整资料达到阈值时自动生成，否则通知超级管理员补充种子网址后审批执行；抓取失败或正文不足的来源不会显示。
+- 新闻详情与专题详情支持分享给微信好友及朋友圈，并保留对应内容的深链参数。
 
 内容直接复用 `weixin_auto_message` 已生成的数据（`data/cache/*.json`）与其大模型问答逻辑，不重复抓取。
 
@@ -76,6 +78,10 @@ pkill -9 -f "[s]rc.server"      # 注意用括号技巧避免误杀
 | GET | `/news/week?days=14&kind=` | - | 近两周新闻（kind: intl/gzh/douyin）|
 | GET | `/news/item?id=` | - | 单条详情（含译文正文）|
 | POST | `/qa/ask` | Bearer | `{question}` → `{answer}` |
+| POST | `/topic/apply` | Admin | 申请新增专题并估算开销 |
+| GET | `/topic/requests/mine` | Admin | 查看自己的专题申请 |
+| GET | `/admin/topic/requests` | Super Admin | 查看全部专题申请 |
+| POST | `/admin/topic/requests/decide` | Super Admin | 补充来源并批准/拒绝/重试 |
 | GET | `/admin/users` | Admin | 用户列表 |
 | POST | `/admin/users/update` | Admin | `{account, real_name?, role?, new_password?}` |
 | POST | `/admin/users/delete` | Admin | `{account}` |
@@ -110,6 +116,9 @@ node scripts/upload.js 1.0.0 "首个版本"
 ## 小程序后台需要的配置（已具备 / 核对项）
 
 - **服务器域名**：request / uploadFile / downloadFile 均含 `https://links.he-ting.com` ✅
+- **分享**：详情页已实现 `onShareAppMessage` / `onShareTimeline`。朋友圈要求微信
+  8.0.24+，正式传播需上传、审核并发布小程序；生产环境还需确保 `gate.json`
+  中 `real=true`，否则分享进入后会被审核开关导向计算器页。
 - **消息推送**：URL `http://8.130.209.181`（80 端口）、Token `heting`、安全模式 + JSON —
   由 `weixin_auto_message/src/mp_verify_server.py` 处理 URL 接入验证（已在 80 端口运行）。
 - 业务上小程序只用到 `request`，图片用 `<image>`（不校验域名），无需额外业务域名。

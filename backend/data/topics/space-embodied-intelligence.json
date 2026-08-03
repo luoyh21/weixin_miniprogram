@@ -1,0 +1,375 @@
+{
+  "id": "space-embodied-intelligence",
+  "title": "太空具身智能",
+  "intro": "聚焦空间机器人、具身感知、自主决策与在轨智能操作的国内外进展。",
+  "years": 3,
+  "updated_at": "2026-08-03 17:06",
+  "created_at": "2026-08-03 17:04",
+  "stats": {
+    "count": 15,
+    "domestic": 3,
+    "intl": 12,
+    "design": 9,
+    "tech": 6
+  },
+  "items": [
+    {
+      "id": "2be708e13a0c1fef",
+      "title": "SpaceMind：面向自主在轨服务的自进化具身智能体",
+      "source": "arXiv / 中国科学院大学",
+      "url": "https://arxiv.org/abs/2604.14399",
+      "published": "2026-04",
+      "region": "国内",
+      "aspect": "专业技术",
+      "summary": "中国科学院团队提出面向自主在轨服务的自进化具身 VLM 智能体 SpaceMind，将视觉感知、三维推理、MCP 工具与运动控制组成闭环，并在 192 次仿真和实物运行中验证从失败学习及零代码迁移能力。",
+      "tags": [
+        "国内",
+        "专业技术",
+        "具身VLM",
+        "自进化",
+        "MCP"
+      ],
+      "body_zh": "SpaceMind 是面向自主在轨服务的模块化、自进化具身视觉语言智能体框架，由中国科学院大学与中国科学院空间应用工程与技术中心团队提出。它把视觉感知、三维空间推理、工具调用和运动控制统一到闭环任务中，使智能体能够围绕卫星搜索、接近、巡检等多阶段任务持续决策，而不只是离线识别图像。\n\n框架把能力拆分为三条可独立扩展的主线：带动态路由的技能模块、采用模型上下文协议（MCP）的可配置工具，以及可注入的推理模式。MCP-Redis 接口层将决策智能与仿真或机器人硬件解耦，使同一套代码可在 UE5 高保真仿真和物理实验平台之间零代码迁移。\n\n其“技能自进化”机制会把任务执行经验沉淀为持久、可审计的技能文件，无需重新微调模型。研究开展了 192 次闭环运行，覆盖 5 颗卫星、3 类任务、3 种推理模式和仿真/实物两种环境。标称条件下导航成功率达到 90%—100%；在退化条件下，前瞻推理模式表现出更强的搜索接近能力；自进化实验中有 4 组能够从失败经历中恢复，实物验证实现了零代码迁移和 100% 交会成功。\n\nSpaceMind 的意义在于把大模型从“知识问答”推进到受传感器约束、可调用工具、能够执行并从失败中学习的空间具身智能体，为自主交会、巡检、维修和长期无人值守在轨服务提供了可复现实验框架。",
+      "image": "",
+      "images": [],
+      "page_url": "https://links.he-ting.com/t/space-embodied-intelligence/2be708e13a0c1fef"
+    },
+    {
+      "id": "9a9276522cc21916",
+      "title": "欧洲RISE任务通过系统需求评审",
+      "source": "blogs.esa.int",
+      "url": "https://blogs.esa.int/cleanspace/2025/09/11/europe-advances-in-orbit-servicing-rise-mission-passes-milestone-review/",
+      "published": "2025-09-11",
+      "region": "国外",
+      "aspect": "总体设计",
+      "summary": "欧洲航天局（ESA）的欧洲轨道服务韧性任务（RISE）已成功完成系统需求评审（SRR）。评审确认该卫星的性能预计满足完成其成为欧洲首个商业轨道服务任务的所有要求。\n\nRISE是ESA空间安全计划的一部分，由主承包商D-Orbit共同资助，将安全地与一颗地球同步轨道卫星会合并对接，以延长其在燃料耗尽后的寿命。与卫星对接并控制其轨道和姿态需要先进机器人技术和近距离操作的新技术。\n\n鉴于任务的复杂性和创新性，D-Orbit将首先通过ESA任务在轨验证这些技术。随后，D-Orbit将利用该航天器为地球同步轨道的付费客户提供",
+      "tags": [
+        "国外",
+        "总体设计"
+      ],
+      "body_zh": "欧洲航天局（ESA）的欧洲轨道服务韧性任务（RISE）已成功完成系统需求评审（SRR）。评审确认该卫星的性能预计满足完成其成为欧洲首个商业轨道服务任务的所有要求。\n\nRISE是ESA空间安全计划的一部分，由主承包商D-Orbit共同资助，将安全地与一颗地球同步轨道卫星会合并对接，以延长其在燃料耗尽后的寿命。与卫星对接并控制其轨道和姿态需要先进机器人技术和近距离操作的新技术。\n\n鉴于任务的复杂性和创新性，D-Orbit将首先通过ESA任务在轨验证这些技术。随后，D-Orbit将利用该航天器为地球同步轨道的付费客户提供任务寿命延长服务。\n\n“过去18个月，D-Orbit及其合作伙伴在RISE设计上投入了大量努力，特别是通过一系列令人印象深刻的测试活动，展示了其捕获系统的优势，”ESA的RISE项目经理Andrew Wolahan表示。\n\nESA的系统需求评审于7月11日成功结束，确认D-Orbit的设计充分涵盖了需求和商业需求。该任务满足所有性能、安全和系统级要求，准备进入下一开发阶段。\n\nD-Orbit的RISE项目经理Mariella Ragno说：“系统需求评审的成功完成标志着RISE任务及D-Orbit本身的关键里程碑，验证了其通过广泛原型制作和测试支持的稳健设计。这一成就为欧洲首个商业轨道服务任务打开了大门，促进卫星寿命延长并提升空间可持续性。”\n\nRISE的技术和战略意义在巴黎勒布尔歇航空展上得到了突出展示，RISE在一个高级别讨论会上亮相，嘉宾包括ESA总干事Josef Aschbacher、意大利航天局（ASI）主席Teodoro Valente、意大利经济部长Giancarlo Giorgetti及D-Orbit首席执行官Luca Rossettini，讨论由ESA空间安全负责人Holger Krag主持。\n\n该讨论会展示了欧洲在轨道服务和空间可持续性领域发展自主能力的承诺，RISE合作伙伴遍布欧洲多个国家。\n\nRISE是ESA空间安全计划的基石任务，旨在加强保护地球轨道环境的努力，为空间的可持续利用铺路。作为ESA零碎片策略的一部分，ESA正根据严格的空间碎片缓解指南开发新任务，包括清洁、可持续的操作和寿命终结处置，防止到2030年产生新的碎片。\n\n通过实现卫星服务和寿命延长，RISE更进一步：它标志着从一次性卫星向空间循环经济的重大转变。卫星不再被废弃或替换，而是延长其轨道寿命。\n\n敬请关注RISE向2029年计划发射的持续发展。这将仅是欧洲商业轨道服务的开始。",
+      "image": "https://blogs.esa.int/cleanspace/files/2025/09/RISE_final-1024x576.jpg",
+      "image_raw": "https://blogs.esa.int/cleanspace/files/2025/09/RISE_final-1024x576.jpg",
+      "images": [
+        "https://blogs.esa.int/cleanspace/files/2025/09/RISE_final-1024x576.jpg",
+        "https://blogs.esa.int/cleanspace/files/2025/09/robotic-arm-1024x768.jpg",
+        "https://blogs.esa.int/cleanspace/files/2025/09/ESA_Rise_MissionLogo_Patch-1024x1024.png",
+        "https://blogs.esa.int/cleanspace/files/2025/09/RISE_places_focus_on_space_sustainability-1024x683.jpg"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-embodied-intelligence/9a9276522cc21916"
+    },
+    {
+      "id": "dbab38b2810e7e0e",
+      "title": "ISS机器人“Surface Avatar”火星模拟实验成功完成",
+      "source": "dlr.de",
+      "url": "https://www.dlr.de/en/latest/news/2025/marching-towards-mars-iss-robot-experiment-surface-avatar-successfully-concludes",
+      "published": "2025-07-24",
+      "region": "国外",
+      "aspect": "总体设计",
+      "summary": "四台机器人和一条与国际空间站（ISS）的实时连线，构成了德国航空航天中心（DLR）奥伯法芬霍芬“地球火星”基地的一幕非凡景象。2025年7月24日，Surface Avatar团队完成了迄今为止该系列活动中最具挑战性的最终实验。国际空间站上的NASA宇航员Jonny Kim指挥地面智能机器人团队，帮助他安全探索“火星地貌”并采集样本。Jonny能够根据需要联合部署机器人，进行半自主或全自主操作。此次还测试了新功能——人工智能聊天助手“Neal AI”，为宇航员的问题提供实时支持。\n\n“Surface Avatar是",
+      "tags": [
+        "国外",
+        "总体设计"
+      ],
+      "body_zh": "四台机器人和一条与国际空间站（ISS）的实时连线，构成了德国航空航天中心（DLR）奥伯法芬霍芬“地球火星”基地的一幕非凡景象。2025年7月24日，Surface Avatar团队完成了迄今为止该系列活动中最具挑战性的最终实验。国际空间站上的NASA宇航员Jonny Kim指挥地面智能机器人团队，帮助他安全探索“火星地貌”并采集样本。Jonny能够根据需要联合部署机器人，进行半自主或全自主操作。此次还测试了新功能——人工智能聊天助手“Neal AI”，为宇航员的问题提供实时支持。\n\n“Surface Avatar是空间人机协作的里程碑。我们现已实现了控制火星复杂机器人任务的所有技术要求——以及未来永久月球科研站的需求，”DLR机器人与机电一体化研究所所长Alin Albu-Schäffer解释道。\n\n此次技术演示的核心是使受过最少训练的人能够有针对性地指挥和部署多样化机器人团队。Surface Avatar系列实验自2022年启动，由DLR机器人与机电一体化研究所领导，联合ESA和德国空间运营中心（GSOC）共同执行。\n\n“通过让宇航员在微重力环境中操作，并利用中继卫星，我们克服了远程控制机器人的技术难题，”ESA人机交互实验室负责人Thomas Krüger表示。“因此，我们有信心应对未来的场景——从月球门户站和月球基地到地球机器人操作。通过这些实验和技术，我们在欧洲积累了独特的专业知识，并带来了地球应用的衍生效应。”\n\n与2024年7月相比，任务不仅更复杂，机器人也更自主，且新增了第四台机器人。除了人形机器人DLR的Rollin' Justin、ESA的Interact漫游车和DLR的四足机器人Bert，四足的ESA机器人“Spot”现加入探索团队。\n\nSpot体型比Bert大，装备有抓取臂。宇航员Jonny Kim指示Spot自主定位散落的样品容器并将其带到转运站。随后，Kim转向DLR的Rollin' Justin机器人，后者负责将容器从转运站运送至着陆器。这两台机器人自主采集了多个“火星样本”以返回地球，使宇航员能专注于后续任务。\n\nSurface Avatar 3——国际空间站至地面远程机器人实验直播\n\nSurface Avatar团队在下一项挑战——洞穴探索中，展示了机器人卓越的团队协作和学习能力。Jonny Kim指挥携带DLR Bert机器人的Interact漫游车——这是全球首次机器人间的机器人运输。在宇航员远程控制下，Interact漫游车驶向洞穴，小心地用抓取臂将Bert放置在地面。\n\n但Bert“受伤”了——一条腿卡住，无法按计划探索洞穴。地面实验团队故意制造了这一故障，迫使宇航员和机器人必须即兴解决突发问题，就像真实太空任务中一样。DLR的Bert机器人配备了“强化学习”技术，一种机器学习方法。为找到三足稳定步态，Jonny Kim进行了“训练”——让机器人尝试不同步态并评估，直到Bert找到可行的三足行走策略。训练成功后，Bert完成了洞穴探索。此时宇航员选择手动控制——通过Bert的摄像头观察视角，使用机器人指挥终端的操纵杆远程控制它。\n\nNASA宇航员Jonny Kim与奥伯法芬霍芬模拟火星基地的机器人协作顺利，所有任务（包括可选任务）均在短短两个半小时内成功完成。Kim手动控制漫游车拾取样品容器并放置于转运站，利用机器人四处巡视、观察、探索、触摸和感知环境。Kim出色地将机器人作为智能同事部署，现场规划和执行任务。它们作为远程的物理延伸，犹如任务精神的化身。\n\n为准备任务，宇航员使用了基于欧洲供应商Mistral AI大型语言模型（LLM）的新型AI聊天助手“Neal AI”。DLR机器人与机电一体化研究所的开发团队专门为Surface Avatar活动训练了该聊天机器人。在训练阶段，它回答了Jonny Kim关于机器人功能、控制单元操作和用户界面的问题。未来火星任务中，火星与地球间信号延迟可达40分钟。设想在探索团队与控制中心通信间隙，像Neal AI这样的AI助手能即时帮助宇航员解答疑问。\n\n“Surface Avatar的最终实验是本次任务的完美收官，”DLR机器人与机电一体化研究所首席研究员Neal Y. Lii总结道。“它展示了机器人如何支持宇航员探索太空。我期待与ESA的这次富有成果的合作后，庆祝更多联合成功。”\n\n为结束Surface Avatar系列，NASA宇航员Jonny Kim与DLR科学家Neal Lii握手——借助DLR机器人Rollin' Justin的力反馈技术，将握手的力量和动作传递给双方。这一感人时刻展示了“德国制造”的技术实力。德国在补偿空间时延的控制技术方面处于全球领先地位。这次远程握手仪式是DLR与ESA共同旅程的恰当致敬。受人工智能发展的驱动，机器人技术将继续为人类开辟新的维度。",
+      "image": "https://www.dlr.de/en/latest/news/2025/marching-towards-mars-iss-robot-experiment-surface-avatar-successfully-concludes/dlr-robot-rollin-justin-collects-sample-containers/@@images/image-1000-92e4a04034f47f873cef0a59320f2bfd.jpeg",
+      "image_raw": "https://www.dlr.de/en/latest/news/2025/marching-towards-mars-iss-robot-experiment-surface-avatar-successfully-concludes/dlr-robot-rollin-justin-collects-sample-containers/@@images/image-1000-92e4a04034f47f873cef0a59320f2bfd.jpeg",
+      "images": [
+        "https://www.dlr.de/en/latest/news/2025/marching-towards-mars-iss-robot-experiment-surface-avatar-successfully-concludes/dlr-robot-rollin-justin-collects-sample-containers/@@images/image-1000-92e4a04034f47f873cef0a59320f2bfd.jpeg",
+        "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=",
+        "https://www.dlr.de/en/latest/news/2025/marching-towards-mars-iss-robot-experiment-surface-avatar-successfully-concludes/dlr-rover-bert-discovers-cave-paintings/@@images/image-1000-6ca268dd773dd8b16f865ec847126b81.jpeg",
+        "https://www.dlr.de/en/latest/news/2025/marching-towards-mars-iss-robot-experiment-surface-avatar-successfully-concludes/premier-robot-carries-robot/@@images/image-1000-048127ab63039700610e6431e1b51cfb.jpeg"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-embodied-intelligence/dbab38b2810e7e0e"
+    },
+    {
+      "id": "2c299a669bcb28a5",
+      "title": "中国空间站管道检测机器人完成在轨试验",
+      "source": "news.cctv.com",
+      "url": "https://news.cctv.com/2025/02/21/ARTIoGJAvYUItYv96iuCc1uo250221.shtml",
+      "published": "2025-02-21",
+      "region": "国内",
+      "aspect": "专业技术",
+      "summary": "新年伊始，中国空间站航天技术试验领域成功完成了空间站管道检测机器人的在轨试验，验证了管道检测机器人对管道环境的适应能力及变刚度运动的安全性，为未来空间站完成管道检测提供了技术基础。这次在轨试验是如何开展的？机器人在执行管道检测时遇到了哪些难点和挑战？在设计上又有哪些巧思？让我们一探究竟。\n\n■ 宇航员开展管道检测机器人在轨试验\n\n管道检测机器人在轨试验是如何开展的？\n\n宇航员在轨搭建了包含不同直径的直管、弯管、锥管的模拟管道，在模拟管道内开展了机器人运动能力试验、收缩状态下机器人拉出试验和机器人状态微调后拉出试验。",
+      "tags": [
+        "国内",
+        "专业技术"
+      ],
+      "body_zh": "新年伊始，中国空间站航天技术试验领域成功完成了空间站管道检测机器人的在轨试验，验证了管道检测机器人对管道环境的适应能力及变刚度运动的安全性，为未来空间站完成管道检测提供了技术基础。这次在轨试验是如何开展的？机器人在执行管道检测时遇到了哪些难点和挑战？在设计上又有哪些巧思？让我们一探究竟。\n\n■ 宇航员开展管道检测机器人在轨试验\n\n管道检测机器人在轨试验是如何开展的？\n\n宇航员在轨搭建了包含不同直径的直管、弯管、锥管的模拟管道，在模拟管道内开展了机器人运动能力试验、收缩状态下机器人拉出试验和机器人状态微调后拉出试验。\n\n试验过程中，机器人能够平稳可靠地通过多种直径的直管、弯管、锥管，验证了适应多种复杂管道的机器人自主运动技术；机器人断电后能够轻松地从复杂管道内拉出，验证了机器人被动柔顺机构的安全性。\n\n■ 机器人运动能力试验\n\n在轨开展试验过程中，地面人员通过地面支撑岗软件同步观测机器人的位置、电流、接触力等状态数据，实时监控机器人运动状态，协助宇航员完成在轨操作。同时，地面人员通过分析获得的相关数据，评估试验结果，为后续试验提供依据。\n\n本次管道检测机器人在轨试验，是我国空间站开展的首个舱内特种作业机器人在轨试验，验证了适应多种复杂管道的大变径比管道机器人设计和多级协调刚身运动控制等关键技术，证明了机器人在空间站管道复杂环境下的自主适应运动能力和安全性，为未来在空间站管道的实际应用积累了宝贵经验。\n\n■ 宇航员开展管道检测机器人在轨试验\n\n管道检测机器人面临哪些挑战？\n\n空间站管道结构复杂，管径跨度大、突变、不连续，机器人适应空间站管道完成自主运动是一大挑战；\n\n机器人在管道内运动，既要保证机器人与管壁接触力对管径变化的适应性，还要保证意外情况下不能卡滞在管道中，因此管道机器人在管道中的运动安全性也是一大挑战。\n\n■ 空间站管道检测机器人\n\n管道检测机器人的仿生变刚度设计\n\n值得一提的是，管道机器人借鉴了棘皮动物（如海星、海胆、海参等）的管足官“静止时收缩于体内，运动时向外延伸”的运动机制，提出了“自主伸缩、受力收缩、无电变刚”的仿生变刚度设计思路，设计了主被动结合的多部剪切伸缩机构。\n\n■ 棘皮动物及管足\n\n管道机器人的被动机构使机器人足部可根据管径快速调整长度，以适应管径变化；主动机构实时控制机器人腿部与管壁的压力，保证机器人足部与管壁可靠接触，使机器人拥有足够前进动力。\n\n既能适应复杂的空间站管道，又能保证空间站管道的安全，解决了空间站管道复杂环境自主适应运动能力和运动安全性的两大难题。\n\n■ 剪切伸缩机构\n\n机器人采用两头两尾前后对称的模块化结构，拥有23个自由度，配备位置、力等多种类型传感器。机器人的“智能大脑”利用机身传感器信息计算管道机器人姿态、位置，并给出运动策略，在保障管道安全的前提下，调整机身各关节位置、速度、力的输出，使机器人平稳地在空间站管道内运动。\n\n看过以上讲解，你是不是对空间站开展的管道检测机器人在轨验证试验有了更为清晰的了解？此前不久，《天宫TV》画面中记录下神舟十九号乘组在轨开展此试验的片段，一起来回顾吧↓↓↓\n\n管道检测机器人在轨验证视频回顾\n\n（画面来源：中国载人航天）\n\n京ICP备10003349号-1 中央广播电视总台 央视网 版权所有",
+      "image": "https://p1.img.cctvpic.com/photoAlbum/templet/common/DEPA1502157896010276/newslog200.jpg",
+      "image_raw": "https://p1.img.cctvpic.com/photoAlbum/templet/common/DEPA1502157896010276/newslog200.jpg",
+      "images": [
+        "https://p2.img.cctvpic.com/photoworkspace/contentimg/2025/02/21/2025022114020887149.png",
+        "https://p1.img.cctvpic.com/photoworkspace/contentimg/2025/02/21/2025022114065584883.gif",
+        "https://news.cctv.com/photoworkspace/imageLocalized/2025/02/21/ERROR FILE SIZE TOO BIG >= 5M!!  2025022114020824869.gif",
+        "https://p2.img.cctvpic.com/photoworkspace/contentimg/2025/02/21/2025022114072854092.gif",
+        "https://news.cctv.com/photoworkspace/imageLocalized/2025/02/21/ERROR FILE SIZE TOO BIG >= 5M!!  2025022114020952864.gif",
+        "https://p5.img.cctvpic.com/photoworkspace/contentimg/2025/02/21/2025022114021172902.png"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-embodied-intelligence/2c299a669bcb28a5"
+    },
+    {
+      "id": "66a5116dd8252214",
+      "title": "NASA机器人展示自主抓取技术",
+      "source": "nasa.gov",
+      "url": "https://www.nasa.gov/image-article/robot-gets-a-grip/",
+      "published": "2025-02-06",
+      "region": "国外",
+      "aspect": "专业技术",
+      "summary": "这张拍摄于 2025 年 2 月 4 日的图片中，附着在 Astrobee 自由飞行机器人上的蓝色触手状机械臂抓住了一个“捕获立方体”。这款实验性夹持器展示了自主检测和捕获技术，未来可能用于清除低地轨道的太空碎片和卫星维护。\n\nAstrobee 系统由 NASA 位于硅谷的艾姆斯研究中心设计制造，用于国际空间站内部。该系统包括三个立方体形状的机器人（分别命名为 Bumble、Honey 和 Queen）、软件和用于充电的对接站。机器人使用电风扇作为推进系统，使其能够在空间站的微重力环境中自由飞行。摄像头和传感器帮助",
+      "tags": [
+        "国外",
+        "专业技术"
+      ],
+      "body_zh": "这张拍摄于 2025 年 2 月 4 日的图片中，附着在 Astrobee 自由飞行机器人上的蓝色触手状机械臂抓住了一个“捕获立方体”。这款实验性夹持器展示了自主检测和捕获技术，未来可能用于清除低地轨道的太空碎片和卫星维护。\n\nAstrobee 系统由 NASA 位于硅谷的艾姆斯研究中心设计制造，用于国际空间站内部。该系统包括三个立方体形状的机器人（分别命名为 Bumble、Honey 和 Queen）、软件和用于充电的对接站。机器人使用电风扇作为推进系统，使其能够在空间站的微重力环境中自由飞行。摄像头和传感器帮助它们“看见”并导航周围环境。机器人还配备了一个停靠臂，可以抓住空间站的扶手以节省能量，或抓取并固定物品。\n\n图片来源：NASA/Suni Williams",
+      "image": "https://www.nasa.gov/wp-content/uploads/2025/02/54309404126-193903b867-o.jpg",
+      "image_raw": "https://www.nasa.gov/wp-content/uploads/2025/02/54309404126-193903b867-o.jpg",
+      "images": [
+        "https://www.nasa.gov/wp-content/uploads/2025/02/54309404126-193903b867-o.jpg?w=2048"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-embodied-intelligence/66a5116dd8252214"
+    },
+    {
+      "id": "ffb31b4b44208550",
+      "title": "德国DLR空间机器人操作技术进展",
+      "source": "elib.dlr.de",
+      "url": "https://elib.dlr.de/207970/",
+      "published": "2024-09",
+      "region": "国外",
+      "aspect": "专业技术",
+      "summary": "随着地球轨道上空间碎片的日益增多，具备轨道维修、加注燃料和组装能力的机器人对于实现可持续的太空探索变得尤为重要。德国航空航天中心（DLR）自1993年起便致力于空间机器人操作技术的研发，最初通过搭载在航天飞机上的六自由度机械臂ROTEX实验，验证了多种控制模式下的物体抓取能力。随后，ROKVISS项目在国际空间站外部运行了超过五年，积累了关节扭矩控制在太空恶劣环境中的宝贵数据。最新的CAESAR机械臂则是一款轻量化、柔顺且具备七自由度冗余设计的机器人，能够在轨道上执行复杂的对接和抓取任务。通过这些技术进步，DLR为",
+      "tags": [
+        "国外",
+        "专业技术"
+      ],
+      "body_zh": "随着地球轨道上空间碎片的日益增多，具备轨道维修、加注燃料和组装能力的机器人对于实现可持续的太空探索变得尤为重要。德国航空航天中心（DLR）自1993年起便致力于空间机器人操作技术的研发，最初通过搭载在航天飞机上的六自由度机械臂ROTEX实验，验证了多种控制模式下的物体抓取能力。随后，ROKVISS项目在国际空间站外部运行了超过五年，积累了关节扭矩控制在太空恶劣环境中的宝贵数据。最新的CAESAR机械臂则是一款轻量化、柔顺且具备七自由度冗余设计的机器人，能够在轨道上执行复杂的对接和抓取任务。通过这些技术进步，DLR为未来空间机器人技术的发展奠定了坚实基础，推动了空间环境的可持续利用。",
+      "image": "https://elib.dlr.de/images/dlr_icons/institutslogo.gif",
+      "image_raw": "https://elib.dlr.de/images/dlr_icons/institutslogo.gif",
+      "images": [
+        "https://elib.dlr.de/images/dlr_icons/institutslogo.gif",
+        "https://elib.dlr.de/images/dlr_icons/header_agentur.gif",
+        "https://elib.dlr.de/images/dlr_icons/dlr_logo.gif",
+        "https://elib.dlr.de/images/dlr_icons/tellafriend.gif",
+        "https://elib.dlr.de/images/dlr_icons/print.gif",
+        "https://elib.dlr.de/style/images/fileicons/application_pdf.png"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-embodied-intelligence/ffb31b4b44208550"
+    },
+    {
+      "id": "dc892da90e5edc30",
+      "title": "Surface Avatar实现空间远程机器人协同作业",
+      "source": "dlr.de",
+      "url": "https://www.dlr.de/en/blog/archive/2024/surface-avatar-remotely-controlling-robots-from-space-to-complete-tasks-and-explore-other-worlds",
+      "published": "2024-07",
+      "region": "国外",
+      "aspect": "总体设计",
+      "summary": "上周，我们在远程控制空间机器人团队方面取得了令人振奋的技术进展。2024年7月9日至10日，在德国航空航天中心（DLR）的领导下，并与欧洲航天局（ESA）合作，我们成功完成了国际空间站（ISS）上Surface Avatar远程机器人任务的又一阶段。为此，NASA宇航员Tracy 'TC' Dyson和Jeanette Epps在国际空间站上，与地面控制中心协同操作，远程控制部署在DLR奥伯法芬霍芬模拟火星环境中的机器人团队。Surface Avatar的目标是研究控制机器人团队进行空间探索、组装和维护所需的新技术",
+      "tags": [
+        "国外",
+        "总体设计"
+      ],
+      "body_zh": "上周，我们在远程控制空间机器人团队方面取得了令人振奋的技术进展。2024年7月9日至10日，在德国航空航天中心（DLR）的领导下，并与欧洲航天局（ESA）合作，我们成功完成了国际空间站（ISS）上Surface Avatar远程机器人任务的又一阶段。为此，NASA宇航员Tracy 'TC' Dyson和Jeanette Epps在国际空间站上，与地面控制中心协同操作，远程控制部署在DLR奥伯法芬霍芬模拟火星环境中的机器人团队。Surface Avatar的目标是研究控制机器人团队进行空间探索、组装和维护所需的新技术。\n\n该理念是为宇航员提供一个用户友好的控制台，配备视觉显示、力觉和触觉反馈以及直观的图形用户界面等多种操作工具。这样的控制台将作为宇航员身体的延伸，通过将任务委派给机器人——一个能够执行简单任务的智能助手。这个概念被称为可扩展自主性。\n\n通过可扩展自主性，宇航员可以灵活决定是亲自完成任务还是委托机器人执行。他们还可以选择一边操作一个机器人，一边将任务委托给另一个机器人，从而执行更大、更复杂的操作，不仅在国际空间站上，未来还可应用于月球或火星表面。\n\n这次，我们与国际空间站的宇航员团队有两整天时间继续测试Surface Avatar。我们利用这段时间测试了用三种不同实验中的多机器人远程操作土壤探测器，这些机器人各具独特能力。在一个样品管实验中，我们研究了机器人如何与人类沟通其任务，特别是当机器人无法完成任务时，它如何与宇航员交流，以及宇航员如何帮助机器人找到解决方案。这对于空间任务中的问题解决和故障修复尤为重要，因为地面任务控制的支持因信号传输延迟而有限。\n\n在国际空间站上，TC和Jeanette还使用DLR的四足机器人Bert探索了地面模拟的行星环境。宇航员用这个小型机器人寻找小物体，从地面拾取并安全存储，生动展示了此类机器的惊人多功能性和适应性。\n\n两天的测试大部分时间用于采集和处理岩石样本。可能是世界首次，国际空间站宇航员同时操作多台机器人，包括ESA的Interact漫游车和DLR的Rollin' Justin。通过在直接控制和监督自主之间切换，机器人能够从多个地点采集岩石样本，然后存储并交付进行分析。\n\n能够并行且协调地控制多台机器人，是未来需要在极端条件下执行复杂任务的关键一步。\n\n我们的国际空间站宇航员TC和Jeanette在完成这些迄今为止最具挑战性的远程机器人操作任务中表现出色。最终，他们完成了所有任务，获得了宝贵的经验，并且过程充满乐趣。这些积极的体验不仅对当前任务的成功至关重要，也将为未来如阿尔忒弥斯任务中可能部署这些技术和机器人的月球任务提供支持。我们现已完成Surface Avatar的两项主要实验和第五次国际空间站任务。我们有信心，凭借所获得的洞见和进展，我们将继续处于空间机器人技术的前沿，推动空间探索的可能性。",
+      "image": "https://www.dlr.de/en/blog/archive/2024/surface-avatar-remotely-controlling-robots-from-space-to-complete-tasks-and-explore-other-worlds/view-of-the-dlr-gsoc-control-centre-astronaut-jeanette-epps-operates-rollin-justin/@@images/image-1000-b0ecc9f875f421ebde2fe14fb9e30f68.jpeg",
+      "image_raw": "https://www.dlr.de/en/blog/archive/2024/surface-avatar-remotely-controlling-robots-from-space-to-complete-tasks-and-explore-other-worlds/view-of-the-dlr-gsoc-control-centre-astronaut-jeanette-epps-operates-rollin-justin/@@images/image-1000-b0ecc9f875f421ebde2fe14fb9e30f68.jpeg",
+      "images": [
+        "https://www.dlr.de/en/blog/archive/2024/surface-avatar-remotely-controlling-robots-from-space-to-complete-tasks-and-explore-other-worlds/view-of-the-dlr-gsoc-control-centre-astronaut-jeanette-epps-operates-rollin-justin/@@images/image-1000-b0ecc9f875f421ebde2fe14fb9e30f68.jpeg",
+        "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=",
+        "https://www.dlr.de/en/blog/archive/2024/surface-avatar-remotely-controlling-robots-from-space-to-complete-tasks-and-explore-other-worlds/bert-the-four-legged-robot-dlr-s-walking-search-dog-for-exploring-alien-worlds/@@images/image-1000-d4227f8a23b06b2f08ec3a1f223a5abd.jpeg",
+        "https://www.dlr.de/en/blog/archive/2024/surface-avatar-remotely-controlling-robots-from-space-to-complete-tasks-and-explore-other-worlds/the-esa-interact-rover-brings-a-rock-sample-to-the-landing-module/@@images/image-1000-dc5b215d4b83a558c0fcc0dcc9d1d52b.jpeg"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-embodied-intelligence/dc892da90e5edc30"
+    },
+    {
+      "id": "6907ef11c06cdc36",
+      "title": "Astroscale ADRAS-J完成轨道会合并启动近距接近",
+      "source": "astroscale.com",
+      "url": "https://www.astroscale.com/en/news/astroscales-adras-j-completes-successful-rendezvous-and-initiates-proximity-approach",
+      "published": "2024-04-11",
+      "region": "国外",
+      "aspect": "总体设计",
+      "summary": "ADRAS-J视觉相机探测火箭上面级并实现数百公里距离的仅角度导航：轨道会合与近距离操作（RPO）的里程碑事件。\n\n日本东京，2024年4月11日——Astroscale Japan Inc.（“Astroscale Japan”），隶属于Astroscale Holdings Inc.（“Astroscale”），该公司是涵盖所有轨道的卫星服务和长期轨道可持续性市场领导者，宣布其商业碎片检测演示卫星——由Astroscale日本公司主导的主动碎片移除卫星（ADRAS-J）已实现重大技术里程碑：完成任务的会合阶段并",
+      "tags": [
+        "国外",
+        "总体设计"
+      ],
+      "body_zh": "ADRAS-J视觉相机探测火箭上面级并实现数百公里距离的仅角度导航：轨道会合与近距离操作（RPO）的里程碑事件。\n\n日本东京，2024年4月11日——Astroscale Japan Inc.（“Astroscale Japan”），隶属于Astroscale Holdings Inc.（“Astroscale”），该公司是涵盖所有轨道的卫星服务和长期轨道可持续性市场领导者，宣布其商业碎片检测演示卫星——由Astroscale日本公司主导的主动碎片移除卫星（ADRAS-J）已实现重大技术里程碑：完成任务的会合阶段并进入近距离接近阶段。此次成功标志着启动了仅角度导航，这是一种通过服务卫星机载摄像头估算相对位置和速度的导航方法。\n\n在会合阶段，ADRAS-J通过多次轨道提升机动，从数千公里外开始接近目标火箭上面级。该上面级于2009年发射，是一个未准备的目标，不提供任何GPS数据，意味着轨道会合任务所需的精确位置不可用。基于地面观测的有限信息，Astroscale在日本和英国的运营团队成功将ADRAS-J服务卫星机动至距离火箭上面级数百公里范围内。随后，ADRAS-J的视觉相机成功探测到目标，并利用Astroscale开发的仅角度导航算法处理图像。\n\n“启动仅角度导航是ADRAS-J任务的重大里程碑，彰显了Astroscale日本、英国及美国团队的专业知识和协作，”Astroscale Japan的ADRAS-J项目经理Eijiro Atarashi表示。“这使我们更进一步提升轨道会合与近距离操作能力，加深对空间碎片的理解，强化我们对空间可持续发展的承诺。”\n\n随着任务进入近距离接近阶段，ADRAS-J将继续展示业界领先的轨道会合与近距离操作技术。配备多种机载会合载荷传感器，ADRAS-J将安全接近目标，捕获关键的相对导航信息，如距离和姿态。这些传感器之间的无缝协调和切换对任务成功至关重要，类似于在高速移动的车辆中从望远镜切换到双筒望远镜再到放大镜，体现了此类任务所需的复杂性和精确性。\n\nADRAS-J航天器由日本宇宙航空研究开发机构（JAXA）选定，作为其商业碎片移除演示计划第一阶段。Astroscale Japan负责ADRAS-J的设计、制造、测试、发射及运营。\n\nADRAS-J是一项开创性任务，是全球首次尝试通过轨道会合与近距离操作安全接近、表征并调查现有大型碎片状态。近距离接近阶段后，ADRAS-J将尝试绕飞，捕获关键图像和数据，以评估火箭体的运动和结构状况。该任务开启了轨道会合与近距离操作任务的新纪元，为未来轨道服务奠定基础，推动空间环境的可持续发展。任务计划于2024年5月底完成。\n\n（以下内容为机器翻译，可能不完全准确）\n\n隐藏在地球同步轨道的碎片是警钟：可见性必须转化为行动\n\nAstroscale领导新的行业倡议，关注航天器再入和大气影响\n\nAstroscale与SKY Perfect JSAT建立战略合作伙伴关系，推进空间基础设施发展",
+      "image": "https://images.ctfassets.net/k5fy2axdrsqr/wp_image_7778/41ad333686b605d46adae9f0f139c13d/7778_astroscale_s_adras_j_004.jpg",
+      "image_raw": "https://images.ctfassets.net/k5fy2axdrsqr/wp_image_7778/41ad333686b605d46adae9f0f139c13d/7778_astroscale_s_adras_j_004.jpg",
+      "images": [
+        "https://images.ctfassets.net/k5fy2axdrsqr/wp_image_7778/41ad333686b605d46adae9f0f139c13d/7778_astroscale_s_adras_j_004.jpg?q=80&fm=webp&w=1920&h=823&fit=fill&f=face",
+        "https://images.ctfassets.net/k5fy2axdrsqr/wp_image_6929/a689056b5e6b71710584d1402055e70b/6929_astroscale_expands_operations_to_france_and_secures_contract_with_cnes.webp?q=80&fm=webp&w=1920&h=1080&fit=fill&f=face",
+        "https://images.ctfassets.net/k5fy2axdrsqr/wp_image_7707/9d58aa20a7afd7c06c7554f2541abb08/7707_final_astroscale_refueller_satellite.jpg?q=80&fm=webp&w=1920&h=1080&fit=fill&f=face",
+        "https://images.ctfassets.net/k5fy2axdrsqr/wp_image_7219/efcb09654e0a0c28aa43214cf6eb9438/7219_adras_j_in_orbit.jpg?q=80&fm=webp&w=1920&h=1080&fit=fill&f=face",
+        "https://images.ctfassets.net/k5fy2axdrsqr/wp_image_7665/45ad8c60682d0fdcfe4c74eeaff56aeb/7665_adras_j_successful_launch_credit_rocket_lab.jpg?q=80&fm=webp&w=1920&h=1080&fit=fill&f=face",
+        "https://images.ctfassets.net/k5fy2axdrsqr/7tdS3uMDm6ZjkQdD7uEYSf/1ad82d480dfc7cbe99a6547f14c2cc7a/SectionBreak_APS-R_bg.png?q=80&fm=webp&w=1920"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-embodied-intelligence/6907ef11c06cdc36"
+    },
+    {
+      "id": "125a607c2f41ae6f",
+      "title": "GITAI成功完成国际空间站外部机器人演示",
+      "source": "gitai.tech",
+      "url": "https://gitai.tech/2024/03/19/gitai-completes-fully-successful-technology-demonstration-outside-the-iss/",
+      "published": "2024-03-19",
+      "region": "国外",
+      "aspect": "总体设计",
+      "summary": "继国际空间站外部演示成功后，GITAI 计划进一步加速自主研发轨道服务机器人，目标是在 2026 年开始轨道服务。\n\n加利福尼亚托伦斯——（2024 年 3 月 19 日）——总部位于美国洛杉矶的领先太空机器人初创公司 GITAI USA Inc.（GITAI）欣然宣布，已成功完成一项聚焦空间内服务、组装和制造（ISAM）的外部演示中的所有计划任务。这些任务对于轨道卫星服务至关重要，演示中使用的是一套 1.5 米长的自主双机械臂系统（S2），在国际空间站（ISS）外部完成。这是继 2021 年在国际空间站内部的首次",
+      "tags": [
+        "国外",
+        "总体设计"
+      ],
+      "body_zh": "继国际空间站外部演示成功后，GITAI 计划进一步加速自主研发轨道服务机器人，目标是在 2026 年开始轨道服务。\n\n加利福尼亚托伦斯——（2024 年 3 月 19 日）——总部位于美国洛杉矶的领先太空机器人初创公司 GITAI USA Inc.（GITAI）欣然宣布，已成功完成一项聚焦空间内服务、组装和制造（ISAM）的外部演示中的所有计划任务。这些任务对于轨道卫星服务至关重要，演示中使用的是一套 1.5 米长的自主双机械臂系统（S2），在国际空间站（ISS）外部完成。这是继 2021 年在国际空间站内部的首次演示成功后，GITAI 的第二次成功演示。\n\n关于此次演示\n\nGITAI 的目标是在地球同步轨道（GEO）和低地轨道（LEO）提供轨道卫星服务。公司正在积极开发自主的轨道机器人卫星，能够执行会合、对接、检查、退役和延寿等客户卫星服务任务。在此次国际空间站的外部演示中，GITAI 1.5 米长的自主双机械臂系统（S2）成功完成了所有计划的空间内服务、组装和制造（ISAM）任务，地点位于国际空间站的 Bishop 气闸舱外。尽管本次演示的所有任务已完成，可靠性评估测试将在六个月演示期剩余的五个月内继续进行。\n\n以下是 GITAI 机器人在此次演示中执行的任务列表。\n\n凭借此次国际空间站外部演示的成功，GITAI 自主研发、所有主要部件均为自主制造的 1.5 米长双机械臂系统（S2）已达到 NASA 技术成熟度等级（TRL）7，确认该技术已在太空中完全运行。此外，演示的成功还表明，GITAI 的蚯蚓式机器人臂（与 S2 系统共享许多主要部件）也达到了 NASA TRL7 等效水平。\n\n借助此次外部演示的成功，我们准备加速自主研发轨道服务机器人卫星，目标是在 2026 年开始提供轨道服务。\n\nGITAI 致力于将太空劳动力成本降低 100 倍，从而提供安全且经济的太空工作方式。GITAI 经营两个业务领域：轨道服务和月球基础设施建设。欲了解更多关于 GITAI 的产品、服务和即将开展的任务，请访问：gitai.tech。\n\n公司：GITAI USA Inc.（总部）/ GITAI Japan, Inc.（日本子公司） CEO：Sho Nakanose 网址：https://gitai.tech/ 联系邮箱：info@gitai.tech",
+      "image": "https://gitai.tech/wp-content/uploads/2024/03/01_S2robot_small.jpg",
+      "image_raw": "https://gitai.tech/wp-content/uploads/2024/03/01_S2robot_small.jpg",
+      "images": [
+        "https://gitai.tech/wp-content/uploads/2024/03/01_S2robot_small.jpg",
+        "https://gitai.tech/wp-content/uploads/2023/09/Overview-of-Tasks-1024x576.jpg"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-embodied-intelligence/125a607c2f41ae6f"
+    },
+    {
+      "id": "09372e0b81927c03",
+      "title": "NASA推出Astrobee自由飞行机器人助力空间站",
+      "source": "nasa.gov",
+      "url": "https://www.nasa.gov/astrobee/",
+      "published": "2024",
+      "region": "国外",
+      "aspect": "总体设计",
+      "summary": "事实证明，宇航员在完成日常事务时也需要一些帮助，就像我们地球上的许多人一样。在国际空间站上，平衡优先事项和时间安排是宇航员生活的重要部分，地面上的飞行控制团队不断努力优化宝贵的人类工作时间。借助能够承担部分任务的机器人协助，将使空间站的工作更加高效。\n\nNASA 开发了三款新的机器人队友，与国际空间站上的宇航员并肩工作，助力推进科研。\n\nAstrobee 是 NASA 新推出的自由飞行机器人系统，将帮助宇航员减少在例行事务上花费的时间，使他们能更多地专注于只有人类才能完成的工作。机器人可以自主工作，也可以由宇航员、",
+      "tags": [
+        "国外",
+        "总体设计"
+      ],
+      "body_zh": "事实证明，宇航员在完成日常事务时也需要一些帮助，就像我们地球上的许多人一样。在国际空间站上，平衡优先事项和时间安排是宇航员生活的重要部分，地面上的飞行控制团队不断努力优化宝贵的人类工作时间。借助能够承担部分任务的机器人协助，将使空间站的工作更加高效。\n\nNASA 开发了三款新的机器人队友，与国际空间站上的宇航员并肩工作，助力推进科研。\n\nAstrobee 是 NASA 新推出的自由飞行机器人系统，将帮助宇航员减少在例行事务上花费的时间，使他们能更多地专注于只有人类才能完成的工作。机器人可以自主工作，也可以由宇航员、飞行控制人员或地面研究人员远程控制，设计用于完成诸如盘点、用内置摄像头记录宇航员进行的实验，或协同搬运货物等任务。此外，该系统还作为一个研究平台，可配备和编程执行微重力环境下的实验，帮助我们进一步了解机器人如何在太空中为宇航员提供帮助。\n\nAstrobee 系统由三个立方体形状的机器人、软件和用于充电的对接站组成。机器人使用电风扇作为推进系统，使其能够在空间站的微重力环境中自由飞行。摄像头和传感器帮助它们“看见”并导航周围环境。机器人还配备了一个停靠臂，可以抓住空间站的扶手以节省能量，或抓取并固定物品。\n\nAstrobee 建立在 SPHERES 机器人的遗产和经验基础上——SPHERES 是“同步定位保持、接合、重新定向、实验卫星”的缩写，已在空间站服役超过十年。一旦 Astrobee 系统全面投入使用，它将接替 SPHERES，成为空间站的机器人测试设施，帮助我们学习新的能力，助力探索太空的旅程。\n\n外来科学家将能够利用 Astrobee 进行研究，推动未来任务的硬件和软件技术发展。由于机器人模块化且可升级，该系统为研究人员和科学家提供了多样化的能力，以执行空间站内的各种实验。\n\n机器人将在 NASA 返回月球及其他深空任务中发挥重要作用。像 Astrobee 这样的机器人有能力成为未来航天器的看护者，在船员不在时监控并保持系统平稳运行。\n\n本视频制作于 2018 年初，Astrobee 发射前。特别感谢 NASA 朗利研究中心先进概念实验室出色的三维渲染和视频制作！",
+      "image": "https://www.nasa.gov/wp-content/uploads/2024/02/image-f96771.jpeg",
+      "image_raw": "https://www.nasa.gov/wp-content/uploads/2024/02/image-f96771.jpeg",
+      "images": [
+        "https://images-assets.nasa.gov/image/iss066e134729/iss066e134729~large.jpg?w=1920&h=1280&fit=clip&crop=faces%2Cfocalpoint",
+        "https://www.nasa.gov/wp-content/uploads/2021/10/screenshot-2023-09-19-at-2.25.18-pm.png?w=1024",
+        "https://live.staticflickr.com/1611/25524892462_a030e841bb_h.jpg",
+        "https://www.nasa.gov/wp-content/uploads/2016/11/anne_mcclain_astrobee.png?w=1367"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-embodied-intelligence/09372e0b81927c03"
+    },
+    {
+      "id": "521689ad2d9cf0ba",
+      "title": "Daniel Leidner获ERC启动资助开展太空机器人自修研究",
+      "source": "dlr.de",
+      "url": "https://www.dlr.de/en/latest/news/2024/daniel-leidner-wins-erc-starting-grant",
+      "published": "2024",
+      "region": "国外",
+      "aspect": "专业技术",
+      "summary": "德国航空航天中心（DLR）机器人与机电一体化研究所的 Daniel Leidner 因其创新的 RECOVER.ME 太空机器人项目获得了欧洲委员会颁发的 ERC 启动资助。这项研究资助将于 2024 年 5 月 1 日开始，资助期限为五年。项目旨在赋予太空机器人自主修复硬件故障的能力，解决当前太空任务中硬件问题常需人工干预且可能导致任务失败的重要难题。\n\nRECOVER.ME 融合了机器人学、认知科学和人工智能的元素。项目核心理念是赋予机器人类人问题解决能力，使其能够自主应对严重的硬件故障。对于未来使用复杂机器人",
+      "tags": [
+        "国外",
+        "专业技术"
+      ],
+      "body_zh": "德国航空航天中心（DLR）机器人与机电一体化研究所的 Daniel Leidner 因其创新的 RECOVER.ME 太空机器人项目获得了欧洲委员会颁发的 ERC 启动资助。这项研究资助将于 2024 年 5 月 1 日开始，资助期限为五年。项目旨在赋予太空机器人自主修复硬件故障的能力，解决当前太空任务中硬件问题常需人工干预且可能导致任务失败的重要难题。\n\nRECOVER.ME 融合了机器人学、认知科学和人工智能的元素。项目核心理念是赋予机器人类人问题解决能力，使其能够自主应对严重的硬件故障。对于未来使用复杂机器人与宇航员协作的太空任务，具备相应的元认知技能至关重要。\n\n目前的方法依赖于针对特定硬件问题的预编程响应。RECOVER.ME 项目则致力于将错误处理直接整合进机器人的认知架构。这包括开发一种新型“知识表示”，帮助机器人理解不同硬件故障如何影响其功能。相应地，将开发一种自我编程的规划过程。RECOVER.ME 的关键特性是机器人能够监控并根据各种硬件故障调整自身程序。复杂的错误信息将被转换成机器人能够处理和理解的格式，使其具备灵活且有效的问题解决策略。这将显著提升太空机器人的韧性和效率，减少硬件故障时对外部干预的依赖。\n\nDaniel Leidner 自 2011 年起在 DLR 机器人与机电一体化研究所奥伯法芬霍芬分部工作。在自主与遥操作部门，他领导容错自主架构团队，该团队现隶属于 ERC 资助项目。自 2023 年 10 月起，他开始为联邦政府提供基于 AI 机器人的战略发展咨询。\n\n2023 年欧洲研究委员会 ERC 启动资助共拨款 6.28 亿欧元，资助 400 个项目，申请成功率为 14.8%。德国机构共获得 87 项 ERC 启动资助。启动资助的目标群体是博士毕业后两至七年内、处于独立职业生涯初期的有潜力的早期研究人员。",
+      "image": "https://www.dlr.de/en/latest/news/2024/daniel-leidner-wins-erc-starting-grant/erc-starting-grant-winner-daniel-leidner/@@images/image-1000-ee50307df5083e5c6be975f32d723450.jpeg",
+      "image_raw": "https://www.dlr.de/en/latest/news/2024/daniel-leidner-wins-erc-starting-grant/erc-starting-grant-winner-daniel-leidner/@@images/image-1000-ee50307df5083e5c6be975f32d723450.jpeg",
+      "images": [
+        "https://www.dlr.de/en/latest/news/2024/daniel-leidner-wins-erc-starting-grant/erc-starting-grant-winner-daniel-leidner/@@images/image-1000-ee50307df5083e5c6be975f32d723450.jpeg",
+        "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+      ],
+      "page_url": "https://links.he-ting.com/t/space-embodied-intelligence/521689ad2d9cf0ba"
+    },
+    {
+      "id": "1122417ebe94fe0a",
+      "title": "德国DLR开发七自由度空间服务机器人CAESAR",
+      "source": "dlr.de",
+      "url": "https://www.dlr.de/en/rm/research/robotic-systems/arms/caesar",
+      "published": "2024",
+      "region": "国外",
+      "aspect": "总体设计",
+      "summary": "柔顺辅助与探索空间机器人（CAESAR）是德国航空航天中心（DLR）在力/力矩控制机器人系统开发上的持续推进。它被设计用于多种轨道服务任务，例如在低轨/地球同步轨道进行组装、维护、修理和碎片清除。CAESAR的灵巧性和多样性将推动空间机器人技术达到一个新的水平，类似于当前基于智能和传感器的服务机器人如何改变了地球上的机器人技术。\n\n通过开发空间级机器人系统CAESAR（柔顺辅助与探索空间机器人），DLR机器人与机电一体化研究所（DLR RM）延续了从DEOS项目开始的轨道服务工作。这一拥有七自由度的机器人系统旨在能",
+      "tags": [
+        "国外",
+        "总体设计"
+      ],
+      "body_zh": "柔顺辅助与探索空间机器人（CAESAR）是德国航空航天中心（DLR）在力/力矩控制机器人系统开发上的持续推进。它被设计用于多种轨道服务任务，例如在低轨/地球同步轨道进行组装、维护、修理和碎片清除。CAESAR的灵巧性和多样性将推动空间机器人技术达到一个新的水平，类似于当前基于智能和传感器的服务机器人如何改变了地球上的机器人技术。\n\n通过开发空间级机器人系统CAESAR（柔顺辅助与探索空间机器人），DLR机器人与机电一体化研究所（DLR RM）延续了从DEOS项目开始的轨道服务工作。这一拥有七自由度的机器人系统旨在能够捕获低轨/地球同步轨道上的卫星，即使是处于翻滚和/或非合作状态的卫星。CAESAR的灵巧性和灵敏度使其能够完成卫星的组装、维护和修理。\n\n其基础是DLR闻名世界的轻量级机器人技术（LWR III），该技术已成功转移给全球领先的机器人供应商库卡（KUKA）。CAESAR是当前制造和人机协作服务机器人系统的空间级等效版本。\n\n对于CAESAR，DLR RM正在开发整个机器人系统，包括机器人硬件和轨道服务的核心功能。这些功能包括机器人全控制、机载任务管理以及基于立体视觉的视觉伺服，例如执行高精度组装任务。为了抓取非合作卫星，地面会生成一个稳健且动态可调的机器人路径，基于对卫星翻滚状态的预测。在卫星被抓取后，机器人臂会稳定整个系统，确保两颗卫星之间不再发生相对运动。各项机器人活动将以半自主方式执行，包括遥操作和远程存在模式。\n\n模块化构建理念：CAESAR高性能的关键在于智能阻抗和位置控制关节。每个关节都是构建不同机器人运动学的模块，依据不同的任务目标进行组合。机器人的可扩展性由关节数量和连杆长度决定。CAESAR的七自由度使其能够满足灵巧性和运动学冗余的需求。\n\n机器人工具中心点（TCP）的笛卡尔控制：\n\n在扩展阻抗控制器的基础上，CAESAR机械臂能够表现出柔顺性，同时保持TCP位置。当机器人任何部位检测到与环境接触时，柔顺行为被触发。柔顺性是动态环境或与宇航员近距离作业时的重要安全特性。",
+      "image": "https://www.dlr.de/en/rm/images/projekte/eross_/2020_Caesar_0J4A9923_1440x810.jpg/@@images/image-1000-4250d14eed06faf4946e29fd970e745f.jpeg",
+      "image_raw": "https://www.dlr.de/en/rm/images/projekte/eross_/2020_Caesar_0J4A9923_1440x810.jpg/@@images/image-1000-4250d14eed06faf4946e29fd970e745f.jpeg",
+      "images": [
+        "https://www.dlr.de/en/rm/images/roboter_und_systeme/caesar/caesar_poster_01_Systemueberblick_1440x810.jpg/@@images/image-1000-49769d00eb7ae1071cadbe66bb1b4d19.jpeg",
+        "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=",
+        "https://www.dlr.de/en/rm/images/roboter_und_systeme/caesar/caesar_poster_01_Systemueberblick_original.jpg/@@images/image-1000-3d04434936d9ba82290a2b7e3abfe679.jpeg",
+        "https://www.dlr.de/en/rm/images/roboter_und_systeme/caesar/Caesar_joint_2008.jpg/@@images/image-1000-5fd0e2e466e357347ccf615c2c94a417.jpeg"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-embodied-intelligence/1122417ebe94fe0a"
+    },
+    {
+      "id": "756c79213367ba06",
+      "title": "面向航天器自主维护的空间机器人发展战略研究",
+      "source": "doi.org",
+      "url": "https://doi.org/10.15302/j-sscae-2024.01.014",
+      "published": "2024",
+      "region": "国内",
+      "aspect": "总体设计",
+      "summary": "空间机器人能够适应空间极端环境，突破人类太空探索的极限，极大地提高空间操控的安全性和经济性，是提升空间科学技术水平的核心装备，可为航天事业发展提供重要支撑和有力保障。本文详细阐述了发展航天器自主维护空间机器人技术对于推动我国航天强国建设、促进国防科技发展以及引领变革性技术创新等方面的重大价值；从政策、技术、市场等角度，分析了国内外空间机器人的发展现状及趋势；剖析了目前我国航天器自主维护空间机器人的技术挑战与面临问题；基于国家重大战略需求、研究基础及发展方向，论证了面向航天器自主维护空间机器人的发展体系和突破路径。研",
+      "tags": [
+        "国内",
+        "总体设计"
+      ],
+      "body_zh": "空间机器人能够适应空间极端环境，突破人类太空探索的极限，极大地提高空间操控的安全性和经济性，是提升空间科学技术水平的核心装备，可为航天事业发展提供重要支撑和有力保障。本文详细阐述了发展航天器自主维护空间机器人技术对于推动我国航天强国建设、促进国防科技发展以及引领变革性技术创新等方面的重大价值；从政策、技术、市场等角度，分析了国内外空间机器人的发展现状及趋势；剖析了目前我国航天器自主维护空间机器人的技术挑战与面临问题；基于国家重大战略需求、研究基础及发展方向，论证了面向航天器自主维护空间机器人的发展体系和突破路径。研究建议：加快科技创新 2030—在轨服务重大专项实施，加大空间机器人智能操控基础研究支持力度，加速构建政府 - 企业 - 高校协同发展创新机制，加强空间机器人国际合作、引进国际高端人才。\n\n李元龙, 李志强‍. \"星链计划\"及其军事应用潜力研究 [C]‍. 中国指挥与控制学会‍. 第十届中国指挥控制大会论文集(上册)‍. 北京: 兵器工业出版社, 2022: 86‒92‍.\n\nU‍.S‍. Department of State‍. National space policy of the United States of America [EB/OL]‍. (2010-06-28)[2023-03-20]‍. https://www‍.nasa‍.gov/sites/default/files/national_space_policy_6-28-10‍.pdf‍.\n\nThe Computing Community Consortium‍. A Roadmap for US robotics from Internet to robotics [EB/OL]‍. (2016-11-01)‍[2023-03-20]‍. https://cra‍.org/ccc/wp-content/upload s/sites/2/2016/11/roadmap3-final-rs-1‍.pdf‍.\n\nU‍.S‍. Department of State‍. The national space policy [EB/OL]‍. (2020-12-09)[2023-03-20]‍. https://www‍. federalregister‍.gov/documents/2020/12/16/2020-27892/the-national-space-policy‍.\n\nThe Partnership for Robotics in Europe‍. Multi-annual roadmap for robotics in Europe [EB/OL]‍. (2016-12-02)[2023-03-20]‍. https://vdocuments‍.net/robotics-2020-multi-annual-roadmap‍.html?page=1‍.\n\nDepartment for Business, Energy & Industrial Strategy, Ministry of Defence, and UK Space Agency‍. GOV‍.UK‍. National space strategy [EB/OL]‍. (2021-09-27)[2023-03-20]‍. https://www‍.gov‍.uk/government/publications/national-space-strategy/national-space-strategy‍.",
+      "image": "https://www.engineering.org.cn/sscae/CN/file/pic?fileId=lhgff8kzGF/SuxLAqjNzfA==",
+      "image_raw": "https://www.engineering.org.cn/sscae/CN/file/pic?fileId=lhgff8kzGF/SuxLAqjNzfA==",
+      "images": [
+        "https://jf1.hep.com.cn/static/hep_journal_cae_gckx_cn/hep_journal_cae_gckx_cn/images/top-logo.png",
+        "https://cjournal.hep.com.cn/hep_journal_fop_en/img/pdf.png",
+        "https://cjournal.hep.com.cn/hep_journal_fop_en/img/1.png",
+        "https://www.engineering.org.cn/sscae/EN/file/pic?fileId=lhgff8kzGF/SuxLAqjNzfA==",
+        "https://www.engineering.org.cn/sscae/CN/file/static?fileId=twO2/6uF/pYYxB12b/7JrQ=="
+      ],
+      "page_url": "https://links.he-ting.com/t/space-embodied-intelligence/756c79213367ba06"
+    },
+    {
+      "id": "c1c87c89832bff4f",
+      "title": "JAXA Int-Ball2：自主飞行、视觉定位与自动对接的舱内机器人",
+      "source": "JAXA",
+      "url": "https://humans-in-space.jaxa.jp/en/biz-lab/news/detail/004595.html",
+      "published": "2024",
+      "region": "国外",
+      "aspect": "总体设计",
+      "summary": "JAXA 的 Int-Ball2 在国际空间站实现自主自由飞行、视觉定位和自动对接充电，并开放 ROS/Gazebo 仿真与用户编程环境，是舱内具身智能和算法上天验证的重要平台。",
+      "tags": [
+        "国外",
+        "总体设计",
+        "自由飞行机器人",
+        "视觉SLAM",
+        "ROS"
+      ],
+      "body_zh": "JAXA 的 Int-Ball2 是部署在国际空间站“希望”号实验舱内的自主自由飞行机器人，用于接替航天员日常拍照录像任务，并作为第三方空间机器人算法的在轨验证平台。机器人采用相机、惯性测量与视觉定位能力在微重力舱段内感知环境和自主飞行，可自动接近并停靠充电座，减少航天员干预。\n\n相比第一代 Int-Ball，Int-Ball2 提升了推进与机动能力，引入自主飞行、视觉 SLAM 和自动对接充电。JAXA 还开放了基于 ROS 与 Gazebo 的仿真器和用户编程环境，使研究人员能够在地面复现机器人的动力学、传感器和任务接口，完成算法开发与验证后再迁移到空间站平台。\n\nInt-Ball2 展示了太空具身智能的典型工程闭环：机器人通过视觉和惯性传感器理解舱内状态，自主规划运动并执行拍摄、返航和补能任务，同时向外部程序开放载荷与软件接口。它为未来空间站巡检、物资管理、舱内协作和无人化运营提供了成熟的自由飞行载体。",
+      "image": "",
+      "images": [],
+      "page_url": "https://links.he-ting.com/t/space-embodied-intelligence/c1c87c89832bff4f"
+    },
+    {
+      "id": "ae0928f4418907e1",
+      "title": "Astrobee机器人测试壁虎启发粘附技术",
+      "source": "nasa.gov",
+      "url": "https://www.nasa.gov/image-article/sticking-around-astrobee-tests-gecko-inspired-adhesives-space/",
+      "published": "2021-05-18",
+      "region": "国外",
+      "aspect": "专业技术",
+      "summary": "NASA 宇航员 Victor Glover 正与名为 “Honey” 的 Astrobee 机器人合作，测试一种受壁虎脚启发的机械粘附技术。Astrobee 设施由 NASA 位于加州硅谷的艾姆斯研究中心管理，为外来科学家提供在国际空间站内进行零重力机器人研究的平台。这项由加州斯坦福大学开发的技术为自由飞行机器人在太空中提供了新能力。被称为壁虎夹持器的装置允许机器人抓住表面——无需施加力即可粘附——并能按需脱离。这简化了在太空中抓取和操作物体的过程，并为机器人提供了更多停靠点，甚至在航天器外部也能使用，因为这种粘",
+      "tags": [
+        "国外",
+        "专业技术"
+      ],
+      "body_zh": "NASA 宇航员 Victor Glover 正与名为 “Honey” 的 Astrobee 机器人合作，测试一种受壁虎脚启发的机械粘附技术。Astrobee 设施由 NASA 位于加州硅谷的艾姆斯研究中心管理，为外来科学家提供在国际空间站内进行零重力机器人研究的平台。这项由加州斯坦福大学开发的技术为自由飞行机器人在太空中提供了新能力。被称为壁虎夹持器的装置允许机器人抓住表面——无需施加力即可粘附——并能按需脱离。这简化了在太空中抓取和操作物体的过程，并为机器人提供了更多停靠点，甚至在航天器外部也能使用，因为这种粘附剂可在太空真空环境中使用。这项技术将为未来机器人执行航天器外部维护和探索任务铺平道路。机器人助手能力的提升意味着船员可以减少在拆包物资或取用工具等例行事务上的时间，更多地专注于只有人类能完成的任务。",
+      "image": "https://www.nasa.gov/wp-content/uploads/2023/03/iss064e059451.jpg",
+      "image_raw": "https://www.nasa.gov/wp-content/uploads/2023/03/iss064e059451.jpg",
+      "images": [
+        "https://www.nasa.gov/wp-content/uploads/2023/03/iss064e059451.jpg?w=1041",
+        "https://www.nasa.gov/wp-content/uploads/2021/12/astrobee_gecko_1.gif"
+      ],
+      "page_url": "https://links.he-ting.com/t/space-embodied-intelligence/ae0928f4418907e1"
+    }
+  ],
+  "pushed": {
+    "admin": false,
+    "admin_at": null,
+    "all": false,
+    "all_at": null
+  }
+}

@@ -74,7 +74,26 @@ Page({
 
   onLoad(query) {
     this.setData({ id: query.id || 'space-tug' });
+    wx.showShareMenu({ menus: ['shareAppMessage', 'shareTimeline'] });
     this.load();
+  },
+
+  onShareAppMessage() {
+    const topic = this.data.topic || {};
+    return {
+      title: topic.title || '航天专题情报',
+      path: '/pages/topic_view/topic_view?id=' + encodeURIComponent(this.data.id),
+      imageUrl: (topic.items && topic.items[0] && topic.items[0].image) || '',
+    };
+  },
+
+  onShareTimeline() {
+    const topic = this.data.topic || {};
+    return {
+      title: topic.title || '航天专题情报',
+      query: 'id=' + encodeURIComponent(this.data.id),
+      imageUrl: (topic.items && topic.items[0] && topic.items[0].image) || '',
+    };
   },
 
   onPullDownRefresh() {

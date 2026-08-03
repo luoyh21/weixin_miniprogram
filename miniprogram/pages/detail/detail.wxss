@@ -69,6 +69,8 @@
 }
 .d-guide-t { font-size: 28rpx; font-weight: 600; color: var(--ink); margin-bottom: 10rpx; }
 .d-guide-s { font-size: 26rpx; color: var(--sub); line-height: 1.9; }
+.d-guide.incomplete { background: #fff8e8; border-color: #f4d58a; }
+.d-guide.incomplete .d-guide-t { color: #8a5200; }
 
 /* 政要社媒结构化展示 */
 .s-block { margin-top: 26rpx; }

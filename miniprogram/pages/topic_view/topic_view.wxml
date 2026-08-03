@@ -9,6 +9,7 @@
       <text class="stat">近 {{topic.years}} 年</text>
     </view>
     <view class="h-time">更新于 {{topic.updated_at}}</view>
+    <button class="btn" open-type="share" style="margin-top:20rpx;">分享本专题</button>
   </view>
 
   <view class="searchbar">

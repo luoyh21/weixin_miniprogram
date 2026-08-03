@@ -12,6 +12,15 @@ function filterTopics(topics, q, scope) {
   });
 }
 
+const REQUEST_STATUS = {
+  pending: '待超管审批',
+  queued: '等待执行',
+  running: '生成中',
+  done: '已生成',
+  rejected: '已拒绝',
+  failed: '执行失败',
+};
+
 Page({
   data: {
     topics: [],
@@ -20,14 +29,24 @@ Page({
     searchScope: 'all', // all | title
     loading: true,
     error: '',
+    isAdmin: false,
+    showApply: false,
+    applyTitle: '',
+    applyIntro: '',
+    applyKeywords: '',
+    applying: false,
+    myRequests: [],
   },
 
   onShow() {
     if (gate.restricted()) { wx.reLaunch({ url: '/pages/calc/calc' }); return; }
     const tb = this.getTabBar && this.getTabBar();
     if (tb) { tb.refresh(); tb.setSelectedByPath('/pages/topic/topic'); }
+    const user = getApp().globalData.user || {};
+    this.setData({ isAdmin: !!user.is_admin });
     gate.refresh().then((r) => { if (r.changed) gate.applyToCurrentPage(); });
     this.load();
+    if (user.is_admin) this.loadMyRequests();
   },
 
   onPullDownRefresh() {
@@ -66,6 +85,52 @@ Page({
     this.setData({
       searchScope: scope, shown: filterTopics(this.data.topics, this.data.searchText, scope),
     });
+  },
+
+  toggleApply() {
+    this.setData({ showApply: !this.data.showApply });
+  },
+
+  onApplyInput(e) {
+    this.setData({ [e.currentTarget.dataset.field]: e.detail.value });
+  },
+
+  loadMyRequests() {
+    api.get('/topic/requests/mine')
+      .then((res) => {
+        const rows = (res.requests || []).map((row) => ({
+          ...row,
+          statusLabel: REQUEST_STATUS[row.status] || row.status,
+        }));
+        this.setData({ myRequests: rows });
+      })
+      .catch(() => {});
+  },
+
+  submitApply() {
+    const title = (this.data.applyTitle || '').trim();
+    if (title.length < 2) return wx.showToast({ title: '请输入专题名称', icon: 'none' });
+    const keywords = (this.data.applyKeywords || '').split(/[\s,，;；]+/).filter(Boolean);
+    this.setData({ applying: true });
+    api.post('/topic/apply', {
+      title,
+      intro: (this.data.applyIntro || '').trim(),
+      keywords: keywords.length ? keywords : [title],
+    })
+      .then((res) => {
+        const request = res.request || {};
+        wx.showModal({
+          title: request.cost_tier === 'low' ? '已自动执行' : '已提交审批',
+          content: (request.estimate && request.estimate.reason) || '申请已保存',
+          showCancel: false,
+        });
+        this.setData({
+          showApply: false, applyTitle: '', applyIntro: '', applyKeywords: '',
+        });
+        this.loadMyRequests();
+      })
+      .catch((e) => wx.showToast({ title: e.message || '提交失败', icon: 'none' }))
+      .then(() => this.setData({ applying: false }));
   },
 
   openTopic(e) {

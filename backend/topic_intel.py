@@ -17,6 +17,7 @@ import re
 import time
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
+from urllib.parse import urlparse
 
 import os
 
@@ -957,10 +958,12 @@ def _enrich_items(items: list[dict]) -> None:
     # 1) 优先用海外 GitHub Actions 抓回的全文（绕开国内直连拦截）；否则国内直连抓取
     for it in items:
         url = it.get("url", "")
-        text, imgs, og = "", [], None
+        text = (it.pop("_prefetched_text", "") or "").strip()
+        imgs = list(it.pop("_prefetched_images", []) or [])
+        og = it.pop("_prefetched_og", None)
 
         ing = ingest_map.get(url)
-        if ing and (ing.get("text") or ing.get("content_html")):
+        if not text and ing and (ing.get("text") or ing.get("content_html")):
             text = (ing.get("text") or "").strip()
             if not text and ing.get("content_html"):
                 text, ci, og = np._extract_main_html(ing["content_html"], url)
@@ -1089,6 +1092,7 @@ def _render_item_page(topic_id: str, item: dict) -> str:
         published=_html.escape(item.get("published", "")),
         tags_html=tags_html,
         hero_html=hero_html,
+        summary_html=np._summary_html(item.get("summary", "")),
         body_html=body_html,
         orig_url=_html.escape(item.get("url", "")),
     )
@@ -1138,6 +1142,195 @@ def _build_topic(topic_id: str) -> dict:
     }
 
 
+def _request_candidates(keywords: list[str]) -> list[dict]:
+    """Find reusable material without invoking query translation or embeddings."""
+    from . import search_store
+
+    items, _ = search_store._ensure_index()
+    terms = [str(k).strip().lower() for k in keywords if str(k).strip()]
+    scored: list[tuple[int, dict]] = []
+    for item in items:
+        hay = " ".join(str(item.get(k) or "") for k in (
+            "title", "title_en", "title_orig", "summary", "summary_zh", "body", "body_en",
+        )).lower()
+        score = sum(5 if term in str(item.get("title") or "").lower() else 1 for term in terms if term in hay)
+        if score:
+            scored.append((score, item))
+    scored.sort(key=lambda pair: (pair[0], pair[1].get("published_ts") or 0), reverse=True)
+    return [item for _, item in scored]
+
+
+def estimate_request(keywords: list[str], seed_urls: list[str] | None = None) -> dict:
+    candidates = _request_candidates(keywords)
+    complete = [item for item in candidates if len((item.get("body") or "").strip()) >= 200]
+    threshold = max(3, int(os.getenv("MP_TOPIC_AUTO_MIN_ITEMS", "12")))
+    seed_count = len(seed_urls or [])
+    low = seed_count == 0 and len(complete) >= threshold
+    return {
+        "tier": "low" if low else "high",
+        "candidate_count": len(candidates),
+        "complete_count": len(complete),
+        "minimum_complete": threshold,
+        "seed_url_count": seed_count,
+        "estimated_fetches": 0 if low else max(seed_count, threshold - len(complete)),
+        "estimated_llm_calls": 0 if low else max(1, seed_count),
+        "reason": (
+            f"已有 {len(complete)} 条完整资料，可直接复用"
+            if low else f"仅有 {len(complete)} 条完整资料，需要补充来源并抓取/翻译"
+        ),
+    }
+
+
+def _topic_item_from_news(item: dict) -> dict:
+    text = (item.get("body") or item.get("summary_zh") or item.get("summary") or "").strip()
+    tags = list(item.get("tags") or [])
+    tech_words = ("技术", "机器人", "智能", "算法", "控制", "感知", "模型")
+    aspect = "专业技术" if any(word in f"{item.get('title', '')} {text}" for word in tech_words) else "总体设计"
+    region = "国外" if item.get("kind") in ("intl", "techport") else "国内"
+    return {
+        "id": _item_id(item.get("link", ""), item.get("title", "")),
+        "title": item.get("title", ""),
+        "source": item.get("source", ""),
+        "url": item.get("link", ""),
+        "published": item.get("published", ""),
+        "region": region,
+        "aspect": aspect,
+        "summary": (item.get("summary_zh") or item.get("summary") or text[:260]).strip(),
+        "tags": list(dict.fromkeys([region, aspect] + tags)),
+        "body_zh": text,
+        "image": item.get("image", ""),
+        "images": item.get("images") or [],
+    }
+
+
+def _seed_item(url: str) -> dict:
+    ensure_wam_importable()
+    from bs4 import BeautifulSoup
+    from src import news_pages as np
+
+    response = np._http_get(url)
+    text, images, og = np._extract_main_html(response.text, url)
+    soup = BeautifulSoup(response.text, "lxml")
+    title_tag = (
+        soup.find("meta", attrs={"property": "og:title"})
+        or soup.find("meta", attrs={"name": "twitter:title"})
+    )
+    title = title_tag.get("content", "").strip() if title_tag else ""
+    if not title:
+        node = soup.find("h1") or soup.find("title")
+        title = node.get_text(" ", strip=True) if node else url
+    host = (urlparse(url).hostname or "").lower()
+    region = "国内" if host.endswith(".cn") or re.search(r"[\u4e00-\u9fff]", title) else "国外"
+    return {
+        "id": _item_id(url, title),
+        "title": title,
+        "source": host.removeprefix("www."),
+        "url": url,
+        "published": "",
+        "region": region,
+        "aspect": "专业技术",
+        "summary": "",
+        "tags": [region, "专业技术"],
+        "_prefetched_text": text,
+        "_prefetched_images": images,
+        "_prefetched_og": og,
+    }
+
+
+def build_requested_topic(request: dict) -> dict:
+    """Materialize an approved request from reusable records plus reviewer URLs."""
+    keywords = request.get("keywords") or [request.get("title", "")]
+    reusable = [
+        item for item in _request_candidates(keywords)
+        if len((item.get("body") or "").strip()) >= 200
+    ][:24]
+    existing = [_topic_item_from_news(item) for item in reusable]
+    seen_urls = {item.get("url") for item in existing}
+    seeded: list[dict] = []
+    for url in request.get("seed_urls") or []:
+        url = str(url).strip()
+        if not url or url in seen_urls:
+            continue
+        try:
+            seeded.append(_seed_item(url))
+        except Exception:
+            log.warning("skip failed topic seed: %s", url, exc_info=True)
+        seen_urls.add(url)
+    if not existing and not seeded:
+        raise ValueError("没有可用于生成专题的资料")
+
+    if seeded:
+        _enrich_items(seeded)
+        try:
+            from src import summarizer
+        except Exception:
+            summarizer = None
+        for item in seeded:
+            if summarizer and not re.search(r"[\u4e00-\u9fff]", item.get("title", "")):
+                try:
+                    translated = summarizer.translate_zh(
+                        item["title"], (item.get("body_zh") or "")[:800],
+                    )
+                    item["title"] = translated.get("title") or item["title"]
+                except Exception:
+                    log.warning("seed title translate failed: %s", item.get("url"), exc_info=True)
+            if not item.get("summary"):
+                item["summary"] = (item.get("body_zh") or "")[:260]
+        # 抓取、翻译或正文提取失败的来源不进入专题，也不在前端显示空条目。
+        seeded = [
+            item for item in seeded
+            if item.get("title") and len((item.get("body_zh") or "").strip()) >= 200
+        ]
+
+    items = _sort_by_published(existing + seeded)
+    if not items:
+        raise ValueError("所有候选来源均抓取失败或正文不足，未生成专题")
+    topic_id = request.get("topic_id") or f"custom-{request['id']}"
+    domestic = sum(1 for item in items if item.get("region") == "国内")
+    intl = sum(1 for item in items if item.get("region") == "国外")
+    topic = {
+        "id": topic_id,
+        "title": request["title"],
+        "intro": request.get("intro") or f"围绕“{request['title']}”汇集的专题情报。",
+        "years": 3,
+        "updated_at": _now_iso(),
+        "created_at": _now_iso(),
+        "stats": {
+            "count": len(items),
+            "domestic": domestic,
+            "intl": intl,
+            "design": sum(1 for item in items if item.get("aspect") == "总体设计"),
+            "tech": sum(1 for item in items if item.get("aspect") == "专业技术"),
+        },
+        "items": items,
+        "pushed": _empty_pushed(),
+    }
+    _generate_pages(topic_id, items)
+    _topic_path(topic_id).write_text(
+        json.dumps(topic, ensure_ascii=False, indent=2), encoding="utf-8",
+    )
+    return topic
+
+
+def notify_super_admin_request(request: dict) -> None:
+    """Notify the super administrator without blocking topic submission."""
+    ensure_wam_importable()
+    from src import wecom
+
+    estimate = request.get("estimate") or {}
+    message = (
+        "【专题申请待审批】\n"
+        f"专题：{request.get('title', '')}\n"
+        f"申请人：{request.get('applicant', '')}\n"
+        f"开销：{estimate.get('reason', '需要人工审批')}\n"
+        f"预计需补充来源：{estimate.get('estimated_fetches', 0)} 个\n"
+        "请打开“航天速递”小程序 → 我的 → 专题申请进行审批。"
+    )
+    results = wecom.send_text(message, to_user=ADMIN_PUSH_USER) or []
+    if results and any((result or {}).get("errcode", 0) != 0 for result in results):
+        raise RuntimeError(f"超级管理员提醒发送失败：{results}")
+
+
 def refresh(topic_id: str = "space-tug") -> dict:
     """（重新）生成专题数据并落库，保留既有推送状态。"""
     topic = _build_topic(topic_id)
@@ -1176,8 +1369,15 @@ def get_topic(topic_id: str) -> dict | None:
         # 首次访问内置专题：自动生成
         topic = refresh(topic_id)
     elif topic and any(not it.get("page_url") or "body_zh" not in it for it in topic.get("items") or []):
-        # 旧数据缺少落地页/全文：整体重建一次
-        topic = refresh(topic_id)
+        if topic_id in TOPIC_RECIPES:
+            # 内置配方旧数据缺少落地页/全文：整体重建一次
+            topic = refresh(topic_id)
+        else:
+            # 动态专题没有硬编码配方，只补生成落地页，绝不能走 refresh 丢失数据。
+            _generate_pages(topic_id, topic.get("items") or [])
+            _topic_path(topic_id).write_text(
+                json.dumps(topic, ensure_ascii=False, indent=2), encoding="utf-8",
+            )
     if topic and isinstance(topic.get("items"), list):
         # 兜底：已存盘旧数据也按发布时间倒序返回（最近在前）
         topic["items"] = _sort_by_published(topic["items"])

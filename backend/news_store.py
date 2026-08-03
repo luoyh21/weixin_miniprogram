@@ -125,6 +125,20 @@ def _short(s: str, n: int = 80) -> str:
     return s[:n] + ("…" if len(s) > n else "")
 
 
+_EXCERPT_RE = re.compile(
+    r"(?:\[\s*(?:…|\.\.\.)\s*\]|appeared first on|本文最初发表于)",
+    re.I,
+)
+
+
+def _content_completeness(body: str, body_en: str = "") -> tuple[bool, str]:
+    source = _clean_text(body_en or body)
+    incomplete = len(source) < 450 or bool(_EXCERPT_RE.search(source))
+    if incomplete:
+        return False, "来源当前仅提供摘要或截断片段，并非完整正文；请通过下方原文链接核对全文。"
+    return True, ""
+
+
 def _norm_intl(a: dict) -> dict:
     title = a.get("title_zh") or a.get("title") or ""
     body = a.get("body_zh") or a.get("summary") or ""
@@ -135,6 +149,7 @@ def _norm_intl(a: dict) -> dict:
     # 英文原文：优先完整正文 body_en；否则回退 RSS/ingest 英文摘要
     body_en = (a.get("body_en") or "").strip()
     summary_en = (a.get("summary_en") or a.get("summary") or "").strip()
+    complete, content_notice = _content_completeness(body, body_en or summary_en)
     tags = a.get("tags") or []
     link = a.get("link") or a.get("original_link") or ""
     pub = a.get("published") or ""
@@ -150,12 +165,17 @@ def _norm_intl(a: dict) -> dict:
         "body_en": body_en,
         "summary_zh": blurb,  # 详情页「内容概要」完整展示
         "summary_en": summary_en,
+        "content_complete": complete,
+        "content_notice": content_notice,
         "source": a.get("source") or "SpaceNews",
         "published": _to_beijing(pub),
         "published_ts": _ts(pub),
         "tags": (tags or ["国际新闻"]),
         "main_tag": (tags[0] if tags else "国际新闻"),
         "image": _proxy_img(a.get("image_url") or ""),
+        "images": [
+            _proxy_img(url) for url in (a.get("images") or a.get("image_urls") or []) if url
+        ],
         "link": link,
     }
 

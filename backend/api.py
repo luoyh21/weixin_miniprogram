@@ -10,16 +10,18 @@ import json
 import logging
 import os
 import re
+import threading
 
 from fastapi import APIRouter, Header, HTTPException
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
-from . import auth, news_store, qa, douyin_cookie, topic_intel, search_store
+from . import auth, news_store, qa, douyin_cookie, topic_intel, search_store, topic_requests
 from .paths import DATA_DIR, WAM_DIR
 
 log = logging.getLogger(__name__)
 
 router = APIRouter()
+topic_requests.recover_interrupted()
 
 # 小程序「真实内容 / 计算器」总开关：改它无需重新提交小程序版本。
 # 优先读 data/gate.json（改文件即时生效、无需重启）；文件缺失时回退环境变量 MP_SHOW_REAL；
@@ -237,6 +239,154 @@ def api_ask(body: AskIn, authorization: str | None = Header(default=None)):
 
 
 # ---------------- 专题情报 ----------------
+def _run_topic_request(request_id: str) -> None:
+    try:
+        request = topic_requests.get(request_id)
+        if not request or request.get("status") not in ("queued", "failed"):
+            return
+        topic_requests.update(request_id, status="running", error="")
+        request = topic_requests.get(request_id) or request
+        topic = topic_intel.build_requested_topic(request)
+        topic_requests.update(request_id, status="done", topic_id=topic["id"])
+    except Exception as exc:
+        log.exception("topic request failed id=%s", request_id)
+        try:
+            topic_requests.update(request_id, status="failed", error=str(exc))
+        except ValueError:
+            pass
+
+
+def _start_topic_request(request_id: str) -> None:
+    threading.Thread(
+        target=_run_topic_request,
+        args=(request_id,),
+        name=f"topic-request-{request_id}",
+        daemon=True,
+    ).start()
+
+
+def _notify_topic_approval(request: dict) -> None:
+    try:
+        topic_intel.notify_super_admin_request(request)
+    except Exception:
+        log.exception("notify super admin failed for topic request id=%s", request.get("id"))
+
+
+def _start_topic_approval_notice(request: dict) -> None:
+    threading.Thread(
+        target=_notify_topic_approval,
+        args=(request,),
+        name=f"topic-approval-notice-{request.get('id', '')}",
+        daemon=True,
+    ).start()
+
+
+class TopicApplyIn(BaseModel):
+    title: str
+    intro: str = ""
+    keywords: list[str] = Field(default_factory=list)
+
+
+@router.post("/topic/apply")
+def api_topic_apply(body: TopicApplyIn, authorization: str | None = Header(default=None)):
+    applicant = _require_admin(authorization)
+    title = body.title.strip()
+    if len(title) < 2 or len(title) > 60:
+        raise HTTPException(status_code=400, detail="专题名称应为 2-60 个字符")
+    keywords = list(dict.fromkeys(
+        value.strip() for value in (body.keywords or [title]) if value.strip()
+    ))
+    if not keywords:
+        keywords = [title]
+    estimate = topic_intel.estimate_request(keywords)
+    try:
+        request = topic_requests.create(
+            applicant=applicant["account"],
+            title=title,
+            intro=body.intro,
+            keywords=keywords,
+            estimate=estimate,
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
+    if request["status"] == "queued":
+        _start_topic_request(request["id"])
+    elif request["status"] == "pending":
+        _start_topic_approval_notice(request)
+    return {"ok": True, "request": request}
+
+
+@router.get("/topic/requests/mine")
+def api_topic_requests_mine(authorization: str | None = Header(default=None)):
+    applicant = _require_admin(authorization)
+    return {"ok": True, "requests": topic_requests.list_for(applicant["account"])}
+
+
+class TopicDecisionIn(BaseModel):
+    id: str
+    action: str
+    seed_urls: list[str] = Field(default_factory=list)
+    note: str = ""
+
+
+@router.get("/admin/topic/requests")
+def api_admin_topic_requests(authorization: str | None = Header(default=None)):
+    _require_super(authorization)
+    return {"ok": True, "requests": topic_requests.list_all()}
+
+
+@router.post("/admin/topic/requests/decide")
+def api_admin_topic_decide(
+    body: TopicDecisionIn,
+    authorization: str | None = Header(default=None),
+):
+    actor = _require_super(authorization)
+    request = topic_requests.get(body.id)
+    if not request:
+        raise HTTPException(status_code=404, detail="专题申请不存在")
+    action = body.action.strip().lower()
+    if action == "reject":
+        if request.get("status") not in ("pending", "failed"):
+            raise HTTPException(status_code=400, detail="当前状态不能拒绝")
+        updated = topic_requests.update(
+            body.id,
+            status="rejected",
+            decided_by=actor["account"],
+            decision_note=body.note.strip(),
+        )
+        return {"ok": True, "request": updated}
+    if action not in ("approve", "retry"):
+        raise HTTPException(status_code=400, detail="action 只能是 approve/reject/retry")
+    if request.get("status") not in ("pending", "failed"):
+        raise HTTPException(status_code=400, detail="当前状态不能执行")
+    seed_urls = list(dict.fromkeys(
+        url.strip() for url in body.seed_urls if url.strip().startswith(("http://", "https://"))
+    ))
+    effective_urls = seed_urls or request.get("seed_urls") or []
+    estimate = request.get("estimate") or {}
+    if request.get("cost_tier") == "high":
+        needed = max(
+            1,
+            int(estimate.get("minimum_complete") or 12)
+            - int(estimate.get("complete_count") or 0),
+        )
+        if len(effective_urls) < needed:
+            raise HTTPException(
+                status_code=400,
+                detail=f"现有完整资料不足，请至少补充 {needed} 个种子网址",
+            )
+    updated = topic_requests.update(
+        body.id,
+        status="queued",
+        seed_urls=effective_urls,
+        decided_by=actor["account"],
+        decision_note=body.note.strip(),
+        error="",
+    )
+    _start_topic_request(body.id)
+    return {"ok": True, "request": updated}
+
+
 @router.get("/topic/list")
 def api_topic_list():
     return {"ok": True, "topics": topic_intel.list_topics()}

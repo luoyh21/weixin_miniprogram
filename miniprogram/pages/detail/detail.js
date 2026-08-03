@@ -88,6 +88,8 @@ Page({
 
   onLoad(query) {
     const id = query.id;
+    this._shareQuery = { id: id || '', topic: query.topic || '' };
+    wx.showShareMenu({ menus: ['shareAppMessage', 'shareTimeline'] });
     if (!id) {
       this.setData({ loading: false, error: '缺少参数' });
       return;
@@ -98,6 +100,7 @@ Page({
     api.get(path, { auth: false })
       .then((res) => {
         const item = res.item;
+        if (item && !Array.isArray(item.images)) item.images = [];
         if (item && item.title) item.title = stripTitleTags(item.title);
         if (item && item.summary_zh) {
           item.summary_zh = cleanBodyMarkers(stripTitleTags(item.summary_zh));
@@ -117,6 +120,30 @@ Page({
         wx.setNavigationBarTitle({ title: item.main_tag || '详情' });
       })
       .catch((e) => this.setData({ loading: false, error: e.message || '加载失败' }));
+  },
+
+  onShareAppMessage() {
+    const item = this.data.item || {};
+    const query = this._shareQuery || {};
+    let path = '/pages/detail/detail?id=' + encodeURIComponent(query.id || item.id || '');
+    if (query.topic) path += '&topic=' + encodeURIComponent(query.topic);
+    return {
+      title: item.title || '航天速递',
+      path,
+      imageUrl: item.image || '',
+    };
+  },
+
+  onShareTimeline() {
+    const item = this.data.item || {};
+    const query = this._shareQuery || {};
+    let params = 'id=' + encodeURIComponent(query.id || item.id || '');
+    if (query.topic) params += '&topic=' + encodeURIComponent(query.topic);
+    return {
+      title: item.title || '航天速递',
+      query: params,
+      imageUrl: item.image || '',
+    };
   },
 
   copyLink() {
